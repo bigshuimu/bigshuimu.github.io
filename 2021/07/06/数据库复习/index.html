@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="千峰零基础笔记, 自来也豪杰物语">
+    <meta name="keywords" content="数据库复习, 自来也豪杰物语">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>千峰零基础笔记 | 自来也豪杰物语</title>
+    <title>数据库复习 | 自来也豪杰物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">千峰零基础笔记</h1>
+                    <h1 class="description center-align post-title">数据库复习</h1>
                 </div>
             </div>
         </div>
@@ -429,21 +429,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                                <span class="chip bg-color">网络安全</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%85%A5%E9%97%A8/">
-                                <span class="chip bg-color">入门</span>
-                            </a>
-                        
-                            <a href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">零基础</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -455,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-07-06
                 </div>
                 
 
@@ -476,75 +464,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>参照千峰零基础入门网络安全课程</p>
-<span id="more"></span>
+                <h2 id="数据库DB"><a href="#数据库DB" class="headerlink" title="数据库DB"></a>数据库DB</h2><p>数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。数据库中的数据按一定的数据模型组织、描述和储存，具有较小的冗余度、较高的数据独立性和易扩展性，可为各种用户共享。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sname,sge</span><br><span class="line"><span class="keyword">from</span> student</span><br><span class="line"><span class="keyword">where</span> sdept<span class="operator">=</span><span class="string">&#x27;CS&#x27;</span> <span class="keyword">or</span> </span><br></pre></td></tr></table></figure>
 
-<h1 id="NTFS安全权限"><a href="#NTFS安全权限" class="headerlink" title="NTFS安全权限"></a>NTFS安全权限</h1><h2 id="一、NTFS权限概述"><a href="#一、NTFS权限概述" class="headerlink" title="一、NTFS权限概述"></a>一、NTFS权限概述</h2><p>1、通过设置NTFS权限，实现不同用户访问不同对象的权限</p>
-<p>2、分配了正确的访问权限后，用户才能访问其资源</p>
-<p>3、设置权限防止资源被篡改、删除</p>
-<h2 id="二、文件系统概述"><a href="#二、文件系统概述" class="headerlink" title="二、文件系统概述"></a>二、文件系统概述</h2><h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>文件系统即在外部存储设备上组织文件的方法</p>
-<h3 id="常见的文件系统："><a href="#常见的文件系统：" class="headerlink" title="常见的文件系统："></a>常见的文件系统：</h3><ul>
-<li>FAT        windows</li>
-<li>NTFS      windows</li>
-<li>EXT         Linux常见</li>
-</ul>
-<h2 id="三、NTFS文件系统特点"><a href="#三、NTFS文件系统特点" class="headerlink" title="三、NTFS文件系统特点"></a>三、NTFS文件系统特点</h2><h3 id="1、提高磁盘读写性能"><a href="#1、提高磁盘读写性能" class="headerlink" title="1、提高磁盘读写性能"></a>1、提高磁盘读写性能</h3><h3 id="2、可靠性"><a href="#2、可靠性" class="headerlink" title="2、可靠性"></a>2、可靠性</h3><p>加密文件系统</p>
-<p>访问控制列表（设置权限）——ACL</p>
-<h3 id="3、磁盘利用率"><a href="#3、磁盘利用率" class="headerlink" title="3、磁盘利用率"></a>3、磁盘利用率</h3><p>压缩</p>
-<p>磁盘配额</p>
-<h3 id="4、支持单个文件大于4个G"><a href="#4、支持单个文件大于4个G" class="headerlink" title="4、支持单个文件大于4个G"></a>4、支持单个文件大于4个G</h3><h2 id="四、修改NTFS权限"><a href="#四、修改NTFS权限" class="headerlink" title="四、修改NTFS权限"></a>四、修改NTFS权限</h2><h3 id="1、取消权限继承"><a href="#1、取消权限继承" class="headerlink" title="1、取消权限继承"></a>1、取消权限继承</h3><p>作用：取消后，可以任意修改权限列表了。</p>
-<p>方法：文件夹右键属性——安全——高级——去掉第一个对号——选择复制即可</p>
-<h3 id="2、权限累加"><a href="#2、权限累加" class="headerlink" title="2、权限累加"></a>2、权限累加</h3><p>当用户同时属于多个组时，权限是累加的！</p>
-<h3 id="3、拒绝最大"><a href="#3、拒绝最大" class="headerlink" title="3、拒绝最大"></a>3、拒绝最大</h3><p>当用户权限累加时，如遇到拒绝权限，拒绝最大！</p>
-<h3 id="4、取得所有权"><a href="#4、取得所有权" class="headerlink" title="4、取得所有权"></a>4、取得所有权</h3><p>默认只有administrator有这个权限</p>
-<p>作用：可以把任何文件夹的所有者改为administrator</p>
-<h3 id="5、强制继承"><a href="#5、强制继承" class="headerlink" title="5、强制继承"></a>5、强制继承</h3><p>作用：对下强制继承父子关系！</p>
-<p>方法：文件夹右键属性——安全——高级——勾上第二个对号，即可！</p>
-<h3 id="6、文件复制对权限的影响"><a href="#6、文件复制对权限的影响" class="headerlink" title="6、文件复制对权限的影响"></a>6、文件复制对权限的影响</h3><p>文件复制后，文件的权限会被目标文件夹的权限覆盖</p>
-<h1 id="文件共享服务器"><a href="#文件共享服务器" class="headerlink" title="文件共享服务器"></a>文件共享服务器</h1><h2 id="一、共享服务器概述"><a href="#一、共享服务器概述" class="headerlink" title="一、共享服务器概述"></a>一、共享服务器概述</h2><p>通过网络提供文件共享服务，提供文件下载和上传服务（类似FTP服务器）</p>
-<h2 id="二、创建共享"><a href="#二、创建共享" class="headerlink" title="二、创建共享"></a>二、创建共享</h2><p>方法：文件夹右键属性——共享——开启共享——设置共享名——设置共享权限</p>
-<p>注：</p>
-<p>1）在本地登录时，只受NTFS权限的影响</p>
-<p>2）在远程登录时，将受共享及NTFS权限的共同影响，且取交集！</p>
-<p>3）所以建议设置共享权限为everyone完全控制，然后具体的权限需求在NTFS权限中设置即可。</p>
-<h2 id="三、访问共享"><a href="#三、访问共享" class="headerlink" title="三、访问共享"></a>三、访问共享</h2><p>在开始运行或我的电脑地址栏中，输入UNC地址：</p>
-<p>\\文件共享服务器ip</p>
-<p>\\文件共享服务器ip\共享名</p>
-<h1 id="DHCP部署与安全"><a href="#DHCP部署与安全" class="headerlink" title="DHCP部署与安全"></a>DHCP部署与安全</h1><h2 id="一、DHCP-Dynamic-Host-Configure-Protocol-作用"><a href="#一、DHCP-Dynamic-Host-Configure-Protocol-作用" class="headerlink" title="一、DHCP(Dynamic Host Configure Protocol)作用"></a>一、DHCP(Dynamic Host Configure Protocol)作用</h2><p>自动分配地址</p>
-<h2 id="二、DHCP相关概念"><a href="#二、DHCP相关概念" class="headerlink" title="二、DHCP相关概念"></a>二、DHCP相关概念</h2><p>地址池/作用域：（IP、子网掩码、网关、DNS、租期），DHCP协议端口是UDP 67/68</p>
-<h2 id="三、DHCP优点"><a href="#三、DHCP优点" class="headerlink" title="三、DHCP优点"></a>三、DHCP优点</h2><p>减少工作量，避免ip冲突，提高地址利用率</p>
-<h2 id="四、DHCP原理"><a href="#四、DHCP原理" class="headerlink" title="四、DHCP原理"></a>四、DHCP原理</h2><p>也成为DHCP租约过程，分为四个步骤：</p>
-<h3 id="1、发送DHCP-Discovery广播包"><a href="#1、发送DHCP-Discovery广播包" class="headerlink" title="1、发送DHCP Discovery广播包"></a>1、发送DHCP Discovery广播包</h3><p>客户机广播请求IP地址（包含客户机的MAC地址）</p>
-<h3 id="2、响应DHCP-Offer广播包"><a href="#2、响应DHCP-Offer广播包" class="headerlink" title="2、响应DHCP Offer广播包"></a>2、响应DHCP Offer广播包</h3><p>服务器响应提供的IP地址（但无子网掩码、网关等参数）</p>
-<h3 id="3、客户机发送DHCP-Request广播包"><a href="#3、客户机发送DHCP-Request广播包" class="headerlink" title="3、客户机发送DHCP Request广播包"></a>3、客户机发送DHCP Request广播包</h3><p>客户机选择IP（也可以认为确认使用哪个IP）</p>
-<h3 id="4、服务器发送DHCP-ACK广播包"><a href="#4、服务器发送DHCP-ACK广播包" class="headerlink" title="4、服务器发送DHCP ACK广播包"></a>4、服务器发送DHCP ACK广播包</h3><p>ACK：确认</p>
-<p>服务器确定了租约，并提供网卡详细参数IP、网关、子网掩码、DNS、租期等</p>
-<h2 id="五、DHCP续约"><a href="#五、DHCP续约" class="headerlink" title="五、DHCP续约"></a>五、DHCP续约</h2><p>当租期的50%过后，客户会再次发送DHCP Request包，进行续约，如服务器无响应，则继续使用并在87.5%再次发送DHCP Request包，进行续约，如仍然无响应，并释放IP地址，及重新发送DHCP Discovery广播包来获取IP地址</p>
-<p>当无任何服务器响应时，网卡会自动给自己分配一个169.254.x.x/16</p>
-<h2 id="六、部署DHCP服务器"><a href="#六、部署DHCP服务器" class="headerlink" title="六、部署DHCP服务器"></a>六、部署DHCP服务器</h2><ol>
-<li><p>IP地址固定（服务器必须固定一个IP地址）</p>
-</li>
-<li><p>安装DHCP服务组件</p>
-</li>
-<li><p>新建作用域及作用域选项</p>
-</li>
-<li><p>激活</p>
-</li>
-<li><p>客户机验证：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipconfig &#x2F;release	释放IP（取消租约，或者改为手动配置IP，也可以释放租约）</span><br><span class="line"></span><br><span class="line">ipconfig &#x2F;renew		重新获取IP（有IP时，发送request续约，无IP时发送Discovery从新获取）</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<h2 id="七、地址保留"><a href="#七、地址保留" class="headerlink" title="七、地址保留"></a>七、地址保留</h2><p>对于指定的MAC地址，固定动态分配IP</p>
-<h2 id="八、选项优先级"><a href="#八、选项优先级" class="headerlink" title="八、选项优先级"></a>八、选项优先级</h2><p>作用域选项&gt;服务器选项</p>
-<p>当服务器上有多个作用域时，可以在服务器选项上设置DNS服务器</p>
-<h2 id="九、DHCP备份"><a href="#九、DHCP备份" class="headerlink" title="九、DHCP备份"></a>九、DHCP备份</h2><h2 id="十、DHCP攻击与防御"><a href="#十、DHCP攻击与防御" class="headerlink" title="十、DHCP攻击与防御"></a>十、DHCP攻击与防御</h2><p>a、攻击DHCP服务器：频繁的发送伪装DHCP请求，直到将DHCP地址池资源耗尽</p>
-<p>防御：在交换机（管理型）的端口上做动态MAC地址绑定</p>
-<p>b、伪装DHCP服务器攻击：hack通过将自己部署为DHCP服务器，为客户机提供非法IP地址</p>
-<p>防御：在交换机上（管理型），除合法的DHCP服务器所在接口外，全部设置为禁止发送DHCP offer包</p>
-
+<h2 id="数据库设计的六个阶段"><a href="#数据库设计的六个阶段" class="headerlink" title="数据库设计的六个阶段"></a>数据库设计的六个阶段</h2><p>需求分析</p>
+<p>概念结构设计</p>
+<p>逻辑结构设计</p>
+<p>数据库物理设计</p>
+<p>数据库实施</p>
+<p>数据库运行和维护</p>
+<h2 id="查询优化按照优化的层次一般可分为"><a href="#查询优化按照优化的层次一般可分为" class="headerlink" title="查询优化按照优化的层次一般可分为"></a>查询优化按照优化的层次一般可分为</h2><p>代数优化</p>
+<p>物理优化</p>
+<h2 id="数据转储按转储状态可分为"><a href="#数据转储按转储状态可分为" class="headerlink" title="数据转储按转储状态可分为"></a>数据转储按转储状态可分为</h2><p>静态转储    </p>
+<p>动态转储</p>
+<h2 id="并发操作带来的数据不一致性主要包括"><a href="#并发操作带来的数据不一致性主要包括" class="headerlink" title="并发操作带来的数据不一致性主要包括"></a>并发操作带来的数据不一致性主要包括</h2><p>丢失修改</p>
+<p>不可重复读</p>
+<p>读“脏”数据</p>
+<h2 id="诊断死锁通常有两种方法"><a href="#诊断死锁通常有两种方法" class="headerlink" title="诊断死锁通常有两种方法"></a>诊断死锁通常有两种方法</h2><p>超时法</p>
+<p>等待图法</p>
+<h2 id="常用的数据抽象方法有"><a href="#常用的数据抽象方法有" class="headerlink" title="常用的数据抽象方法有"></a>常用的数据抽象方法有</h2><p>分类</p>
+<p>聚集</p>
+<p>概括</p>
+<h2 id="RDBMS查询处理可分为4个阶段，分别为"><a href="#RDBMS查询处理可分为4个阶段，分别为" class="headerlink" title="RDBMS查询处理可分为4个阶段，分别为"></a>RDBMS查询处理可分为4个阶段，分别为</h2><p>查询分析</p>
+<p>查询检查</p>
+<p>查询优化</p>
+<p>查询执行</p>
+<h2 id="合并分E—R图时，各分E—R图之间的冲突主要有："><a href="#合并分E—R图时，各分E—R图之间的冲突主要有：" class="headerlink" title="合并分E—R图时，各分E—R图之间的冲突主要有："></a>合并分E—R图时，各分E—R图之间的冲突主要有：</h2><p>属性冲突</p>
+<p>命名冲突</p>
+<p>结构冲突</p>
+<h2 id="利用冗余数据可以实现对数据库的恢复，其常用的建立冗余数据的方法是"><a href="#利用冗余数据可以实现对数据库的恢复，其常用的建立冗余数据的方法是" class="headerlink" title="利用冗余数据可以实现对数据库的恢复，其常用的建立冗余数据的方法是"></a>利用冗余数据可以实现对数据库的恢复，其常用的建立冗余数据的方法是</h2><p>数据转储</p>
+<p>登录日志文件</p>
+<h2 id="事务的特性包括"><a href="#事务的特性包括" class="headerlink" title="事务的特性包括"></a>事务的特性包括</h2><p>原子性</p>
+<p>一致性</p>
+<p>隔离性</p>
+<p>持久性</p>
+<h2 id="关系数据模型的数据完整性规则包括"><a href="#关系数据模型的数据完整性规则包括" class="headerlink" title="关系数据模型的数据完整性规则包括"></a>关系数据模型的数据完整性规则包括</h2><p>实体完整性</p>
+<p>参照完整性</p>
+<p>用户定义的完整性</p>
+<h2 id="数据字典的主要内容包括"><a href="#数据字典的主要内容包括" class="headerlink" title="数据字典的主要内容包括"></a>数据字典的主要内容包括</h2><p>数据项</p>
+<p>数据结构</p>
+<p>数据存储</p>
+<p>数据流</p>
+<p>处理过程</p>
+<h2 id="在数据库的物理结构中，数据的基本单位是存储记录"><a href="#在数据库的物理结构中，数据的基本单位是存储记录" class="headerlink" title="在数据库的物理结构中，数据的基本单位是存储记录"></a>在数据库的物理结构中，数据的基本单位是存储记录</h2><h2 id="关系代数中，连接可由笛卡儿积操作与选择操作组合而成的"><a href="#关系代数中，连接可由笛卡儿积操作与选择操作组合而成的" class="headerlink" title="关系代数中，连接可由笛卡儿积操作与选择操作组合而成的"></a>关系代数中，连接可由笛卡儿积操作与选择操作组合而成的</h2><h2 id="DB并发操作通常会带来三类问题"><a href="#DB并发操作通常会带来三类问题" class="headerlink" title="DB并发操作通常会带来三类问题"></a>DB并发操作通常会带来三类问题</h2><p>丢失更新</p>
+<p>不一致</p>
+<p>读脏数据</p>
+<h2 id="标识元组的属性称为超键"><a href="#标识元组的属性称为超键" class="headerlink" title="标识元组的属性称为超键"></a>标识元组的属性称为超键</h2><h2 id="在函数依赖中，平凡的函数依赖根据Armstrong推理规则中的自反律律就可推出"><a href="#在函数依赖中，平凡的函数依赖根据Armstrong推理规则中的自反律律就可推出" class="headerlink" title="在函数依赖中，平凡的函数依赖根据Armstrong推理规则中的自反律律就可推出"></a>在函数依赖中，平凡的函数依赖根据Armstrong推理规则中的自反律律就可推出</h2>
                 
             </div>
             <hr/>
@@ -570,7 +535,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/14/%E5%8D%83%E5%B3%B0%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">http://example.com/2021/03/14/%E5%8D%83%E5%B3%B0%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</a>
+                    <a href="http://example.com/2021/07/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/">http://example.com/2021/07/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,19 +572,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                                    <span class="chip bg-color">网络安全</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%85%A5%E9%97%A8/">
-                                    <span class="chip bg-color">入门</span>
-                                </a>
-                            
-                                <a href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">零基础</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -789,9 +742,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/07/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数据库复习">
+                        
+                        <span class="card-title">数据库复习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            bigshuimu
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/03/26/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%BC%96%E7%A8%8B%E9%A2%98/">
                     <div class="card-image">
@@ -809,9 +801,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -827,43 +819,6 @@
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="数据结构">
-                        
-                        <span class="card-title">数据结构</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            基于C语言
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            bigshuimu
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>

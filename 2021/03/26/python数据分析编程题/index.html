@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="千峰零基础笔记, 自来也豪杰物语">
+    <meta name="keywords" content="python数据分析编程题, 自来也豪杰物语">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>千峰零基础笔记 | 自来也豪杰物语</title>
+    <title>python数据分析编程题 | 自来也豪杰物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">千峰零基础笔记</h1>
+                    <h1 class="description center-align post-title">python数据分析编程题</h1>
                 </div>
             </div>
         </div>
@@ -431,16 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                                <span class="chip bg-color">网络安全</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%85%A5%E9%97%A8/">
-                                <span class="chip bg-color">入门</span>
-                            </a>
-                        
-                            <a href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">零基础</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
                     </div>
@@ -455,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-03-26
                 </div>
                 
 
@@ -476,74 +468,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>参照千峰零基础入门网络安全课程</p>
-<span id="more"></span>
+                <h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><h2 id="课后编程题："><a href="#课后编程题：" class="headerlink" title="课后编程题："></a>课后编程题：</h2><p>1、接收一个正整数作为参数，返回对其进行因数分解后的结果列表。例如，接收参数50，返回[2,5,5]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#我的解答：</span></span><br><span class="line">a = <span class="number">510510</span></span><br><span class="line">b = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nb</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    i = <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="built_in">int</span>(a):</span><br><span class="line">        <span class="keyword">if</span> a % i == <span class="number">0</span>:</span><br><span class="line">            b.append(i)</span><br><span class="line">            b.append(<span class="built_in">int</span>(a / i))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">nb(a, b)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> b:</span><br><span class="line">    <span class="keyword">if</span> nb(i, b):</span><br><span class="line">        b.remove(i)</span><br><span class="line"></span><br><span class="line">print(b)</span><br><span class="line"><span class="comment">#不能分析质数，待修改</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="NTFS安全权限"><a href="#NTFS安全权限" class="headerlink" title="NTFS安全权限"></a>NTFS安全权限</h1><h2 id="一、NTFS权限概述"><a href="#一、NTFS权限概述" class="headerlink" title="一、NTFS权限概述"></a>一、NTFS权限概述</h2><p>1、通过设置NTFS权限，实现不同用户访问不同对象的权限</p>
-<p>2、分配了正确的访问权限后，用户才能访问其资源</p>
-<p>3、设置权限防止资源被篡改、删除</p>
-<h2 id="二、文件系统概述"><a href="#二、文件系统概述" class="headerlink" title="二、文件系统概述"></a>二、文件系统概述</h2><h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>文件系统即在外部存储设备上组织文件的方法</p>
-<h3 id="常见的文件系统："><a href="#常见的文件系统：" class="headerlink" title="常见的文件系统："></a>常见的文件系统：</h3><ul>
-<li>FAT        windows</li>
-<li>NTFS      windows</li>
-<li>EXT         Linux常见</li>
-</ul>
-<h2 id="三、NTFS文件系统特点"><a href="#三、NTFS文件系统特点" class="headerlink" title="三、NTFS文件系统特点"></a>三、NTFS文件系统特点</h2><h3 id="1、提高磁盘读写性能"><a href="#1、提高磁盘读写性能" class="headerlink" title="1、提高磁盘读写性能"></a>1、提高磁盘读写性能</h3><h3 id="2、可靠性"><a href="#2、可靠性" class="headerlink" title="2、可靠性"></a>2、可靠性</h3><p>加密文件系统</p>
-<p>访问控制列表（设置权限）——ACL</p>
-<h3 id="3、磁盘利用率"><a href="#3、磁盘利用率" class="headerlink" title="3、磁盘利用率"></a>3、磁盘利用率</h3><p>压缩</p>
-<p>磁盘配额</p>
-<h3 id="4、支持单个文件大于4个G"><a href="#4、支持单个文件大于4个G" class="headerlink" title="4、支持单个文件大于4个G"></a>4、支持单个文件大于4个G</h3><h2 id="四、修改NTFS权限"><a href="#四、修改NTFS权限" class="headerlink" title="四、修改NTFS权限"></a>四、修改NTFS权限</h2><h3 id="1、取消权限继承"><a href="#1、取消权限继承" class="headerlink" title="1、取消权限继承"></a>1、取消权限继承</h3><p>作用：取消后，可以任意修改权限列表了。</p>
-<p>方法：文件夹右键属性——安全——高级——去掉第一个对号——选择复制即可</p>
-<h3 id="2、权限累加"><a href="#2、权限累加" class="headerlink" title="2、权限累加"></a>2、权限累加</h3><p>当用户同时属于多个组时，权限是累加的！</p>
-<h3 id="3、拒绝最大"><a href="#3、拒绝最大" class="headerlink" title="3、拒绝最大"></a>3、拒绝最大</h3><p>当用户权限累加时，如遇到拒绝权限，拒绝最大！</p>
-<h3 id="4、取得所有权"><a href="#4、取得所有权" class="headerlink" title="4、取得所有权"></a>4、取得所有权</h3><p>默认只有administrator有这个权限</p>
-<p>作用：可以把任何文件夹的所有者改为administrator</p>
-<h3 id="5、强制继承"><a href="#5、强制继承" class="headerlink" title="5、强制继承"></a>5、强制继承</h3><p>作用：对下强制继承父子关系！</p>
-<p>方法：文件夹右键属性——安全——高级——勾上第二个对号，即可！</p>
-<h3 id="6、文件复制对权限的影响"><a href="#6、文件复制对权限的影响" class="headerlink" title="6、文件复制对权限的影响"></a>6、文件复制对权限的影响</h3><p>文件复制后，文件的权限会被目标文件夹的权限覆盖</p>
-<h1 id="文件共享服务器"><a href="#文件共享服务器" class="headerlink" title="文件共享服务器"></a>文件共享服务器</h1><h2 id="一、共享服务器概述"><a href="#一、共享服务器概述" class="headerlink" title="一、共享服务器概述"></a>一、共享服务器概述</h2><p>通过网络提供文件共享服务，提供文件下载和上传服务（类似FTP服务器）</p>
-<h2 id="二、创建共享"><a href="#二、创建共享" class="headerlink" title="二、创建共享"></a>二、创建共享</h2><p>方法：文件夹右键属性——共享——开启共享——设置共享名——设置共享权限</p>
-<p>注：</p>
-<p>1）在本地登录时，只受NTFS权限的影响</p>
-<p>2）在远程登录时，将受共享及NTFS权限的共同影响，且取交集！</p>
-<p>3）所以建议设置共享权限为everyone完全控制，然后具体的权限需求在NTFS权限中设置即可。</p>
-<h2 id="三、访问共享"><a href="#三、访问共享" class="headerlink" title="三、访问共享"></a>三、访问共享</h2><p>在开始运行或我的电脑地址栏中，输入UNC地址：</p>
-<p>\\文件共享服务器ip</p>
-<p>\\文件共享服务器ip\共享名</p>
-<h1 id="DHCP部署与安全"><a href="#DHCP部署与安全" class="headerlink" title="DHCP部署与安全"></a>DHCP部署与安全</h1><h2 id="一、DHCP-Dynamic-Host-Configure-Protocol-作用"><a href="#一、DHCP-Dynamic-Host-Configure-Protocol-作用" class="headerlink" title="一、DHCP(Dynamic Host Configure Protocol)作用"></a>一、DHCP(Dynamic Host Configure Protocol)作用</h2><p>自动分配地址</p>
-<h2 id="二、DHCP相关概念"><a href="#二、DHCP相关概念" class="headerlink" title="二、DHCP相关概念"></a>二、DHCP相关概念</h2><p>地址池/作用域：（IP、子网掩码、网关、DNS、租期），DHCP协议端口是UDP 67/68</p>
-<h2 id="三、DHCP优点"><a href="#三、DHCP优点" class="headerlink" title="三、DHCP优点"></a>三、DHCP优点</h2><p>减少工作量，避免ip冲突，提高地址利用率</p>
-<h2 id="四、DHCP原理"><a href="#四、DHCP原理" class="headerlink" title="四、DHCP原理"></a>四、DHCP原理</h2><p>也成为DHCP租约过程，分为四个步骤：</p>
-<h3 id="1、发送DHCP-Discovery广播包"><a href="#1、发送DHCP-Discovery广播包" class="headerlink" title="1、发送DHCP Discovery广播包"></a>1、发送DHCP Discovery广播包</h3><p>客户机广播请求IP地址（包含客户机的MAC地址）</p>
-<h3 id="2、响应DHCP-Offer广播包"><a href="#2、响应DHCP-Offer广播包" class="headerlink" title="2、响应DHCP Offer广播包"></a>2、响应DHCP Offer广播包</h3><p>服务器响应提供的IP地址（但无子网掩码、网关等参数）</p>
-<h3 id="3、客户机发送DHCP-Request广播包"><a href="#3、客户机发送DHCP-Request广播包" class="headerlink" title="3、客户机发送DHCP Request广播包"></a>3、客户机发送DHCP Request广播包</h3><p>客户机选择IP（也可以认为确认使用哪个IP）</p>
-<h3 id="4、服务器发送DHCP-ACK广播包"><a href="#4、服务器发送DHCP-ACK广播包" class="headerlink" title="4、服务器发送DHCP ACK广播包"></a>4、服务器发送DHCP ACK广播包</h3><p>ACK：确认</p>
-<p>服务器确定了租约，并提供网卡详细参数IP、网关、子网掩码、DNS、租期等</p>
-<h2 id="五、DHCP续约"><a href="#五、DHCP续约" class="headerlink" title="五、DHCP续约"></a>五、DHCP续约</h2><p>当租期的50%过后，客户会再次发送DHCP Request包，进行续约，如服务器无响应，则继续使用并在87.5%再次发送DHCP Request包，进行续约，如仍然无响应，并释放IP地址，及重新发送DHCP Discovery广播包来获取IP地址</p>
-<p>当无任何服务器响应时，网卡会自动给自己分配一个169.254.x.x/16</p>
-<h2 id="六、部署DHCP服务器"><a href="#六、部署DHCP服务器" class="headerlink" title="六、部署DHCP服务器"></a>六、部署DHCP服务器</h2><ol>
-<li><p>IP地址固定（服务器必须固定一个IP地址）</p>
-</li>
-<li><p>安装DHCP服务组件</p>
-</li>
-<li><p>新建作用域及作用域选项</p>
-</li>
-<li><p>激活</p>
-</li>
-<li><p>客户机验证：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipconfig &#x2F;release	释放IP（取消租约，或者改为手动配置IP，也可以释放租约）</span><br><span class="line"></span><br><span class="line">ipconfig &#x2F;renew		重新获取IP（有IP时，发送request续约，无IP时发送Discovery从新获取）</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#答案解答：</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factioring</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(n, <span class="built_in">int</span>):</span><br><span class="line">        print(<span class="string">&#x27;You must give me an integer&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    primes = [p <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, n) <span class="keyword">if</span> <span class="number">0</span> <span class="keyword">not</span> <span class="keyword">in</span> [p % d <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(p ** <span class="number">0.5</span>) + <span class="number">1</span>)]]</span><br><span class="line">    c = []</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> primes:</span><br><span class="line">        <span class="keyword">while</span> n != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> n % p == <span class="number">0</span>:</span><br><span class="line">                n = n // p</span><br><span class="line">                c.append(p)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> c</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> c:</span><br><span class="line">        <span class="keyword">return</span> [n]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(factioring(<span class="number">50</span>))</span><br></pre></td></tr></table></figure>
 
 
 
-</li>
-</ol>
-<h2 id="七、地址保留"><a href="#七、地址保留" class="headerlink" title="七、地址保留"></a>七、地址保留</h2><p>对于指定的MAC地址，固定动态分配IP</p>
-<h2 id="八、选项优先级"><a href="#八、选项优先级" class="headerlink" title="八、选项优先级"></a>八、选项优先级</h2><p>作用域选项&gt;服务器选项</p>
-<p>当服务器上有多个作用域时，可以在服务器选项上设置DNS服务器</p>
-<h2 id="九、DHCP备份"><a href="#九、DHCP备份" class="headerlink" title="九、DHCP备份"></a>九、DHCP备份</h2><h2 id="十、DHCP攻击与防御"><a href="#十、DHCP攻击与防御" class="headerlink" title="十、DHCP攻击与防御"></a>十、DHCP攻击与防御</h2><p>a、攻击DHCP服务器：频繁的发送伪装DHCP请求，直到将DHCP地址池资源耗尽</p>
-<p>防御：在交换机（管理型）的端口上做动态MAC地址绑定</p>
-<p>b、伪装DHCP服务器攻击：hack通过将自己部署为DHCP服务器，为客户机提供非法IP地址</p>
-<p>防御：在交换机上（管理型），除合法的DHCP服务器所在接口外，全部设置为禁止发送DHCP offer包</p>
+<p>2、接收两个正整数n和a（要求a为小于10的自然数），计算形式如a+aa+aaa+aaaa+……+aaa…aaa的表达式前n项的值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 答案解答：</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computer</span>(<span class="params">a,n</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> i : <span class="built_in">int</span>(<span class="built_in">str</span>(a)*i),<span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>)))</span><br><span class="line">print(computer(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、模拟报数游戏。有n个人围成一圈，从0到n-1按顺序编号，从第一个人开始从1到k报数，报到k的人退出圈子，然后圈子缩小，从下一个人继续游戏，问最后留下的是原来的第几号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
 
                 
             </div>
@@ -570,7 +509,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/14/%E5%8D%83%E5%B3%B0%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">http://example.com/2021/03/14/%E5%8D%83%E5%B3%B0%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</a>
+                    <a href="http://example.com/2021/03/26/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%BC%96%E7%A8%8B%E9%A2%98/">http://example.com/2021/03/26/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%BC%96%E7%A8%8B%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -608,16 +547,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                                    <span class="chip bg-color">网络安全</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%85%A5%E9%97%A8/">
-                                    <span class="chip bg-color">入门</span>
-                                </a>
-                            
-                                <a href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">零基础</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
                         </div>
@@ -793,13 +724,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/26/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%BC%96%E7%A8%8B%E9%A2%98/">
+                <a href="/2021/07/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="python数据分析编程题">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数据库复习">
                         
-                        <span class="card-title">python数据分析编程题</span>
+                        <span class="card-title">数据库复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -810,7 +741,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-06
                         </span>
                         <span class="publish-author">
                             
@@ -819,14 +750,6 @@
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -838,24 +761,24 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                <a href="/2021/03/14/%E5%8D%83%E5%B3%B0%E9%9B%B6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="数据结构">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="千峰零基础笔记">
                         
-                        <span class="card-title">数据结构</span>
+                        <span class="card-title">千峰零基础笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于C语言
+                            参照千峰零基础入门网络安全课程
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
                             </span>
                         <span class="publish-author">
                             
@@ -864,6 +787,22 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">网络安全</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%A5%E9%97%A8/">
+                        <span class="chip bg-color">入门</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">零基础</span>
+                    </a>
+                    
                 </div>
                 
             </div>
