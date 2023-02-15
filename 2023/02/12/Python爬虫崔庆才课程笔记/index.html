@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="由Python爬虫崔庆才课程笔记编辑整理而成，用于个人学习。 python爬虫线程我们知道，在一台计算机中，我们可以同时打开许多软件，比如同时浏览网页、听音乐、打字等等，看似非常正常。但仔细想想，为什么计算机可以做到这么多软件同时运行呢？这就涉及到计算机中的两个重要概念：多进程和多线程了。 同样，在编写爬虫程序的时候，为了提高爬取效率，我们可能想同时运行多个爬虫任务。这里同样需要涉及多进程和多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬虫崔庆才课程笔记">
+<meta property="og:url" content="http://example.com/2023/02/12/Python%E7%88%AC%E8%99%AB%E5%B4%94%E5%BA%86%E6%89%8D%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="由Python爬虫崔庆才课程笔记编辑整理而成，用于个人学习。 python爬虫线程我们知道，在一台计算机中，我们可以同时打开许多软件，比如同时浏览网页、听音乐、打字等等，看似非常正常。但仔细想想，为什么计算机可以做到这么多软件同时运行呢？这就涉及到计算机中的两个重要概念：多进程和多线程了。 同样，在编写爬虫程序的时候，为了提高爬取效率，我们可能想同时运行多个爬虫任务。这里同样需要涉及多进程和多线程">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-02-12T07:58:57.000Z">
+<meta property="article:modified_time" content="2023-02-12T08:05:48.409Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/02/12/Python%E7%88%AC%E8%99%AB%E5%B4%94%E5%BA%86%E6%89%8D%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Python爬虫崔庆才课程笔记 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <a>
+        <img class="custom-logo-image" src="[object Object]" alt="Hexo">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/12/Python%E7%88%AC%E8%99%AB%E5%B4%94%E5%BA%86%E6%89%8D%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python爬虫崔庆才课程笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-02-12 15:58:57" itemprop="dateCreated datePublished" datetime="2023-02-12T15:58:57+08:00">2023-02-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>由Python爬虫崔庆才课程笔记编辑整理而成，用于个人学习。</p>
+<h1 id="python爬虫"><a href="#python爬虫" class="headerlink" title="python爬虫"></a>python爬虫</h1><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>我们知道，在一台计算机中，我们可以同时打开许多软件，比如同时浏览网页、听音乐、打字等等，看似非常正常。但仔细想想，为什么计算机可以做到这么多软件同时运行呢？这就涉及到计算机中的两个重要概念：多进程和多线程了。</p>
+<p>同样，在编写爬虫程序的时候，为了提高爬取效率，我们可能想同时运行多个爬虫任务。这里同样需要涉及多进程和多线程的知识。</p>
+<p>本课时，我们就先来了解一下多线程的基本原理，以及在 Python 中如何实现多线程。</p>
+<h3 id="多线程的含义"><a href="#多线程的含义" class="headerlink" title="多线程的含义"></a>多线程的含义</h3><p>说起多线程，就不得不先说什么是线程。然而想要弄明白什么是线程，又不得不先说什么是进程。</p>
+<p>进程我们可以理解为是一个可以独立运行的程序单位，比如打开一个浏览器，这就开启了一个浏览器进程；打开一个文本编辑器，这就开启了一个文本编辑器进程。但一个进程中是可以同时处理很多事情的，比如在浏览器中，我们可以在多个选项卡中打开多个页面，有的页面在播放音乐，有的页面在播放视频，有的网页在播放动画，它们可以同时运行，互不干扰。为什么能同时做到同时运行这么多的任务呢？这里就需要引出线程的概念了，其实这一个个任务，实际上就对应着一个个线程的执行。</p>
+<p>而进程呢？它就是线程的集合，进程就是由一个或多个线程构成的，线程是操作系统进行运算调度的最小单位，是进程中的一个最小运行单元。比如上面所说的浏览器进程，其中的播放音乐就是一个线程，播放视频也是一个线程，当然其中还有很多其他的线程在同时运行，这些线程的并发或并行执行最后使得整个浏览器可以同时运行这么多的任务。</p>
+<p>了解了线程的概念，多线程就很容易理解了，多线程就是一个进程中同时执行多个线程，前面所说的浏览器的情景就是典型的多线程执行。</p>
+<h3 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h3><p>说到多进程和多线程，这里就需要再讲解两个概念，那就是并发和并行。我们知道，一个程序在计算机中运行，其底层是处理器通过运行一条条的指令来实现的。</p>
+<ul>
+<li><strong>并发</strong>，英文叫作 concurrency。它是指同一时刻只能有一条指令执行，但是多个线程的对应的指令被快速轮换地执行。比如一个处理器，它先执行线程 A 的指令一段时间，再执行线程 B 的指令一段时间，再切回到线程 A 执行一段时间。</li>
+</ul>
+<p>由于处理器执行指令的速度和切换的速度非常非常快，人完全感知不到计算机在这个过程中有多个线程切换上下文执行的操作，这就使得宏观上看起来多个线程在同时运行。但微观上只是这个处理器在连续不断地在多个线程之间切换和执行，每个线程的执行一定会占用这个处理器一个时间片段，同一时刻，其实只有一个线程在执行。</p>
+<ul>
+<li><strong>并行</strong>，英文叫作 parallel。它是指同一时刻，有多条指令在多个处理器上同时执行，并行必须要依赖于多个处理器。不论是从宏观上还是微观上，多个线程都是在同一时刻一起执行的。</li>
+</ul>
+<p>并行只能在多处理器系统中存在，如果我们的计算机处理器只有一个核，那就不可能实现并行。而并发在单处理器和多处理器系统中都是可以存在的，因为仅靠一个核，就可以实现并发。</p>
+<p>举个例子，比如系统处理器需要同时运行多个线程。如果系统处理器只有一个核，那它只能通过并发的方式来运行这些线程。如果系统处理器有多个核，当一个核在执行一个线程时，另一个核可以执行另一个线程，这样这两个线程就实现了并行执行，当然其他的线程也可能和另外的线程处在同一个核上执行，它们之间就是并发执行。具体的执行方式，就取决于操作系统的调度了。</p>
+<h3 id="多线程适用场景"><a href="#多线程适用场景" class="headerlink" title="多线程适用场景"></a>多线程适用场景</h3><p>在一个程序进程中，有一些操作是比较耗时或者需要等待的，比如等待数据库的查询结果的返回，等待网页结果的响应。如果使用单线程，处理器必须要等到这些操作完成之后才能继续往下执行其他操作，而这个线程在等待的过程中，处理器明显是可以来执行其他的操作的。如果使用多线程，处理器就可以在某个线程等待的时候，去执行其他的线程，从而从整体上提高执行效率。</p>
+<p>像上述场景，线程在执行过程中很多情况下是需要等待的。比如网络爬虫就是一个非常典型的例子，爬虫在向服务器发起请求之后，有一段时间必须要等待服务器的响应返回，这种任务就属于 IO 密集型任务。对于这种任务，如果我们启用多线程，处理器就可以在某个线程等待的过程中去处理其他的任务，从而提高整体的爬取效率。</p>
+<p>但并不是所有的任务都是 IO 密集型任务，还有一种任务叫作计算密集型任务，也可以称之为 CPU 密集型任务。顾名思义，就是任务的运行一直需要处理器的参与。此时如果我们开启了多线程，一个处理器从一个计算密集型任务切换到切换到另一个计算密集型任务上去，处理器依然不会停下来，始终会忙于计算，这样并不会节省总体的时间，因为需要处理的任务的计算总量是不变的。如果线程数目过多，反而还会在线程切换的过程中多耗费一些时间，整体效率会变低。</p>
+<p>所以，如果任务不全是计算密集型任务，我们可以使用多线程来提高程序整体的执行效率。尤其对于网络爬虫这种 IO 密集型任务来说，使用多线程会大大提高程序整体的爬取效率。</p>
+<h3 id="Python-实现多线程"><a href="#Python-实现多线程" class="headerlink" title="Python 实现多线程"></a>Python 实现多线程</h3><p>在 Python 中，实现多线程的模块叫作 threading，是 Python 自带的模块。下面我们来了解下使用 threading 实现多线程的方法。</p>
+<h4 id="Thread-直接创建子线程"><a href="#Thread-直接创建子线程" class="headerlink" title="Thread 直接创建子线程"></a>Thread 直接创建子线程</h4><p>首先，我们可以使用 <code>Thread</code> 类来创建一个线程，创建时需要指定 target 参数为运行的方法名称，如果被调用的方法需要传入额外的参数，则可以通过 Thread 的 args 参数来指定。示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">target</span>(<span class="params">second</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is running&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> sleep <span class="subst">&#123;second&#125;</span>s&#x27;</span>)</span><br><span class="line">    time.sleep(second)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is ended&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is running&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">5</span>]:</span><br><span class="line">    thread = threading.Thread(target=target, args=[i])</span><br><span class="line">    thread.start()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is ended&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Threading MainThread <span class="keyword">is</span> running</span><br><span class="line">Threading Thread-<span class="number">1</span> <span class="keyword">is</span> running</span><br><span class="line">Threading Thread-<span class="number">1</span> sleep 1s</span><br><span class="line">Threading Thread-<span class="number">2</span> <span class="keyword">is</span> running</span><br><span class="line">Threading Thread-<span class="number">2</span> sleep 5s</span><br><span class="line">Threading MainThread <span class="keyword">is</span> ended</span><br><span class="line">Threading Thread-<span class="number">1</span> <span class="keyword">is</span> ended</span><br><span class="line">Threading Thread-<span class="number">2</span> <span class="keyword">is</span> ended</span><br></pre></td></tr></table></figure>
+
+<p>在这里我们首先声明了一个方法，叫作 target，它接收一个参数为 second，通过方法的实现可以发现，这个方法其实就是执行了一个 time.sleep 休眠操作，second 参数就是休眠秒数，其前后都 print 了一些内容，其中线程的名字我们通过 threading.current_thread().name 来获取出来，如果是主线程的话，其值就是 MainThread，如果是子线程的话，其值就是 Thread-*。</p>
+<p>然后我们通过 Thead 类新建了两个线程，target 参数就是刚才我们所定义的方法名，args 以列表的形式传递。两次循环中，这里 i 分别就是 1 和 5，这样两个线程就分别休眠 1 秒和 5 秒，声明完成之后，我们调用 start 方法即可开始线程的运行。</p>
+<p>观察结果我们可以发现，这里一共产生了三个线程，分别是主线程 MainThread 和两个子线程 Thread-1、Thread-2。另外我们观察到，主线程首先运行结束，紧接着 Thread-1、Thread-2 才接连运行结束，分别间隔了 1 秒和 4 秒。这说明主线程并没有等待子线程运行完毕才结束运行，而是直接退出了，有点不符合常理。</p>
+<p>如果我们想要主线程等待子线程运行完毕之后才退出，可以让每个子线程对象都调用下 join 方法，实现如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">threads = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">5</span>]:</span><br><span class="line">    thread = threading.Thread(target=target, args=[i])</span><br><span class="line">    threads.append(thread)</span><br><span class="line">    thread.start()</span><br><span class="line"><span class="keyword">for</span> thread <span class="keyword">in</span> threads:</span><br><span class="line">    thread.join()</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Threading MainThread <span class="keyword">is</span> running</span><br><span class="line">Threading Thread-<span class="number">1</span> <span class="keyword">is</span> running</span><br><span class="line">Threading Thread-<span class="number">1</span> sleep 1s</span><br><span class="line">Threading Thread-<span class="number">2</span> <span class="keyword">is</span> running</span><br><span class="line">Threading Thread-<span class="number">2</span> sleep 5s</span><br><span class="line">Threading Thread-<span class="number">1</span> <span class="keyword">is</span> ended</span><br><span class="line">Threading Thread-<span class="number">2</span> <span class="keyword">is</span> ended</span><br><span class="line">Threading MainThread <span class="keyword">is</span> ended</span><br></pre></td></tr></table></figure>
+
+<p>这样，主线程必须等待子线程都运行结束，主线程才继续运行并结束。</p>
+<h4 id="继承-Thread-类创建子线程"><a href="#继承-Thread-类创建子线程" class="headerlink" title="继承 Thread 类创建子线程"></a>继承 Thread 类创建子线程</h4><p>另外，我们也可以通过继承 Thread 类的方式创建一个线程，该线程需要执行的方法写在类的 run 方法里面即可。上面的例子的等价改写为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyThread</span>(threading.Thread):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, second</span>):</span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line">        self.second = second</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is running&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> sleep <span class="subst">&#123;self.second&#125;</span>s&#x27;</span>)</span><br><span class="line">        time.sleep(self.second)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is ended&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is running&#x27;</span>)</span><br><span class="line">threads = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">5</span>]:</span><br><span class="line">    thread = MyThread(i)</span><br><span class="line">    threads.append(thread)</span><br><span class="line">    thread.start()</span><br><span class="line"><span class="keyword">for</span> thread <span class="keyword">in</span> threads:</span><br><span class="line">    thread.join()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is ended&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Threading MainThread <span class="keyword">is</span> running Threading Thread-<span class="number">1</span> <span class="keyword">is</span> running Threading Thread-<span class="number">1</span> sleep 1s Threading Thread-<span class="number">2</span> <span class="keyword">is</span> running Threading Thread-<span class="number">2</span> sleep 5s Threading Thread-<span class="number">1</span> <span class="keyword">is</span> ended Threading Thread-<span class="number">2</span> <span class="keyword">is</span> ended Threading MainThread <span class="keyword">is</span> ended </span><br></pre></td></tr></table></figure>
+
+<p>可以看到，两种实现方式，其运行效果是相同的。</p>
+<h4 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h4><p>在线程中有一个叫作守护线程的概念，如果一个线程被设置为守护线程，那么意味着这个线程是“不重要”的，这意味着，如果主线程结束了而该守护线程还没有运行完，那么它将会被强制结束。在 Python 中我们可以通过 <code>setDaemon</code> 方法来将某个线程设置为守护线程。</p>
+<p>示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">target</span>(<span class="params">second</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is running&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> sleep <span class="subst">&#123;second&#125;</span>s&#x27;</span>)</span><br><span class="line">    time.sleep(second)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is ended&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is running&#x27;</span>)</span><br><span class="line">t1 = threading.Thread(target=target, args=[<span class="number">2</span>])</span><br><span class="line">t1.start()</span><br><span class="line">t2 = threading.Thread(target=target, args=[<span class="number">5</span>])</span><br><span class="line">t2.setDaemon(<span class="literal">True</span>)</span><br><span class="line">t2.start()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Threading <span class="subst">&#123;threading.current_thread().name&#125;</span> is ended&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在这里我们通过 <code>setDaemon</code>方法将 <code>t2</code> 设置为了守护线程，这样主线程在运行完毕时，<code>t2</code> 线程会随着线程的结束而结束。</p>
+<p>运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Threading MainThread <span class="keyword">is</span> running Threading Thread-<span class="number">1</span> <span class="keyword">is</span> running Threading Thread-<span class="number">1</span> sleep 2s Threading Thread-<span class="number">2</span> <span class="keyword">is</span> running Threading Thread-<span class="number">2</span> sleep 5s Threading MainThread <span class="keyword">is</span> ended Threading Thread-<span class="number">1</span> <span class="keyword">is</span> ended </span><br></pre></td></tr></table></figure>
+
+<p>可以看到，我们没有看到 Thread-2 打印退出的消息，Thread-2 随着主线程的退出而退出了。</p>
+<p>不过细心的你可能会发现，这里并没有调用 join 方法，如果我们让 t1 和 t2 都调用 join 方法，主线程就会仍然等待各个子线程执行完毕再退出，不论其是否是守护线程。</p>
+<h3 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h3><p>在一个进程中的多个线程是共享资源的，比如在一个进程中，有一个全局变量 count 用来计数，现在我们声明多个线程，每个线程运行时都给 count 加 1，让我们来看看效果如何，代码实现如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyThread</span>(threading.Thread):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">global</span> count</span><br><span class="line">        temp = count + <span class="number">1</span></span><br><span class="line">        time.sleep(<span class="number">0.001</span>)</span><br><span class="line">        count = temp</span><br><span class="line"></span><br><span class="line">threads = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    thread = MyThread()</span><br><span class="line">    thread.start()</span><br><span class="line">    threads.append(thread)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> thread <span class="keyword">in</span> threads:</span><br><span class="line">    thread.join()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Final count: <span class="subst">&#123;count&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在这里，我们声明了 1000 个线程，每个线程都是现取到当前的全局变量 count 值，然后休眠一小段时间，然后对 count 赋予新的值。</p>
+<p>那这样，按照常理来说，最终的 count 值应该为 1000。但其实不然，我们来运行一下看看。</p>
+<p>运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Final count: <span class="number">69</span> </span><br></pre></td></tr></table></figure>
+
+<p>最后的结果居然只有 69，而且多次运行或者换个环境运行结果是不同的。</p>
+<p>这是为什么呢？因为 count 这个值是共享的，每个线程都可以在执行 temp &#x3D; count 这行代码时拿到当前 count 的值，但是这些线程中的一些线程可能是并发或者并行执行的，这就导致不同的线程拿到的可能是同一个 count 值，最后导致有些线程的 count 的加 1 操作并没有生效，导致最后的结果偏小。</p>
+<p>所以，如果多个线程同时对某个数据进行读取或修改，就会出现不可预料的结果。为了避免这种情况，我们需要对多个线程进行同步，要实现同步，我们可以对需要操作的数据进行加锁保护，这里就需要用到 threading.Lock 了。</p>
+<p>加锁保护是什么意思呢？就是说，某个线程在对数据进行操作前，需要先加锁，这样其他的线程发现被加锁了之后，就无法继续向下执行，会一直等待锁被释放，只有加锁的线程把锁释放了，其他的线程才能继续加锁并对数据做修改，修改完了再释放锁。这样可以确保同一时间只有一个线程操作数据，多个线程不会再同时读取和修改同一个数据，这样最后的运行结果就是对的了。</p>
+<p>我们可以将代码修改为如下内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyThread</span>(threading.Thread):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">global</span> count</span><br><span class="line">        lock.acquire()</span><br><span class="line">        temp = count + <span class="number">1</span></span><br><span class="line">        time.sleep(<span class="number">0.001</span>)</span><br><span class="line">        count = temp</span><br><span class="line">        lock.release()</span><br><span class="line"></span><br><span class="line">lock = threading.Lock()</span><br><span class="line">threads = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    thread = MyThread()</span><br><span class="line">    thread.start()</span><br><span class="line">    threads.append(thread)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> thread <span class="keyword">in</span> threads:</span><br><span class="line">    thread.join()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Final count: <span class="subst">&#123;count&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在这里我们声明了一个 lock 对象，其实就是 <code>threading.Lock</code> 的一个实例，然后在 run 方法里面，获取 count 前先加锁，修改完 count 之后再释放锁，这样多个线程就不会同时获取和修改 count 的值了。</p>
+<p>运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Final count: <span class="number">1000</span> </span><br></pre></td></tr></table></figure>
+
+<p>这样运行结果就正常了。</p>
+<p>关于 Python 多线程的内容，这里暂且先介绍这些，关于 <code>theading</code> 更多的使用方法，如信号量、队列等，可以参考官方文档：<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.7/library/threading.html#module-threading%E3%80%82">https://docs.python.org/zh-cn/3.7/library/threading.html#module-threading。</a></p>
+<h3 id="Python-多线程的问题"><a href="#Python-多线程的问题" class="headerlink" title="Python 多线程的问题"></a>Python 多线程的问题</h3><p>由于 Python 中 GIL 的限制，导致不论是在单核还是多核条件下，在同一时刻只能运行一个线程，导致 Python 多线程无法发挥多核并行的优势。</p>
+<p>GIL 全称为 Global Interpreter Lock，中文翻译为全局解释器锁，其最初设计是出于数据安全而考虑的。</p>
+<p>在 Python 多线程下，每个线程的执行方式如下：</p>
+<ul>
+<li>获取 GIL</li>
+<li>执行对应线程的代码</li>
+<li>释放 GIL</li>
+</ul>
+<p>可见，某个线程想要执行，必须先拿到 GIL，我们可以把 GIL 看作是通行证，并且在一个 Python 进程中，GIL 只有一个。拿不到通行证的线程，就不允许执行。这样就会导致，即使是多核条件下，一个 Python 进程下的多个线程，同一时刻也只能执行一个线程。</p>
+<p>不过对于爬虫这种 IO 密集型任务来说，这个问题影响并不大。而对于计算密集型任务来说，由于 GIL 的存在，多线程总体的运行效率相比可能反而比单线程更低。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"># 爬虫</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/02/09/mysql/" rel="prev" title="mysql">
+      <i class="fa fa-chevron-left"></i> mysql
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/02/15/jupyter%E7%AE%80%E5%8D%95%E4%B8%8A%E6%89%8B/" rel="next" title="jupyter简单上手">
+      jupyter简单上手 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E7%88%AC%E8%99%AB"><span class="nav-number">1.</span> <span class="nav-text">python爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">多线程的含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C"><span class="nav-number">1.1.2.</span> <span class="nav-text">并发和并行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">多线程适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.4.</span> <span class="nav-text">Python 实现多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-%E7%9B%B4%E6%8E%A5%E5%88%9B%E5%BB%BA%E5%AD%90%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">Thread 直接创建子线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF-Thread-%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%AD%90%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">继承 Thread 类创建子线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">守护线程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E9%94%81"><span class="nav-number">1.1.5.</span> <span class="nav-text">互斥锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.6.</span> <span class="nav-text">Python 多线程的问题</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
