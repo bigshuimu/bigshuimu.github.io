@@ -28,7 +28,7 @@
 <meta property="og:description" content="Linux文件系统Linux一切皆文件 1、 Linux目录结构&#x2F; 根目录  &#x2F;root 该目录为系统管理员，也称作超级权限者的用户主目录 &#x2F;root&#x2F;Desktop &#x2F;root&#x2F;Maildir …   &#x2F;bin Binary，这个目录存放着最经常使用的命令 &#x2F;sbin s是system的意思，这里存放的是系统管理员使用的系统管理程序 &#x2F;boot 这里存放的是启动Linux时使用的一些核心文件，包">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-01-12T01:40:29.000Z">
-<meta property="article:modified_time" content="2023-02-15T13:08:07.242Z">
+<meta property="article:modified_time" content="2023-03-12T08:20:03.585Z">
 <meta property="article:author" content="水木君">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="shell">
@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-15 21:08:07" itemprop="dateModified" datetime="2023-02-15T21:08:07+08:00">2023-02-15</time>
+                <time title="修改时间：2023-03-12 16:20:03" itemprop="dateModified" datetime="2023-03-12T16:20:03+08:00">2023-03-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,7 +251,7 @@
 <p><code>vim /etc/sysconfig/network-scripts/ifcfg-ens33</code></p>
 </li>
 </ul>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="shell常用快捷键"><a href="#shell常用快捷键" class="headerlink" title="shell常用快捷键"></a>shell常用快捷键</h2><table>
+<h2 id="shell常用快捷键"><a href="#shell常用快捷键" class="headerlink" title="shell常用快捷键"></a>shell常用快捷键</h2><table>
 <thead>
 <tr>
 <th>代码</th>
@@ -331,6 +331,10 @@
 <td>删除空目录</td>
 </tr>
 </tbody></table>
+<h2 id="linux找不到命令"><a href="#linux找不到命令" class="headerlink" title="linux找不到命令"></a>linux找不到命令</h2><ul>
+<li>首先确保自己已经成功安装软件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Qs screenfetch 查看是否安装screenfetch</span><br><span class="line">whereis screenfetch 查看screenfetch安装位置，如果没有就是没有安装</span><br></pre></td></tr></table></figure></li>
+<li>映射命令<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s 软件地址 /usr/bin </span><br></pre></td></tr></table></figure></li>
+</ul>
 
     </div>
 
@@ -416,7 +420,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81-Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、 Linux目录结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">网络配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C-ip-%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、配置网络 ip 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BF%AE%E6%94%B9IP%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、修改IP地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.4.</span> <span class="nav-text">shell常用快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">命令</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81-Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、 Linux目录结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">网络配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C-ip-%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、配置网络 ip 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BF%AE%E6%94%B9IP%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、修改IP地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.3.</span> <span class="nav-text">shell常用快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E6%89%BE%E4%B8%8D%E5%88%B0%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">linux找不到命令</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -432,7 +436,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -445,7 +449,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
