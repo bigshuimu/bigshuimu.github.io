@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/04/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95python%E7%89%88/">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/07/09/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95python%E7%89%88/" class="post-title-link" itemprop="url">数据结构与算法python版</a>
+            <a href="/2023/07/09/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">vim 实用技巧</a>
         </h2>
 
         <div class="post-meta">
@@ -179,10 +179,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-04-01 15:49:15 / 修改时间：21:34:09" itemprop="dateCreated datePublished" datetime="2023-04-01T15:49:15+08:00">2023-04-01</time>
+              <time title="创建时间：2023-07-09 19:52:38" itemprop="dateCreated datePublished" datetime="2023-07-09T19:52:38+08:00">2023-07-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-10 14:06:59" itemprop="dateModified" datetime="2023-07-10T14:06:59+08:00">2023-07-10</time>
+              </span>
 
           
 
@@ -195,9 +201,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><h2 id="求和案例"><a href="#求和案例" class="headerlink" title="求和案例"></a>求和案例</h2><h3 id="累加"><a href="#累加" class="headerlink" title="累加"></a>累加</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getSum1</span>(<span class="params">num</span>):</span><br><span class="line">    start = time.time()</span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num+<span class="number">1</span>):</span><br><span class="line">        <span class="built_in">sum</span> += i</span><br><span class="line">    end = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;1+...+<span class="subst">&#123;num&#125;</span> = <span class="subst">&#123;<span class="built_in">sum</span>&#125;</span>, required <span class="subst">&#123;end - start&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getSum2</span>(<span class="params">num</span>):</span><br><span class="line">    start = time.time()</span><br><span class="line">    <span class="built_in">sum</span> = num*(num+<span class="number">1</span>)/<span class="number">2</span></span><br><span class="line">    end = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;1+...+<span class="subst">&#123;num&#125;</span> = <span class="subst">&#123;<span class="built_in">sum</span>&#125;</span>, required <span class="subst">&#123;end - start&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getSum1(<span class="number">1000000</span>)</span><br><span class="line">getSum2(<span class="number">1000000</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1+...+1000000 = 500000500000, required 0.03700852394104004</span></span><br><span class="line"><span class="comment"># 1+...+1000000 = 500000500000.0, required 0.0</span></span><br></pre></td></tr></table></figure>
-<p>可以看出如果使用求和公式的话，速度的提升是很显而易见的</p>
-<h2 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h2>
+          <p><code>x</code> 删除当前光标下的字符</p>
+<p><code>. </code>重复上次修改，可能是normal下的一次删除，也可能是进入insert模式后的所有操作（从<code>i</code>到<code>esc</code>）</p>
+<ul>
+<li><code>.</code>是一个很小的宏(macro)</li>
+</ul>
+<p><code>&gt;G</code>增加从当前行到文档末尾处的缩进层级</p>
+<p><code>;</code>重复上次查找</p>
+<p>&#96;&#96;</p>
+<p>&#96;&#96;</p>
+<p>&#96;&#96;</p>
+<p>&#96;&#96;</p>
+<p>&#96;&#96;</p>
+
       
     </div>
 
@@ -216,7 +232,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/03/09/%E5%BF%97%E8%BF%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/06/27/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
@@ -230,7 +246,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/09/%E5%BF%97%E8%BF%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">志远学习笔记</a>
+            <a href="/2023/06/27/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">数据结构</a>
         </h2>
 
         <div class="post-meta">
@@ -241,16 +257,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-09 15:26:19 / 修改时间：15:27:35" itemprop="dateCreated datePublished" datetime="2023-03-09T15:26:19+08:00">2023-03-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-                </span>
+              <time title="创建时间：2023-06-27 17:52:08 / 修改时间：18:01:25" itemprop="dateCreated datePublished" datetime="2023-06-27T17:52:08+08:00">2023-06-27</time>
             </span>
 
           
@@ -264,7 +271,383 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>接下来是对笔记的详细摘要：</p>
+<ul>
+<li>如果最常用的链表操作是在尾部插入节点和删除节点，带头节点的双循环链表是省时的选择。</li>
+<li>在线性链表中，访问第i个元素的时间与i的大小有关。而不能一概而论成线性表。</li>
+<li>队列可以使用带有尾指针的循环链表表示，以实现高效的入队和出队操作。</li>
+<li>静态链表中指针表示的是下一个元素在数组中的位置。<ul>
+<li>静态链表：</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/06/04/%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
+            <a href="/2023/06/04/%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-06-04 20:55:15" itemprop="dateCreated datePublished" datetime="2023-06-04T20:55:15+08:00">2023-06-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-11 16:45:52" itemprop="dateModified" datetime="2023-06-11T16:45:52+08:00">2023-06-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><h2 id="计算时间和空间复杂度"><a href="#计算时间和空间复杂度" class="headerlink" title="计算时间和空间复杂度"></a>计算时间和空间复杂度</h2><h2 id="算法的验证"><a href="#算法的验证" class="headerlink" title="算法的验证"></a>算法的验证</h2><h3 id="随机数据生成器"><a href="#随机数据生成器" class="headerlink" title="随机数据生成器"></a>随机数据生成器</h3><h3 id="对数器"><a href="#对数器" class="headerlink" title="对数器"></a>对数器</h3><h2 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h2><p>相同为0，不同为1。异或也可理解为不进位的二进制加法。</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li><p><code>0^N=N 	N^N=0</code></p>
+</li>
+<li><p>满足交换律和结合律</p>
+<p><code>a^b=b^a 	(a^b)^c=a^(b^c)</code></p>
+</li>
+</ol>
+<h2 id="master公式的使用"><a href="#master公式的使用" class="headerlink" title="master公式的使用"></a>master公式的使用</h2><p>$$<br>T(N)&#x3D;a*T(N&#x2F;b)+O(N^d)<br>$$</p>
+<ol>
+<li>log(b,a) ＞ d→复杂度为O(N＾log(b,a))</li>
+<li>log(b,a) ＝ d→复杂度为O(N＾d＊logN)</li>
+<li>log(b,a) ＜ d→＞复杂度为O(N＾d)</li>
+</ol>
+<h3 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h3><p>注意a,b在内存中属于不同的地址，即在数组中a，b不能是一个下标，否则会抹掉这个位置的值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> * 数组中唯一数字出现了奇数次，求这个数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">onlyOne</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num :</span><br><span class="line">                array) &#123;</span><br><span class="line">            onlyOne = onlyOne ^ num;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(onlyOne);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> *数组中两个数字出现了奇数次，其他的都出现了偶数次，求出这两个数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">demo02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> n :</span><br><span class="line">                array) &#123;</span><br><span class="line">            a = a ^ n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> a &amp; (~a + <span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">onlyOne</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> cur :</span><br><span class="line">                array) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((cur &amp; b) == <span class="number">0</span>) &#123;</span><br><span class="line">                onlyOne ^= cur;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(onlyOne + <span class="string">&quot; &quot;</span> + (onlyOne ^ a));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><h2 id="常见排序列表"><a href="#常见排序列表" class="headerlink" title="常见排序列表"></a>常见排序列表</h2><table>
+<thead>
+<tr>
+<th>中文名称</th>
+<th>英文名称</th>
+<th>平均时间复杂度</th>
+<th>最坏时间复杂度</th>
+<th>最好时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选择排序</td>
+<td>Selection</td>
+<td>n^2</td>
+<td>n^2</td>
+<td>n^2</td>
+<td>1</td>
+<td>不稳</td>
+</tr>
+<tr>
+<td>冒泡排序</td>
+<td>Bubble</td>
+<td>n^2</td>
+<td>n^2</td>
+<td>n</td>
+<td>1</td>
+<td>稳</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>Insertion</td>
+<td>n^2</td>
+<td>n^2</td>
+<td>n</td>
+<td>1</td>
+<td>稳</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>Heap</td>
+<td>nlogn</td>
+<td>nlogn</td>
+<td>nlogn</td>
+<td>1</td>
+<td>不稳</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>Shell</td>
+<td>n^1.3</td>
+<td>n^2</td>
+<td>n</td>
+<td>1</td>
+<td>不稳</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>Merge</td>
+<td>nlogn</td>
+<td>nlogn</td>
+<td>nlogn</td>
+<td>n</td>
+<td>稳</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>Quick</td>
+<td>nlogn</td>
+<td>n^2</td>
+<td>nlogn</td>
+<td>logn</td>
+<td>不稳</td>
+</tr>
+<tr>
+<td>桶排序</td>
+<td>Bucket</td>
+<td>n+k</td>
+<td>n^2</td>
+<td>n</td>
+<td>n+k</td>
+<td>稳</td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td>Counting</td>
+<td>n+k</td>
+<td>n+k</td>
+<td>n+k</td>
+<td>n+k</td>
+<td>稳</td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>Radix</td>
+<td>n*k</td>
+<td>n*k</td>
+<td>n*k</td>
+<td>n+k</td>
+<td>稳</td>
+</tr>
+</tbody></table>
+<h3 id="口诀《忆排序-面试我最强》"><a href="#口诀《忆排序-面试我最强》" class="headerlink" title="口诀《忆排序 面试我最强》"></a>口诀《忆排序 面试我最强》</h3><p>选泡插，</p>
+<p>快归堆希统计基，</p>
+<p>恩方恩老恩一三，</p>
+<p>对恩加K恩乘K，</p>
+<p>不稳稳稳不稳稳，</p>
+<p>不稳不稳稳稳稳。</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>在插入排序中，我们将数组分为已排序部分和未排序部分。初始时，第一个元素被视为已排序部分。然后，我们逐个遍历未排序部分的元素，并将其插入到已排序部分的适当位置。插入排序的时间复杂度为**O(n^2)**。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> *  插入排序</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Create</span> 2023-06-07-15:11</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Code01_InsertionSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">insertionSort</span><span class="params">(<span class="type">int</span>[] array)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (array == <span class="literal">null</span> || array.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; array[j] &gt; array[j + <span class="number">1</span>]; j--) &#123;</span><br><span class="line">                swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] array, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] array = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            array[i] = (<span class="type">int</span>) (Math.random() * <span class="number">101</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Arrays.toString(array));</span><br><span class="line">        insertionSort(array);</span><br><span class="line">        System.out.println(<span class="string">&quot;sorted&quot;</span> + Arrays.toString(array));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序是一种简单直观的排序算法，其思想是通过多次遍历数组，比较相邻元素并交换它们的位置，将较大（或较小）的元素逐步“冒泡”到数组的末尾。这个过程像气泡在水中冒泡一样，因此得名冒泡排序。</p>
+<p>下面是冒泡排序的基本思路：</p>
+<ol>
+<li>遍历数组，从第一个元素开始比较相邻的两个元素。</li>
+<li>如果当前元素大于（或小于）其相邻元素，交换它们的位置，将较大（或较小）的元素“冒泡”到右侧。</li>
+<li>继续遍历数组，重复执行步骤2，直到最后一个元素。此时，数组中最大（或最小）的元素已经冒泡到了最右侧。</li>
+<li>重复执行步骤1到步骤3，但这次遍历到倒数第二个元素，将第二大（或第二小）的元素冒泡到倒数第二的位置。</li>
+<li>重复执行步骤1到步骤3，每次遍历的范围减少一个元素，直到整个数组排序完成。</li>
+</ol>
+<p>冒泡排序的关键点在于每次遍历都会将当前遍历范围内的最大（或最小）元素放在合适的位置。通过多次遍历，每次遍历的范围缩小一个元素，最终使整个数组有序。</p>
+<p>需要注意的是，冒泡排序算法在最坏情况下的时间复杂度为**O(n^2)**，其中n是数组的长度。这是因为每次遍历都需要比较和交换相邻元素，且需要执行n-1次遍历。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> * 冒泡排序</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Create</span> 2023-06-07-15:29</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Code02_BubbleSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">bubbleSort</span><span class="params">(<span class="type">int</span>[] array)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> array.length; i &gt; <span class="number">1</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    swap(array, j, j + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] array, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> array[i];</span><br><span class="line">        array[i] = array[j];</span><br><span class="line">        array[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] array = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            array[i] = (<span class="type">int</span>) (Math.random() * <span class="number">101</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Arrays.toString(array));</span><br><span class="line">        bubbleSort(array);</span><br><span class="line">        System.out.println(<span class="string">&quot;BubbleSort:&quot;</span> + Arrays.toString(array));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><ol>
+<li>确定分界点【随机】</li>
+<li>调整区间</li>
+<li>递归处理左右两段</li>
+</ol>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/05/21/js%E9%80%86%E5%90%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/21/js%E9%80%86%E5%90%91/" class="post-title-link" itemprop="url">js逆向</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-21 21:23:18" itemprop="dateCreated datePublished" datetime="2023-05-21T21:23:18+08:00">2023-05-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-23 21:31:18" itemprop="dateModified" datetime="2023-06-23T21:31:18+08:00">2023-06-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/04/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/04/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80%E7%89%88/" class="post-title-link" itemprop="url">数据结构与算法C语言版</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-02 10:48:01" itemprop="dateCreated datePublished" datetime="2023-04-02T10:48:01+08:00">2023-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-04 20:10:13" itemprop="dateModified" datetime="2023-04-04T20:10:13+08:00">2023-04-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h1><p>线性结构的特点：</p>
+<ul>
+<li>存在唯一一个被称作“第一个”的数据元素</li>
+<li>存在唯一一个被称作“最后一个”的数据元素</li>
+<li>除第一个之外，集合中的每个元素均有且只有一个前驱</li>
+<li>除最后一个之外，集合中的每个元素均有且只有一个后驱</li>
+</ul>
+<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="连续存储-数组"><a href="#连续存储-数组" class="headerlink" title="[连续存储]数组"></a>[连续存储]数组</h3><ul>
+<li>什么叫数组：元素类型相同，大小相等</li>
+<li>数组的优缺点<ul>
+<li>优点：存取速度很快</li>
+<li>缺点：插入删除元素很慢<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 用一个结构体存储数组，pBase是一个数组用于存储数组本体，len是数组的最大长度。</span></span><br><span class="line"><span class="comment">// cnt是数组长度，也就是数组里面的元素的个数</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Arr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> *pBase;</span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span> cnt;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速排序，用于排序函数调用</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">QuickSort</span><span class="params">(<span class="type">int</span> *arr, <span class="type">int</span> low, <span class="type">int</span> high)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> i = low;</span><br><span class="line">        <span class="type">int</span> j = high;</span><br><span class="line">        <span class="type">int</span> k = arr[low];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[j] &gt;= k)</span><br><span class="line">            &#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                arr[i++] = arr[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[i] &lt; k)</span><br><span class="line">            &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                arr[j--] = arr[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[i] = k;</span><br><span class="line">        QuickSort(arr, low, i - <span class="number">1</span>);</span><br><span class="line">        QuickSort(arr, i + <span class="number">1</span>, high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 生成数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">init_arr</span><span class="params">(Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 升序排序数组，使用快速排序</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">sort_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">show_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 翻转数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">inverse_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 追加元素</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">append_arr</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 插入元素</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insert_arr</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 清空数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">delete_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 判断数组是否为空</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_empty</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 判断数组是否为满</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_full</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 根据位置从数组中取值</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Arr</span> <span class="title">arr</span>;</span></span><br><span class="line">    init_arr(&amp;arr, <span class="number">12</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">2</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">3</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">4</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">5</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">1</span>);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    sort_arr(&amp;arr);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    inverse_arr(&amp;arr);</span><br><span class="line">    insert_arr(&amp;arr, <span class="number">2</span>, <span class="number">99</span>);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;the number is %d&quot;</span>, get(&amp;arr, <span class="number">2</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">init_arr</span><span class="params">(<span class="keyword">struct</span> Arr *arr, <span class="type">int</span> length)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//为数组分配空间，int的大小乘以数组的长度, </span></span><br><span class="line"><span class="comment">//同时返回所分配空间的地址---》(int *)</span></span><br><span class="line">    arr-&gt;pBase = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * length);</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> == arr-&gt;pBase)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;内存分配失败&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">	<span class="comment">//分配成功就修改结构体的len和cnt值</span></span><br><span class="line">        arr-&gt;len = length;</span><br><span class="line">        arr-&gt;cnt = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据结构体的cnt判断数组是否为空，为满</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_empty</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> == pArr-&gt;cnt ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_full</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> pArr-&gt;len == pArr-&gt;cnt ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用快速排序，</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">sort_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    QuickSort(pArr-&gt;pBase, <span class="number">0</span>, pArr-&gt;cnt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历结构体里面的pBase即可，pBase的长度是cnt</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">show_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">if</span> (is_empty(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组为空&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; pArr-&gt;cnt; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, pArr-&gt;pBase[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以中间为分界线，数组左右交换</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">inverse_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pArr-&gt;cnt / <span class="number">2</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num = pArr-&gt;pBase[i];</span><br><span class="line">        pArr-&gt;pBase[i] = pArr-&gt;pBase[pArr-&gt;cnt - i - <span class="number">1</span>];</span><br><span class="line">        pArr-&gt;pBase[pArr-&gt;cnt - i - <span class="number">1</span>] = num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组为满就不添加元素，否则就往pBase里面添加元素,注意cnt也要随之增加</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">append_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> val)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_full(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组已满，不能再追加！\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        pArr-&gt;pBase[pArr-&gt;cnt] = val;</span><br><span class="line">        pArr-&gt;cnt++;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//类似append_arr(), 从place开始往后的元素往后移动一个位置，然后给num赋值到place</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insert_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> place, <span class="type">int</span> num)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_full(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组已满\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = pArr-&gt;cnt; i &gt; place; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            pArr-&gt;pBase[i] = pArr-&gt;pBase[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        pArr-&gt;pBase[place] = num;</span><br><span class="line">        pArr-&gt;cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组长度为空</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">delete_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    pArr-&gt;cnt = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> num)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> pArr-&gt;pBase[num - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="离散结构-链表"><a href="#离散结构-链表" class="headerlink" title="[离散结构]链表"></a>[离散结构]链表</h3><h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><h2 id="串"><a href="#串" class="headerlink" title="串"></a>串</h2><h1 id="数组和广义表"><a href="#数组和广义表" class="headerlink" title="数组和广义表"></a>数组和广义表</h1><h1 id="树和二叉树"><a href="#树和二叉树" class="headerlink" title="树和二叉树"></a>树和二叉树</h1><h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h1 id="动态存储管理"><a href="#动态存储管理" class="headerlink" title="动态存储管理"></a>动态存储管理</h1><h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h1 id="内部排序"><a href="#内部排序" class="headerlink" title="内部排序"></a>内部排序</h1><h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1>
       
     </div>
 
@@ -519,85 +902,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/02/15/jupyter%E7%AE%80%E5%8D%95%E4%B8%8A%E6%89%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="水木君">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水木君的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/02/15/jupyter%E7%AE%80%E5%8D%95%E4%B8%8A%E6%89%8B/" class="post-title-link" itemprop="url">jupyter简单上手</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-02-15 13:29:35 / 修改时间：21:20:49" itemprop="dateCreated datePublished" datetime="2023-02-15T13:29:35+08:00">2023-02-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="简单上手"><a href="#简单上手" class="headerlink" title="简单上手"></a>简单上手</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>点击<code>new-&gt;python 3</code>新建一个notebook</p>
-<p><img src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/image-20230215133351187.png" alt="image-20230215133351187"></p>
-<h1 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h1><h2 id="参数提示"><a href="#参数提示" class="headerlink" title="参数提示"></a>参数提示</h2><p>当使用一个函数，忘记里面的参数怎么写，可以光标移动到括号内，按住<code>shift</code>+双击<code>tab</code></p>
-<p><img src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/image-20230215134827917.png" alt="image-20230215134827917"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/02/12/Python%E7%88%AC%E8%99%AB%E5%B4%94%E5%BA%86%E6%89%8D%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -789,7 +1093,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-15 21:09:18" itemprop="dateModified" datetime="2023-02-15T21:09:18+08:00">2023-02-15</time>
+                <time title="修改时间：2023-04-13 00:55:27" itemprop="dateModified" datetime="2023-04-13T00:55:27+08:00">2023-04-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1041,7 +1345,7 @@
 <li>settings(配置文件-robots协议-ua定义等)</li>
 </ul>
 <h3 id="response的属性和方法"><a href="#response的属性和方法" class="headerlink" title="response的属性和方法"></a>response的属性和方法</h3><ul>
-<li>response.text 获取的是响应ed字符串</li>
+<li>response.text 获取的是响应的字符串</li>
 <li>response.body 获取的是二进制数据</li>
 <li>response.xpath 可以直接通过xpath方法来解析response中的内容</li>
 <li>response.extract() 提取seletor对象的data属性值</li>
@@ -1061,7 +1365,28 @@
 <li>spiders将数据或者url给到引擎</li>
 <li>引擎判断该数据是url还是数据，交给管道(item pipeline)处理，是url交给调度器处理</li>
 </ol>
-<h2 id="CrawlSpider"><a href="#CrawlSpider" class="headerlink" title="CrawlSpider"></a>CrawlSpider</h2><ol>
+<h3 id="Feed-Exports"><a href="#Feed-Exports" class="headerlink" title="Feed Exports"></a>Feed Exports</h3><p>scrapy 提供的Feed Exports可以将抓取的所有内容以json，jsonlines，csv, xml, pickle, marshal等格式输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl quotes -o quotes.json</span><br><span class="line">scrapy crawl quotes -o quotes.js</span><br><span class="line">scrapy crawl quotes -o quotes.jsonlines</span><br><span class="line">scrapy crawl quotes -o quotes.csv</span><br><span class="line">scrapy crawl quotes -o quotes.xml</span><br><span class="line">scrapy crawl quotes -o quotes.pickle</span><br><span class="line">scrapy crawl quotes -o quotes.marshal</span><br><span class="line">scrapy crawl quotes -o ftp://user:pass@ftp.example.com/path/to/quotes.csv</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="scrapy案例：quotes"><a href="#scrapy案例：quotes" class="headerlink" title="scrapy案例：quotes"></a>scrapy案例：quotes</h3><p>quotes是scrapy的官方示例案例。<br><a href="https://quotes.toscrape.com/" target="_blank">网址</a><br><img src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230412210506.png"></p>
+<p>每个单位有三个数据：text，author，tags</p>
+<h4 id="1、新建项目"><a href="#1、新建项目" class="headerlink" title="1、新建项目"></a>1、新建项目</h4><p><code>scrapy startproject scrapytutorial</code> 新建项目</p>
+<p><code>scrapy genspider quotes quotes.toscrape.com</code> 创建爬虫文件</p>
+<p>注释<code>ROBOTSTEXT</code>,不遵守robots协议</p>
+<h4 id="2、quotes-py"><a href="#2、quotes-py" class="headerlink" title="2、quotes.py"></a>2、quotes.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapytutorial.items <span class="keyword">import</span> ScrapytutorialItem</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QuotesSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&quot;quotes&quot;</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;quotes.toscrape.com&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;https://quotes.toscrape.com&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">parse</span>(<span class="params">self, response</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;=&quot;</span> * <span class="number">100</span>)</span><br><span class="line">        quotes = response.xpath(<span class="string">&quot;//div[@class=&#x27;quote&#x27;]&quot;</span>)</span><br><span class="line">        <span class="keyword">for</span> quote <span class="keyword">in</span> quotes:</span><br><span class="line">	<span class="comment"># 取出text并将text的双引号去掉</span></span><br><span class="line">            text = quote.xpath(<span class="string">&#x27;span[@class=&quot;text&quot;]/text()&#x27;</span>).extract_first().replace(<span class="string">&#x27;&quot;&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">            author = quote.xpath(<span class="string">&#x27;span/small[@class=&quot;author&quot;]/text()&#x27;</span>).extract_first()</span><br><span class="line">            tags = quote.xpath(<span class="string">&#x27;div[@class=&quot;tags&quot;]/a/text()&#x27;</span>).extract()</span><br><span class="line">	<span class="comment"># 把item传给engine,然后engine把它传给item pipelines</span></span><br><span class="line">            item = ScrapytutorialItem(text=text, author=author, tags=tags)</span><br><span class="line">            <span class="keyword">yield</span> item</span><br><span class="line">        <span class="built_in">next</span> = response.xpath(<span class="string">&#x27;//li[@class=&quot;next&quot;]/a/@href&#x27;</span>).extract_first()</span><br><span class="line">        url = response.urljoin(<span class="built_in">next</span>)</span><br><span class="line">        <span class="keyword">yield</span> scrapy.Request(url=url, callback=self.parse)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、items-py"><a href="#3、items-py" class="headerlink" title="3、items.py"></a>3、items.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define here the models for your scraped items</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># See documentation in:</span></span><br><span class="line"><span class="comment"># https://docs.scrapy.org/en/latest/topics/items.html</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ScrapytutorialItem</span>(scrapy.Item):</span><br><span class="line">    <span class="comment"># define the fields for your item here like:</span></span><br><span class="line">    <span class="comment"># name = scrapy.Field()</span></span><br><span class="line">    text = scrapy.Field()</span><br><span class="line">    author = scrapy.Field()</span><br><span class="line">    tags = scrapy.Field()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4、保存数据"><a href="#4、保存数据" class="headerlink" title="4、保存数据"></a>4、保存数据</h4><p><strong>保存数据到一个json文件中</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl quotes -o quotes.json</span><br></pre></td></tr></table></figure>
+<p><strong>每一个item输出到一行json文件</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl quotes -o quotes.jsonlines</span><br><span class="line"># 下面是上面的简写</span><br><span class="line">scrapy crawl quotes -o quotes.jl</span><br></pre></td></tr></table></figure>
+
+<p>上面都是保存到一个文件内，第一种是一个[]在外面，里面的每个数据用{}包住，{}之间有’,’分割。下面的方法没有[]和’,’。</p>
+<h4 id="5、保存到mongodb"><a href="#5、保存到mongodb" class="headerlink" title="5、保存到mongodb"></a>5、保存到mongodb</h4><h5 id="settings-py"><a href="#settings-py" class="headerlink" title="settings.py"></a>settings.py</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 声明管道和管道的优先级</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">    <span class="string">&#x27;scrapytutorial.pipelines.TextPipeline&#x27;</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="string">&#x27;scrapytutorial.pipelines.MongoDBPipeline&#x27;</span>: <span class="number">400</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># mongo数据库</span></span><br><span class="line">MONGODB_CONNECTION_STRING = <span class="string">&#x27;localhost&#x27;</span></span><br><span class="line"><span class="comment"># 数据库名</span></span><br><span class="line">MONGODB_DATABASE = <span class="string">&#x27;scrapytutorial&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5><h2 id="CrawlSpider"><a href="#CrawlSpider" class="headerlink" title="CrawlSpider"></a>CrawlSpider</h2><ol>
 <li><p>继承自scrapy.Spider</p>
 </li>
 <li><p>独门秘笈<br>CrawlSpider可以定义规则，再解析html内容的时候，可以根据链接规则提取出指定的链接，然后再向这些链接发送请求<br>所以，如果有需要跟进链接的需求，意思就是爬取了网页之后，需要提取链接再次爬取，使用crawlSpider是非常合适的</p>
@@ -1097,278 +1422,6 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.utils.project <span class="keyword">import</span> get_project_settings <span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MysqlPipeline</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">＃＿init＿方法和<span class="built_in">open</span>＿spider的作用是一样的 </span><br></pre></td></tr></table></figure></li>
 </ol>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/01/12/Linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="水木君">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水木君的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/12/Linux/" class="post-title-link" itemprop="url">Linux与shell</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-01-12 09:40:29" itemprop="dateCreated datePublished" datetime="2023-01-12T09:40:29+08:00">2023-01-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-12 16:20:03" itemprop="dateModified" datetime="2023-03-12T16:20:03+08:00">2023-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><p>Linux一切皆文件</p>
-<h3 id="1、-Linux目录结构"><a href="#1、-Linux目录结构" class="headerlink" title="1、 Linux目录结构"></a>1、 Linux目录结构</h3><p><code>/</code> 根目录</p>
-<ul>
-<li><code>/root</code> 该目录为系统管理员，也称作超级权限者的用户主目录<ul>
-<li><code>/root/Desktop</code></li>
-<li><code>/root/Maildir</code></li>
-<li>…</li>
-</ul>
-</li>
-<li><code>/bin</code> Binary，这个目录存放着最经常使用的命令</li>
-<li><code>/sbin</code> s是system的意思，这里存放的是系统管理员使用的系统管理程序</li>
-<li><code>/boot</code> 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件</li>
-<li><code>/dev</code> 类似于Windows的设备管理器，把所有的硬件用文件的形式存储</li>
-<li><code>/etc</code> 所有系统管理所需要的配置文件和子目录</li>
-<li><code>/home</code> 存放普通用户的主目录，在Linux中每个用户都有一个自己的目录，一般该目录名是以用户的账户命名的</li>
-<li><code>/var</code> 存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下，包括各种日志文件</li>
-<li><code>/lib</code> 共享库，包括系统和应用程序，例如系统开机所需要的最基本的动态链接共享库</li>
-<li><code>/usr</code> 存放用户的很多应用程序和文件，类似于windows下的program files目录<ul>
-<li><code>/usr/bin</code></li>
-<li><code>/usr/lib</code></li>
-<li>…</li>
-</ul>
-</li>
-<li><code>/opt</code> 主机额外安装软件所摆放的目录。</li>
-<li><code>tmp</code> 存放临时文件</li>
-<li>…</li>
-</ul>
-<p>注：Linux路径使用的是斜杠<code>/</code>，而Windows使用的是反斜杠<code>\</code></p>
-<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><h3 id="1、配置网络-ip-地址"><a href="#1、配置网络-ip-地址" class="headerlink" title="1、配置网络 ip 地址"></a>1、配置网络 ip 地址</h3><p><code>ifconfig</code> network interfaces configuring 配置网络接口 </p>
-<h3 id="2、修改IP地址"><a href="#2、修改IP地址" class="headerlink" title="2、修改IP地址"></a>2、修改IP地址</h3><ul>
-<li><p>查看ip配置文件</p>
-<p><code>vim /etc/sysconfig/network-scripts/ifcfg-ens33</code></p>
-</li>
-</ul>
-<h2 id="shell常用快捷键"><a href="#shell常用快捷键" class="headerlink" title="shell常用快捷键"></a>shell常用快捷键</h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>CTRL + C</td>
-<td>中断；终止当前行编辑，另起新行</td>
-</tr>
-<tr>
-<td>CTRL + L</td>
-<td>清屏</td>
-</tr>
-<tr>
-<td>CTRL + A</td>
-<td>光标移至行首</td>
-</tr>
-<tr>
-<td>CTRL + E</td>
-<td>光标移至行尾</td>
-</tr>
-<tr>
-<td>CTRL + U</td>
-<td>向前删除至行首</td>
-</tr>
-<tr>
-<td>CTRL + K</td>
-<td>向后删除至行尾</td>
-</tr>
-<tr>
-<td>CTRL + B</td>
-<td>光标向行首移动一个字符</td>
-</tr>
-<tr>
-<td>CTRL + F</td>
-<td>光标向行尾移动一个字符</td>
-</tr>
-<tr>
-<td>CTRL + H</td>
-<td>向行首删除一个字符</td>
-</tr>
-<tr>
-<td>ESC + B</td>
-<td>光标左（前）移一个单词</td>
-</tr>
-<tr>
-<td>ESC + F</td>
-<td>光标右（后）移一个单词</td>
-</tr>
-</tbody></table>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>cd</td>
-<td>打开文件夹</td>
-</tr>
-<tr>
-<td>cat</td>
-<td>查看文件内容</td>
-</tr>
-<tr>
-<td>neofetch</td>
-<td>显示系统信息</td>
-</tr>
-<tr>
-<td>mkdir</td>
-<td>创建目录</td>
-</tr>
-<tr>
-<td>rmdir</td>
-<td>删除空目录</td>
-</tr>
-</tbody></table>
-<h2 id="linux找不到命令"><a href="#linux找不到命令" class="headerlink" title="linux找不到命令"></a>linux找不到命令</h2><ul>
-<li>首先确保自己已经成功安装软件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Qs screenfetch 查看是否安装screenfetch</span><br><span class="line">whereis screenfetch 查看screenfetch安装位置，如果没有就是没有安装</span><br></pre></td></tr></table></figure></li>
-<li>映射命令<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s 软件地址 /usr/bin </span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/01/09/vim%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="水木君">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水木君的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/09/vim%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">vim学习笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-01-09 10:57:33" itemprop="dateCreated datePublished" datetime="2023-01-09T10:57:33+08:00">2023-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-12 10:39:44" itemprop="dateModified" datetime="2023-03-12T10:39:44+08:00">2023-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>学习vim</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/01/09/vim%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1454,7 +1507,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1467,7 +1520,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
