@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/09/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">vim 实用技巧</a>
+            <a href="/2023/07/09/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-10 14:06:59" itemprop="dateModified" datetime="2023-07-10T14:06:59+08:00">2023-07-10</time>
+                <time title="修改时间：2023-07-12 10:03:33" itemprop="dateModified" datetime="2023-07-12T10:03:33+08:00">2023-07-12</time>
               </span>
 
           
@@ -201,18 +201,322 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><code>x</code> 删除当前光标下的字符</p>
+          <h2 id="title-vim-实用技巧date-2023-07-09-19-52-38tags-vim"><a href="#title-vim-实用技巧date-2023-07-09-19-52-38tags-vim" class="headerlink" title="title: vim 实用技巧date: 2023-07-09 19:52:38tags:  - vim"></a>title: vim 实用技巧<br>date: 2023-07-09 19:52:38<br>tags:<br>  - vim</h2><p><code>x</code> 删除当前光标下的字符</p>
 <p><code>. </code>重复上次修改，可能是normal下的一次删除，也可能是进入insert模式后的所有操作（从<code>i</code>到<code>esc</code>）</p>
 <ul>
 <li><code>.</code>是一个很小的宏(macro)</li>
 </ul>
 <p><code>&gt;G</code>增加从当前行到文档末尾处的缩进层级</p>
-<p><code>;</code>重复上次查找</p>
-<p>&#96;&#96;</p>
-<p>&#96;&#96;</p>
-<p>&#96;&#96;</p>
-<p>&#96;&#96;</p>
-<p>&#96;&#96;</p>
+<p><code>;</code>带我们到下一个目标字符上（即上次f的内容）</p>
+<p><code>,</code>带我们到上一个目标字符上（即上次f的内容）</p>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>操作</th>
+<th>重复</th>
+<th>回退</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>做出一个修改</td>
+<td>{edit}</td>
+<td>.</td>
+<td>u</td>
+</tr>
+<tr>
+<td>在行内查找下一指定字符</td>
+<td>f{char} &#x2F;t{char}</td>
+<td>;</td>
+<td>,</td>
+</tr>
+<tr>
+<td>在行内查找上一指定字符</td>
+<td>F{char} &#x2F;T{char}</td>
+<td>;</td>
+<td>,</td>
+</tr>
+<tr>
+<td>在文档中查找下一处匹配项</td>
+<td>&#x2F;pattern</td>
+<td>n</td>
+<td>N</td>
+</tr>
+<tr>
+<td>在文档中查找上一处匹配项</td>
+<td>?pattern</td>
+<td>n</td>
+<td>N</td>
+</tr>
+<tr>
+<td>执行替换</td>
+<td>: s&#x2F;target&#x2F;replacement</td>
+<td>&amp;</td>
+<td>u</td>
+</tr>
+<tr>
+<td>执行一系列修改</td>
+<td>qx{changes}q</td>
+<td>@x</td>
+<td>u</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h2><h3 id="反向删除"><a href="#反向删除" class="headerlink" title="反向删除"></a>反向删除</h3><table>
+<thead>
+<tr>
+<th>操作按键</th>
+<th>缓冲区内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{start}</td>
+<td>The end is nig<strong>h</strong></td>
+</tr>
+<tr>
+<td>db</td>
+<td>The end is <strong>h</strong></td>
+</tr>
+<tr>
+<td>x&#x2F;cl</td>
+<td>The end is</td>
+</tr>
+</tbody></table>
+<h3 id="正向删除"><a href="#正向删除" class="headerlink" title="正向删除"></a>正向删除</h3><table>
+<thead>
+<tr>
+<th>操作按键</th>
+<th>缓冲区内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{start}</td>
+<td>The end is nig<strong>h</strong></td>
+</tr>
+<tr>
+<td>b</td>
+<td>The end is <strong>n</strong> igh</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>The end is</td>
+</tr>
+</tbody></table>
+<h3 id="删除整个单词"><a href="#删除整个单词" class="headerlink" title="删除整个单词"></a>删除整个单词</h3><p>使用更为精准的aw文本对象（text object),而不是动作命令.</p>
+<p>在删除一个单词的时候这个方法更为适用，因为可以通过<code>.</code>进行重复操作。</p>
+<table>
+<thead>
+<tr>
+<th>操作按键</th>
+<th>缓冲区内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{start}</td>
+<td>The end is nig<strong>h</strong></td>
+</tr>
+<tr>
+<td>daw</td>
+<td>The end i<strong>s</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="算数运算"><a href="#算数运算" class="headerlink" title="算数运算"></a>算数运算</h3><p><code>&lt;C-a&gt;</code> 数字加</p>
+<p><code>&lt;C-x&gt;</code> 数字减</p>
+<hr>
+<h3 id="Vim的操作符命令"><a href="#Vim的操作符命令" class="headerlink" title="Vim的操作符命令"></a>Vim的操作符命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>c</td>
+<td>修改</td>
+</tr>
+<tr>
+<td>d</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>y</td>
+<td>复制到寄存器</td>
+</tr>
+<tr>
+<td>g~</td>
+<td>反转大小写</td>
+</tr>
+<tr>
+<td>gu</td>
+<td>转换为小写</td>
+</tr>
+<tr>
+<td>gU</td>
+<td>转换为大写</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>增加缩进</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>减少缩进</td>
+</tr>
+<tr>
+<td>&#x3D;</td>
+<td>自动缩进</td>
+</tr>
+<tr>
+<td>!</td>
+<td>使用外部程序过滤{motion}所跨越的行</td>
+</tr>
+</tbody></table>
+<p><code>gUit</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">a</span>&gt;demo&lt;/<span class="selector-tag">a</span>&gt;</span><br><span class="line"><span class="attribute">normal</span>:gUit</span><br><span class="line">&lt;a&gt;DEMO&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h2><h3 id="在插入模式中更正错误"><a href="#在插入模式中更正错误" class="headerlink" title="在插入模式中更正错误"></a>在插入模式中更正错误</h3><table>
+<thead>
+<tr>
+<th>按键操作</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;C-h&gt;</code></td>
+<td>删除前一个字符（同退格键）</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code></td>
+<td>删除前一个单词</td>
+</tr>
+<tr>
+<td><code>&lt;C-u&gt;</code></td>
+<td>删除直行首</td>
+</tr>
+</tbody></table>
+<h3 id="在插入模式中粘贴"><a href="#在插入模式中粘贴" class="headerlink" title="在插入模式中粘贴"></a>在插入模式中粘贴</h3><p><code>&lt;C-r&gt;&#123;register&#125;</code></p>
+<ul>
+<li><code>&lt;C-r&gt;0</code></li>
+</ul>
+<p><code>&lt;C-r&gt;&lt;C-p&gt;&#123;register&#125;</code></p>
+<h3 id="计算器"><a href="#计算器" class="headerlink" title="计算器"></a>计算器</h3><p><code>&lt;C-r&gt;=</code> 在下方的输入栏中输入算式，计算的结果会插入文档当前的位置</p>
+<h2 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h2><h3 id="激活可视模式"><a href="#激活可视模式" class="headerlink" title="激活可视模式"></a>激活可视模式</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>v</td>
+<td>激活面向字符的可视模式</td>
+</tr>
+<tr>
+<td>V</td>
+<td>激活面向行的可视模式</td>
+</tr>
+<tr>
+<td><code>&lt;C-v&gt;</code></td>
+<td>激活面向列块的可视模式</td>
+</tr>
+<tr>
+<td>gv</td>
+<td>重选上次的高亮区域</td>
+</tr>
+</tbody></table>
+<h2 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h2><h3 id="操作缓冲区文本的Ex命令"><a href="#操作缓冲区文本的Ex命令" class="headerlink" title="操作缓冲区文本的Ex命令"></a>操作缓冲区文本的Ex命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:[range]delete[x]</code></td>
+<td><code>删除指定范围内的行[到寄存器X中]</code></td>
+</tr>
+<tr>
+<td><code>:[range]yank[x]</code></td>
+<td><code>复制指定范围的行[到寄存器X中]</code></td>
+</tr>
+<tr>
+<td><code>:[range]put[x]</code></td>
+<td><code>在指定行后粘贴寄存器x中的内容</code></td>
+</tr>
+<tr>
+<td><code>:[range]copy&#123;address&#125;</code></td>
+<td><code>把指定范围内的行拷贝到&#123;address&#125;指定的行之下</code></td>
+</tr>
+<tr>
+<td><code>:[range]move&#123;address&#125;</code></td>
+<td><code>把指定范围内的行移动到&#123;address&#125;指定的行之下</code></td>
+</tr>
+<tr>
+<td><code>:[range]join</code></td>
+<td><code>连接指定范围的行</code></td>
+</tr>
+<tr>
+<td><code>:[range]normal&#123;commands&#125;</code></td>
+<td><code>对指定范围的每一行执行普通模式命令&#123;commands&#125;</code></td>
+</tr>
+<tr>
+<td><code>:[range]substitute/&#123;pattern&#125;/&#123;string&#125;/[flags]</code></td>
+<td><code>把指定范围内出现&#123;pattern&#125;的地方替换为&#123;string&#125;</code></td>
+</tr>
+<tr>
+<td><code>:[range]global/&#123;pattern&#125;/[cmd]</code></td>
+<td><code>对指定范围内匹配&#123;pattern&#125;的所有行执行Ex命令&#123;cmd&#125;</code></td>
+</tr>
+</tbody></table>
+<h3 id="构建Ex命令的地址及范围的符号"><a href="#构建Ex命令的地址及范围的符号" class="headerlink" title="构建Ex命令的地址及范围的符号"></a>构建Ex命令的地址及范围的符号</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>文件的第一行</td>
+</tr>
+<tr>
+<td>$</td>
+<td>文件的最后一行</td>
+</tr>
+<tr>
+<td>0</td>
+<td>虚拟行，位于文件第一行上方</td>
+</tr>
+<tr>
+<td>.</td>
+<td>光标所在行</td>
+</tr>
+<tr>
+<td>‘m</td>
+<td>包含位置标记m的行</td>
+</tr>
+<tr>
+<td>‘&lt;</td>
+<td>高亮选区的起始行</td>
+</tr>
+<tr>
+<td>‘&gt;</td>
+<td>高亮选区的结束行</td>
+</tr>
+<tr>
+<td>%</td>
+<td>整个文件(:1,$的简写形式）</td>
+</tr>
+</tbody></table>
+<h3 id="给每行的末尾都添上一个"><a href="#给每行的末尾都添上一个" class="headerlink" title="给每行的末尾都添上一个;"></a>给每行的末尾都添上一个<code>;</code></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">way-1</span><br><span class="line">A;&lt;Esc&gt;</span><br><span class="line">jVG</span><br><span class="line">:&#x27;&lt;,&#x27;&gt;normal.</span><br><span class="line">-----------------------------</span><br><span class="line">way-2</span><br><span class="line">:%normal A;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注释整个文件"><a href="#注释整个文件" class="headerlink" title="注释整个文件"></a>注释整个文件</h3><p><code>:%normal i//</code> 在每一行的开头加上<code>//</code></p>
+<h3 id="重复上次的Ex命令"><a href="#重复上次的Ex命令" class="headerlink" title="重复上次的Ex命令"></a>重复上次的Ex命令</h3><p><code>.</code> 用来重复上次的普通模式命令</p>
+<p><code>@:</code> 用来重复上次的Ex命令</p>
+<p><code>@@</code> 在运行过一次<code>@:</code>之后就可以<code>@@</code>来重复它</p>
+<h3 id="自动补全Ex命令"><a href="#自动补全Ex命令" class="headerlink" title="自动补全Ex命令"></a>自动补全Ex命令</h3><p><code>&lt;C-d&gt;</code> 让vim显示可用的补全列表</p>
+<h3 id="回溯历史命令"><a href="#回溯历史命令" class="headerlink" title="回溯历史命令"></a>回溯历史命令</h3><p><code>:&lt;Up&gt;</code></p>
+<p><code>:&lt;Down&gt;</code></p>
 
       
     </div>
