@@ -20,18 +20,23 @@
     var CONFIG = {"hostname":"bigshuimu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="计算机的发展第一台电子数字 计算机：ENIAC（1946） 计算机系统 &#x3D; 硬件 + 软件 软件 系统软件：用来管理整个计算机系统 eg:操作系统，数据库管理系统(DBMS)，标准程序库，网络软件，语言处理程序，服务程序。   应用软件： 按任务需要编制成的各种程序 eg：抖音，王者    硬件的发展   发展阶段 时间 逻辑元件 速度（秒&#x2F;次） 内存 外存    第一代 19">
+  <meta name="description" content="计算机系统概述计算机的发展第一台电子数字 计算机：ENIAC（1946） 计算机系统 &#x3D; 硬件 + 软件 在计算机系统中，软件和硬件在逻辑上是等效的。 eg：对于乘法运算，可以设计一个专门的硬件电路实现乘法运算；也可以用软件的方式，执行多次加法运算来实现。 软件 系统软件：用来管理整个计算机系统 eg:操作系统，数据库管理系统(DBMS)，标准程序库，网络软件，语言处理程序，服务程序。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理">
 <meta property="og:url" content="https://bigshuimu.github.io/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="水木君的个人博客">
-<meta property="og:description" content="计算机的发展第一台电子数字 计算机：ENIAC（1946） 计算机系统 &#x3D; 硬件 + 软件 软件 系统软件：用来管理整个计算机系统 eg:操作系统，数据库管理系统(DBMS)，标准程序库，网络软件，语言处理程序，服务程序。   应用软件： 按任务需要编制成的各种程序 eg：抖音，王者    硬件的发展   发展阶段 时间 逻辑元件 速度（秒&#x2F;次） 内存 外存    第一代 19">
+<meta property="og:description" content="计算机系统概述计算机的发展第一台电子数字 计算机：ENIAC（1946） 计算机系统 &#x3D; 硬件 + 软件 在计算机系统中，软件和硬件在逻辑上是等效的。 eg：对于乘法运算，可以设计一个专门的硬件电路实现乘法运算；也可以用软件的方式，执行多次加法运算来实现。 软件 系统软件：用来管理整个计算机系统 eg:操作系统，数据库管理系统(DBMS)，标准程序库，网络软件，语言处理程序，服务程序。">
 <meta property="og:locale">
+<meta property="og:image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717142751.png">
+<meta property="og:image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717144915.png">
+<meta property="og:image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717150421.png">
+<meta property="og:image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717150823.png">
 <meta property="article:published_time" content="2023-07-16T14:31:15.000Z">
-<meta property="article:modified_time" content="2023-07-16T14:52:53.087Z">
+<meta property="article:modified_time" content="2023-07-17T07:13:31.927Z">
 <meta property="article:author" content="水木君">
 <meta property="article:tag" content="408">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717142751.png">
 
 <link rel="canonical" href="https://bigshuimu.github.io/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
 
@@ -184,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-07-16 22:31:15 / 修改时间：22:52:53" itemprop="dateCreated datePublished" datetime="2023-07-16T22:31:15+08:00">2023-07-16</time>
+              <time title="创建时间：2023-07-16 22:31:15" itemprop="dateCreated datePublished" datetime="2023-07-16T22:31:15+08:00">2023-07-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-17 15:13:31" itemprop="dateModified" datetime="2023-07-17T15:13:31+08:00">2023-07-17</time>
+              </span>
 
           
 
@@ -200,9 +211,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="计算机的发展"><a href="#计算机的发展" class="headerlink" title="计算机的发展"></a>计算机的发展</h1><p>第一台<em>电子数字</em> 计算机：ENIAC（1946）</p>
+        <h1 id="计算机系统概述"><a href="#计算机系统概述" class="headerlink" title="计算机系统概述"></a>计算机系统概述</h1><h2 id="计算机的发展"><a href="#计算机的发展" class="headerlink" title="计算机的发展"></a>计算机的发展</h2><p>第一台<em>电子数字</em> 计算机：ENIAC（1946）</p>
 <p>计算机系统 &#x3D; 硬件 + 软件</p>
-<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ul>
+<p>在计算机系统中，<strong>软件和硬件在逻辑上是等效的</strong>。</p>
+<p>eg：对于乘法运算，可以设计一个专门的硬件电路实现乘法运算；也可以用软件的方式，执行多次加法运算来实现。</p>
+<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><ul>
 <li>系统软件：用来管理整个计算机系统<ul>
 <li>eg:操作系统，数据库管理系统(DBMS)，标准程序库，网络软件，语言处理程序，服务程序。</li>
 </ul>
@@ -212,7 +225,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="硬件的发展"><a href="#硬件的发展" class="headerlink" title="硬件的发展"></a>硬件的发展</h2><table>
+<h3 id="硬件的发展"><a href="#硬件的发展" class="headerlink" title="硬件的发展"></a>硬件的发展</h3><table>
 <thead>
 <tr>
 <th>发展阶段</th>
@@ -256,7 +269,20 @@
 <td>磁盘、磁带、光盘、半导体存储器</td>
 </tr>
 </tbody></table>
-
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717142751.png" alt="计算机发展历程"></p>
+<h2 id="计算机系统层次结构"><a href="#计算机系统层次结构" class="headerlink" title="计算机系统层次结构"></a>计算机系统层次结构</h2><h3 id="冯诺伊曼机"><a href="#冯诺伊曼机" class="headerlink" title="冯诺伊曼机"></a>冯诺伊曼机</h3><p><img src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717144915.png" alt="冯诺伊曼机"></p>
+<p>冯·诺依曼计算机的特点：</p>
+<ol>
+<li>计算机由五大部件组成</li>
+<li>指令和数据以同等地位存于存储器，可按地址寻访</li>
+<li>指令和数据用二进制表示</li>
+<li>指令由操作码和地址码组成</li>
+<li>存储程序 </li>
+<li>以运算器为中心(输入／输出设备与存储器之间的数据传送通过运算器完成)</li>
+</ol>
+<h3 id="现代计算机的结构"><a href="#现代计算机的结构" class="headerlink" title="现代计算机的结构"></a>现代计算机的结构</h3><p><img src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717150421.png"></p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p><img src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/img_for_typora/20230717150823.png"></p>
+<h2 id="计算机性能指标"><a href="#计算机性能指标" class="headerlink" title="计算机性能指标"></a>计算机性能指标</h2>
     </div>
 
     
@@ -277,7 +303,10 @@
     <a href="/2023/07/16/%E8%AE%A1%E5%88%92/" rel="prev" title="计划">
       <i class="fa fa-chevron-left"></i> 计划
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/07/17/fortest/" rel="next" title="fortest">
+      fortest <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -336,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">1.</span> <span class="nav-text">计算机的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">1.2.</span> <span class="nav-text">硬件的发展</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">计算机系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">1.1.</span> <span class="nav-text">计算机的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">硬件的发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">计算机系统层次结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%AF%E8%AF%BA%E4%BC%8A%E6%9B%BC%E6%9C%BA"><span class="nav-number">1.2.1.</span> <span class="nav-text">冯诺伊曼机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">现代计算机的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.3.</span> <span class="nav-text">计算机性能指标</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -352,7 +381,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
