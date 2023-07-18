@@ -251,7 +251,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-18 17:05:59" itemprop="dateModified" datetime="2023-07-18T17:05:59+08:00">2023-07-18</time>
+                <time title="修改时间：2023-07-18 22:06:26" itemprop="dateModified" datetime="2023-07-18T22:06:26+08:00">2023-07-18</time>
               </span>
 
           
@@ -630,7 +630,30 @@
 </tbody></table>
 <h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-18-16-42-14.png" class="">
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="运算方式和运算电路"><a href="#运算方式和运算电路" class="headerlink" title="运算方式和运算电路"></a>运算方式和运算电路</h2><h2 id="浮点数的表示和运算"><a href="#浮点数的表示和运算" class="headerlink" title="浮点数的表示和运算"></a>浮点数的表示和运算</h2><h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-17-21-44-50.png" class="">
+
+<h2 id="运算方式和运算电路"><a href="#运算方式和运算电路" class="headerlink" title="运算方式和运算电路"></a>运算方式和运算电路</h2><h3 id="原码、反码与补码"><a href="#原码、反码与补码" class="headerlink" title="原码、反码与补码"></a>原码、反码与补码</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>原码是最简单的表示方式，用最高位表示符号位，其余位表示数值的绝对值。<ul>
+<li>原码有两个0，一个正0，一个负0</li>
+</ul>
+</li>
+<li>反码是通过对原码进行取反得到的，即符号位不变，其他位按位取反。</li>
+<li>补码是通过对原码进行取反再加1得到的，即符号位不变，其他位按位取反后再加1。</li>
+</ul>
+<p>使用补码进行计算可以简化符号位的处理，并且可以使用相同的加法和减法运算实现。因此，在现代计算机中，大多数情况下使用补码来表示有符号整数。</p>
+<h4 id="相互转换"><a href="#相互转换" class="headerlink" title="相互转换"></a>相互转换</h4><p>补码转原码：</p>
+<ol>
+<li>如果补码的符号位为正（0），则补码即为原码。</li>
+<li>如果补码的符号位为负（1），将补码的其他位按位取反。</li>
+<li>对取反后的补码加1，得到原码。</li>
+</ol>
+<p>原码转补码：</p>
+<ol>
+<li>如果原码的符号位为正（0），则原码即为补码。</li>
+<li>如果原码的符号位为负（1），将原码的其他位按位取反。</li>
+<li>对取反后的原码加1，得到补码。<img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-18-22-04-54.png" class=""></li>
+</ol>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-18-22-06-15.png" class="">
+<h2 id="浮点数的表示和运算"><a href="#浮点数的表示和运算" class="headerlink" title="浮点数的表示和运算"></a>浮点数的表示和运算</h2><h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-17-21-44-50.png" class="">
 <ul>
 <li>2<sup>10</sup>:K   </li>
 <li>2<sup>20</sup>:M   </li>
