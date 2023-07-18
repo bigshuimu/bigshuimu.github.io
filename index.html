@@ -251,7 +251,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-17 22:07:03" itemprop="dateModified" datetime="2023-07-17T22:07:03+08:00">2023-07-17</time>
+                <time title="修改时间：2023-07-18 16:04:01" itemprop="dateModified" datetime="2023-07-18T16:04:01+08:00">2023-07-18</time>
               </span>
 
           
@@ -442,7 +442,104 @@
 </li>
 </ul>
 <p><strong>基准程序</strong>： 专门用来进行性能评价的一组程序</p>
-<h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-17-21-44-50.png" class="">
+<h1 id="数据的表示和运算"><a href="#数据的表示和运算" class="headerlink" title="数据的表示和运算"></a>数据的表示和运算</h1><h2 id="数制与编码"><a href="#数制与编码" class="headerlink" title="数制与编码"></a>数制与编码</h2><p>基数：每个数码位所用到的不同符号的个数，r进制的基数为r。</p>
+<p>真值：实际的带正负号的数值（人类习惯的样子）</p>
+<p>机器数：把正负号数字化的数（存到机器里的样子）</p>
+<h3 id="任意进制-lt-x3D-x3D-gt-十进制Decimalism"><a href="#任意进制-lt-x3D-x3D-gt-十进制Decimalism" class="headerlink" title="任意进制&lt;&#x3D;&#x3D;&gt;十进制Decimalism"></a>任意进制&lt;&#x3D;&#x3D;&gt;十进制Decimalism</h3><h4 id="任意进制-x3D-x3D-gt-十进制Decimalism"><a href="#任意进制-x3D-x3D-gt-十进制Decimalism" class="headerlink" title="任意进制 &#x3D;&#x3D;&gt;十进制Decimalism"></a>任意进制 &#x3D;&#x3D;&gt;十进制Decimalism</h4><p>r进制：K<sub>n</sub>K<sub>n-1</sub>K<sub>n-2</sub>…K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
+<p>转换为十进制：K<sub>n</sub> * r<sup>n</sup> + K<sub>n-1</sub> * r<sup>n-1</sup> + K<sub>n-2</sub> * r<sup>n-2</sup> + …K<sub>1</sub> * r<sup>1</sup> + K<sub>0</sub> * r<sup>0</sup> + K<sub>-1</sub> * r<sup>-1</sup> + K<sub>-2</sub> * r<sup>-2</sup> + …K<sub>-m</sub> * r<sup>-m</sup> </p>
+<p>每个数码位上的数字乘以对应的位权相加得到的结果就是转换为十进制的结果</p>
+<table>
+<thead>
+<tr>
+<th>2<sup>12</sup></th>
+<th>2<sup>11</sup></th>
+<th>2<sup>10</sup></th>
+<th>2<sup>9</sup></th>
+<th>2<sup>8</sup></th>
+<th>2<sup>7</sup></th>
+<th>2<sup>6</sup></th>
+<th>2<sup>5</sup></th>
+<th>2<sup>4</sup></th>
+<th>2<sup>3</sup></th>
+<th>2<sup>2</sup></th>
+<th>2<sup>1</sup></th>
+<th>2<sup>0</sup></th>
+<th>2<sup>-1</sup></th>
+<th>2<sup>-2</sup></th>
+<th>2<sup>-3</sup></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4096</td>
+<td>2048</td>
+<td>1024</td>
+<td>512</td>
+<td>256</td>
+<td>128</td>
+<td>64</td>
+<td>32</td>
+<td>16</td>
+<td>8</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>0.5</td>
+<td>0.25</td>
+<td>0.125</td>
+</tr>
+</tbody></table>
+<h4 id="十进制Decimalism-x3D-x3D-gt-任意进制"><a href="#十进制Decimalism-x3D-x3D-gt-任意进制" class="headerlink" title="十进制Decimalism&#x3D;&#x3D;&gt;任意进制"></a>十进制Decimalism&#x3D;&#x3D;&gt;任意进制</h4><p>整数部分–除基取余法</p>
+<img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-18-15-55-32.png" class="">
+<p>小数部分–乘基取整法</p>
+<img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-18-15-59-26.png" class="">
+<h3 id="二进制Binary-lt-x3D-x3D-gt-八进制Octal，十六进制Hexadecimal"><a href="#二进制Binary-lt-x3D-x3D-gt-八进制Octal，十六进制Hexadecimal" class="headerlink" title="二进制Binary &lt;&#x3D;&#x3D;&gt;八进制Octal，十六进制Hexadecimal"></a>二进制Binary &lt;&#x3D;&#x3D;&gt;八进制Octal，十六进制Hexadecimal</h3><h4 id="二进制-lt-x3D-x3D-gt-八进制"><a href="#二进制-lt-x3D-x3D-gt-八进制" class="headerlink" title="二进制 &lt;&#x3D;&#x3D;&gt;八进制"></a>二进制 &lt;&#x3D;&#x3D;&gt;八进制</h4><p>3位一组，每组转换成对应的八进制符号</p>
+<p>eg：1111000010.01101 &#x3D;&#x3D;&gt; 1702.32</p>
+<table>
+<thead>
+<tr>
+<th><em>00</em>1</th>
+<th>111</th>
+<th>000</th>
+<th>010</th>
+<th>.</th>
+<th>011</th>
+<th>010</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>7</td>
+<td>0</td>
+<td>2</td>
+<td>.</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<h4 id="二进制-lt-x3D-x3D-gt-六进制"><a href="#二进制-lt-x3D-x3D-gt-六进制" class="headerlink" title="二进制 &lt;&#x3D;&#x3D;&gt;六进制"></a>二进制 &lt;&#x3D;&#x3D;&gt;六进制</h4><p>16进制：A for 10, B for 11, C for 12,D for 13,E for 14,F for 15, </p>
+<p>4位一组，每组转换成对应的16进制符号</p>
+<p>eg：1111000010.01101 </p>
+<table>
+<thead>
+<tr>
+<th><em>00</em>11</th>
+<th>1100</th>
+<th>0010</th>
+<th>.</th>
+<th>0110</th>
+<th>1000</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>C</td>
+<td>2</td>
+<td>.</td>
+<td>6</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<h2 id="运算方式和运算电路"><a href="#运算方式和运算电路" class="headerlink" title="运算方式和运算电路"></a>运算方式和运算电路</h2><h2 id="浮点数的表示和运算"><a href="#浮点数的表示和运算" class="headerlink" title="浮点数的表示和运算"></a>浮点数的表示和运算</h2><h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><img src="/2023/07/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2023-07-17-21-44-50.png" class="">
 <ul>
 <li>2<sup>10</sup>:K   </li>
 <li>2<sup>20</sup>:M   </li>
