@@ -218,13 +218,12 @@
       
         <p>参照千峰零基础入门网络安全课程</p>
 <span id="more"></span>
-
 <h1 id="NTFS安全权限"><a href="#NTFS安全权限" class="headerlink" title="NTFS安全权限"></a>NTFS安全权限</h1><h2 id="一、NTFS权限概述"><a href="#一、NTFS权限概述" class="headerlink" title="一、NTFS权限概述"></a>一、NTFS权限概述</h2><p>1、通过设置NTFS权限，实现不同用户访问不同对象的权限</p>
 <p>2、分配了正确的访问权限后，用户才能访问其资源</p>
 <p>3、设置权限防止资源被篡改、删除</p>
 <h2 id="二、文件系统概述"><a href="#二、文件系统概述" class="headerlink" title="二、文件系统概述"></a>二、文件系统概述</h2><h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>文件系统即在外部存储设备上组织文件的方法</p>
 <h3 id="常见的文件系统："><a href="#常见的文件系统：" class="headerlink" title="常见的文件系统："></a>常见的文件系统：</h3><ul>
-<li>FAT		windows</li>
+<li>FAT        windows</li>
 <li>NTFS      windows</li>
 <li>EXT         Linux常见</li>
 </ul>
@@ -248,10 +247,10 @@
 <p>2）在远程登录时，将受共享及NTFS权限的共同影响，且取交集！</p>
 <p>3）所以建议设置共享权限为everyone完全控制，然后具体的权限需求在NTFS权限中设置即可。</p>
 <h2 id="三、访问共享"><a href="#三、访问共享" class="headerlink" title="三、访问共享"></a>三、访问共享</h2><p>在开始运行或我的电脑地址栏中，输入UNC地址：</p>
-<p>\\文件共享服务器ip</p>
-<p>\\文件共享服务器ip\共享名</p>
+<p>\\\文件共享服务器ip</p>
+<p>\\\文件共享服务器ip\共享名</p>
 <h1 id="DHCP部署与安全"><a href="#DHCP部署与安全" class="headerlink" title="DHCP部署与安全"></a>DHCP部署与安全</h1><h2 id="一、DHCP-Dynamic-Host-Configure-Protocol-作用"><a href="#一、DHCP-Dynamic-Host-Configure-Protocol-作用" class="headerlink" title="一、DHCP(Dynamic Host Configure Protocol)作用"></a>一、DHCP(Dynamic Host Configure Protocol)作用</h2><p>自动分配地址</p>
-<h2 id="二、DHCP相关概念"><a href="#二、DHCP相关概念" class="headerlink" title="二、DHCP相关概念"></a>二、DHCP相关概念</h2><p>地址池&#x2F;作用域：（IP、子网掩码、网关、DNS、租期），DHCP协议端口是UDP 67&#x2F;68</p>
+<h2 id="二、DHCP相关概念"><a href="#二、DHCP相关概念" class="headerlink" title="二、DHCP相关概念"></a>二、DHCP相关概念</h2><p>地址池/作用域：（IP、子网掩码、网关、DNS、租期），DHCP协议端口是UDP 67/68</p>
 <h2 id="三、DHCP优点"><a href="#三、DHCP优点" class="headerlink" title="三、DHCP优点"></a>三、DHCP优点</h2><p>减少工作量，避免ip冲突，提高地址利用率</p>
 <h2 id="四、DHCP原理"><a href="#四、DHCP原理" class="headerlink" title="四、DHCP原理"></a>四、DHCP原理</h2><p>也成为DHCP租约过程，分为四个步骤：</p>
 <h3 id="1、发送DHCP-Discovery广播包"><a href="#1、发送DHCP-Discovery广播包" class="headerlink" title="1、发送DHCP Discovery广播包"></a>1、发送DHCP Discovery广播包</h3><p>客户机广播请求IP地址（包含客户机的MAC地址）</p>
@@ -260,7 +259,7 @@
 <h3 id="4、服务器发送DHCP-ACK广播包"><a href="#4、服务器发送DHCP-ACK广播包" class="headerlink" title="4、服务器发送DHCP ACK广播包"></a>4、服务器发送DHCP ACK广播包</h3><p>ACK：确认</p>
 <p>服务器确定了租约，并提供网卡详细参数IP、网关、子网掩码、DNS、租期等</p>
 <h2 id="五、DHCP续约"><a href="#五、DHCP续约" class="headerlink" title="五、DHCP续约"></a>五、DHCP续约</h2><p>当租期的50%过后，客户会再次发送DHCP Request包，进行续约，如服务器无响应，则继续使用并在87.5%再次发送DHCP Request包，进行续约，如仍然无响应，并释放IP地址，及重新发送DHCP Discovery广播包来获取IP地址</p>
-<p>当无任何服务器响应时，网卡会自动给自己分配一个169.254.x.x&#x2F;16</p>
+<p>当无任何服务器响应时，网卡会自动给自己分配一个169.254.x.x/16</p>
 <h2 id="六、部署DHCP服务器"><a href="#六、部署DHCP服务器" class="headerlink" title="六、部署DHCP服务器"></a>六、部署DHCP服务器</h2><ol>
 <li><p>IP地址固定（服务器必须固定一个IP地址）</p>
 </li>
@@ -271,7 +270,8 @@
 <li><p>激活</p>
 </li>
 <li><p>客户机验证：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /release	释放IP（取消租约，或者改为手动配置IP，也可以释放租约）</span><br><span class="line"></span><br><span class="line">ipconfig /renew		重新获取IP（有IP时，发送request续约，无IP时发送Discovery从新获取）</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /release	释放IP（取消租约，或者改为手动配置IP，也可以释放租约）</span><br><span class="line"></span><br><span class="line">ipconfig /renew		重新获取IP（有IP时，发送request续约，无IP时发送Discovery从新获取）</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h2 id="七、地址保留"><a href="#七、地址保留" class="headerlink" title="七、地址保留"></a>七、地址保留</h2><p>对于指定的MAC地址，固定动态分配IP</p>
 <h2 id="八、选项优先级"><a href="#八、选项优先级" class="headerlink" title="八、选项优先级"></a>八、选项优先级</h2><p>作用域选项&gt;服务器选项</p>
@@ -490,6 +490,8 @@
 
 
 
+
+  
 
   
 

@@ -212,24 +212,15 @@
       
         <p>我想要从youtube批量下载一个youtuber的视频，然后发现了YouTube_dl可以满足我的需求。youtube_dl是一款视频下载器，可以用来下载各种网站的视频，它可以批量下载，而且可以编写bat脚本非常的方便。</p>
 <span id="more"></span>
-
 <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=FjXkTxSm6ac">参考youtube视频</a></p>
 <h1 id="简单上手"><a href="#简单上手" class="headerlink" title="简单上手"></a>简单上手</h1><h2 id="下载youtube视频"><a href="#下载youtube视频" class="headerlink" title="下载youtube视频"></a>下载youtube视频</h2><p><code>--proxy socks5://127.0.0.1:7890</code>需要换成你的代理，然后在命令的最后加上youtube视频或者播放列表的地址，回车即可开始下载</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">youtube-dl --proxy socks5://127.0.0.1:7890 -f bestvideo+bestaudio --merge-output-format mkv </span><br></pre></td></tr></table></figure>
-
 <h2 id="下载b站视频"><a href="#下载b站视频" class="headerlink" title="下载b站视频"></a>下载b站视频</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">youtube-dl  https://www.bilibili.com/video/BV1Pj411N7Sk</span><br></pre></td></tr></table></figure>
-
 <h1 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h1><p><a target="_blank" rel="noopener" href="https://github.com/ytdl-org/youtube-dl">它的github仓库</a></p>
 <h2 id="指定代理"><a href="#指定代理" class="headerlink" title="指定代理"></a>指定代理</h2><p>因为下载youtube等其他需要科学上网的网站的视频，需要通过代理，我的是使用socks5，在本地的7890端口</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">--proxy</span> socks5://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">7890</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="使用aria2c多线程下载加速"><a href="#使用aria2c多线程下载加速" class="headerlink" title="使用aria2c多线程下载加速"></a>使用aria2c多线程下载加速</h2><p>下面这段代码添加在youtube_dl下载的命令的最后，即可通过aria2c进行下载加速</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">--external-downloader</span> aria2c <span class="literal">--external-downloader-args</span> <span class="string">&quot;-x 16  -k 1M&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
 
     </div>
 
@@ -440,6 +431,8 @@
 
 
 
+
+  
 
   
 
