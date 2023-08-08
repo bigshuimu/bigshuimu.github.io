@@ -268,6 +268,1112 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/08/08/%E6%88%91%E7%9A%84ubuntu%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/08/%E6%88%91%E7%9A%84ubuntu%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">我的ubuntu入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-08 17:55:50 / 修改时间：20:57:12" itemprop="dateCreated datePublished" datetime="2023-08-08T17:55:50+08:00">2023-08-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="通过Xshell远程连接虚拟机"><a href="#通过Xshell远程连接虚拟机" class="headerlink" title="通过Xshell远程连接虚拟机"></a>通过Xshell远程连接虚拟机</h1><h2 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install net-tools</span><br></pre></td></tr></table></figure>
+<p>获取虚拟机ip</p>
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ssh</span><br></pre></td></tr></table></figure>
+<p>安装了这两个软件之后，就可以通过windows上的Xshell连接虚拟机上的Ubuntu了</p>
+<h3 id="检查ssh是否安装好了"><a href="#检查ssh是否安装好了" class="headerlink" title="检查ssh是否安装好了"></a>检查ssh是否安装好了</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -elf|grep ssh</span><br></pre></td></tr></table></figure>
+<p>看看是否有ssh</p>
+<h2 id="无法连接"><a href="#无法连接" class="headerlink" title="无法连接"></a>无法连接</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service sshd status</span><br></pre></td></tr></table></figure>
+<p>发现报错<code>Invalid user</code></p>
+<p>修改SSH配置文件\可以通过SSH配置文件更改包括端口、是否允许root登录等设置，</p>
+<p>配置文件位置：<code>/etc/ssh/sshd_config</code>#默认是不允许root远程登录的，可以再配置文件开启。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p>找到<code>PermitRootLogin without-password</code> 修改为<code>PermitRootLogin yes</code></p>
+<p>重启SSH服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart ssh</span><br></pre></td></tr></table></figure>
+<h1 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h1><h2 id="1-1用户配置"><a href="#1-1用户配置" class="headerlink" title="1.1用户配置"></a>1.1用户配置</h2><p>超级用户的命令提示符是“#”，普通用户的命令提示符是“$”。</p>
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su [用户名]</span><br></pre></td></tr></table></figure>
+<p>例如，要从 root 用户切换到普通用户 user，则使用 <code>su user</code>。</p>
+<p>要从普通用户 user 切换到 root 用户则使用 su root（root可以省略），此时系统会提示输入 root 用</p>
+<p>户的口令。</p>
+<p>普通用户以 root 的身份去做事情，使用命令 sudo</p>
+<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd 用户名</span><br></pre></td></tr></table></figure>
+<p>功能：添加一个普通用户。</p>
+<p>例如，要想添加一个普通用户 user1 ， 则可以使用<code>useradd user1</code>。使用该命令后，系统会在 目录“/home”下建立一个名为 user1 的目录。加 -m 才会创建目录</p>
+<h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd 用户名</span><br></pre></td></tr></table></figure>
+<p>功能：设置或修改用户名的密码。</p>
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userdel 用户名</span><br></pre></td></tr></table></figure>
+<p>注：删除用户后，其家目录并不会被删除，如果要删除家目录，需要 <code>luserdel –r 用户名</code></p>
+<h2 id="目录及文件操作"><a href="#目录及文件操作" class="headerlink" title="目录及文件操作"></a>目录及文件操作</h2><h3 id="查看文件或目录"><a href="#查看文件或目录" class="headerlink" title="查看文件或目录"></a>查看文件或目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls [选项] [目录或文件]</span><br></pre></td></tr></table></figure>
+<p>功能：对于目录，该命令列出该目录下的所有子目录与文件。对于文件，将列出文件名以及其他信息。</p>
+<p>Linux 文件系统不是根据后缀名来执行文件的，而是根据此文件是否有可执行权限。</p>
+<h4 id="常用的选项有："><a href="#常用的选项有：" class="headerlink" title="常用的选项有："></a>常用的选项有：</h4><ul>
+<li>-a 显示指定目录下所有子目录与文件。例如 列出<code>/root/home</code>目录下的所有子目录及文件，则使用<code>ls –a /root/home</code></li>
+<li>-l 列出指定目录下所有目录及文件的详细信息。</li>
+</ul>
+<p>-：普通文件<br>d ： 目录<br>l ：符号链接<br>b ：块设备文件<br>c ：字符设备文件<br>p ：命名管道<br>s ：socket 文件</p>
+<p>ls 输出内容是有颜色的，比如：目录是蓝色，压缩文件是红色的显示，如果没有颜色，可以加上参数<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--color=never 表示输出没有彩色 </span><br><span class="line">--color=auto 表 示 自 动 ，</span><br><span class="line">--color=always 表示始终有颜色。</span><br></pre></td></tr></table></figure></p>
+<p>如果需要更加详细的参数描述，可以通过如下方式获得 ls 的帮助：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man ls</span><br></pre></td></tr></table></figure>
+<h3 id="显示当前工作目录。"><a href="#显示当前工作目录。" class="headerlink" title="显示当前工作目录。"></a>显示当前工作目录。</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+<p>功能 ： 显示用户当前所在的目录。</p>
+<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir [选项] dirname</span><br></pre></td></tr></table></figure>
+<p>功能：在当前目录下创建一个名为 “dirname”的目录。例如</p>
+<h3 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir [选项] dirname</span><br></pre></td></tr></table></figure>
+<p>功能：在当前工作目录下删除目录名为“dirname”的子目录。</p>
+<h3 id="拷贝文件或目录"><a href="#拷贝文件或目录" class="headerlink" title="拷贝文件或目录"></a>拷贝文件或目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp [选项] 源文件或目录 目标文件或目录</span><br></pre></td></tr></table></figure>
+<p>功能：把指定的源文件复制到目标文件或把多个源文件复制到目标目录中。</p>
+<p>常用参数：</p>
+<ul>
+<li>-f 若目标目录中存在与源文件同名的文件，则直接覆盖，不提示</li>
+<li>-i 和-f 相反，当目标文件中存在于源文件同名的文件，copy时系统会提示是否进行覆盖。</li>
+</ul>
+<h3 id="移动文件或目录。"><a href="#移动文件或目录。" class="headerlink" title="移动文件或目录。"></a>移动文件或目录。</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv [选项] 源文件或目录 目标文件或目录</span><br></pre></td></tr></table></figure>
+<p>功能：视 mv 命令中第二个参数类型的不同（是目标文件还是目标目录），mv 命令将文件重命名或将其移至一个新的目录中。当第二个参数类型是文件时，mv 命令完成文件重命名，<br>此时，源文件只能有一个（也可以是源目录名），它将所给的源文件或目录重命名为给定的目标文件名。当第二个参数是已存在的目录名称时，源文件或目录参数可以有多个，<br>mv 命令各参数指定的源文件均移至目标目录中。在跨文件系统移动文件时，mv 先拷贝，再将原有文件删除，而链至该文件的链接也将丢失。</p>
+<p>参数：</p>
+<p>-i 如果在移动的过程中存在重名的，则进行提示是否覆盖。<br>-f 如果在移动的过程中存在重名的，则直接进行覆盖，不会给出提示。</p>
+<h3 id="删除文件或目录"><a href="#删除文件或目录" class="headerlink" title="删除文件或目录"></a>删除文件或目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm [选项] 文件或目录</span><br></pre></td></tr></table></figure>
+<p>功能：在 linux 中创建文件很容易，系统中随时会有文件变得过时且毫无用处。用户可以用 rm 命令将其删除。该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是<br>删除了链接，原有文件均保持不变。如果删除时没有-r 选项则不会删除目录。</p>
+<p>参数：</p>
+<ul>
+<li>-f 删除过程中不会给出提示。</li>
+<li>-i 删除过程中会给出交互式提示。</li>
+<li>-r 如果删除的是一个目录，则将该目录下的目录及子目录均删除掉。</li>
+</ul>
+<h3 id="显示目录树形结构"><a href="#显示目录树形结构" class="headerlink" title="显示目录树形结构"></a>显示目录树形结构</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree </span><br></pre></td></tr></table></figure>
+<p>在 ubuntu 需要执行 <code>sudo apt-get install tree</code> 进行安装</p>
+<p>功能说明：以树状图列出目录的内容。</p>
+<p>补充说明：执行 tree 指令，它会列出指定目录下的所有文件，包括子目录里的文件</p>
+<p>参数:</p>
+<ul>
+<li>-a 显示所有文件和目录。</li>
+<li>-C 在文件和目录清单加上色彩，便于区分各种类型。</li>
+<li>-d 显示目录名称而非内容。</li>
+<li>-D 列出文件或目录的更改时间。</li>
+<li>-g 列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码。</li>
+<li>-i 不以阶梯状列出文件或目录名称。</li>
+<li>-t 用文件和目录的更改时间排序。</li>
+<li>-u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。</li>
+</ul>
+<h3 id="改变目录或文件的权限"><a href="#改变目录或文件的权限" class="headerlink" title="改变目录或文件的权限"></a>改变目录或文件的权限</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod </span><br></pre></td></tr></table></figure>
+<p>这个命令是非常重要的，用于改变文件或目录的访问权限。用户用它控制文件或目录的访问权限。</p>
+<p>语法：该命令有两种用法。一种是包含字母和操作符表达式的文字设定法；另一种是包含数字的数字设定法。</p>
+<p>说明：我们利用 <code>ls –l</code> 长格式列出文件或目录的基本信息如下：</p>
+<p>文件类型与权限 链接数 文件所有者 文件属组 文件大小 最近修改的时间 名字</p>
+<p>对于权限，有第一组表示文件所有者的权限，第二组表示同组用户的权限，第三组表示其他用户的权限。每一组的三个字符分别表示对文件的读、写和执行权限。可以通过 chmod 来<br>修改权限。</p>
+<p>\1. 文</p>
+<p>字设定法</p>
+<p>chmod [who][+|-|=][mode] 文</p>
+<p>件名 /</p>
+<p>/</p>
+<p>修改指定文件名中 w</p>
+<p>ho</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>10</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>的权限增加</p>
+<p>/</p>
+<p>去除</p>
+<p>/</p>
+<p>赋值为 m</p>
+<p>ode</p>
+<p>参数：</p>
+<p>操作对象 w</p>
+<p>ho 可</p>
+<p>是下述字母中的任一个或者它们的组合：</p>
+<p>u 表</p>
+<p>示</p>
+<p>“</p>
+<p>用户（</p>
+<p>user</p>
+<p>）</p>
+<p>”</p>
+<p>，即文件或目录的所有者。</p>
+<p>g 表</p>
+<p>示</p>
+<p>“</p>
+<p>同组（</p>
+<p>group</p>
+<p>）用户</p>
+<p>”</p>
+<p>，即与文件所有者有相同组 I</p>
+<p>D 的</p>
+<p>所</p>
+<p>有用户。</p>
+<p>o 表</p>
+<p>示</p>
+<p>“</p>
+<p>其他（</p>
+<p>others</p>
+<p>）用户</p>
+<p>”</p>
+<p>。</p>
+<p>a 表</p>
+<p>示</p>
+<p>“</p>
+<p>所有（</p>
+<p>all</p>
+<p>）用户</p>
+<p>”</p>
+<p>。它是系统默认值。即 c</p>
+<p>hmod +x 1.c 表</p>
+<p>示所有人都有可执行的权限。</p>
+<p>操作符号可以是：</p>
+<p>+ 添</p>
+<p>加某个权限。</p>
+<p>- 取</p>
+<p>消某个权限。</p>
+<p>= 赋</p>
+<p>予给定权限并取消其他所有权限（如果有的话）。</p>
+<p>设置 m</p>
+<p>ode 所</p>
+<p>表示的权限可用下述字母的任意组合</p>
+<p>(</p>
+<p>当组合的时</p>
+<p>候，</p>
+<p>who 不</p>
+<p>能少</p>
+<p>)</p>
+<p>：</p>
+<p>r 可</p>
+<p>读</p>
+<p>w 可</p>
+<p>写</p>
+<p>x 可</p>
+<p>执行</p>
+<p>文件名：以空格分开的要改变权限的文件列表，支持通配符。</p>
+<p>在一个命令行中可给出多个权限方式，其间用逗号隔开。例如：</p>
+<p>chmod g+r</p>
+<p>，</p>
+<p>o+r example 使</p>
+<p>同组和其他用户对文件 e</p>
+<p>xample 有</p>
+<p>读</p>
+<p>权限。</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>11</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>\2. 数</p>
+<p>字设定法</p>
+<p>我们必须首先了解用数字表示的属性的含义：</p>
+<p>0 表</p>
+<p>示没有权限，</p>
+<p>1 表</p>
+<p>示可执行权限，</p>
+<p>2 表</p>
+<p>示可写权限，</p>
+<p>4 表</p>
+<p>示可读权限，然后将</p>
+<p>其相加。所以数字属性的格式应为 3 个从 0 到 7 的八进制数，其</p>
+<p>顺序是（</p>
+<p>u</p>
+<p>）（</p>
+<p>g</p>
+<p>）（</p>
+<p>o</p>
+<p>）。</p>
+<p>例如，如果想让某个文件的所有者有</p>
+<p>“</p>
+<p>读</p>
+<p>/</p>
+<p>写</p>
+<p>“</p>
+<p>二种权限，需要把 4</p>
+<p>（可读）</p>
+<p>+2</p>
+<p>（可写）＝</p>
+<p>6</p>
+<p>（读</p>
+<p>/</p>
+<p>写</p>
+<p>). 数</p>
+<p>字设定法的一般形式为：</p>
+<p>chmod [mode] 文</p>
+<p>件名</p>
+<p>例子：</p>
+<p>（</p>
+<p>1</p>
+<p>）文字设定法：</p>
+<p>例 1：</p>
+<p>$ chmod a+x sort</p>
+<p>即设定文件 s</p>
+<p>ort 的</p>
+<p>属性为：</p>
+<p>文件所有者（</p>
+<p>u</p>
+<p>） 增加执行权限</p>
+<p>与文件所有者同组用户（</p>
+<p>g</p>
+<p>） 增加执行权限</p>
+<p>其他用户（</p>
+<p>o</p>
+<p>） 增加执行权限</p>
+<p>例 2：</p>
+<p>$ chmod ug+w</p>
+<p>，</p>
+<p>o-x text</p>
+<p>即设定文件 t</p>
+<p>ext 的</p>
+<p>属性为：</p>
+<p>文件所有者（</p>
+<p>u</p>
+<p>） 增加写权限</p>
+<p>与文件所有者同组用户（</p>
+<p>g</p>
+<p>） 增加写权限</p>
+<p>其他用户（</p>
+<p>o</p>
+<p>） 删除执行权限</p>
+<p>例 3：</p>
+<p>$ chmod a–x mm.txt</p>
+<p>$ chmod –x mm.txt</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>12</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>$ chmod ugo–x mm.txt</p>
+<p>以上这三个命令都是将文件 m</p>
+<p>m.txt 的</p>
+<p>执行权限删除，它设</p>
+<p>定的对象为所有使用者。</p>
+<p>（</p>
+<p>2</p>
+<p>）数字设定法：</p>
+<p>例 1： $ c</p>
+<p>hmod 644 mm.txt</p>
+<p>$ ls –l</p>
+<p>即设定文件 m</p>
+<p>m.txt 的</p>
+<p>属性为：</p>
+<p>-rw-r—r— 1 inin users 1155 Nov 5 11:22 mm.txt</p>
+<p>文件所有者（</p>
+<p>u</p>
+<p>）</p>
+<p>inin 拥</p>
+<p>有读、写权限</p>
+<p>与文件所有者同组人用户（</p>
+<p>g</p>
+<p>） 拥有读权限</p>
+<p>其他人（</p>
+<p>o</p>
+<p>） 拥有读权限</p>
+<p>例 2： $ c</p>
+<p>hmod 750 wch.txt</p>
+<p>$ ls –l -rwxr-x—- 1 inin users 44137 Nov 12 9:22 wchtxt</p>
+<p>即设定 w</p>
+<p>chtxt 这</p>
+<p>个文件的属性为：</p>
+<p>文件主本人（</p>
+<p>u</p>
+<p>）</p>
+<p>inin 可</p>
+<p>读</p>
+<p>/</p>
+<p>可写</p>
+<p>/</p>
+<p>可执行权</p>
+<p>与文件主同组人（</p>
+<p>g</p>
+<p>） 可读</p>
+<p>/</p>
+<p>可执行权</p>
+<p>其他人（</p>
+<p>o</p>
+<p>） 没有任何权限</p>
+<p>11</p>
+<p>、文件查找</p>
+<p>命令：</p>
+<p>find 起</p>
+<p>始目录 查找条件 操作</p>
+<p>功能：在指定目录结构中搜索问价，并执行指定的操作。</p>
+<p>该命令的查找条件可以是一个逻辑运算符 n</p>
+<p>ot</p>
+<p>、</p>
+<p>and</p>
+<p>、</p>
+<p>or 组</p>
+<p>成</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>13</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>的复合条件。</p>
+<p>（</p>
+<p>1</p>
+<p>）</p>
+<p>and</p>
+<p>：逻辑与，在命令中用</p>
+<p>-a 表</p>
+<p>示，表示只有当所给</p>
+<p>的 条 件 都 满 足 时 ， 查 找 条 件 才 满 足 。 例 如 在</p>
+<p>“</p>
+<p>/home/user</p>
+<p>”目录下查找名为 0</p>
+<p>718 类</p>
+<p>型是一个目</p>
+<p>录的文件。则使用</p>
+<p>find /home/user –name 0718 –a -type d</p>
+<p>（</p>
+<p>2</p>
+<p>）</p>
+<p>or</p>
+<p>：逻辑或，在命令中用</p>
+<p>-o 表</p>
+<p>示，表示只要所给的条</p>
+<p>有一个满足，查找条件就满足。例如在“</p>
+<p>/home/user</p>
+<p>”</p>
+<p>目录下查找名字为 m</p>
+<p>ain.cc 或</p>
+<p>名字为 m</p>
+<p>ain.c 的</p>
+<p>文</p>
+<p>件。则使用</p>
+<p>find /home/user -name main.cc -o -name</p>
+<p>main.c</p>
+<p>。</p>
+<p>（</p>
+<p>3</p>
+<p>）</p>
+<p>not</p>
+<p>：逻辑非，在命令中用！表示查找不满足所给条</p>
+<p>件的文件。例如在“</p>
+<p>/home/user</p>
+<p>“下查找名字不是</p>
+<p>main.c 的</p>
+<p>文件，则使用</p>
+<p>find /home/user ! –name main.cc 。</p>
+<p>常用的查找条件有：</p>
+<p>（</p>
+<p>1</p>
+<p>）根据名称和文件属性查找。</p>
+<p>-name ’</p>
+<p>字串</p>
+<p>’ 查</p>
+<p>找文件名匹配所给字串的所有文件，字串</p>
+<p>内可用通配符</p>
+<p>*</p>
+<p>、</p>
+<p>?</p>
+<p>、</p>
+<p>[ ]</p>
+<p>。</p>
+<p>-gid n 查</p>
+<p>找属于 I</p>
+<p>D 号</p>
+<p>为 n 的用户组的所有文件。</p>
+<p>-uid n 查</p>
+<p>找属于 I</p>
+<p>D 号</p>
+<p>为 n 的用户的所有文件。</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>14</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>-group ’</p>
+<p>字串</p>
+<p>’ 查</p>
+<p>找属于用户组名为所给字串的所有的文</p>
+<p>件。</p>
+<p>-user ’</p>
+<p>字串</p>
+<p>’ 查</p>
+<p>找属于用户名为所给字串的所有的文件。</p>
+<p>-empty 查</p>
+<p>找大小为 0 的目录或文件。</p>
+<p>-perm 权</p>
+<p>限 查找具有指定权限的文件和目录，权限的表</p>
+<p>示可以如 7</p>
+<p>11</p>
+<p>，</p>
+<p>644</p>
+<p>。</p>
+<p>-size n[bckw] 查</p>
+<p>找指定文件大小的文件，</p>
+<p>n 后</p>
+<p>面的字符表</p>
+<p>示单位，缺省为 b，代表 5</p>
+<p>12 字</p>
+<p>节的块。</p>
+<p>-type x 查</p>
+<p>找类型为 x 的文件，</p>
+<p>x 为</p>
+<p>下列字符之一：</p>
+<p>b 块</p>
+<p>设备文件</p>
+<p>c 字</p>
+<p>符设备文件</p>
+<p>d 目</p>
+<p>录文件</p>
+<p>p 命</p>
+<p>名管道（</p>
+<p>FIFO</p>
+<p>）</p>
+<p>f 普</p>
+<p>通文件</p>
+<p>l 符</p>
+<p>号链接文件（</p>
+<p>symbolic links</p>
+<p>）</p>
+<p>s socket 文</p>
+<p>件</p>
+<p>（</p>
+<p>2</p>
+<p>）根据时间查找</p>
+<p>- amin n 查</p>
+<p>找 n 分钟以前被访问过的所有文件。（</p>
+<p>+</p>
+<p>表示 n</p>
+<p>分钟之前，</p>
+<p>-</p>
+<p>表示 n 分钟之内，</p>
+<p>+</p>
+<p>号和</p>
+<p>-</p>
+<p>号都不能省略）</p>
+<p>- cmin n 查</p>
+<p>找 n 分钟以前文件状态被修改过的所有文件。</p>
+<p>- mmin n 查</p>
+<p>找 n 分钟以前文件内容被修改过的所有文件。</p>
+<p>- atime n 查</p>
+<p>找 n 天以前被访问过的所有文件。</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>15</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>- ctime n 查</p>
+<p>找 n 天以前文件状态被修改过的所有文件。</p>
+<p>- mtime n 查</p>
+<p>找 n 天以前文件内容被修改过的所有文件。</p>
+<p>（</p>
+<p>3</p>
+<p>）可执行的操作。</p>
+<p>- exec 命</p>
+<p>令名称 {</p>
+<p>} :</p>
+<p>对符合条件的文件执行所给的 L</p>
+<p>inux</p>
+<p>命令，而不询问用户是否需要执行该命令。</p>
+<p>{}</p>
+<p>表示命令的参</p>
+<p>数即为所找到的文件；命令的末尾必须以</p>
+<p>“ \;”</p>
+<p>结束。</p>
+<p>例如，在“</p>
+<p>/home/user</p>
+<p>“目录下查找名为 m</p>
+<p>ain.c 文</p>
+<p>件并显</p>
+<p>示这些文件的详细信息，则使用</p>
+<p>find /home/user –name main.c -exec ls –l {} \;</p>
+<p>find /home/luke -name main.c |xargs ls -l</p>
+<p>工作时一般不采用 e</p>
+<p>xec</p>
+<p>，而是采用 x</p>
+<p>args</p>
+<p>，例如上面操作可</p>
+<p>以改为 f</p>
+<p>ind /home/user –name main.c|xargs ls –l</p>
+<p>下面是 f</p>
+<p>ind 与</p>
+<p>具有两个操作对象的命令组合</p>
+<p>find . -type f -exec cp {} /home/user \;</p>
+<p>find . -type f | xargs -I ‘{}’ cp {} /home/user</p>
+<p>12</p>
+<p>、列出文件系统的整体磁盘空间使用情况</p>
+<p>df [</p>
+<p>选项</p>
+<p>] [</p>
+<p>文件名</p>
+<p>]</p>
+<p>-h</p>
+<p>：</p>
+<p>—human-readable</p>
+<p>，以人们易读的 G</p>
+<p>B</p>
+<p>、</p>
+<p>MB</p>
+<p>、</p>
+<p>KB 等</p>
+<p>格式显</p>
+<p>示，可以直接 d</p>
+<p>f –h 显</p>
+<p>示整个磁盘使用情况</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>16</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>13</p>
+<p>、显示每个文件和目录的磁盘使用空间</p>
+<p>du [</p>
+<p>选项</p>
+<p>] [</p>
+<p>文件名</p>
+<p>]</p>
+<p>-h</p>
+<p>：</p>
+<p>—human-readable</p>
+<p>，以人们易读的 G</p>
+<p>B</p>
+<p>、</p>
+<p>MB</p>
+<p>、</p>
+<p>KB 等</p>
+<p>格式显示</p>
+<p>操作发现目录的每一级都显示，如果只想显示当前目录，</p>
+<p>du -h</p>
+<p>—max-depth=0 /home/luke</p>
+<p>1.3 文</p>
+<p>件查看及处理命令</p>
+<p>1</p>
+<p>、查看文件内容</p>
+<p>命令： c</p>
+<p>at [</p>
+<p>选项</p>
+<p>] [</p>
+<p>文件</p>
+<p>]</p>
+<p>功能： 查看目标文件的内容</p>
+<p>参数：</p>
+<p>-b 对</p>
+<p>非空输出行编号</p>
+<p>-E 在</p>
+<p>每行结束处显示</p>
+<p>$</p>
+<p>-n 对</p>
+<p>输出的所有行编号</p>
+<p>-s 不</p>
+<p>输出多行空行。</p>
+<p>例如 要查看当前目录下的 m</p>
+<p>ain.cc 的</p>
+<p>内容</p>
+<p>则使用，</p>
+<p>cat main.cc</p>
+<p>。</p>
+<p>标准的输入输出与重定向：</p>
+<p>文件描述符是一个整数</p>
+<p>,</p>
+<p>它代表一个打开的文件</p>
+<p>,</p>
+<p>标准的三个描</p>
+<p>述符号</p>
+<p>:</p>
+<p>标准输入：一般指键盘</p>
+<p>,</p>
+<p>描述符为：</p>
+<p>0</p>
+<p>标准输出：一般指屏幕输出</p>
+<p>,</p>
+<p>描述符为：</p>
+<p>1</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>17</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>错误输出：也是屏幕</p>
+<p>,</p>
+<p>描述符为：</p>
+<p>2</p>
+<p>重定向符号</p>
+<p>:</p>
+<p>&lt;</p>
+<p>重定向输入 、 &gt;重定向输出 、 &gt;</p>
+<p>></p>
+<p>添加输出 、 2</p>
+<p>></p>
+<p>错误重定</p>
+<p>向 、 &amp;</p>
+<p>></p>
+<p>错误和信息重定向</p>
+<p>Cat &gt;file1</p>
+<p>./main text1.txt &gt;text5.txt 2&gt;&amp;1</p>
+<p>cat 常</p>
+<p>常与重定向一起使用。其中</p>
+<p>></p>
+<p>表示创建，</p>
+<p>>&gt;</p>
+<p>表示追加</p>
+<p>,</p>
+<p>&lt;&lt;</p>
+<p>表示以什么结束</p>
+<p>如果 c</p>
+<p>at 的</p>
+<p>命令行中没有参数，它就会从标准输入中读取数据，</p>
+<p>并将其送到标准输出。</p>
+<p>linux 中</p>
+<p>创建空文件的四种方式：</p>
+<p>方式 1： e</p>
+<p>cho &gt; a.txt</p>
+<p>（好像会有一个字节）</p>
+<p>方式 2： t</p>
+<p>ouch b.txt</p>
+<p>方式 3： c</p>
+<p>at &gt; c.txt 按 ctrl+c 组</p>
+<p>合键退出；或 C</p>
+<p>trl+d</p>
+<p>方式 4： v</p>
+<p>i d.txt 进</p>
+<p>入之后：</p>
+<p>wq 退</p>
+<p>出。</p>
+<p>2</p>
+<p>、显示文件内容的前几行</p>
+<p>命令：</p>
+<p>head –n 行</p>
+<p>数值 文件名</p>
+<p>功能：显示目标文件的前几行。</p>
+<p>例如 要显示 当前目录下 m</p>
+<p>ain.cc 的</p>
+<p>前 1</p>
+<p>0 行</p>
+<p>，则使用</p>
+<p>Head –n 10 main.cc</p>
+<p>。</p>
+<p>3</p>
+<p>、显示文件的后几行</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>18</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>命令：</p>
+<p>tail –n 行</p>
+<p>数值 文件名。</p>
+<p>功能：显示目标文件的最后几行。</p>
+<p>例如 要显示“</p>
+<p>/home/user/0718/</p>
+<p>”目录下的 m</p>
+<p>ain.cc 文</p>
+<p>件的最</p>
+<p>后 1</p>
+<p>0 行</p>
+<p>。则使用 t</p>
+<p>ail –n 10 /home/user/0718/main.cc</p>
+<p>4</p>
+<p>、单页浏览文件</p>
+<p>more 或</p>
+<p>者 l</p>
+<p>ess 命</p>
+<p>令</p>
+<p>5</p>
+<p>、对文件内容进行排序</p>
+<p>sort 文</p>
+<p>件名</p>
+<p>6</p>
+<p>、查看文件内容类型</p>
+<p>file 文</p>
+<p>件名 根据文件内容，判别文件类型</p>
+<p>7</p>
+<p>、报告或删除文件中重复的行</p>
+<p>uniq 文</p>
+<p>件名</p>
+<p>-c 在</p>
+<p>输出行前面加上每行在输入文件中出现的次数。</p>
+<p>-d 仅</p>
+<p>显示重复行。</p>
+<p>-u 仅</p>
+<p>显示不重复的行。</p>
+<p>8</p>
+<p>、统计指定文件中的字节数、字数、行数</p>
+<p>wc 文</p>
+<p>件名</p>
+<p>-c 统</p>
+<p>计字节数。</p>
+<p>-l 统</p>
+<p>计行数。</p>
+<p>-m 统</p>
+<p>计字符数。这个标志不能与 -</p>
+<p>c 标</p>
+<p>志一起使用。</p>
+<p>-w 统</p>
+<p>计字数。一个字被定义为由空白、跳格或换行字符分隔的</p>
+<p>字符串</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>19</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>wc main.c</p>
+<p>9</p>
+<p>、汉字编码转换</p>
+<p>iconv</p>
+<p>输入</p>
+<p>/</p>
+<p>输出格式规范：</p>
+<p>-f, —from-code=</p>
+<p>名称 原始文本编码</p>
+<p>-t, —to-code=</p>
+<p>名称 输出编码</p>
+<p>举例：</p>
+<p>iconv -f utf-8 -t gb2312 hanzi&gt;hanzi1</p>
+<p>10</p>
+<p>、搜索文件内容 g</p>
+<p>rep</p>
+<p>命令：</p>
+<p>grep [</p>
+<p>选项</p>
+<p>][</p>
+<p>查找模式</p>
+<p>][</p>
+<p>文件名 1，文件名 2，</p>
+<p>…]</p>
+<p>功能：</p>
+<p>grep 过</p>
+<p>滤器查找指定字符模式的文件，并显示含有此模</p>
+<p>式的所有行。被寻找的模式称为正则表达式。</p>
+<p>常用的一些正则表达式</p>
+<p>^ :</p>
+<p>以什么开头 ，例如 l</p>
+<p>s –l | grep ^d 显</p>
+<p>示当前目录下的所</p>
+<p>有子目录的详细信息。</p>
+<p>$ :</p>
+<p>以什么结尾 。例如 l</p>
+<p>s –l | grep c$ 显</p>
+<p>示当前目录下</p>
+<p>以 c 结尾的文件。</p>
+<p>常用的参数：</p>
+<p>-F 每</p>
+<p>个模式作为固定的字符串对待</p>
+<p>-c 只</p>
+<p>显示匹配行的数量。</p>
+<p>-i 比</p>
+<p>较式不区分大小写。</p>
+<p>-n 在</p>
+<p>输出前加上匹配串所在的行号。</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>20</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>1.4 其</p>
+<p>他命令</p>
+<p>1</p>
+<p>、管道与命令替换</p>
+<p>管道：是重定向的一种，就像一个导管一样，将一个程序或命</p>
+<p>令的输出作为另一个程序或命令的输入。</p>
+<p>eg: #ls –l /etc | wc –w</p>
+<p>命令替换：和重定向有点相似，但区别在于命令替换是将一个</p>
+<p>命 令 的 输 出 作 为 另 一 个 命 令 的 参 数 。 常 用 的 格 式 为 :</p>
+<p>command1 <code>command2</code></p>
+<p>或 c</p>
+<p>ommand1 $(command2)</p>
+<p>举例：</p>
+<p>首先列出当前的所有信息，并重定向到 a</p>
+<p>a 文</p>
+<p>件中：</p>
+<p>#ls | cat &gt; aa 或 ls &gt; aa</p>
+<p>然后，通过命令替换，列出 a</p>
+<p>a 文</p>
+<p>件中所有的文件信息</p>
+<p>#ls –l <code>cat aa</code> 或</p>
+<p>者用 l</p>
+<p>s –l $(cat aa)</p>
+<p>2</p>
+<p>、文件或目录的创建掩码</p>
+<p>umask 指</p>
+<p>文件（</p>
+<p>0666</p>
+<p>）或目录（</p>
+<p>0777</p>
+<p>）创建时在全部权限</p>
+<p>中要去掉的一些权限，普通用户缺省时 u</p>
+<p>mask 的</p>
+<p>值为 0</p>
+<p>02</p>
+<p>，超</p>
+<p>级用户为 0</p>
+<p>22</p>
+<p>。</p>
+<p>002 表</p>
+<p>示创建目录时所有者的权限不去掉， 所属组权限不去</p>
+<p>掉，其他组权限写属性去掉</p>
+<p>创 建 一 文 件 以 后 ， 普 通 用 户 缺 省 的 权 限 为 6</p>
+<p>64</p>
+<p>超级用户： 6</p>
+<p>44</p>
+<p>创 建 一 目 录 以 后 ， 普 通 用 户 缺 省 的 权 限 为 7</p>
+<p>75</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>21</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>超级用户： 7</p>
+<p>55</p>
+<p>可以通过 u</p>
+<p>mask 查</p>
+<p>看默认的缺省的掩码值。通过 u</p>
+<p>mask 001 修</p>
+<p>改掩码值。</p>
+<p>3</p>
+<p>、文档管理</p>
+<p>命令：</p>
+<p>tar [</p>
+<p>主选项</p>
+<p>+</p>
+<p>辅选项</p>
+<p>] 目</p>
+<p>标文档 源文件或目录</p>
+<p>功能：</p>
+<p>tar 可</p>
+<p>以为文件和目录创建档案。利用 t</p>
+<p>ar</p>
+<p>，用户可以为</p>
+<p>某一特定文件创建档案（备份文件），也可以在档案中改变文</p>
+<p>件，或者向档案中加入新的文件。</p>
+<p>tar 最</p>
+<p>初被用来在磁带上创</p>
+<p>建档案， 现在，用户可以在任何设备上创建档案，如软盘。</p>
+<p>利用 t</p>
+<p>ar 命</p>
+<p>令，可以把一大堆的文件和目录全部打包成一个文</p>
+<p>件，这对于备份文件或将几个文件组合成为一个文件以便于网</p>
+<p>络传输是非常有用的。</p>
+<p>常用参数：</p>
+<p>c</p>
+<p>：创建新的档案文件。</p>
+<p>r: 要</p>
+<p>把存档的文件追加到档案文件的末尾。</p>
+<p>tar rf *.tar test</p>
+<p>x</p>
+<p>：从档案文件中释放文件。</p>
+<p>f</p>
+<p>：使用档案文件或设备。</p>
+<p>v</p>
+<p>：在归档过程中显示处理的文件。</p>
+<p>z</p>
+<p>：用 g</p>
+<p>zip 来</p>
+<p>压缩</p>
+<p>/</p>
+<p>解压缩文件，后缀名为</p>
+<p>.gz</p>
+<p>，加上该选项后可</p>
+<p>以将档案文件进行压缩。</p>
+<p>例如，把“</p>
+<p>/home/user/0718</p>
+<p>”下的所有后缀为</p>
+<p>.c 的</p>
+<p>归档到</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>22</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>source.tar</p>
+<p>，则使用 t</p>
+<p>ar cvf source.tar /home/user/0718/*.c</p>
+<p>若果在归档的过程中还要进行压缩，则使用</p>
+<p>tar czvf source.tar.gz /home/user/0718/*.c</p>
+<p>。</p>
+<p>如果要将归档的文件 s</p>
+<p>ource.tar 释</p>
+<p>放掉，则使用</p>
+<p>tar xvf source.tar</p>
+<p>若果将归档后的压缩文件释放掉，则使用</p>
+<p>tar xzvf source.tar.gz</p>
+<p>。</p>
+<p>4</p>
+<p>、文件压缩解压</p>
+<p>命令：</p>
+<p>gzip/bzip2 [</p>
+<p>选项</p>
+<p>]</p>
+<p>压缩或解压缩的文件名</p>
+<p>功能：</p>
+<p>gzip 用</p>
+<p>来将文件压缩成后缀为</p>
+<p>.gz 的</p>
+<p>压缩文件，或者将</p>
+<p>后缀为</p>
+<p>.gz 的</p>
+<p>文件进行解压。</p>
+<p>Bzip2 用</p>
+<p>来将文件压缩成后缀名</p>
+<p>为</p>
+<p>.bz2 的</p>
+<p>压缩文件，或者将后缀为</p>
+<p>.bz2 的</p>
+<p>压缩文件解压。</p>
+<p>常用参数：</p>
+<p>-d: 将</p>
+<p>压缩文件进行解压。</p>
+<p>-v</p>
+<p>： 在压缩或解压过程中显示解压或压缩的文件。</p>
+<p>例如，将 m</p>
+<p>ain.c 进</p>
+<p>行压缩，则使用</p>
+<p>gzip/bzip2 –v main.c</p>
+<p>。</p>
+<p>则就会将 m</p>
+<p>ain.c 压</p>
+<p>缩成 m</p>
+<p>ain.c.gz 或</p>
+<p>者 m</p>
+<p>ain.c.bz2 。</p>
+<p>如果将刚才的压缩文件解压，则使用</p>
+<p>gzip –dv main.c.gz,</p>
+<p>或者 b</p>
+<p>zip2 –dv main.c.bz2</p>
+<p>。</p>
+<p>5</p>
+<p>、</p>
+<p>scp 远</p>
+<p>程 c</p>
+<p>opy 文</p>
+<p>件命令</p>
+<p>scp filename username@ip:path</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>23</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>filename:</p>
+<p>文件名称</p>
+<p>username:copy 到</p>
+<p>的目标主机的用户名</p>
+<p>ip:</p>
+<p>目标主机 I</p>
+<p>P</p>
+<p>path:</p>
+<p>目标主机路径</p>
+<p>scp file3 k</p>
+<p>ing@192.168.4.52:~/ 从</p>
+<p>本机 c</p>
+<p>opy 到</p>
+<p>其他机器</p>
+<p>scp king@192.168.4.52:~/file3 . 从</p>
+<p>其他机器 c</p>
+<p>opy 到</p>
+<p>本机</p>
+<p>scp file8 l</p>
+<p>uke@192.168.2.100:~ 6</p>
+<p>、用来查看和配置网络设备</p>
+<p>ifconfig 当</p>
+<p>网络环境发生改变时可通过此命令对网络进行相应的</p>
+<p>配置，只有 r</p>
+<p>oot 权</p>
+<p>限才可以配置网络</p>
+<p>直接执行 i</p>
+<p>fconfig 查</p>
+<p>看网络信息</p>
+<p>通过 i</p>
+<p>fconfig 网</p>
+<p>卡名 d</p>
+<p>own 用</p>
+<p>来关闭网络，例如 i</p>
+<p>fconfig ens33</p>
+<p>down</p>
+<p>通过 i</p>
+<p>fconfig 网</p>
+<p>卡名 u</p>
+<p>p 用</p>
+<p>来启动网络，例如 i</p>
+<p>fconfig ens33 up</p>
+<p>7</p>
+<p>、查看与设置路由</p>
+<p>route</p>
+<p>当网络不通时，通过执行 r</p>
+<p>oute 查</p>
+<p>看路由，查看网关配置是否正</p>
+<p>确</p>
+<p>8</p>
+<p>、</p>
+<p>ubuntu 设</p>
+<p>置固定 I</p>
+<p>P</p>
+<p>首先点击右上角的《上下箭头》，点 E</p>
+<p>dit Connections,</p>
+<p>点 e</p>
+<p>dit</p>
+<p>，点击</p>
+<p>ipv4 setting</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>24</p>
+<p>王道码农训练营</p>
+<p>-WWW.CSKAOYAN.COM</p>
+<p>9</p>
+<p>、安装中文帮助文档</p>
+<p>1.安装中文帮助包 sudo apt-get install manpages-zh</p>
+<p>2.查看安装路径 dpkg -L manpages-zh | less</p>
+<p>3.回到家目录 cd ~</p>
+<p>4.编辑 bashrc vim .bashrc</p>
+<p>5.添加新命令</p>
+<p>alias cman=’man -M /usr/share/man/zh_CN’ 这个路径是2</p>
+<p>中查到的，默认就是这个</p>
+<p>6.更新 bashrc source .bashrc</p>
+<p>7.结束 cman 可以查看中文帮助，man 查看英文帮助（这个作用</p>
+<p>不大，因为只有少部分有中文）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/08/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -293,7 +1399,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-08-07 15:39:28 / 修改时间：16:39:42" itemprop="dateCreated datePublished" datetime="2023-08-07T15:39:28+08:00">2023-08-07</time>
+              <time title="创建时间：2023-08-07 15:39:28 / 修改时间：20:58:19" itemprop="dateCreated datePublished" datetime="2023-08-07T15:39:28+08:00">2023-08-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -2145,86 +3251,6 @@ T(N)=a*T(N/b)+O(N^d)</script><ol>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/04/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80%E7%89%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="水木君">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水木君的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80%E7%89%88/" class="post-title-link" itemprop="url">数据结构与算法C语言版</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-02 10:48:01" itemprop="dateCreated datePublished" datetime="2023-04-02T10:48:01+08:00">2023-04-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-04 20:10:13" itemprop="dateModified" datetime="2023-04-04T20:10:13+08:00">2023-04-04</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h1><p>线性结构的特点：</p>
-<ul>
-<li>存在唯一一个被称作“第一个”的数据元素</li>
-<li>存在唯一一个被称作“最后一个”的数据元素</li>
-<li>除第一个之外，集合中的每个元素均有且只有一个前驱</li>
-<li>除最后一个之外，集合中的每个元素均有且只有一个后驱</li>
-</ul>
-<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="连续存储-数组"><a href="#连续存储-数组" class="headerlink" title="[连续存储]数组"></a>[连续存储]数组</h3><ul>
-<li>什么叫数组：元素类型相同，大小相等</li>
-<li>数组的优缺点<ul>
-<li>优点：存取速度很快</li>
-<li>缺点：插入删除元素很慢<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 用一个结构体存储数组，pBase是一个数组用于存储数组本体，len是数组的最大长度。</span></span><br><span class="line"><span class="comment">// cnt是数组长度，也就是数组里面的元素的个数</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Arr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> *pBase;</span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span> cnt;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速排序，用于排序函数调用</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">QuickSort</span><span class="params">(<span class="type">int</span> *arr, <span class="type">int</span> low, <span class="type">int</span> high)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> i = low;</span><br><span class="line">        <span class="type">int</span> j = high;</span><br><span class="line">        <span class="type">int</span> k = arr[low];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[j] &gt;= k)</span><br><span class="line">            &#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                arr[i++] = arr[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[i] &lt; k)</span><br><span class="line">            &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                arr[j--] = arr[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[i] = k;</span><br><span class="line">        QuickSort(arr, low, i - <span class="number">1</span>);</span><br><span class="line">        QuickSort(arr, i + <span class="number">1</span>, high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 生成数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">init_arr</span><span class="params">(Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 升序排序数组，使用快速排序</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">sort_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">show_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 翻转数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">inverse_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 追加元素</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">append_arr</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 插入元素</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insert_arr</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 清空数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">delete_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 判断数组是否为空</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_empty</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 判断数组是否为满</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_full</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 根据位置从数组中取值</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Arr</span> <span class="title">arr</span>;</span></span><br><span class="line">    init_arr(&amp;arr, <span class="number">12</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">2</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">3</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">4</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">5</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">1</span>);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    sort_arr(&amp;arr);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    inverse_arr(&amp;arr);</span><br><span class="line">    insert_arr(&amp;arr, <span class="number">2</span>, <span class="number">99</span>);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;the number is %d&quot;</span>, get(&amp;arr, <span class="number">2</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">init_arr</span><span class="params">(<span class="keyword">struct</span> Arr *arr, <span class="type">int</span> length)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//为数组分配空间，int的大小乘以数组的长度, </span></span><br><span class="line"><span class="comment">//同时返回所分配空间的地址---》(int *)</span></span><br><span class="line">    arr-&gt;pBase = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * length);</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> == arr-&gt;pBase)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;内存分配失败&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">	<span class="comment">//分配成功就修改结构体的len和cnt值</span></span><br><span class="line">        arr-&gt;len = length;</span><br><span class="line">        arr-&gt;cnt = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据结构体的cnt判断数组是否为空，为满</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_empty</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> == pArr-&gt;cnt ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_full</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> pArr-&gt;len == pArr-&gt;cnt ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用快速排序，</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">sort_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    QuickSort(pArr-&gt;pBase, <span class="number">0</span>, pArr-&gt;cnt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历结构体里面的pBase即可，pBase的长度是cnt</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">show_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">if</span> (is_empty(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组为空&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; pArr-&gt;cnt; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, pArr-&gt;pBase[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以中间为分界线，数组左右交换</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">inverse_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pArr-&gt;cnt / <span class="number">2</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num = pArr-&gt;pBase[i];</span><br><span class="line">        pArr-&gt;pBase[i] = pArr-&gt;pBase[pArr-&gt;cnt - i - <span class="number">1</span>];</span><br><span class="line">        pArr-&gt;pBase[pArr-&gt;cnt - i - <span class="number">1</span>] = num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组为满就不添加元素，否则就往pBase里面添加元素,注意cnt也要随之增加</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">append_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> val)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_full(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组已满，不能再追加！\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        pArr-&gt;pBase[pArr-&gt;cnt] = val;</span><br><span class="line">        pArr-&gt;cnt++;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//类似append_arr(), 从place开始往后的元素往后移动一个位置，然后给num赋值到place</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insert_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> place, <span class="type">int</span> num)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_full(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组已满\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = pArr-&gt;cnt; i &gt; place; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            pArr-&gt;pBase[i] = pArr-&gt;pBase[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        pArr-&gt;pBase[place] = num;</span><br><span class="line">        pArr-&gt;cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组长度为空</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">delete_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    pArr-&gt;cnt = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> num)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> pArr-&gt;pBase[num - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="离散结构-链表"><a href="#离散结构-链表" class="headerlink" title="[离散结构]链表"></a>[离散结构]链表</h3></li>
-</ul>
-</li>
-</ul>
-<h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><h2 id="串"><a href="#串" class="headerlink" title="串"></a>串</h2><h1 id="数组和广义表"><a href="#数组和广义表" class="headerlink" title="数组和广义表"></a>数组和广义表</h1><h1 id="树和二叉树"><a href="#树和二叉树" class="headerlink" title="树和二叉树"></a>树和二叉树</h1><h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h1 id="动态存储管理"><a href="#动态存储管理" class="headerlink" title="动态存储管理"></a>动态存储管理</h1><h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h1 id="内部排序"><a href="#内部排序" class="headerlink" title="内部排序"></a>内部排序</h1><h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2296,14 +3322,14 @@ T(N)=a*T(N/b)+O(N^d)</script><ol>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
