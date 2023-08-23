@@ -268,81 +268,6 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/08/08/%E6%88%91%E7%9A%84ubuntu%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="水木君">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水木君的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/08/%E6%88%91%E7%9A%84ubuntu%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">我的ubuntu入门</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-08-08 17:55:50 / 修改时间：21:05:05" itemprop="dateCreated datePublished" datetime="2023-08-08T17:55:50+08:00">2023-08-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>学习使用ubuntu，尝试linux下编程是否那么丝滑，顺便改用neovim，以下是我的笔记。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/08/08/%E6%88%91%E7%9A%84ubuntu%E5%85%A5%E9%97%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/08/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -605,7 +530,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:57:19" itemprop="dateModified" datetime="2023-07-24T10:57:19+08:00">2023-07-24</time>
+                <time title="修改时间：2023-08-23 15:21:30" itemprop="dateModified" datetime="2023-08-23T15:21:30+08:00">2023-08-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -628,721 +553,15 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="windows基础"><a href="#windows基础" class="headerlink" title="windows基础"></a>windows基础</h1><h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>wmware分配虚拟机的磁盘大小并不是真的分配了这么多的磁盘给虚拟机。</p>
-<h2 id="一、windows基础命令"><a href="#一、windows基础命令" class="headerlink" title="一、windows基础命令"></a>一、windows基础命令</h2><p><code>命令 /?   //查找命令的使用方法</code></p>
-<h3 id="1、cd"><a href="#1、cd" class="headerlink" title="1、cd"></a>1、cd</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\		<span class="comment">#切换到d盘目录，因为改变了驱动器，所以需要加上/d选项</span></span><br><span class="line">c:\Users\Administractor&gt;<span class="built_in">cd</span> c:\	<span class="comment">#如果没有改变驱动器，就不需要加/d选项</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>目录分为相对路径和绝对路径<ul>
-<li>相对路径（以当前为起始）<ul>
-<li>“.”代表的是当前路径</li>
-<li>“../“代表的是当前的上一级</li>
-</ul>
-</li>
-<li>绝对路径(以驱动器号为起点)</li>
-</ul>
-</li>
-</ul>
-<h3 id="2、dir"><a href="#2、dir" class="headerlink" title="2、dir"></a>2、dir</h3><ul>
-<li><p>用于显示目录和文件列表</p>
-</li>
-<li><p>常用的用法直接使用dir</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dir</span></span><br><span class="line"><span class="built_in">dir</span> /a:<span class="built_in">h</span> c:\ 		<span class="comment">#查找C盘目录下的隐藏目录和文件</span></span><br><span class="line"><span class="built_in">dir</span> /o:<span class="literal">-n</span> c:\		<span class="comment">#使用字母的逆序方式查看</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3、md-或-mkdir"><a href="#3、md-或-mkdir" class="headerlink" title="3、md 或 mkdir"></a>3、md 或 mkdir</h3><ul>
-<li>创建目录（或文件夹），也可以直接创建多级子目录</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">md</span> 公司文件夹</span><br><span class="line"><span class="built_in">md</span> 公司文件夹\技术部\技术文件夹 <span class="comment">#当技术文件夹不存在时会直接创建</span></span><br></pre></td></tr></table></figure>
-<h3 id="4、rd"><a href="#4、rd" class="headerlink" title="4、rd"></a>4、rd</h3><ul>
-<li>用于删除目录</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rd</span> 成都文件 		<span class="comment">#直接使用使用rd只能删除空目录</span></span><br><span class="line">re /s /q 公司文件夹  <span class="comment">#目录中存在子目录或文件，必须使用/s选项，可以使用/q选项不提醒</span></span><br></pre></td></tr></table></figure>
-<h3 id="5、move"><a href="#5、move" class="headerlink" title="5、move"></a>5、move</h3><ul>
-<li>用于移动，重命名</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d:\&gt;<span class="built_in">move</span> woniu.bmp c:\	<span class="comment">#移动</span></span><br><span class="line">d:\&gt;<span class="built_in">move</span> c:\woniu.bmp c:\woniutf.bmp	<span class="comment">#重命名</span></span><br></pre></td></tr></table></figure>
-<h3 id="6、copy"><a href="#6、copy" class="headerlink" title="6、copy"></a>6、copy</h3><ul>
-<li>用于复制文件</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d:\&gt;<span class="built_in">copy</span> c:\woniutf.bmp d:\woniuxy		<span class="comment">#直接复制到指定目录</span></span><br><span class="line">d:\&gt;<span class="built_in">copy</span> <span class="number">1</span>.txt+<span class="number">2</span>.txt <span class="number">3</span>.txt			<span class="comment">#讲两个文件中的内容直接融合到新的文件中</span></span><br></pre></td></tr></table></figure>
-<h3 id="7、xcopy"><a href="#7、xcopy" class="headerlink" title="7、xcopy"></a>7、xcopy</h3><ul>
-<li>用于复制目录</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d:\&gt;xcopy /s woniuxy c:\</span><br></pre></td></tr></table></figure>
-<h3 id="8、del"><a href="#8、del" class="headerlink" title="8、del"></a>8、del</h3><ul>
-<li>用于删除文件</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d:\&gt;<span class="built_in">del</span> <span class="number">1</span>.txt</span><br></pre></td></tr></table></figure>
-<h2 id="二、windows文本处理"><a href="#二、windows文本处理" class="headerlink" title="二、windows文本处理"></a>二、windows文本处理</h2><h3 id="1、type"><a href="#1、type" class="headerlink" title="1、type"></a>1、type</h3><ul>
-<li>用于显示文本文件内容</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c:\Windows\System32&gt;<span class="built_in">type</span> d:\<span class="number">3</span>.txt</span><br><span class="line">username:woniuxy</span><br><span class="line">password:woniu123</span><br></pre></td></tr></table></figure>
-<ul>
-<li>输出重定向”&gt;”</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c:\Windows\System32\ipconfig &gt; c:\ip.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>管道符”|”</li>
-</ul>
-<p>将前面命令执行的结果作为后面命令的操作对象</p>
-<h3 id="2、findstr"><a href="#2、findstr" class="headerlink" title="2、findstr"></a>2、findstr</h3><ul>
-<li>查找文件内容(查找的某个字符串的内容)</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c:\Windows\System32&gt;findstr <span class="number">192</span> c:\ip.txt</span><br></pre></td></tr></table></figure>
-<h2 id="三、网络相关操作"><a href="#三、网络相关操作" class="headerlink" title="三、网络相关操作"></a>三、网络相关操作</h2><h3 id="1、配置TCP-IP参数"><a href="#1、配置TCP-IP参数" class="headerlink" title="1、配置TCP/IP参数"></a>1、配置TCP/IP参数</h3><ul>
-<li>TCP/IP参数<ul>
-<li>IP地址：表示了网络中的某一台主机</li>
-<li>子网掩码：用于表示你的IP所处的网络的范围，子网掩码越大，网络范围越小</li>
-<li>默认网关：标识与主机直连的路由的的IP地址</li>
-<li>DNS服务器： 用于域名解析</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#静态配置IP地址、子网掩码、默认网关</span></span><br><span class="line">c:\&gt;netsh interface ip <span class="built_in">set</span> address <span class="string">&quot;Ethernet0&quot;</span> <span class="keyword">static</span> <span class="number">192.168</span>.<span class="number">100.100</span> <span class="number">255.255</span>.<span class="number">255.0</span> <span class="number">192.168</span>.<span class="number">100.254</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#自动获取TCP/IP参数</span></span><br><span class="line">c:\&gt;netsh interface ip <span class="built_in">set</span> address <span class="string">&quot;Ethernet0&quot;</span>  dhcp</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#静态配置获取dns服务器</span></span><br><span class="line">c:\&gt;netsh interface ip <span class="built_in">set</span> dnsserver <span class="string">&quot;Ethernet0&quot;</span> <span class="number">12.12</span>.<span class="number">12.12</span></span><br><span class="line"><span class="comment">#添加备用dns服务器</span></span><br><span class="line">c:\&gt;netsh interface ip add dnsserver <span class="string">&quot;Ethernet0&quot;</span> <span class="number">12.12</span>.<span class="number">12.13</span> index=<span class="number">2</span></span><br><span class="line"><span class="comment">#自动获取dns服务器</span></span><br><span class="line">c:\&gt;netsh interface ip <span class="built_in">set</span> dnsserver <span class="string">&quot;Ethernet0&quot;</span> dhcp</span><br></pre></td></tr></table></figure>
-<h3 id="2、ipconfig"><a href="#2、ipconfig" class="headerlink" title="2、ipconfig"></a>2、ipconfig</h3><p>查看TCP\IP参数</p>
-<ul>
-<li><p>常用</p>
-<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#查看所有网卡的TCP\IP参数(IP地址、子网掩码、默认网关)</span><br><span class="line">ipconfig</span><br><span class="line">#查看所有网卡的TCP\IP参数(IP地址、子网掩码、默认网关、mac地址、dhcp地址、dns地址、主机名)</span><br><span class="line">ipconfig /<span class="keyword">all</span></span><br><span class="line">#释放TCP/IP参数</span><br><span class="line">ipconfig /<span class="keyword">release</span></span><br><span class="line">#重新获取TCP/IP参数</span><br><span class="line">ipconfig /renew</span><br><span class="line">#刷新dns缓存</span><br><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3、ping"><a href="#3、ping" class="headerlink" title="3、ping"></a>3、ping</h3><p>用于测试TCP/IP配置是否正确</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ping <span class="literal">-n</span> <span class="number">10</span> <span class="literal">-l</span> <span class="number">10000</span> <span class="literal">-t</span> <span class="literal">-a</span> <span class="number">192.168</span>.<span class="number">31.1</span></span><br><span class="line"><span class="comment"># -n 10 发送10个报文</span></span><br><span class="line"><span class="comment"># -l 10000 单个报文10000个字节</span></span><br><span class="line"><span class="comment"># -t 一直不停地ping</span></span><br><span class="line"><span class="comment"># -a 返回IP的主机名</span></span><br></pre></td></tr></table></figure>
-<h3 id="4、tracert"><a href="#4、tracert" class="headerlink" title="4、tracert"></a>4、tracert</h3><p>追踪路由</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tracert <span class="number">39.156</span>.<span class="number">66.10</span></span><br></pre></td></tr></table></figure>
-<h3 id="5、router"><a href="#5、router" class="headerlink" title="5、router"></a>5、router</h3><p>用来操作网络的路由表</p>
-<p>0.0.0.0代表任意网络</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打印路由表</span></span><br><span class="line">route <span class="literal">-4</span> print</span><br><span class="line"><span class="comment">#添加路由条目（112.53.42.52目标地址或网络、32代表子网掩码、192.168.33.1是网关地址）</span></span><br><span class="line">route add <span class="number">112.53</span>.<span class="number">42.52</span>/<span class="number">32</span> <span class="number">192.168</span>.<span class="number">33.1</span></span><br><span class="line"><span class="comment">#删除路由条目</span></span><br><span class="line">route delete <span class="number">112.53</span>.<span class="number">42.52</span> 	<span class="comment">#(112.53.42.52目标)</span></span><br></pre></td></tr></table></figure>
-<h3 id="6、netstat"><a href="#6、netstat" class="headerlink" title="6、netstat"></a>6、netstat</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看所有的TCP链接，包括进程，以数字形式显示</span></span><br><span class="line">netstat <span class="literal">-anop</span> tcp</span><br><span class="line"><span class="comment">#查看路由表</span></span><br><span class="line">netstat <span class="literal">-r</span>	  等同于		route  print</span><br></pre></td></tr></table></figure>
-<h1 id="Windows用户管理"><a href="#Windows用户管理" class="headerlink" title="Windows用户管理"></a>Windows用户管理</h1><h2 id="一、用户账户"><a href="#一、用户账户" class="headerlink" title="一、用户账户"></a>一、用户账户</h2><h3 id="1、什么是用户账户"><a href="#1、什么是用户账户" class="headerlink" title="1、什么是用户账户"></a>1、什么是用户账户</h3><ul>
-<li><p>不同的用户身份拥有不同的权限</p>
-</li>
-<li><p>每个用户包含了一个名称和一个密码</p>
-</li>
-<li><p>每个用户账户拥有唯一的安全标识符</p>
-</li>
-<li><p>查看系统中的用户</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net user</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安全标识符(SID)</p>
-<ul>
-<li><p>查看当前用户的SID</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami /user</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用注册表查看 ：打开注册表命令：regedit</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\ProfileList</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在Windows系统中管理员的SID是500，普通用户的SID是从1000开始</p>
-</li>
-<li><p>查看所有用户和他们的SID</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic useraccount get name,sid</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="2、进行用户管理"><a href="#2、进行用户管理" class="headerlink" title="2、进行用户管理"></a>2、进行用户管理</h3><ul>
-<li><p>创建用户</p>
-<ul>
-<li>用户名：系统的显示名</li>
-<li>全名：用户登陆时的显示名</li>
-<li>密码：Windows服务器默认需要符合复杂性要求</li>
-<li>账户已锁定：如果开启了账户锁定阈值，输错密码多次后将被锁定</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建用户不指定密码</span></span><br><span class="line">net user zhangsan /add</span><br><span class="line"><span class="comment">#创建新用户zhangsan，指定明文密码为123456</span></span><br><span class="line">net user zhangsan <span class="number">123456</span> /add</span><br><span class="line"><span class="comment">#创建用户手动输入密码，密码不显示在屏幕上</span></span><br><span class="line">net user zhangsan /add *		<span class="comment">#&quot;*&quot;号为密码占位符</span></span><br><span class="line"><span class="comment">#修改账户密码</span></span><br><span class="line">net user zhangsan p<span class="literal">-0p-0p-0</span></span><br><span class="line">net user zhangsan *</span><br><span class="line"><span class="comment">#删除用户</span></span><br><span class="line">net user zhangsan /<span class="built_in">del</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>管理用户</p>
-</li>
-<li><p>设置密码</p>
-</li>
-<li><p>隐藏用户</p>
-<ul>
-<li>在用户的后面加上$符号，隐藏用户用net user命令是无法看到的</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、Windows的内置用户账户"><a href="#二、Windows的内置用户账户" class="headerlink" title="二、Windows的内置用户账户"></a>二、Windows的内置用户账户</h2><h3 id="1、与使用者关联的"><a href="#1、与使用者关联的" class="headerlink" title="1、与使用者关联的"></a>1、与使用者关联的</h3><ul>
-<li>管理员administrator：在使用者中具有最高的权限，如果没有其他的管理员，不建议禁用</li>
-<li>普通用户：具有一般的读取权限，权限较低</li>
-<li>来宾用户guest一般是提供给访客使用，在使用者中，权限较低，默认是禁用的</li>
-</ul>
-<h3 id="2、与Windows组件关联的"><a href="#2、与Windows组件关联的" class="headerlink" title="2、与Windows组件关联的"></a>2、与Windows组件关联的</h3><ul>
-<li>system 本地服务：拥有最高权限</li>
-<li><p>local service 本地服务：它的权限相对于普通用户组users会低一点</p>
-</li>
-<li><p>network service 网络服务：它的权限和普通用户组users一样</p>
-</li>
-</ul>
-<h1 id="Windows组的管理"><a href="#Windows组的管理" class="headerlink" title="Windows组的管理"></a>Windows组的管理</h1><h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><h3 id="1、与人员关联的"><a href="#1、与人员关联的" class="headerlink" title="1、与人员关联的"></a>1、与人员关联的</h3><ul>
-<li>administrator</li>
-<li>guests</li>
-</ul>
-<h3 id="2、与组件关联的"><a href="#2、与组件关联的" class="headerlink" title="2、与组件关联的"></a>2、与组件关联的</h3><ul>
-<li>system</li>
-<li>local service</li>
-<li>network service</li>
-</ul>
-<h2 id="一、用户组"><a href="#一、用户组" class="headerlink" title="一、用户组"></a>一、用户组</h2><h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
-<li>一组用户的集合，组中所有的用户具有相同的权限</li>
-</ul>
-<h3 id="2、创建管理组"><a href="#2、创建管理组" class="headerlink" title="2、创建管理组"></a>2、创建管理组</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建组</span></span><br><span class="line">net localgroup 技术部 /add</span><br><span class="line"><span class="comment">#删除组</span></span><br><span class="line">net localgroup 技术部 /<span class="built_in">del</span></span><br><span class="line"><span class="comment">#创建并将用户加入组</span></span><br><span class="line">net localgroup 技术部 zhangsan /add</span><br><span class="line"><span class="comment">#将用户从组中拿掉</span></span><br><span class="line">net localgroup 技术部 zhangsan /<span class="built_in">del</span></span><br></pre></td></tr></table></figure>
-<h2 id="二、内置组账户"><a href="#二、内置组账户" class="headerlink" title="二、内置组账户"></a>二、内置组账户</h2><h3 id="1、需要人为添加"><a href="#1、需要人为添加" class="headerlink" title="1、需要人为添加"></a>1、需要人为添加</h3><ul>
-<li>administrator：管理员组</li>
-<li>guests：来宾用户组</li>
-<li>power users：向下兼容的组，现在一般没有使用</li>
-<li>users：标准用户组，创建用户后默认处于此组内</li>
-</ul>
-<h3 id="2、动态包含成员的组"><a href="#2、动态包含成员的组" class="headerlink" title="2、动态包含成员的组"></a>2、动态包含成员的组</h3><ul>
-<li>interactive：动态包含在本地登陆的用户</li>
-<li>authenticated users：动态包含通过验证的用户</li>
-<li>everyone：所有人，包含了来宾用户</li>
-</ul>
-<h3 id="实验操作"><a href="#实验操作" class="headerlink" title="实验操作"></a>实验操作</h3><p>根据下表公司员工名单在服务器中创建对应用户及组，并将用户加入对应组</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>部门</th>
-<th>姓名</th>
-<th>职位</th>
-<th>备注</th>
-<th>用户名</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>人力资源部</td>
-<td>张三</td>
-<td>HR专员</td>
-<td></td>
-<td>zhangsan</td>
-</tr>
-<tr>
-<td>技术部</td>
-<td>李四</td>
-<td>技术部经理</td>
-<td></td>
-<td>lisi</td>
-</tr>
-<tr>
-<td>技术部</td>
-<td>王五</td>
-<td>工程师</td>
-<td>汽车行业项目组成员</td>
-<td>wangwu</td>
-</tr>
-<tr>
-<td>技术部</td>
-<td>赵六</td>
-<td>工程师</td>
-<td>保险行业项目组成员</td>
-<td>zhaoliu</td>
-</tr>
-<tr>
-<td>销售部</td>
-<td>小明</td>
-<td>销售部经理</td>
-<td></td>
-<td>xiaoming</td>
-</tr>
-<tr>
-<td>销售部</td>
-<td>李伟</td>
-<td>销售员</td>
-<td>汽车行业项目组成员</td>
-<td>liwei</td>
-</tr>
-<tr>
-<td>销售部</td>
-<td>刘英</td>
-<td>销售员</td>
-<td>保险行业项目组成员</td>
-<td>liuying</td>
-</tr>
-<tr>
-<td>公司办公室</td>
-<td>张红</td>
-<td>系统管理员</td>
-<td></td>
-<td>zhanghong</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>注：王五需要加入技术部和汽车行业项目组两个组</p>
-<h1 id="NTFS权限"><a href="#NTFS权限" class="headerlink" title="NTFS权限"></a>NTFS权限</h1><h2 id="一、NTFS权限"><a href="#一、NTFS权限" class="headerlink" title="一、NTFS权限"></a>一、NTFS权限</h2><h3 id="1、文件系统"><a href="#1、文件系统" class="headerlink" title="1、文件系统"></a>1、文件系统</h3><ul>
-<li>Windows<ul>
-<li>早期Windows上使用 FAT16 或FAT32</li>
-<li>目前的Windows操作系统基本使用的是NTFS文件系统<ul>
-<li>ACL(访问控制列表，设置权限)</li>
-<li>EFS(加密文件系统，使用BitLocker进行磁盘加密) </li>
-<li>压缩及磁盘配额</li>
-</ul>
-</li>
-<li>ReFS 复原文件系统</li>
-</ul>
-</li>
-<li>Linux<ul>
-<li>swap 交换文件系统，主要是将磁盘的一部分空间分配给内存使用</li>
-<li>ext4：</li>
-</ul>
-</li>
-</ul>
-<p>早期的FAT文件系统不支持单个大文件(超过4GB)</p>
-<p>文件系统转换</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#U盘为h盘，文件系统问FAT，将其转换为NTFS</span></span><br><span class="line">convert <span class="built_in">h</span>:/fs:ntfs</span><br></pre></td></tr></table></figure>
-<h2 id="二、文件权限"><a href="#二、文件权限" class="headerlink" title="二、文件权限"></a>二、文件权限</h2><h3 id="1、设置文件权限"><a href="#1、设置文件权限" class="headerlink" title="1、设置文件权限"></a>1、设置文件权限</h3><ul>
-<li>读取数据</li>
-<li>写入数据</li>
-<li>附加数据</li>
-<li>删除</li>
-<li>执行文件</li>
-</ul>
-<h2 id="三、文件夹权限"><a href="#三、文件夹权限" class="headerlink" title="三、文件夹权限"></a>三、文件夹权限</h2><h3 id="1、设置文件夹权限"><a href="#1、设置文件夹权限" class="headerlink" title="1、设置文件夹权限"></a>1、设置文件夹权限</h3><ul>
-<li>列出文件夹</li>
-<li>创建文件夹</li>
-<li>创建文件</li>
-<li>删除</li>
-<li>删除子文件夹和文件</li>
-</ul>
-<h2 id="四、权限分类"><a href="#四、权限分类" class="headerlink" title="四、权限分类"></a>四、权限分类</h2><ul>
-<li><p>完全控制</p>
-<p><img src="C:\Users\1\Pictures\md_image\image-20221223093104922.png" alt="image-20221223093104922"></p>
-</li>
-<li><p>修改</p>
-<p><img src="C:\Users\1\Pictures\md_image\image-20221223093623382.png" alt="image-20221223093623382"></p>
-</li>
-<li><p>读取和执行</p>
-<p><img src="C:\Users\1\Pictures\md_image\image-20221223093921949.png" alt="image-20221223093921949"></p>
-</li>
-<li><p>读取</p>
-<p><img src="C:\Users\1\Pictures\md_image\image-20221223093817952.png" alt="image-20221223093817952"></p>
-</li>
-<li><p>写入</p>
-<p><img src="C:\Users\1\Pictures\md_image\image-20221223094104015.png" alt="image-20221223094104015"></p>
-</li>
-<li><p>特殊权限</p>
-<p><img src="C:\Users\1\Pictures\md_image\image-20221223094130261.png" alt="image-20221223094130261"></p>
-</li>
-</ul>
-<h1 id="NTFS权限规则"><a href="#NTFS权限规则" class="headerlink" title="NTFS权限规则"></a>NTFS权限规则</h1><h2 id="一、权限的累加"><a href="#一、权限的累加" class="headerlink" title="一、权限的累加"></a>一、权限的累加</h2><h3 id="1、权限的累加"><a href="#1、权限的累加" class="headerlink" title="1、权限的累加"></a>1、权限的累加</h3><ul>
-<li>用户分配的有效权限是分配给用户所有权限的累加<ul>
-<li>假设一个用设置了读取权限，给用户所属组分配了修改权限，用户最终的权限就等于读取和修改</li>
-</ul>
-</li>
-</ul>
-<h3 id="2、拒绝权限"><a href="#2、拒绝权限" class="headerlink" title="2、拒绝权限"></a>2、拒绝权限</h3><ul>
-<li>拒绝的权限大于一切（在访问控制列表中，拒绝的权限优先级最高）</li>
-<li>当出现权限冲突的时候，拒绝的权限优先级最高（举例：用户所属组读取权限，用户拒绝读取，最终用户没有读取权限）</li>
-</ul>
-<h3 id="3、继承权限"><a href="#3、继承权限" class="headerlink" title="3、继承权限"></a>3、继承权限</h3><ul>
-<li>文件或文件夹的访问控制列表默认会继承上级文件夹的权限</li>
-</ul>
-<h3 id="4、特殊权限"><a href="#4、特殊权限" class="headerlink" title="4、特殊权限"></a>4、特殊权限</h3><ul>
-<li>读取权限（和读取文件或文件夹的内容没有任何的关系）<ul>
-<li>读取文件或文件夹的控制访问列表</li>
-<li>针对于用户想要访问某个文件的内容，此权限必须勾选</li>
-</ul>
-</li>
-<li>更改权限（和修改文件或文件夹的内容没有任何关系）<ul>
-<li>用户是否可以修改文件或文件夹的访问控制列表，由于此权限是可以为用户添加或删除权限，会造成很多不安全因素，此权限一般不会给</li>
-<li>要想更改，前提是必须能读取，需要读取权限</li>
-</ul>
-</li>
-<li>取得所有权<ul>
-<li>能够修改文件或文件夹的所有者</li>
-<li>前提必须得读取和修改</li>
-</ul>
-</li>
-</ul>
-<p>作业：</p>
-<p>创建对应文件夹及文件并设置对应权限：a-&gt;读取,b-&gt;完全控制</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th></th>
-<th>技术资料</th>
-<th>常用软件</th>
-<th>IT基建</th>
-<th>客户IT项目</th>
-<th>公司网站</th>
-<th>公司制度+待打印表格</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>技术部</td>
-<td>a(读取)</td>
-<td>a</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>保险项目组</td>
-<td></td>
-<td></td>
-<td>b</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>汽车项目组</td>
-<td></td>
-<td></td>
-<td></td>
-<td>b</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>人力资源部</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>b</td>
-<td></td>
-</tr>
-<tr>
-<td>员工</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>a</td>
-</tr>
-<tr>
-<td>系统管理员</td>
-<td>b(完全控制)</td>
-<td>b</td>
-<td>b</td>
-<td>b</td>
-<td>b</td>
-<td>b</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="本地安全策略"><a href="#本地安全策略" class="headerlink" title="本地安全策略"></a>本地安全策略</h1><h2 id="一、本地安全策略"><a href="#一、本地安全策略" class="headerlink" title="一、本地安全策略"></a>一、本地安全策略</h2><h3 id="1、概念-1"><a href="#1、概念-1" class="headerlink" title="1、概念"></a>1、概念</h3><ul>
-<li>主要是对登陆到计算机的账户进行一些安全设置</li>
-<li>主要影响的是本地计算机安全设置</li>
-</ul>
-<h3 id="2、打开方式"><a href="#2、打开方式" class="headerlink" title="2、打开方式"></a>2、打开方式</h3><ul>
-<li><p>开始菜单——&gt;管理工具——&gt;本地安全策略</p>
-</li>
-<li><p>使用命令</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">secpol.msc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从本地组策略进去</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用命令</span></span><br><span class="line">gpedit.msc</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="二、账户策略"><a href="#二、账户策略" class="headerlink" title="二、账户策略"></a>二、账户策略</h2><h3 id="1、密码策略"><a href="#1、密码策略" class="headerlink" title="1、密码策略"></a>1、密码策略</h3><ul>
-<li><p>密码必须符合复杂性要求</p>
-<ul>
-<li><p>默认情况下，Windows server 操作系统是开启</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">不能包含用户的帐户名，不能包含用户姓名中超过两个连续字符的部分</span><br><span class="line">至少有六个字符长</span><br><span class="line">包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="2、账户锁定策略"><a href="#2、账户锁定策略" class="headerlink" title="2、账户锁定策略"></a>2、账户锁定策略</h3><ul>
-<li>账户锁定时间：当错误尝试密码到一定次数，账户会被锁定，即使输入正确的密码也无法登陆</li>
-<li>账户锁定阈值：尝试密码的次数</li>
-<li>重置账户锁定计时器：过一段时间后会将用户已尝试过的次数重置为0</li>
-<li>管理员是不受限制的</li>
-</ul>
-<p>作业：由于管理员不受账户锁定策略的限制，管理员的用户名又是固定的，很容易收到haker的爆破攻击，从而使服务器沦陷，用什么办法将管理员藏起来，使haker无法找到管理员用户，从而无法实施爆破？(Windows操作系统加固的其中一个环节)</p>
-<p>远程桌面命令</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mstsc</span><br></pre></td></tr></table></figure>
-<h2 id="三、本地策略"><a href="#三、本地策略" class="headerlink" title="三、本地策略"></a>三、本地策略</h2><h3 id="1、审核策略"><a href="#1、审核策略" class="headerlink" title="1、审核策略"></a>1、审核策略</h3><h3 id="2、用户权限分配"><a href="#2、用户权限分配" class="headerlink" title="2、用户权限分配"></a>2、用户权限分配</h3><h3 id="3、安全选项"><a href="#3、安全选项" class="headerlink" title="3、安全选项"></a>3、安全选项</h3><h1 id="Windows文件共享"><a href="#Windows文件共享" class="headerlink" title="Windows文件共享"></a>Windows文件共享</h1><h2 id="一、共享要求"><a href="#一、共享要求" class="headerlink" title="一、共享要求"></a>一、共享要求</h2><p>一般是局域网内使用</p>
-<h3 id="1、物理上处于同一局域网内（两台虚拟机设置的都是NAT）"><a href="#1、物理上处于同一局域网内（两台虚拟机设置的都是NAT）" class="headerlink" title="1、物理上处于同一局域网内（两台虚拟机设置的都是NAT）"></a>1、物理上处于同一局域网内（两台虚拟机设置的都是NAT）</h3><ul>
-<li>同一公司的网络</li>
-<li>同一家庭的网络</li>
-<li>同一手机热点下</li>
-</ul>
-<h3 id="2、逻辑上处于同一局域网内"><a href="#2、逻辑上处于同一局域网内" class="headerlink" title="2、逻辑上处于同一局域网内"></a>2、逻辑上处于同一局域网内</h3><ul>
-<li>直接可以ping通对方主机</li>
-</ul>
-<h2 id="二、共享权限"><a href="#二、共享权限" class="headerlink" title="二、共享权限"></a>二、共享权限</h2><h3 id="1、共享权限"><a href="#1、共享权限" class="headerlink" title="1、共享权限"></a>1、共享权限</h3><ul>
-<li>一般设置为everyone完全控制</li>
-</ul>
-<h3 id="2、NTFS权限"><a href="#2、NTFS权限" class="headerlink" title="2、NTFS权限"></a>2、NTFS权限</h3><ul>
-<li>前面已经设置完成</li>
-</ul>
-<h3 id="3、用户从网络访问服务器的最终权限"><a href="#3、用户从网络访问服务器的最终权限" class="headerlink" title="3、用户从网络访问服务器的最终权限"></a>3、用户从网络访问服务器的最终权限</h3><ul>
-<li>由共享权限和NTFS权限的交集部分<ul>
-<li>举例：张三的共享权限是读取，NTFS权限是读取和写入，张三从网络访问共享最终的权限是读取</li>
-<li>常用设置方法：<ul>
-<li>共享权限设置最大，NTFS权限进行精细化设置</li>
-<li>举例：张三共享权限完全控制，NTFS权限设置读取，张三从网络访问共享最终的权限是读取</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>共享权限默认有一个everyone组是读取，everyone代表了所有人</li>
-</ul>
-<h2 id="三、访问共享"><a href="#三、访问共享" class="headerlink" title="三、访问共享"></a>三、访问共享</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\\<span class="number">192.168</span>.<span class="number">80.141</span>		<span class="comment">#192.168.80.141是服务器的IP地址</span></span><br><span class="line">\\WIN<span class="literal">-7H898HLKBQP</span>		<span class="comment">#WIN-7H898HLKBQP是服务器的主机名</span></span><br></pre></td></tr></table></figure>
-<h1 id="组策略应用"><a href="#组策略应用" class="headerlink" title="组策略应用"></a>组策略应用</h1><h2 id="一、组策略基本概念"><a href="#一、组策略基本概念" class="headerlink" title="一、组策略基本概念"></a>一、组策略基本概念</h2><h3 id="1、概念-2"><a href="#1、概念-2" class="headerlink" title="1、概念"></a>1、概念</h3><p><strong>组策略</strong>（英语：<strong>Group Policy</strong>）是微软Windows NT家族操作系统的一个特性，它可以控制用户帐户和计算机帐户的工作环境。组策略提供了操作系统、应用程序和活动目录中用户设置的集中化管理和配置。组策略的其中一个版本名为<strong>本地组策略</strong>（缩写“LGPO”或“LocalGPO”），这可以在独立且非域的计算机上管理组策略对象。</p>
-<h3 id="2、打开方式-1"><a href="#2、打开方式-1" class="headerlink" title="2、打开方式"></a>2、打开方式</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpedit.msc</span><br></pre></td></tr></table></figure>
-<h3 id="3、刷新组策略"><a href="#3、刷新组策略" class="headerlink" title="3、刷新组策略"></a>3、刷新组策略</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpupdate /force</span><br></pre></td></tr></table></figure>
-<h3 id="4、模块"><a href="#4、模块" class="headerlink" title="4、模块"></a>4、模块</h3><ul>
-<li>计算机配置<ul>
-<li>针对本地计算机生效</li>
-</ul>
-</li>
-<li>用户配置<ul>
-<li>针对于用户生效</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、案例"><a href="#二、案例" class="headerlink" title="二、案例"></a>二、案例</h2><h3 id="1、隐藏桌面系统图标"><a href="#1、隐藏桌面系统图标" class="headerlink" title="1、隐藏桌面系统图标"></a>1、隐藏桌面系统图标</h3><p>用户配置-&gt;管理模板-&gt;桌面-&gt;隐藏和禁用桌面上的所有项目</p>
-<h3 id="2、保护“任务栏”和“开始”菜单"><a href="#2、保护“任务栏”和“开始”菜单" class="headerlink" title="2、保护“任务栏”和“开始”菜单"></a>2、保护“任务栏”和“开始”菜单</h3><p>用户配置-&gt;管理模板-&gt;“开始”菜单和任务栏-&gt;阻止更改“任务栏”和“开始”菜单设置</p>
-<h3 id="3、保护个人文档隐私（历史使用文件）"><a href="#3、保护个人文档隐私（历史使用文件）" class="headerlink" title="3、保护个人文档隐私（历史使用文件）"></a>3、保护个人文档隐私（历史使用文件）</h3><p>用户配置-&gt;管理模板-&gt;“开始”菜单和任务栏-&gt;不保留最近打开文档的历史</p>
-<h3 id="4、禁用浏览器“在新窗口中打开”"><a href="#4、禁用浏览器“在新窗口中打开”" class="headerlink" title="4、禁用浏览器“在新窗口中打开”"></a>4、禁用浏览器“在新窗口中打开”</h3><p>用户配置-&gt;管理模板-&gt;Windows组件-&gt;Internet Explorer-&gt;浏览器菜单-&gt;禁用“在新窗口中打开”菜单选项</p>
-<h3 id="5、禁用控制面板"><a href="#5、禁用控制面板" class="headerlink" title="5、禁用控制面板"></a>5、禁用控制面板</h3><p>用户配置-&gt;管理模板-&gt;控制面板-&gt;禁止访问“控制面板”和pc设置</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打开控制面板命令</span></span><br><span class="line">control.exe</span><br></pre></td></tr></table></figure>
-<h3 id="6、关闭自动播放"><a href="#6、关闭自动播放" class="headerlink" title="6、关闭自动播放"></a>6、关闭自动播放</h3><p>计算机配置-&gt;管理模板-&gt;Windows组件-&gt;自动播放策略-&gt;关闭自动播放</p>
-<h3 id="7、关闭自动更新"><a href="#7、关闭自动更新" class="headerlink" title="7、关闭自动更新"></a>7、关闭自动更新</h3><p>计算机配置-&gt;管理模板-&gt;Windows组件-&gt;Windows更新-&gt;配置自动更新</p>
-<h1 id="注册表"><a href="#注册表" class="headerlink" title="注册表"></a>注册表</h1><h2 id="一、注册表基础"><a href="#一、注册表基础" class="headerlink" title="一、注册表基础"></a>一、注册表基础</h2><h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><ul>
-<li>注册表是Windows操作系统，硬件设备以及客户应用程序得以正常运行和保存设置的核心“数据库”，也可以说是一个非常巨大的树状分层结构的数据库系统</li>
-<li>注册表记录了用户安装在计算机上的软件和每个程序的相互关联信息，它包括了计算机的硬件配置，包括自动配置的即插即用的设备和已有的各种设备说明、状态属性以及各种状态信息和数据。利用一个功能强大的注册表数据库来统一集中地管理系统硬件设施、软件配置等信息，从而方便了管理，增强了系统的稳定性。 </li>
-</ul>
-<h3 id="2、早期注册表"><a href="#2、早期注册表" class="headerlink" title="2、早期注册表"></a>2、早期注册表</h3><ul>
-<li>以ini 为扩展名的文本文件的配置文件</li>
-</ul>
-<h3 id="3、Windows-95-之后的注册表"><a href="#3、Windows-95-之后的注册表" class="headerlink" title="3、Windows 95 之后的注册表"></a>3、Windows 95 之后的注册表</h3><ul>
-<li>自Windows 95操作系统开始，注册表真正成为Windows用户经常接触的内容，并在其后的操作系统中继续沿用。<ul>
-<li>注册表数据库由多个文件组成</li>
-<li>Windows 提供了注册表编辑器</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打开注册表</span></span><br><span class="line">regedit</span><br></pre></td></tr></table></figure>
-<h3 id="4、注册表结构"><a href="#4、注册表结构" class="headerlink" title="4、注册表结构"></a>4、注册表结构</h3><ul>
-<li>注册表以树状结构进行呈现<ul>
-<li>子树（实际只有两棵子树，为了方便操作，分成了5棵子树）<ul>
-<li>HKEY＿LOCAL＿MACHINE：记录关于本地计算机系统的信息，包括硬件和操作系统数据</li>
-<li>HKEY＿USERS：记录关于动态加载的用户配置文件和默认配置文件的信息</li>
-<li>HKEY＿CURRENT＿USER：HKEY＿USERS子树，它指向“HKEY＿USERS＼当前用户的安全ID”包含当前以交互方式登录的用户的用 户配置文件</li>
-<li>HKEY＿CURRENT CONFIG： HKEY＿LOCAL＿MACHINE子树，指向HKEY＿LOCAL＿MACHINE＼SYSTEM＼CurrentControlSet＼Hardware Profiles＼Current包含在启动时由本地计算机系统使用的硬 件配置文件的相关信息加载的设备驱动程序、显示时要使用的分辨</li>
-<li>HKEY＿CLASSES＿ROOT：HKEY＿CURRENT＿USER子树包含用于各种OLE技术和文件类关联数据的信息 </li>
-</ul>
-</li>
-<li>项<ul>
-<li>可以简单的理解文件夹，项中可以包含项和值</li>
-</ul>
-</li>
-<li>值<ul>
-<li>每个注册表项或子项都可以包含称为值的数据■部分值应用于某个用户的信息</li>
-<li>部分值应用于计算机所有用户的信息</li>
-<li>值由三部分组成（值的名称、值类型、值的数据）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、注册表基本操作"><a href="#二、注册表基本操作" class="headerlink" title="二、注册表基本操作"></a>二、注册表基本操作</h2><h3 id="1、创建项"><a href="#1、创建项" class="headerlink" title="1、创建项"></a>1、创建项</h3><h3 id="2、创建值（有六种类型的值）"><a href="#2、创建值（有六种类型的值）" class="headerlink" title="2、创建值（有六种类型的值）"></a>2、创建值（有六种类型的值）</h3><ul>
-<li>字符串值（REG＿SZ）：固定长度的文本字符串</li>
-<li>二进制值（REG＿BINARY）：原始二进制数据。多数硬件组件信息都以二进制数据存储</li>
-<li>DWORD值（REG＿DWORD）：数据由4字节长的数表示。设备驱动程序和服务的很多参数都是这种类型</li>
-<li>QWORD值（REG＿QWORD）：数据由8字节长的数表示</li>
-<li>多字符串值（REG＿MULTI＿SZ）：多重字符串。包含列表或多值的值通常为该类型</li>
-<li>可扩充字符串值（REG＿EXPAND＿SZ）：长度可变的数据串。该数据类型包含在程序或服务使用该数据时解析的变量</li>
-</ul>
-<h3 id="3、修改、删除和重命名值"><a href="#3、修改、删除和重命名值" class="headerlink" title="3、修改、删除和重命名值"></a>3、修改、删除和重命名值</h3><h2 id="三、注册表应用"><a href="#三、注册表应用" class="headerlink" title="三、注册表应用"></a>三、注册表应用</h2><h3 id="1、案例"><a href="#1、案例" class="headerlink" title="1、案例"></a>1、案例</h3><ul>
-<li>个性化时间设置<ul>
-<li>打开注册表编辑器，锁定＂HKEY＿CURRENT＿USER＼ControlPanel＼International＂下的值sTimeFormat进行修改</li>
-</ul>
-</li>
-<li><p>在欢迎屏幕显示自定义信息</p>
-<ul>
-<li>打开注册表编辑器，锁定”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System”下的值legalnoticecaption（标题）legalnoticetext（文本）</li>
-</ul>
-</li>
-<li><p>禁用任务管理器</p>
-<ul>
-<li>打开注册表编辑器，锁定＂HKEY＿CURRENT＿USER＼SOFTWARE＼Microsoft＼Windows＼CurrentVersion＼Policies＼System＂下新建 DWORD值DisableTaskMgr，设置值为1</li>
-</ul>
-</li>
-<li>禁用控制面板<ul>
-<li>打开注册表编辑器，锁定＂HKEY＿CURRENT＿USER＼SOFTWARE＼Microsoft＼Windows＼CurrentVersion＼Policies＼Explorer＂下新建 DWORD 值 NoControlPanel，设置值为1</li>
-</ul>
-</li>
-<li>去除快捷方式左下角小箭头<ul>
-<li>打开注册表编辑器，锁定＂HKEY＿CLASSES＿ROOT＼nkfile＂找到项下的IsShortcut值，直接删除</li>
-</ul>
-</li>
-</ul>
-<h3 id="2、注册表编辑技巧"><a href="#2、注册表编辑技巧" class="headerlink" title="2、注册表编辑技巧"></a>2、注册表编辑技巧</h3><ul>
-<li><p>查找字符串、值或项</p>
-<ul>
-<li>编辑-&gt;查找</li>
-</ul>
-</li>
-<li><p>将子项添加到文件夹</p>
-</li>
-<li>打印注册表</li>
-<li>复制项名字 (会复制一条路径)</li>
-</ul>
-<h2 id="四、注册表维护"><a href="#四、注册表维护" class="headerlink" title="四、注册表维护"></a>四、注册表维护</h2><h3 id="1、注册表被破坏后的常见现象"><a href="#1、注册表被破坏后的常见现象" class="headerlink" title="1、注册表被破坏后的常见现象"></a>1、注册表被破坏后的常见现象</h3><ul>
-<li>无法启动系统</li>
-<li>无法运行或正常运行合法的应用程序</li>
-<li>找不到启动系统或运行应用程序所需的文件</li>
-<li>没有访问应用程序的权限</li>
-<li>不能正确安装或装入驱动程序</li>
-<li>不能进行网络连接</li>
-<li>注册表条目有错误</li>
-</ul>
-<h3 id="2、注册表被破坏的原因"><a href="#2、注册表被破坏的原因" class="headerlink" title="2、注册表被破坏的原因"></a>2、注册表被破坏的原因</h3><ul>
-<li>应用程序错误：在系统中安装过多的软件后，可能会出现彼此之间的冲突</li>
-<li>驱动程序不兼容：安装系统时有很多驱动都是自动安装，容易产生不同硬件驱动程序不兼容情况，建议到官方网站下载对应稳定版驱动进行安装</li>
-<li>硬件问题：主要出现在硬件质量上，比如硬盘或内存质量不过关造成读写错误、超频、CMOS、病毒等</li>
-<li>误操作：误操作是最常见的原因，可能会导致注册表出现错误，严重者造成系统崩溃或无法启动系统</li>
-</ul>
-<h3 id="3、备份注册表"><a href="#3、备份注册表" class="headerlink" title="3、备份注册表"></a>3、备份注册表</h3><ul>
-<li>直接将注册表数据库文件进行备份</li>
-<li>导出注册表<ul>
-<li>找到对应的项目直接选择导出</li>
-</ul>
-</li>
-</ul>
-<h3 id="4、恢复注册表"><a href="#4、恢复注册表" class="headerlink" title="4、恢复注册表"></a>4、恢复注册表</h3><h3 id="5、锁定和解锁注册表"><a href="#5、锁定和解锁注册表" class="headerlink" title="5、锁定和解锁注册表"></a>5、锁定和解锁注册表</h3><ul>
-<li>打开注册表编辑器，锁定到”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System”项中新建DWORD值DisableRegistryTools，将值设置为1，表示锁定，设置为0表示解锁</li>
-<li>当注册表被锁定之后，Windows自带的注册表编辑器就无法打开，需要使用第三方注册表编辑工具来进行打开，找到对应项，修改值为0</li>
-</ul>
-<h1 id="计算机网络基本概念"><a href="#计算机网络基本概念" class="headerlink" title="计算机网络基本概念"></a>计算机网络基本概念</h1><h2 id="一、计算机网络基本概念"><a href="#一、计算机网络基本概念" class="headerlink" title="一、计算机网络基本概念"></a>一、计算机网络基本概念</h2><h3 id="1、什么是计算机网络"><a href="#1、什么是计算机网络" class="headerlink" title="1、什么是计算机网络"></a>1、什么是计算机网络</h3><ul>
-<li>由两台或多台计算机通过网络设备进行串联（网络设备通过传输介质串联）<ul>
-<li>网络设备<ul>
-<li>计算机</li>
-<li>路由交换</li>
-<li>防火墙</li>
-<li>上网行为管理</li>
-</ul>
-</li>
-<li>传输介质<ul>
-<li>双绞线（网线）5类、6类、7类</li>
-<li>光纤</li>
-<li>无线（2.4GHz 5Gz）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>2、计算机网络的目的</p>
-<ul>
-<li>数据通信资源共享增加可靠性</li>
-<li>提高系统的处理能力</li>
-</ul>
-<p>3、计算机网络发展历程</p>
-<p>美国军方-&gt;大学-&gt;商业</p>
-<ul>
-<li>第一阶段<ul>
-<li>分组交换网络——阿帕网（ARPAnet）</li>
-</ul>
-</li>
-<li><p>第二阶段</p>
-<ul>
-<li>近80年代</li>
-<li>标志性事件： NSFnet</li>
-<li>关键性技术： TCP/IP协议簇的提出</li>
-</ul>
-</li>
-<li><p>第三阶段</p>
-</li>
-</ul>
-<p>。90年代，超文本链接网页（HTML） 浏览器的出现。标志性事件：浏览器<br>。关键性技术：万维网技术（web＝＝＝＝www）</p>
-<h2 id="二、常见的概念"><a href="#二、常见的概念" class="headerlink" title="二、常见的概念"></a>二、常见的概念</h2><h3 id="1、网络协议和标准"><a href="#1、网络协议和标准" class="headerlink" title="1、网络协议和标准"></a>1、网络协议和标准</h3><ul>
-<li>协议：规则（计算机网络中通信的对等实体之间交换信息时所需要遵循的规则的集合）</li>
-<li>标准：<ul>
-<li>标准组织<ul>
-<li>ISO（国际标准化组织）</li>
-<li>ITU：国际电信联盟</li>
-<li>IEEE：电气和电子工程师协会</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="2、网络分类"><a href="#2、网络分类" class="headerlink" title="2、网络分类"></a>2、网络分类</h3><ul>
-<li>广域网：WAN，万维网，外网</li>
-<li>城域网：一个城市的网络</li>
-<li>局域网：LAN</li>
-</ul>
-<h3 id="3、IEEE802局域网标准"><a href="#3、IEEE802局域网标准" class="headerlink" title="3、IEEE802局域网标准"></a>3、IEEE802局域网标准</h3><ul>
-<li>有限局域网802.3<ul>
-<li>802.3u:实现百兆快速以太网</li>
-<li>802.3z：光纤实现千兆</li>
-<li>802.3ab：双绞线实现千兆（超5类，6类）</li>
-<li>802.3ae: 实现万兆</li>
-<li>802.3ba：实现十万兆</li>
-</ul>
-</li>
-<li>无线局域网802.11<ul>
-<li>802.11a：速率最高54Mbps（5G）</li>
-<li>802.11b:速率最高11Mbps（2.4G)</li>
-<li>802.11g:速率最高54Mbps（2.4G)</li>
-<li>802.11n:速率最高600Mbps</li>
-</ul>
-</li>
-</ul>
-<h3 id="4、主流的网络厂商及设备"><a href="#4、主流的网络厂商及设备" class="headerlink" title="4、主流的网络厂商及设备"></a>4、主流的网络厂商及设备</h3><ul>
-<li><p>网络通信设备厂商</p>
-<ul>
-<li><p>思科</p>
-</li>
-<li><p>华为</p>
-</li>
-<li><p>新华三(H3C)</p>
-</li>
-<li><p>迅捷</p>
-</li>
-</ul>
-</li>
-<li><p>网络安全设备厂商</p>
-</li>
-</ul>
-<h3 id="5、网络拓扑"><a href="#5、网络拓扑" class="headerlink" title="5、网络拓扑"></a>5、网络拓扑</h3><ul>
-<li>星形网络拓扑（双星形拓扑是目前企业中使用最为广泛的拓扑结构）<ul>
-<li>中心节点压力大（购买性能相对比较高的设备）</li>
-<li>易于实现，易于网络拓展，易于故障排查</li>
-</ul>
-</li>
-<li>网形拓扑<ul>
-<li>可靠性高</li>
-<li>成本非常高</li>
-</ul>
-</li>
-</ul>
-<h1 id="计算机网络参考模型"><a href="#计算机网络参考模型" class="headerlink" title="计算机网络参考模型"></a>计算机网络参考模型</h1><h2 id="一、OSI七层参考模型"><a href="#一、OSI七层参考模型" class="headerlink" title="一、OSI七层参考模型"></a>一、OSI七层参考模型</h2><h3 id="1、分层思想"><a href="#1、分层思想" class="headerlink" title="1、分层思想"></a>1、分层思想</h3><h3 id="2、OSI参考模型"><a href="#2、OSI参考模型" class="headerlink" title="2、OSI参考模型"></a>2、OSI参考模型</h3><ul>
-<li>物理层：二进制数转换成传输的电信号或光信号（建立、维护、断开物理连接）</li>
-<li>数据链路层：建立逻辑链接，进行硬件地址(mac)寻址、差错检验</li>
-<li>网络层：进行逻辑地址（IP地址）寻址，实现不同网络之间的路径选择</li>
-<li>传输层：定义传输数据的协议端口号，流控，差错校验会话层：建立、管理、中止会话</li>
-<li>表示层：数据的表示，加密，压缩等等</li>
-<li>应用层：将原始的数据转换为电脑能够识别的二进制数</li>
-</ul>
-<h2 id="二、TCP-P-（传输控制协议-网际协议）四层和五层"><a href="#二、TCP-P-（传输控制协议-网际协议）四层和五层" class="headerlink" title="二、TCP/P （传输控制协议/网际协议）四层和五层"></a>二、TCP/P （传输控制协议/网际协议）四层和五层</h2><h3 id="1、四层"><a href="#1、四层" class="headerlink" title="1、四层"></a>1、四层</h3><ul>
-<li>网络接口层</li>
-<li>网络层</li>
-<li>传输层</li>
-<li>应用层</li>
-</ul>
-<h3 id="2、五层"><a href="#2、五层" class="headerlink" title="2、五层"></a>2、五层</h3><ul>
-<li>物理层</li>
-<li>数据链路层</li>
-<li>网络层： IP （ARP：地址解析协议； RARP：逆地址解析协议； ICMP：网际控制报文协议； IGMP：网际组管理协议）</li>
-<li>传输层：TCP （传输控制协议）：传输更加稳定可靠，UDP（用户数据报协议）：传输效率更高</li>
-<li>应用层: HTTP HTTPS SSH TELNET DNS POP3 IMAP TFTP FTP NTP</li>
-</ul>
-
+          <p>windows与网络基础<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/07/21/windows%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1909,7 +1128,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-23 15:17:19" itemprop="dateModified" datetime="2023-08-23T15:17:19+08:00">2023-08-23</time>
+                <time title="修改时间：2023-08-23 15:25:55" itemprop="dateModified" datetime="2023-08-23T15:25:55+08:00">2023-08-23</time>
               </span>
 
           
@@ -2224,6 +1443,86 @@ T(N)=a*T(N/b)+O(N^d)</script><ol>
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2023/04/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/04/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80%E7%89%88/" class="post-title-link" itemprop="url">数据结构与算法C语言版</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-02 10:48:01" itemprop="dateCreated datePublished" datetime="2023-04-02T10:48:01+08:00">2023-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-04 20:10:13" itemprop="dateModified" datetime="2023-04-04T20:10:13+08:00">2023-04-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h1><p>线性结构的特点：</p>
+<ul>
+<li>存在唯一一个被称作“第一个”的数据元素</li>
+<li>存在唯一一个被称作“最后一个”的数据元素</li>
+<li>除第一个之外，集合中的每个元素均有且只有一个前驱</li>
+<li>除最后一个之外，集合中的每个元素均有且只有一个后驱</li>
+</ul>
+<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="连续存储-数组"><a href="#连续存储-数组" class="headerlink" title="[连续存储]数组"></a>[连续存储]数组</h3><ul>
+<li>什么叫数组：元素类型相同，大小相等</li>
+<li>数组的优缺点<ul>
+<li>优点：存取速度很快</li>
+<li>缺点：插入删除元素很慢<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 用一个结构体存储数组，pBase是一个数组用于存储数组本体，len是数组的最大长度。</span></span><br><span class="line"><span class="comment">// cnt是数组长度，也就是数组里面的元素的个数</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Arr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> *pBase;</span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span> cnt;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速排序，用于排序函数调用</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">QuickSort</span><span class="params">(<span class="type">int</span> *arr, <span class="type">int</span> low, <span class="type">int</span> high)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> i = low;</span><br><span class="line">        <span class="type">int</span> j = high;</span><br><span class="line">        <span class="type">int</span> k = arr[low];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[j] &gt;= k)</span><br><span class="line">            &#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                arr[i++] = arr[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; j &amp;&amp; arr[i] &lt; k)</span><br><span class="line">            &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                arr[j--] = arr[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[i] = k;</span><br><span class="line">        QuickSort(arr, low, i - <span class="number">1</span>);</span><br><span class="line">        QuickSort(arr, i + <span class="number">1</span>, high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 生成数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">init_arr</span><span class="params">(Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 升序排序数组，使用快速排序</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">sort_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">show_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 翻转数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">inverse_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 追加元素</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">append_arr</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 插入元素</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insert_arr</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>, <span class="type">int</span>)</span>;</span><br><span class="line"><span class="comment">// 清空数组</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">delete_arr</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 判断数组是否为空</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_empty</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 判断数组是否为满</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_full</span><span class="params">(<span class="keyword">struct</span> Arr *)</span>;</span><br><span class="line"><span class="comment">// 根据位置从数组中取值</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="keyword">struct</span> Arr *, <span class="type">int</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Arr</span> <span class="title">arr</span>;</span></span><br><span class="line">    init_arr(&amp;arr, <span class="number">12</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">2</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">3</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">4</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">5</span>);</span><br><span class="line">    append_arr(&amp;arr, <span class="number">1</span>);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    sort_arr(&amp;arr);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    inverse_arr(&amp;arr);</span><br><span class="line">    insert_arr(&amp;arr, <span class="number">2</span>, <span class="number">99</span>);</span><br><span class="line">    show_arr(&amp;arr);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;the number is %d&quot;</span>, get(&amp;arr, <span class="number">2</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">init_arr</span><span class="params">(<span class="keyword">struct</span> Arr *arr, <span class="type">int</span> length)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//为数组分配空间，int的大小乘以数组的长度, </span></span><br><span class="line"><span class="comment">//同时返回所分配空间的地址---》(int *)</span></span><br><span class="line">    arr-&gt;pBase = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * length);</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> == arr-&gt;pBase)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;内存分配失败&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">	<span class="comment">//分配成功就修改结构体的len和cnt值</span></span><br><span class="line">        arr-&gt;len = length;</span><br><span class="line">        arr-&gt;cnt = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据结构体的cnt判断数组是否为空，为满</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_empty</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> == pArr-&gt;cnt ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">is_full</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> pArr-&gt;len == pArr-&gt;cnt ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用快速排序，</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">sort_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    QuickSort(pArr-&gt;pBase, <span class="number">0</span>, pArr-&gt;cnt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历结构体里面的pBase即可，pBase的长度是cnt</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">show_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">if</span> (is_empty(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组为空&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; pArr-&gt;cnt; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, pArr-&gt;pBase[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以中间为分界线，数组左右交换</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">inverse_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pArr-&gt;cnt / <span class="number">2</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num = pArr-&gt;pBase[i];</span><br><span class="line">        pArr-&gt;pBase[i] = pArr-&gt;pBase[pArr-&gt;cnt - i - <span class="number">1</span>];</span><br><span class="line">        pArr-&gt;pBase[pArr-&gt;cnt - i - <span class="number">1</span>] = num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组为满就不添加元素，否则就往pBase里面添加元素,注意cnt也要随之增加</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">append_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> val)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_full(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组已满，不能再追加！\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        pArr-&gt;pBase[pArr-&gt;cnt] = val;</span><br><span class="line">        pArr-&gt;cnt++;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//类似append_arr(), 从place开始往后的元素往后移动一个位置，然后给num赋值到place</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insert_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> place, <span class="type">int</span> num)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_full(pArr))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;数组已满\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = pArr-&gt;cnt; i &gt; place; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            pArr-&gt;pBase[i] = pArr-&gt;pBase[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        pArr-&gt;pBase[place] = num;</span><br><span class="line">        pArr-&gt;cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组长度为空</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">delete_arr</span><span class="params">(<span class="keyword">struct</span> Arr *pArr)</span></span><br><span class="line">&#123;</span><br><span class="line">    pArr-&gt;cnt = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="keyword">struct</span> Arr *pArr, <span class="type">int</span> num)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> pArr-&gt;pBase[num - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="离散结构-链表"><a href="#离散结构-链表" class="headerlink" title="[离散结构]链表"></a>[离散结构]链表</h3></li>
+</ul>
+</li>
+</ul>
+<h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><h2 id="串"><a href="#串" class="headerlink" title="串"></a>串</h2><h1 id="数组和广义表"><a href="#数组和广义表" class="headerlink" title="数组和广义表"></a>数组和广义表</h1><h1 id="树和二叉树"><a href="#树和二叉树" class="headerlink" title="树和二叉树"></a>树和二叉树</h1><h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h1 id="动态存储管理"><a href="#动态存储管理" class="headerlink" title="动态存储管理"></a>动态存储管理</h1><h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h1 id="内部排序"><a href="#内部排序" class="headerlink" title="内部排序"></a>内部排序</h1><h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -2295,14 +1594,14 @@ T(N)=a*T(N/b)+O(N^d)</script><ol>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
