@@ -28,7 +28,7 @@
 <meta property="og:description" content="数据结构">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-06-27T09:52:08.000Z">
-<meta property="article:modified_time" content="2023-08-23T07:25:55.593Z">
+<meta property="article:modified_time" content="2023-08-25T09:42:13.388Z">
 <meta property="article:author" content="水木君">
 <meta property="article:tag" content="408">
 <meta property="article:tag" content="数据结构">
@@ -193,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-23 15:25:55" itemprop="dateModified" datetime="2023-08-23T15:25:55+08:00">2023-08-23</time>
+                <time title="修改时间：2023-08-25 17:42:13" itemprop="dateModified" datetime="2023-08-25T17:42:13+08:00">2023-08-25</time>
               </span>
 
           
@@ -217,10 +217,8 @@
 </ul>
 <h1 id="树与二叉树"><a href="#树与二叉树" class="headerlink" title="树与二叉树"></a>树与二叉树</h1><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>树的路径长度: 从树根到每个结点的路径长度的总和。</p>
 <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><ul>
-<li>树的节点个数为偶数，那么它的度为1的结点个数为奇数<ul>
 <li>n<sub>0</sub> = n<sub>2</sub> + 1</li>
-</ul>
-</li>
+<li>结点总数 = n<sub>2</sub> + n<sub>1</sub> + n<sub>0</sub> = 2n<sub>2</sub> + n<sub>1</sub> + 1</li>
 </ul>
 <h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><ul>
 <li>完全二叉树的结点个数为<code>n</code>，则最后一个分支结点的序号为<code>⌊n/2⌋</code><ul>
@@ -228,7 +226,24 @@
 </ul>
 </li>
 </ul>
-
+<h2 id="二叉树的遍历和线索二叉树"><a href="#二叉树的遍历和线索二叉树" class="headerlink" title="二叉树的遍历和线索二叉树"></a>二叉树的遍历和线索二叉树</h2><ul>
+<li>在二叉树中有两个结点m和n，若m是n的祖先，则可以使用<strong>后序遍历</strong>可以找到从m到n的路径。</li>
+<li>先序遍历和后序遍历无法唯一地确定一棵二叉树</li>
+<li>线索二叉树是一种物理结构</li>
+<li><code>n</code>个结点的线索二叉树上含有的线索数为<code>n + 1</code></li>
+<li>二叉树在线索化之后，仍然不能有效解决后序线索二叉树中求后序后继<ul>
+<li>后序二叉树的遍历仍需要栈的支持</li>
+</ul>
+</li>
+<li>某二叉树的先序序列和后序序列正好相反，则该二叉树<ul>
+<li>所有子树只有左子树或者右子树（除了叶子结点之外，所有的结点都都只有一个子节点）</li>
+<li>高度等于其节点数</li>
+<li>只有一个叶结点</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{1}NaN \binom{2n}{n}</script>
     </div>
 
     
@@ -312,7 +327,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">树与二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91"><span class="nav-number">2.1.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.2.</span> <span class="nav-text">二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.3.</span> <span class="nav-text">完全二叉树</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">树与二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91"><span class="nav-number">2.1.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.2.</span> <span class="nav-text">二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.3.</span> <span class="nav-text">完全二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E5%92%8C%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.4.</span> <span class="nav-text">二叉树的遍历和线索二叉树</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
