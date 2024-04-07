@@ -156,6 +156,67 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/04/06/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/06/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">算法设计与分析代码实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-06 09:57:45 / 修改时间：10:30:32" itemprop="dateCreated datePublished" datetime="2024-04-06T09:57:45+08:00">2024-04-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="实验1-最大公约数"><a href="#实验1-最大公约数" class="headerlink" title="实验1 最大公约数"></a>实验1 最大公约数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算两个整数a和b的最大公约数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 当a不为0时循环</span></span><br><span class="line">    <span class="keyword">while</span> (a != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> temp = a;  <span class="comment">// 用temp临时保存a的值</span></span><br><span class="line">        a = b % a;     <span class="comment">// a更新为b除以a的余数</span></span><br><span class="line">        b = temp;      <span class="comment">// b更新为原来的a</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;  <span class="comment">// 当a为0时，b即为最大公约数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;请输入两个整数：&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;最大公约数是: &quot;</span> &lt;&lt; <span class="built_in">gcd</span>(a, b) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="习题1"><a href="#习题1" class="headerlink" title="习题1"></a>习题1</h2><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><p>描述：编写程序，求n至少为多大时，n个1组成的整数能够被2021整除</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">2021</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> current_mod = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (current_mod != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        current_mod = (current_mod * <span class="number">10</span> + <span class="number">1</span>) % MOD; <span class="comment">// 计算新的数字模 2021 的结果</span></span><br><span class="line">        n++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; n - <span class="number">1</span>; <span class="comment">// 输出第一个能被 2021 整除的 n 个 1 组成的数字的 n 值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/03/29/%E8%8B%B1%E6%96%87%E9%9D%A2%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -179,10 +240,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-03-29 20:54:16 / 修改时间：20:54:33" itemprop="dateCreated datePublished" datetime="2024-03-29T20:54:16+08:00">2024-03-29</time>
+              <time title="创建时间：2024-03-29 20:54:16" itemprop="dateCreated datePublished" datetime="2024-03-29T20:54:16+08:00">2024-03-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 15:17:32" itemprop="dateModified" datetime="2024-04-07T15:17:32+08:00">2024-04-07</time>
+              </span>
 
           
 
@@ -197,13 +264,17 @@
       
           <h2 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h2><p>Good morning, professors. I’m honored to be here for this interview. My name is QiYi .I come from JingZhai in AnHui province. I majored in Information Management and Information Systems at Huaibei Normal University . Today, I will introduce myself from three aspects. </p>
 <p>The first aspect is my academic performance. During my college years, I dedicated myself to studying and achieved good scores. And I have passed CET-4. In the process of learning, I found myself very interested in computer science.</p>
-<p>The second aspect is my attitude towards life. In addition to studying hard, I maintain some hobbies to enrich myself, such as reading and exercising. Besides, I participated actively in volunteer activities and accumulated a lot of experience.</p>
-<p>The third aspect is future planning. I have learned a lot in the past five years, but I deeply know that I still have a lot of shortcomings and room for progress in professional knowledge and scientific research. So, I’m very eager to Hangzhou Dianzi University for further study, and I hope that all teachers can give me such an opportunity.</p>
+<p>The second aspect is my attitude towards life. In addition to studying hard, I maintain some hobbies to enrich myself, such as reading and exercising. Besides, I participated actively in volunteer activities and accumulated a lot of experience. I believe that good hobbies can help us learn and work better.</p>
+<p>The third aspect is future planning. I have learned a lot in the past five years, but I deeply know that I still have a lot of shortcomings and room for progress in professional knowledge and scientific research. So, I’m very eager to Anhui Normal University for further study, and I hope that all professors can give me such an opportunity.</p>
 <p>My self-introduction has concluded. Thank you!</p>
-<h2 id="Q-What’s-your-favorite-book"><a href="#Q-What’s-your-favorite-book" class="headerlink" title="Q:What’s your favorite book?"></a>Q:What’s your favorite book?</h2><p>My favorite book is “Ordinary World.” It tells a big story about life’s ups and downs in a simple world. When I  read it first time, even though it was long, I couldn’t put it down and finished it in a week. It made me excited to learn more about the simple parts of life. I’ve spent many quiet nights reading it. I learn a lot of something form this book, if i never go for something ,i will never felt the real happiness of life. That’s why I love this book so much. Thank you!</p>
+<h2 id="Q-What’s-your-favorite-book"><a href="#Q-What’s-your-favorite-book" class="headerlink" title="Q:What’s your favorite book?"></a>Q:What’s your favorite book?</h2><p>My favorite book is “Ordinary World.” It tells the story of Sun Shaoping, a young man from a poor family in the countryside. As the country changes, Sun Shaoping tries his best to improve his life.  When I  read this book first time, even though it was long, I couldn’t put it down and finished it in a week. I learn a lot of something form this book, if i never go for something ,i will never felt the real happiness of life. That’s why I love this book so much. Thank you!</p>
 <h2 id="Q-Why-do-you-choose-our-school"><a href="#Q-Why-do-you-choose-our-school" class="headerlink" title="Q:Why do you choose our school?"></a>Q:Why do you choose our school?</h2><p>Thank you for your question.I choose your university mainly based on following two reasons:<br>First,your university has a strong atmosphere for engineering study,and the school of computer is also a prestigious school of its kind. So,I think studying in this university can help me to better develop my professional skills.<br>Second,it suits my aspirations and abilities. I aim to be a programmer in the future. And your university is famous for culivating this kind of talents.<br>So,I decide to pursue my postgraduate degree here.And I look forward to receiving instruction from admirable professors.Thank you!</p>
-<h2 id="Q-Why-do-you-choose-this-major"><a href="#Q-Why-do-you-choose-this-major" class="headerlink" title="Q:Why do you choose this major?"></a>Q:Why do you choose this major?</h2><p>First of all, I have great interest in my major. I think it’s very interesting to study computers and make them serve people better. And I enjoy the joy of programming to solve problems. Only those who love the major can resist all the temptation and focus on they are doing.<br>Second,I think this major is very suitable for me because I have strong logical thinking ability. There are two reasons why I choose this major. Thank you.</p>
-<h2 id="Q-How-do-you-plan-to-study-for-your-postgraduate-program"><a href="#Q-How-do-you-plan-to-study-for-your-postgraduate-program" class="headerlink" title="Q:How do you plan to study for your postgraduate program?"></a>Q:How do you plan to study for your postgraduate program?</h2><p>First, I’ll study all my courses well to build a good base for future research. Then, I’ll make a realistic research plan and schedule. I hope to get a clear overall understanding of my major. Next, I’ll keep up with the latest in my field by reading books and journals. Also, I plan to start working on my thesis in the second semester. My main rule is to start early. Lastly, I really hope to achieve something in this field.</p>
+<h2 id="Q-Why-do-you-choose-this-major"><a href="#Q-Why-do-you-choose-this-major" class="headerlink" title="Q:Why do you choose this major?"></a>Q:Why do you choose this major?</h2><p>Thank you for your question.I choose this major mainly based on following two reasons:</p>
+<p>First of all, I am very interested to this major. I think it’s very interesting to study computers and make them serve people better. And I enjoy the joy of programming to solve problems. Only those who love the major can resist all the temptation and focus on they are doing.<br>Second,I think this major is very suitable for me because I have strong logical thinking ability. There are two reasons why I choose this major. Thank you.</p>
+<h2 id="Q-Why-you-choose-our-city"><a href="#Q-Why-you-choose-our-city" class="headerlink" title="Q:Why you choose our city?"></a>Q:Why you choose our city?</h2><p>Thank you for your question.I choose this city mainly based on following two reasons:First,Hangzhou has a long history and profound cultural heritage. I have traveled several times and fell in love with this city. So I really want to live and study here and pursue my postgraduate degree here.<br>Second,Hangzhou has a strong Internet economy. This will help me find my job in the future.<br>There are two reasons why I choose your city. Thank you. </p>
+<h2 id="Q-Please-talk-about-your-hometown"><a href="#Q-Please-talk-about-your-hometown" class="headerlink" title="Q:Please talk about your hometown?"></a>Q:Please talk about your hometown?</h2><p>I come from Jinzhai in AnHui provience. It is renowned for its abundant natural resources and profound revolutionary historical culture. Known as the “cradle of China’s red tourism,” Jinzhai is one of the important bases of the Chinese revolution. The county has many beautiful landscapes, such as the Tiantangzhai National park, it is an ideal destination for nature lovers and history fans. Jinzhai not only offers beautiful natural landscapes but also a lot of cultural resources.</p>
+<hr>
+<h2 id="Q-How-do-you-plan-to-study-for-your-postgraduate-program"><a href="#Q-How-do-you-plan-to-study-for-your-postgraduate-program" class="headerlink" title="Q:How do you plan to study for your postgraduate program?"></a>Q:How do you plan to study for your postgraduate program?</h2><p>First, I’ll study all my courses well to build a good base for future research. Then, I’ll make a realistic research plan . I hope to get a clear overall understanding of my major. Next, I’ll keep up with the latest in my field by reading books and journals. Also, I plan to start working on my thesis in the second semester. My main rule is to start early. Lastly, I really hope to achieve something in this field.</p>
 <h2 id="Q-What-do-you-think-about-constant-learning"><a href="#Q-What-do-you-think-about-constant-learning" class="headerlink" title="Q:What do you think about constant learning?"></a>Q:What do you think about constant learning?</h2><p>As food is to the body,so is learning to the mind. Our bodies grow and muscles develop with the intake of food. Likewise, we should keep learning day by day to maintain our mental power and expand our intellectual capacity. And I think continuous learning is changing so fast, to stop learning for just a few days will make a person lag behind. In summary, in order to stay mentally young,we have to take learning as a lifelong career. </p>
 <h2 id="Q-Please-talk-about-your-shortcoming-weakness"><a href="#Q-Please-talk-about-your-shortcoming-weakness" class="headerlink" title="Q:Please talk about your shortcoming/weakness."></a>Q:Please talk about your shortcoming/weakness.</h2><p>My biggest shortcoming is that sometimes I am too obsessed with some details. When I am undertaking a task, I will try my best to make it perfect. But some unimportant details may take me a lot of time. In fact,I think we should be targeted in our work and study life. Although I’ve learned a lot of basic computer knowledge, I think I’m missing deeper research. So, I want to use postgraduate studies to make up for my weaknesses.</p>
 <h2 id="Q-Describe-the-most-unforgettable-recent-success-in-your-life"><a href="#Q-Describe-the-most-unforgettable-recent-success-in-your-life" class="headerlink" title="Q:Describe the most unforgettable/recent success in your life."></a>Q:Describe the most unforgettable/recent success in your life.</h2><p>The latest success in my life was passing the initial test, which lets me go to the next interview at your respected university. This achievement shows my hard work and is an important step in my studies. I’m honored and excited for this opportunity. If I can come to study at this university, I will cherish this opportunity. Thank you.</p>
@@ -212,10 +283,8 @@
 <h2 id="Q-How-to-get-rid-of-stress"><a href="#Q-How-to-get-rid-of-stress" class="headerlink" title="Q:How to get rid of stress?"></a>Q:How to get rid of stress?</h2><p>I think life today is filled with various stresses. First, we should have enough leisure time to relax ourselves. For example,we can take our spare time to watch a movie, do some shopping, go hiking and so on.Try to live a slow-paced lifestyle.Second,the environmental factors,career concerns,social relationships and family problems all have an effect on us,so we should balance our work with family,take part in more recreational activities, do exercise regularly, and nurture a good state of mind. Try to get rid of worries and be more positive and optimistic. Finally, if we have difficulties, we should turn to others for help, and solve the conflicts with others.</p>
 <h2 id="Q-Please-talk-about-your-strength"><a href="#Q-Please-talk-about-your-strength" class="headerlink" title="Q: Please talk about your strength."></a>Q: Please talk about your strength.</h2><p>I think my greatest strength is that I am a persistent person. After setting my goals,I will stick to it no matter how difficult it is.For example,when I was preparing for the up,even if I couldn’t solve it at the time.I always tell myself that there is nothing insurmountable and I should continue to work hard. With this will and determination,I got good grades in the exam. So, I think it’s my greatest strength.Thank you.</p>
 <h2 id="Q-What’s-your-most-impressive-film"><a href="#Q-What’s-your-most-impressive-film" class="headerlink" title="Q:What’s your most impressive film?"></a>Q:What’s your most impressive film?</h2><p>The movie that impressed me the most was “Interstellar,” directed by Christopher Nolan. It masterfully combines space exploration with deep human emotions, especially focusing on the themes of love and survival. The film explores complex scientific concepts like black holes and relativity, making them captivating. Its stunning visuals, complemented  and powerful performances made it a profound cinematic experience. The portrayal of the bond between a father and his daughter, across time and space, deeply resonated with me, making “Interstellar” an unforgettable movie that inspires exploration and hope.</p>
-<h2 id="Q-Please-talk-about-your-hometown"><a href="#Q-Please-talk-about-your-hometown" class="headerlink" title="Q:Please talk about your hometown?"></a>Q:Please talk about your hometown?</h2><p>I’m from Jinzhai , Jinzhai is a county located in the western part of Anhui Province, China, under the jurisdiction of Lu’an City. It is renowned for its abundant natural resources and profound revolutionary historical culture. Known as the “cradle of China’s red tourism,” Jinzhai is one of the important bases of the Chinese revolution. The county boasts magnificent landscapes, such as the Tiantangzhai National Geopark, making it an ideal destination for nature lovers and history enthusiasts. Jinzhai not only offers enchanting natural scenery but also a wealth of red cultural resources, attracting numerous visitors to explore and commemorate its revolutionary history.</p>
 <h2 id="Q：为什么录取你？"><a href="#Q：为什么录取你？" class="headerlink" title="Q：为什么录取你？"></a>Q：为什么录取你？</h2><p>Well,to be honest,I believe I am qualifie for the postgraduate program for following two reasons:<br>First of all, I have great interest in my major. And I enjoy the joy of programming to solve problems. Only those who realy love the major can resist all the temptation and focus on they are doing.<br>Second,I have mastered the basic theoretical knowledge. This is an impotant foundation for future research work.<br>All in all,being accepted to this university is a dream for me,I am looking forward to realizing this dream.</p>
 <h2 id="Q-Do-you-have-many-friends-How-do-you-get-along-with-them"><a href="#Q-Do-you-have-many-friends-How-do-you-get-along-with-them" class="headerlink" title="Q:Do you have many friends? How do you get along with them?"></a>Q:Do you have many friends? How do you get along with them?</h2><p>Well,to be honest,I have many friends and I get along well with them.I am a warm- hearted,kind and outgoing person who always give others a hand, so my friends like me.I have one principle in terms of getting along with others,that is,always be sincere. If one can be honest and sincere, the person may earn other’s trust and that is the starting of making true friends. I will keep honoring this principle. That’s all. Thank you. </p>
-<h2 id="Q-Why-you-choose-our-city"><a href="#Q-Why-you-choose-our-city" class="headerlink" title="Q:Why you choose our city?"></a>Q:Why you choose our city?</h2><p>Well,to be honest,I choose your city for following two reasons.<br>First,Hangzhou has a long history and profound cultural heritage. I have traveled several times and fell in love with this city. So I really want to live and study here for a period of time.<br>Second,Hangzhou has a developed Internet economy. This will help me find my job in the future.<br>There are two reasons why I choose your city. Thank you. </p>
 <h2 id="Q-introduce-your-family"><a href="#Q-introduce-your-family" class="headerlink" title="Q:introduce your family"></a>Q:introduce your family</h2><p>There are four people in my family: my parents, my grandmother, and me. My grandparents were farmers, and my father is a worker. It is their hard work and effort that taught me to never give up on my dreams. Their love and support have been my strength as I prepare for my graduate entrance examination. I hope that I can repay them in the future.</p>
 <h2 id="Q-introduce-your-university"><a href="#Q-introduce-your-university" class="headerlink" title="Q:introduce your university"></a>Q:introduce your university</h2><p>Huaibei Normal University, located in Huaibei City, Anhui Province, is an undergraduate institution known for its teacher education programs. However, over time, the school has continuously expanded its range of disciplines and scale of education, and has now become a comprehensive university. The university aims to cultivate high-quality talents with innovative spirit and practical abilities, dedicating itself to enhancing both students’ professional skills and humanistic qualities.</p>
 <h2 id="Q-Have-you-experienced-stress-at-study？-How-do-you-handle-it？"><a href="#Q-Have-you-experienced-stress-at-study？-How-do-you-handle-it？" class="headerlink" title="Q:Have you experienced stress at study？ How do you handle it？"></a>Q:Have you experienced stress at study？ How do you handle it？</h2><p>Definitely I have experienced stress at study in certain situations. For instance, when I am asked to challenge a difficult task, I will be very anxious and stressful. In order to handle the situation, I make a feasible plan for completing the task and try to do a little bit everyday to make the overall workload feel smaller.</p>
@@ -254,7 +323,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/03/23/%E5%A4%8D%E8%AF%95/" class="post-title-link" itemprop="url">复试</a>
+            <a href="/2024/03/23/%E5%A4%8D%E8%AF%95/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -271,7 +340,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-01 20:02:28" itemprop="dateModified" datetime="2024-04-01T20:02:28+08:00">2024-04-01</time>
+                <time title="修改时间：2024-04-03 13:10:47" itemprop="dateModified" datetime="2024-04-03T13:10:47+08:00">2024-04-03</time>
               </span>
 
           
@@ -486,15 +555,6 @@
 </table>
 </div>
 <h3 id="快速排序的基本思想"><a href="#快速排序的基本思想" class="headerlink" title="快速排序的基本思想"></a>快速排序的基本思想</h3><p>（升序）以某个记录的关键字为划分元，将整个数据分为两组，左边的数据小于等于划分元，右边的数据大于等于划分元。对左右两组数据，再各自选择一个划分元，将两组数据划分为更小的序列，这样一直进行下去，直到整个序列有序。</p>
-<h3 id="应用层协议："><a href="#应用层协议：" class="headerlink" title="应用层协议："></a>应用层协议：</h3><p>1、远程登录协议(Telnet)<br>2、文件传输协议（FTP）<br>3、超文本传输协议（HTTP）<br>4、域名服务协议（DNS）<br>5、简单邮件传输协议（SMTP）<br>6、邮局协议（POP3）</p>
-<p>其中，从网络上下载文件时使用的是FTP协议，上网游览网页时使用的是HTTP协议；在网络上访问一台主机时，通常不直接输入IP地址，而是输入域名，用的是DNS服务协议，它会将域名解析为IP地址；通过FoxMail发送电子邮件时，使用SMTP协议，接收电子邮件时就使用POP3协议。</p>
-<h3 id="传输层协议："><a href="#传输层协议：" class="headerlink" title="传输层协议："></a>传输层协议：</h3><p>1、传输控制协议TCP<br>2、用户数据报协议UDP</p>
-<p>TCP协议：面向连接的可靠传输协议。利用TCP进行通信时，首先要通过三步握手，以建立通信双方的连接。TCP提供了数据的确认和数据重传的机制，保证发送的数据一定能到达通信的对方。</p>
-<p>UDP协议：是无连接的，不可靠的传输协议。采用UDP进行通信时不用建立连接，可以直接向一个IP地址发送数据，但是不能保证对方是否能收到。</p>
-<h3 id="网络层协议："><a href="#网络层协议：" class="headerlink" title="网络层协议："></a>网络层协议：</h3><p>网际协议 (IP)：这是用于发送数据包从一个主机传送到另一个主机的协议，主要用于路由选择。它仅负责传送，不保证数据包的顺序和完整性。</p>
-<p>互联网控制报文协议 (ICMP)：该协议用于IP主机、路由器之间传递控制消息，例如目的不可达、时间超出等，用于错误报告和状态查询。</p>
-<p>互联网组织管理协议 (IGMP)：用于在IP主机和相邻的路由器之间管理多播组成员资格的协议。</p>
-<p>地址解析协议 (ARP)：用于在本地网络内部解析网络层的地址到链路层地址，例如将IP地址转换为以太网的MAC地址。</p>
 <h3 id="程序和软件有何不同"><a href="#程序和软件有何不同" class="headerlink" title="程序和软件有何不同"></a>程序和软件有何不同</h3><p>程序和软件的区别是，软件是为了完成特定的功能，解决特定的问题而用计算机语言编写的命令序列集合，可以理解为应用程序的集合。而应用程序是软件的一个组成部分，它是软件的必要元素。</p>
 <h3 id="数组与链表有什么区别？"><a href="#数组与链表有什么区别？" class="headerlink" title="数组与链表有什么区别？"></a>数组与链表有什么区别？</h3><p>数组在内存中占用连续空间，支持快速随机访问，但大小固定，扩容复杂。链表由独立节点组成，每个节点指向下一个，支持灵活插入和删除操作，但访问特定元素较慢。数组适合频繁访问，链表适合频繁修改。</p>
 <h3 id="度为2的树与二叉树有什么区别"><a href="#度为2的树与二叉树有什么区别" class="headerlink" title="度为2的树与二叉树有什么区别"></a>度为2的树与二叉树有什么区别</h3><p>度为2的树指的是每个节点最多有两个子节点的树，但子节点的顺序和数量不固定，可以只有一个子节点或没有。而二叉树是一种特殊的度为2的树，每个节点最多有两个子节点，且子节点有明确的左右之分。简而言之，所有二叉树都是度为2的树，但不是所有度为2的树都是二叉树。</p>
@@ -669,6 +729,15 @@
 <li>网络互连：连接不同的网络技术，如以太网和Wi-Fi。</li>
 <li>数据包过滤和安全控制：可能包括防火墙功能，对通过的数据包进行过滤。</li>
 </ul>
+<h3 id="应用层协议："><a href="#应用层协议：" class="headerlink" title="应用层协议："></a>应用层协议：</h3><p>1、远程登录协议(Telnet)<br>2、文件传输协议（FTP）<br>3、超文本传输协议（HTTP）<br>4、域名服务协议（DNS）<br>5、简单邮件传输协议（SMTP）<br>6、邮局协议（POP3）</p>
+<p>其中，从网络上下载文件时使用的是FTP协议，上网游览网页时使用的是HTTP协议；在网络上访问一台主机时，通常不直接输入IP地址，而是输入域名，用的是DNS服务协议，它会将域名解析为IP地址；通过FoxMail发送电子邮件时，使用SMTP协议，接收电子邮件时就使用POP3协议。</p>
+<h3 id="传输层协议："><a href="#传输层协议：" class="headerlink" title="传输层协议："></a>传输层协议：</h3><p>1、传输控制协议TCP<br>2、用户数据报协议UDP</p>
+<p>TCP协议：面向连接的可靠传输协议。利用TCP进行通信时，首先要通过三步握手，以建立通信双方的连接。TCP提供了数据的确认和数据重传的机制，保证发送的数据一定能到达通信的对方。</p>
+<p>UDP协议：是无连接的，不可靠的传输协议。采用UDP进行通信时不用建立连接，可以直接向一个IP地址发送数据，但是不能保证对方是否能收到。</p>
+<h3 id="网络层协议："><a href="#网络层协议：" class="headerlink" title="网络层协议："></a>网络层协议：</h3><p>网际协议 (IP)：这是用于发送数据包从一个主机传送到另一个主机的协议，主要用于路由选择。它仅负责传送，不保证数据包的顺序和完整性。</p>
+<p>互联网控制报文协议 (ICMP)：该协议用于IP主机、路由器之间传递控制消息，例如目的不可达、时间超出等，用于错误报告和状态查询。</p>
+<p>互联网组织管理协议 (IGMP)：用于在IP主机和相邻的路由器之间管理多播组成员资格的协议。</p>
+<p>地址解析协议 (ARP)：用于在本地网络内部解析网络层的地址到链路层地址，例如将IP地址转换为以太网的MAC地址。</p>
 <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="Q：数据库中的事务了解吗？事务的四大特性？"><a href="#Q：数据库中的事务了解吗？事务的四大特性？" class="headerlink" title="Q：数据库中的事务了解吗？事务的四大特性？"></a>Q：数据库中的事务了解吗？事务的四大特性？</h3><p>数据库事务是数据库运行中的逻辑工作单位，单个逻辑工作单元所执行的一系列操作，要么都执行，要么都不执行。例如银行取款事务分为2个步骤(1)存折减款(2)提取现金，2个步骤必须同时完成或者都不完成。</p>
 <p>数据库事务的四大特性（ACID)：</p>
 <p>(1) 原子性(Atomicity)：<br>     事务的原子性指的是，事务中包含的程序作为数据库的逻辑工作单位，它所做的对数据修改操作要么全部执行，要么完全不执行。这种特性称为原子性。<br>(2)一致性(Consistency) ：<br>    事务的一致性指的是在一个事务执行之前和执行之后数据库都必须处于一致性状态。这种特性称为事务的一致性。假如数据库的状态满足所有的完整性约束，就说该数据库是一致的。<br>(3)分离性(Isolation)：<br>   分离性指并发的事务是相互隔离的。即一个事务内部的操作及正在操作的数据必须封锁起来，不被其它企图进行修改的事务看到。假如并发交叉执行的事务没有任何控制，操纵相同的共享对象的多个并发事务的执行可能引起异常情况。<br>(4)持久性(Durability)：<br>   持久性意味着当系统或介质发生故障时，确保已提交事务的更新不能丢失。即一旦一个事务提交，DBMS保证它对数据库中数据的改变应该是永久性的，即对已提交事务的更新能恢复。持久性通过数据库备份和恢复来保证。</p>
@@ -685,9 +754,9 @@
 <p>优化多条件查询：混合索引特别适合处理多条件查询，尤其是当这些条件涉及到多个列时。数据库可以利用混合索引来同时满足所有的查找条件，而不是分别对每个条件进行查找。</p>
 <p>节省空间：相比于为每个列单独创建索引，一个混合索引可以节省存储空间，因为它合并了多个列的索引信息。虽然混合索引本身可能会比单列索引更大，但是总体上来说，避免了多个单列索引的冗余。</p>
 <p>提高数据整合性和维护性：在某些情况下，混合索引可以用于维护数据的完整性。例如，在某些业务场景中，可以通过创建一个包含多个列的唯一索引来防止数据重复。</p>
-<h2 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h2><p>尊敬的各位老师，下午好！我非常荣幸能够参加今天的面试，并见到在座的各位专家。我是xx，今年xx岁，来自xxx。本科毕业于xx大学xx专业。今天，我希望通过学习经历、实践经验和未来的读研规划这三个方面来介绍我自己。</p>
+<h2 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h2><p>尊敬的各位老师，下午好！我非常荣幸能够参加今天的面试，并见到在座的各位专家。我是xx，今年xx岁，来自xxx。本科毕业于xx大学的xx专业。今天，我希望通过学习经历、实践经验和未来的读研规划这三个方面来介绍我自己。</p>
 <p>在学习经历方面，我始终保持着积极进取的学习态度，对计算机科学领域充满热情。本科期间，我系统学习了数据结构、操作系统、计算机网络等计算机核心课程，这为我奠定了扎实的专业基础。此外我还坚持学习英语，并在本科期间顺利通过了英语四级。</p>
-<p>关于实践经验，我积极参与校内外的多项活动，特别是加入了学校环保社团并作为志愿者积极参与流浪动物领养日活动，这不仅增强了我的责任感和同情心，也锻炼了我的组织和沟通能力。在科研方面，我选择了我深感兴趣的爬虫技术作为毕业论文的主题，通过全面的文献调研和实践操作，我基于 Xpath 自动提取算法 TSBased-AEXPath自动提取网页的xpath，利用scrapy框架爬取数据，数据经过pandas库处理后存储到redis数据库。使用gerapy管理分布式爬虫系统。最后我顺利完成了论文的答辩。这一过程不仅使我提升了研究和解决问题的能力，也使我产生了对数据挖掘的兴趣。所以我希望能够在研究生期间继续学习研究数据挖掘，数据分析或者知识图谱方向。本科期间，我遇到了很多优秀的老师和同学，从他们那里我学到了很多东西，我也感受到我的专业知识水平还有待提高，因此我选择读研进一步深造，完善我的专业知识。和更优秀的人一起奋斗，不断提升自我。</p>
+<p>关于实践经验，我积极参与校内外的多项活动，特别是加入了学校环保社团并作为志愿者积极参与流浪动物领养日活动，这不仅增强了我的责任感和同情心，也锻炼了我的组织和沟通能力。在科研方面，我选择了我深感兴趣的爬虫技术作为毕业论文的主题，通过全面的文献调研和实践操作，我基于 Xpath 自动提取算法 TSBased-AEXPath自动提取网页的xpath，利用scrapy框架爬取数据，数据经过pandas库处理后存储到redis数据库。使用gerapy管理分布式爬虫系统。最后我顺利完成了论文的答辩。这一过程不仅使我提升了研究和解决问题的能力，也使我产生了进一步学习的想法。所以我希望能够在研究生期间继续学习研究这方面。本科期间，我遇到了很多优秀的老师和同学，从他们那里我学到了很多东西，我也感受到我的专业知识水平还有待提高，因此我选择读研进一步深造，完善我的专业知识。和更优秀的人一起奋斗，不断提升自我。</p>
 <p>展望未来，我希望能够通过面试，获得前来贵校深入学习研究的机会，继续在自己感兴趣的领域深造。我计划在深入学习专业知识的同时，培养研究能力和创新思维。我将努力参与学术论文的撰写和发表，通过不断阅读和研究，提高我的科研水平。同时，我也希望能参与导师的研究项目，通过团队合作和学术交流，拓宽我的视野，并全面提升我的学术及实践能力。</p>
 <p>以上是我的自我介绍，感谢各位老师。</p>
 
@@ -740,7 +809,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-01 20:46:50" itemprop="dateModified" datetime="2024-04-01T20:46:50+08:00">2024-04-01</time>
+                <time title="修改时间：2024-04-07 17:33:55" itemprop="dateModified" datetime="2024-04-07T17:33:55+08:00">2024-04-07</time>
               </span>
 
           
@@ -917,7 +986,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
