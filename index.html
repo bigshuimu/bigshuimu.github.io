@@ -156,6 +156,261 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/04/09/c%E8%AF%AD%E8%A8%80%E4%B8%B4%E6%97%B6%E6%8A%B1%E4%BD%9B%E8%84%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/09/c%E8%AF%AD%E8%A8%80%E4%B8%B4%E6%97%B6%E6%8A%B1%E4%BD%9B%E8%84%9A/" class="post-title-link" itemprop="url">c语言临时抱佛脚</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-09 21:34:52 / 修改时间：22:55:46" itemprop="dateCreated datePublished" datetime="2024-04-09T21:34:52+08:00">2024-04-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>放平心态，考不上又不是不活了！！！</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[][<span class="number">2</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>这样定义数组是合法的,第二维必须有参数</p>
+<p><code>%p</code>输出地址</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p, q;</span><br></pre></td></tr></table></figure>
+<p>这里p是一个int指针，而q是一个int变量，<em>和变量p是一部分，而不是`int </em>`是一部分。</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> *s1 = <span class="string">&quot;hello&quot;</span>;<span class="comment">//不可修改</span></span><br><span class="line"><span class="type">char</span> s2[] = <span class="string">&quot;hello&quot;</span>;<span class="comment">//可修改</span></span><br></pre></td></tr></table></figure>
+<p>为了避免读入字符串越界</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> s1[<span class="number">7</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%7s&quot;</span>, s1);</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><code>strlen</code>：</p>
+<ul>
+<li><p>功能：计算给定字符串的长度，不包括结尾的空字符<code>\0</code>。</p>
+</li>
+<li><p>用法：<code>size_t strlen(const char *str);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"><span class="type">size_t</span> len = <span class="built_in">strlen</span>(str);  <span class="comment">// len 的值将是5</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>strcmp</code>：</p>
+<ul>
+<li><p>功能：比较两个字符串是否相等。</p>
+</li>
+<li><p>用法：<code>int strcmp(const char *str1, const char *str2);</code></p>
+</li>
+<li><p>返回值：如果 <code>str1</code> 和 <code>str2</code> 字符串相同，则返回 0。如果 <code>str1</code> 小于 <code>str2</code>，返回小于0的值。如果 <code>str1</code> 大于 <code>str2</code>，返回大于0的值。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str1[] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"><span class="type">char</span> str2[] = <span class="string">&quot;World&quot;</span>;</span><br><span class="line"><span class="type">int</span> result = <span class="built_in">strcmp</span>(str1, str2);  <span class="comment">// result 将小于0，因为 &quot;Hello&quot; 在字典序上小于 &quot;World&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>strcpy</code>：</p>
+<ul>
+<li><p>功能：复制字符串，包括结尾的空字符<code>\0</code>。</p>
+</li>
+<li><p>用法：<code>char *strcpy(char *dest, const char *src);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> src[] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"><span class="type">char</span> dest[<span class="number">6</span>];  <span class="comment">// 目标数组需要足够大以容纳源字符串及结尾的空字符</span></span><br><span class="line"><span class="built_in">strcpy</span>(dest, src);  <span class="comment">// dest 现在包含了 &quot;Hello&quot; 这个字符串</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>strcat</code>：</p>
+<ul>
+<li><p>功能：将一个字符串附加到另一个字符串的末尾。</p>
+</li>
+<li><p>用法：<code>char *strcat(char *dest, const char *src);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> dest[<span class="number">11</span>] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"><span class="type">char</span> src[] = <span class="string">&quot;World&quot;</span>;</span><br><span class="line"><span class="built_in">strcat</span>(dest, src);  <span class="comment">// dest 现在包含了 &quot;HelloWorld&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>strchr</code>：</p>
+<ul>
+<li><p>功能：在字符串中查找第一次出现的指定字符。</p>
+</li>
+<li><p>用法：<code>char *strchr(const char *str, int c);</code></p>
+</li>
+<li><p>返回值：返回指向字符串中第一次出现字符<code>c</code>的指针。如果未找到该字符，则返回<code>NULL</code>。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[] = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="type">char</span> *p = <span class="built_in">strchr</span>(str, <span class="string">&#x27;W&#x27;</span>);  <span class="comment">// p 将指向 &#x27;W&#x27; 在 str 中的位置</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>strstr</code>：</p>
+<ul>
+<li><p>功能：在一个字符串中查找第一次出现的另一个字符串。</p>
+</li>
+<li><p>用法：<code>char *strstr(const char *haystack, const char *needle);</code></p>
+</li>
+<li><p>返回值：如果找到了<code>needle</code>字符串，则返回第一次出现的位置的指针。如果未找到，则返回<code>NULL</code>。</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> haystack[] = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="type">char</span> needle[] = <span class="string">&quot;World&quot;</span>;</span><br><span class="line"><span class="type">char</span> *p = <span class="built_in">strstr</span>(haystack, needle);  <span class="comment">// p 将指向 &quot;World&quot; 在 haystack 中的开始位置</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><ol>
+<li><p><code>fopen</code>：</p>
+<ul>
+<li><p>功能：打开文件。</p>
+</li>
+<li><p>用法：<code>FILE *fopen(const char *filename, const char *mode);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FILE *fp = fopen(&quot;file.txt&quot;, &quot;r&quot;); // 以读模式打开文件</span><br><span class="line">if (fp == NULL) &#123;</span><br><span class="line">  // 错误处理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>fclose</code>：</p>
+<ul>
+<li><p>功能：关闭文件。</p>
+</li>
+<li><p>用法：<code>int fclose(FILE *stream);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (fclose(fp) != 0) &#123;</span><br><span class="line">  // 错误处理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>fread</code>：</p>
+<ul>
+<li><p>功能：从文件流读取数据。</p>
+</li>
+<li><p>用法：<code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">char buffer[100];</span><br><span class="line">size_t result = fread(buffer, 1, 100, fp); // 从fp读取100个字节到buffer</span><br><span class="line">if (result == 0) &#123;</span><br><span class="line">  // 错误处理或文件结束</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>fwrite</code>：</p>
+<ul>
+<li><p>功能：向文件流写入数据。</p>
+</li>
+<li><p>用法：<code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const char *text = &quot;Hello World&quot;;</span><br><span class="line">fwrite(text, strlen(text), 1, fp); // 将text的内容写入文件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>fprintf</code>：</p>
+<ul>
+<li><p>功能：格式化输出到文件。</p>
+</li>
+<li><p>用法：<code>int fprintf(FILE *stream, const char *format, ...);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fprintf(fp, &quot;Some number: %d\n&quot;, 123);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>fscanf</code>：</p>
+<ul>
+<li><p>功能：从文件中格式化输入。</p>
+</li>
+<li><p>用法：<code>int fscanf(FILE *stream, const char *format, ...);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int number;</span><br><span class="line">fscanf(fp, &quot;%d&quot;, &amp;number);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p><code>fgetc</code>：</p>
+<ul>
+<li><p>功能：从文件中读取下一个字符。</p>
+</li>
+<li><p>用法：<code>int fgetc(FILE *stream);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ch = fgetc(fp);</span><br><span class="line"><span class="keyword">if</span> (ch == EOF) &#123;</span><br><span class="line">  <span class="comment">// 文件结束或发生错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>fputc</code>：</p>
+<ul>
+<li><p>功能：将一个字符写入文件。</p>
+</li>
+<li><p>用法：<code>int fputc(int char, FILE *stream);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fputc(<span class="string">&#x27;A&#x27;</span>, fp);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>fgets</code>：</p>
+<ul>
+<li><p>功能：从文件中读取一行。</p>
+</li>
+<li><p>用法：<code>char *fgets(char *str, int n, FILE *stream);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> buffer[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">if</span> (fgets(buffer, <span class="number">100</span>, fp) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">  <span class="comment">// 处理读取到的行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>fputs</code>：</p>
+<ul>
+<li><p>功能：向文件中写入一个字符串。</p>
+</li>
+<li><p>用法：<code>int fputs(const char *str, FILE *stream);</code></p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">fputs</span>(<span class="string">&quot;Hello, World!&quot;</span>, fp);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/04/06/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -355,7 +610,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-08 21:43:46" itemprop="dateModified" datetime="2024-04-08T21:43:46+08:00">2024-04-08</time>
+                <time title="修改时间：2024-04-09 08:16:55" itemprop="dateModified" datetime="2024-04-09T08:16:55+08:00">2024-04-09</time>
               </span>
 
           
@@ -1081,14 +1336,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
