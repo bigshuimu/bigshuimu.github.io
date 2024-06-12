@@ -161,6 +161,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/06/12/B%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/12/B%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%99%A8/" class="post-title-link" itemprop="url">B站视频下载器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-06-12 10:09:39 / 修改时间：10:20:07" itemprop="dateCreated datePublished" datetime="2024-06-12T10:09:39+08:00">2024-06-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>观察网页源代码可以看到视频的baseurl和音频的baseurl</p>
+<img src="/2024/06/12/B%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%99%A8/image-20240612101320068.png" class="">
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>通过正则和json提取url，并下载内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info = re.findall(<span class="string">&#x27;window.__playinfo__=(.*?)&lt;/script&gt;&#x27;</span>, response.text()[<span class="number">0</span>]</span><br><span class="line">info = json.loads(info)[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;dash&#x27;</span>]</span><br><span class="line">audio_url = info[<span class="string">&#x27;audio&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;baseUrl&#x27;</span>]</span><br><span class="line">video_url = info[<span class="string">&#x27;video&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;baseUrl&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p>使用<code>ffpeg</code>合并视频和音频</p>
+<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">video_url = <span class="built_in">input</span>(<span class="string">&quot;please input the video url what you want to download:&quot;</span>)</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;https://www.bilibili.com/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url=video_url, headers=headers)</span><br><span class="line">info = re.findall(<span class="string">&#x27;window.__playinfo__=(.*?)&lt;/script&gt;&#x27;</span>, response.text)[<span class="number">0</span>]</span><br><span class="line">info = json.loads(info)[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;dash&#x27;</span>]</span><br><span class="line">audio_url = info[<span class="string">&#x27;audio&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;baseUrl&#x27;</span>]</span><br><span class="line">video_url = info[<span class="string">&#x27;video&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;baseUrl&#x27;</span>]</span><br><span class="line">audio_content = requests.get(url=audio_url, headers=headers).content</span><br><span class="line">video_content = requests.get(url=video_url, headers=headers).content</span><br><span class="line">tree = etree.HTML(response.text)</span><br><span class="line">title = tree.xpath(<span class="string">&#x27;//*[@id=&quot;viewbox_report&quot;]/div[1]/div[1]/h1/text()&#x27;</span>)[<span class="number">0</span>].strip()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Save audio and video files</span></span><br><span class="line">audio_file = <span class="string">f&quot;audio.mp3&quot;</span></span><br><span class="line">video_file = <span class="string">f&quot;video.mp4&quot;</span></span><br><span class="line">output_file = <span class="string">f&quot;<span class="subst">&#123;title&#125;</span>.mp4&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(audio_file, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(audio_content)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(video_file, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(video_content)</span><br><span class="line">cmd = <span class="string">fr&quot;ffmpeg -i <span class="subst">&#123;video_file&#125;</span> -i <span class="subst">&#123;audio_file&#125;</span> -c:v copy -c:a aac -strict experimental <span class="subst">&#123;output_file&#125;</span>&quot;</span></span><br><span class="line">os.system(cmd)</span><br><span class="line"><span class="comment"># 删除音频文件</span></span><br><span class="line">os.remove(audio_file)</span><br><span class="line">os.remove(video_file)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;success!&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>部分视频存在音画不同步，这是源视频的问题，例如<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17j411X7LY/?p=1&amp;t=118&amp;vd_source=f02674454c0246ec70cde81a33ba254c">https://www.bilibili.com/video/BV17j411X7LY/?p=1&amp;t=118&amp;vd_source=f02674454c0246ec70cde81a33ba254c</a></p>
+<p>视频一开始直接就跳到了5秒，不知道怎么解决这个问题</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -539,14 +605,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
