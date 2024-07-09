@@ -76,7 +76,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+<!-- hexo injector head_end end --><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -219,6 +331,176 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/06/21/%E6%A8%A1%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="水木君">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水木君的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/21/%E6%A8%A1%E9%9B%86/" class="post-title-link" itemprop="url">模集</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-21 21:14:15" itemprop="dateCreated datePublished" datetime="2024-06-21T21:14:15+08:00">2024-06-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-09 19:01:50" itemprop="dateModified" datetime="2024-07-09T19:01:50+08:00">2024-07-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="6-22"><a href="#6-22" class="headerlink" title="6.22"></a>6.22</h5><h1 id="MOSFET结构"><a href="#MOSFET结构" class="headerlink" title="MOSFET结构"></a>MOSFET结构</h1><p>NMOS结构：</p>
+<p>衬底为P型，重参杂n区形成源级和漏级，重参杂的多晶硅为栅极，有一层SiO2使得栅极和衬底隔离，此为增强型nmos，源极和漏极是对称的。</p>
+<p>源级提供载流子，漏级收集载流子</p>
+<p>NMOS的衬底必须接系统最低电压</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/mos器件结构.png?raw=true" alt=""></p>
+<h3 id="MOS符号："><a href="#MOS符号：" class="headerlink" title="MOS符号："></a>MOS符号：</h3><p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/mos符号.png?raw=true" alt=""></p>
+<hr>
+<h5 id="6-23"><a href="#6-23" class="headerlink" title="6.23"></a>6.23</h5><h3 id="I-V特性"><a href="#I-V特性" class="headerlink" title="I-V特性"></a>I-V特性</h3><p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/IV公式.png?raw=true" alt=""></p>
+<p> Id漏源电流，μn载流子迁移率，CW表示单位长度的总电容，W栅宽，L是栅长</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/关系.png?raw=true" alt=""></p>
+<p>工作在阴影部分，也就是三极管区的时候才成立</p>
+<p>当mos管沟道预夹断时，mos管进入饱和区（active），此时电流Id不随着这个Vds增大而改变，趋于稳定。</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/饱和公式.png?raw=true" alt=""></p>
+<p>过驱动电压Vov</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/Vov.png?raw=true" alt=""></p>
+<h1 id="二级效应"><a href="#二级效应" class="headerlink" title="二级效应"></a>二级效应</h1><h3 id="1体效应："><a href="#1体效应：" class="headerlink" title="1体效应："></a>1体效应：</h3><p>当源级不接地时，也就是Vsb&gt;0时，导致源级和漏级下面的耗尽层沟道更大了，导致Uth增大，然后就是我们需要更大的Vgs</p>
+<hr>
+<h5 id="6-24"><a href="#6-24" class="headerlink" title="6.24"></a>6.24</h5><p>Vth，阈值电压，会随着Vbs（&gt;0)的增大而增大</p>
+<p>体效应，也叫衬底偏置效应。衬底点位会影响到mos管工作状态</p>
+<p>也叫Backgate效应，后栅效应，背栅效应</p>
+<p>控制mos管源极和栅极之间电流，除了Vgs还有Vbs</p>
+<h4 id="体效应的坏的方面"><a href="#体效应的坏的方面" class="headerlink" title="体效应的坏的方面"></a>体效应的坏的方面</h4><p>源级跟随器，需要实现电压完全跟随</p>
+<p>要求Av=1，但是存在体效应，使得电压会有偏移</p>
+<h3 id="2-沟道长度调制"><a href="#2-沟道长度调制" class="headerlink" title="2 沟道长度调制"></a>2 沟道长度调制</h3><p>会导致mos管在饱和区，Id和Vds之间出现非0斜率。</p>
+<p>也就是，Vds增大时，这个沟道减小</p>
+<p>λ，沟道长度调制系数</p>
+<h4 id="λ和L成反比"><a href="#λ和L成反比" class="headerlink" title="λ和L成反比"></a>λ和L成反比</h4><p>不会出现在三极管区，从预夹断时开始</p>
+<h3 id="3亚阈值导电性"><a href="#3亚阈值导电性" class="headerlink" title="3亚阈值导电性"></a>3亚阈值导电性</h3><p> 即Vgs&lt;Vth时，mos管也可能会工作，在极低功耗时可能会用到</p>
+<hr>
+<h5 id="6-25"><a href="#6-25" class="headerlink" title="6.25"></a>6.25</h5><p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/小结1.png?raw=true" alt=""></p>
+<p>Vgs&lt;Vth，工作在截止区</p>
+<p>Vgs&gt;Vth，</p>
+<p>Vds＝0时，mos为导通无电流状态</p>
+<p>Vds&lt;&lt;Vgs-Vth时，深三极管区，对外等效为线性电阻，所以也叫线性电阻区</p>
+<p>Vds&lt;Vgs-Vth时，三极管区</p>
+<p>Vds&gt;Vgs-Vth时，饱和区</p>
+<p>当mos工作在饱和区时，忽略体效应，mos可等效为恒定的电流源</p>
+<p>此电流源受到Vgs-Vth所控制，改变Vb，可改变电流大小，也即电压控制电流源</p>
+<p>2.1  2.7 2.8</p>
+<hr>
+<h5 id="6-26"><a href="#6-26" class="headerlink" title="6.26"></a>6.26</h5><h1 id="单极放大器"><a href="#单极放大器" class="headerlink" title="单极放大器"></a>单极放大器</h1><h4 id="八边形法则"><a href="#八边形法则" class="headerlink" title="八边形法则"></a>八边形法则</h4><p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/8边形.png?raw=true" alt=""></p>
+<h4 id="共源极"><a href="#共源极" class="headerlink" title="共源极"></a>共源极</h4><p>mos管工作的区间，实际上是由Vin的直流电压（也叫偏置电压，大信号电压 ）所决定</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/共源极.png?raw=true" alt=""></p>
+<p>1，当mos管工作在截止区时，此时也就是Vin刚刚开始增大时，此时Vout=Vdd</p>
+<p>2，当Vin增大到Vth时，此时Vgs&gt;&gt;Vin-Vth，此时mos管工作在饱和区，Vout逐渐减小</p>
+<p>此时漏级电流Id主要由栅源电压电压Vgs决定，此时与Vds关系较小</p>
+<p>3，Vin=Vout+Vth时，再增大Vin，mos管进入线性电阻区，Vin&gt;Vout+Vth，而且满足Vgs&gt;Vth</p>
+<p>此时漏源电流Id受栅源电压Vgs和漏源电压Vds的共同影响</p>
+<hr>
+<h5 id="6-27"><a href="#6-27" class="headerlink" title="6.27"></a>6.27</h5><p>当求解增益时，我们在Vin端加上直流偏置，栅极G加上直流偏置</p>
+<p>跨导gm，定义为输出电流的变化比上输入电压的变化，id/vgs</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/gm.png?raw=true" alt=""></p>
+<script type="math/tex; mode=display">
+g_m = {μ_n} * {C_{ox}*{\tfrac{W}{L} }*}V_{ov}</script><p> 当Vov越大，gm越大</p>
+<script type="math/tex; mode=display">
+A_V=-g_m*R_d</script><h4 id="小信号模型："><a href="#小信号模型：" class="headerlink" title="小信号模型："></a>小信号模型：</h4><p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/小信号模型.png?raw=true" alt=""></p>
+<p>所以当mos管工作在饱和区时，Vgs增大，Id电流是恒定的，所以gm也是恒定的，增益Av也是恒定的，（忽略体效应）。</p>
+<hr>
+<h5 id="6-28"><a href="#6-28" class="headerlink" title="6.28"></a>6.28</h5><h3 id="mos器件电容"><a href="#mos器件电容" class="headerlink" title="mos器件电容"></a>mos器件电容</h3><p>我们认为电容存在于MOSFET的四个端子中任意两个之间</p>
+<h4 id="我们给电容分为以下几类"><a href="#我们给电容分为以下几类" class="headerlink" title="我们给电容分为以下几类"></a>我们给电容分为以下几类</h4><p>1栅极和沟道之间的氧化层电容</p>
+<script type="math/tex; mode=display">
+C_1=WLC_{OX}</script><p>2衬底和沟道之间耗尽层电容</p>
+<script type="math/tex; mode=display">
+ C_2=W*L*\sqrt{q\epsilon_{si}N_{sub}/(4*\phi_F)}</script><p>3栅极和源，漏覆盖产生的电容，</p>
+<script type="math/tex; mode=display">
+ C_3,_{4}=WC_{ov}</script><p>端口之间电容</p>
+<p>1当模式管工作在截止区时，导电沟道没有</p>
+<p>Cgs=W*Cov</p>
+<p>Cgd=W*Cov</p>
+<p>Cgb=(Cox//Cd)*LW</p>
+<p>2线性区，导电沟道平均分布</p>
+<p>Cgs=W<em>Cov+1/2 </em> Cov <em> L </em> W</p>
+<p>Cgd=W<em>Cov+1/2 </em> Cov <em> L </em> W</p>
+<p>Cgb=0</p>
+<p>3饱和区，导电沟道夹断</p>
+<p>Cgs=W <em> Cov + 2/3 </em> Cox <em> L </em> W</p>
+<p>Cgd=W*Cov</p>
+<p>Cgb=0</p>
+<p>2.2  2.5ac</p>
+<hr>
+<h5 id="7-1"><a href="#7-1" class="headerlink" title="7.1"></a>7.1</h5><p>高频小信号模型</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/完整.png?raw=true" alt="">  </p>
+<p>共漏级放大器（源极跟随器）</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/共漏级.png?raw=true" alt=""></p>
+<p>双mos（共源共栅）</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/双mos.png?raw=true" alt=""></p>
+<p>栅极输入，源级为公共端，漏级为输出</p>
+<p>M1工作在共源的状态，Vin为一个变化的电压，就会在M1的漏端产生变化的电流Id1</p>
+<p> M2工作在共栅的状态</p>
+<p>当然，工作在不同区间的mos管也可以作为负载</p>
+<p>1 mos管的漏级和栅极接在一起，那么Vds&gt;Vgs-Vth,也就是工作在饱和区，相当于电流源 </p>
+<p>2 工作在三极管区的mos管，相当于线性的电阻，也可以作为负载</p>
+<hr>
+<h5 id="7-8"><a href="#7-8" class="headerlink" title="7.8"></a>7.8</h5><p>总结：</p>
+<p>1    对电路进行大信号分析，通过输入信号的范围，输出信号的范围，判断三极管工作区间，<strong>获得输入于输出的波形曲线。</strong>输入信号从小到大，输出信号从大到小。</p>
+<p>2    小信号分析，<strong>画出小信号等效电路，计算mos管工作在饱和区时的增益Av，（先不考虑衬底偏置效应和沟长调制效应），计算小信号输入阻抗和输出阻抗。</strong></p>
+<p>3    当更换负载之后，电路特性的变化。</p>
+<p>若考虑沟长调制效应，则mos管应该会有电阻ro</p>
+<p><img src="https://github.com/Armke/Armke.github.io/blob/main/img/modian/沟长调制效应的小信号.png?raw=true" alt=""></p>
+<p>此时增益为：</p>
+<script type="math/tex; mode=display">
+A_v=-g_m(R_D//r_o)</script><p>本征增益：当RD无穷时，也就是Av最大时，此时</p>
+<script type="math/tex; mode=display">
+A_v=-g_mr_o</script><p>单个mos管实现的最大增益</p>
+<p>RD无穷大如何实现？</p>
+<p>在负载接入理想电流源，那么输入电阻就是无穷大的</p>
+
       
     </div>
 
@@ -779,7 +1061,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -887,6 +1169,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
