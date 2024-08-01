@@ -442,7 +442,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-01 10:45:29" itemprop="dateModified" datetime="2024-08-01T10:45:29+08:00">2024-08-01</time>
+                <time title="修改时间：2024-08-01 16:30:37" itemprop="dateModified" datetime="2024-08-01T16:30:37+08:00">2024-08-01</time>
               </span>
 
           
@@ -450,7 +450,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>481</span>
+              <span>617</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -484,7 +484,7 @@
 <img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/image-20240630160350071.png" class="" title="image-20240630160350071">
 <p>不一定要写<code>false</code>，只要语句等于<code>false</code>都可以</p>
 <h3 id="停用断点"><a href="#停用断点" class="headerlink" title="停用断点"></a>停用断点</h3><img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/image-20240630160616670.png" class="" title="image-20240630160616670">
-<p>大家都别玩了<style>.ccwavkhdhxdp{}</style><img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/c85abedf2b7f553f292d07fd2aca1ea9.gif" class="ccwavkhdhxdp" alt="img"></p>
+<p>大家都别玩了<style>.xgrcikbucwtv{}</style><img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/c85abedf2b7f553f292d07fd2aca1ea9.gif" class="xgrcikbucwtv" alt="img"></p>
 <h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">__constructor</span> = <span class="title class_">Function</span>;</span><br><span class="line">    <span class="title class_">Function</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">arguments</span> &amp;&amp; <span class="keyword">typeof</span> <span class="variable language_">arguments</span>[<span class="number">0</span>] === <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">&quot;debugger&quot;</span> === <span class="variable language_">arguments</span>[<span class="number">0</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Function</span>.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">eval_a = <span class="built_in">eval</span></span><br><span class="line"><span class="built_in">eval</span> = <span class="keyword">function</span>(<span class="params">a</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (a === <span class="string">&#x27;(function() &#123;var a = new Date(); debugger; return new Date() - a &gt; 100;&#125;())&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> eval_a(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h2><p><a target="_blank" rel="noopener" href="https://www.aqistudy.cn/">https://www.aqistudy.cn/</a></p>
@@ -506,8 +506,23 @@
 </li>
 </ol>
 </li>
+<li>部分文件路径名</li>
 </ol>
-<h3 id="跟栈调试"><a href="#跟栈调试" class="headerlink" title="跟栈调试"></a>跟栈调试</h3><h3 id="hook注入"><a href="#hook注入" class="headerlink" title="hook注入"></a>hook注入</h3><h3 id="内存漫游"><a href="#内存漫游" class="headerlink" title="内存漫游"></a>内存漫游</h3><h1 id="基础案例"><a href="#基础案例" class="headerlink" title="基础案例"></a>基础案例</h1><h2 id="01天气"><a href="#01天气" class="headerlink" title="01天气"></a>01天气</h2><p>利用api获取城市天气</p>
+<h4 id="搜索文件路径名方法"><a href="#搜索文件路径名方法" class="headerlink" title="搜索文件路径名方法"></a>搜索文件路径名方法</h4><p>应对document类型的请求，无法使用跟栈</p>
+<p><a target="_blank" rel="noopener" href="https://id.tust.edu.cn/authserver/login">测试</a></p>
+<p>通过搜索标签的属性（例如id)，来找到操作此块标签的函数</p>
+<img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/image-20240801161952551.png" class="" title="定位标签">
+<p>搜索id</p>
+<img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/image-20240801162025268.png" class="" title="搜索id">
+<p>添加断点</p>
+<img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/image-20240801162231157.png" class="" title="安排断点">
+<p>代码，启动！！！</p>
+<img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/image-20240801162410185.png" class="" title="image-20240801162410185">
+<p>一目了然，找到加密函数</p>
+<h3 id="跟栈调试"><a href="#跟栈调试" class="headerlink" title="跟栈调试"></a>跟栈调试</h3><h4 id="跟栈调试原理"><a href="#跟栈调试原理" class="headerlink" title="跟栈调试原理"></a>跟栈调试原理</h4><p>xhr类型的数据包适合使用跟栈方法</p>
+<img src="/2024/05/26/python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/image-20240801154047622.png" class="" title="image-20240801154047622">
+<p>在发包的时候断住，然后就可以选择向前或者向后找</p>
+<h3 id="hook注入"><a href="#hook注入" class="headerlink" title="hook注入"></a>hook注入</h3><h3 id="内存漫游"><a href="#内存漫游" class="headerlink" title="内存漫游"></a>内存漫游</h3><h1 id="基础案例"><a href="#基础案例" class="headerlink" title="基础案例"></a>基础案例</h1><h2 id="01天气"><a href="#01天气" class="headerlink" title="01天气"></a>01天气</h2><p>利用api获取城市天气</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://api.openweathermap.org/data/2.5/weather?q=wuhan&amp;mode=json&amp;units=metric&amp;lang=zh_cn&amp;APPID=83b30d525bff7db3e396e99abc62bd75&quot;</span></span><br><span class="line">response = requests.get(url).text</span><br><span class="line">response = json.loads(response)</span><br><span class="line"></span><br><span class="line">result = &#123;&#125;</span><br><span class="line">result[<span class="string">&quot;city&quot;</span>] = response[<span class="string">&quot;name&quot;</span>]</span><br><span class="line">result[<span class="string">&quot;temp&quot;</span>] = response[<span class="string">&quot;main&quot;</span>][<span class="string">&quot;temp&quot;</span>]</span><br><span class="line">result[<span class="string">&quot;temp_max&quot;</span>] = response[<span class="string">&quot;main&quot;</span>][<span class="string">&quot;temp_max&quot;</span>]</span><br><span class="line">result[<span class="string">&quot;temp_min&quot;</span>] = response[<span class="string">&quot;main&quot;</span>][<span class="string">&quot;temp_min&quot;</span>]</span><br><span class="line">result[<span class="string">&quot;weather&quot;</span>] = response[<span class="string">&quot;weather&quot;</span>][<span class="number">0</span>][<span class="string">&quot;description&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> result:</span><br><span class="line">    <span class="built_in">print</span>(result[i])</span><br></pre></td></tr></table></figure>
 
       
@@ -941,7 +956,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">31 分钟</span>
+    <span title="站点阅读时长">32 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
