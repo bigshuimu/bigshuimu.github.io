@@ -165,6 +165,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="QY">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QY的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" class="post-title-link" itemprop="url">计算机视觉</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-09-24 08:06:52 / 修改时间：21:56:51" itemprop="dateCreated datePublished" datetime="2024-09-24T08:06:52+08:00">2024-09-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>335</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>通过图像理解物理世界</p>
+<img src="/2024/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/image-20240924081434037.png" class="" title="image-20240924081434037">
+<p>​    图像处理（狭义）：改善图像质量</p>
+<p>F: X-》Y</p>
+<ul>
+<li>X：图像/图像集合/图像序列</li>
+<li>Y:取决于视觉任务<ul>
+<li>不同的任务，要得出的描述/知识Y是不同的<ul>
+<li>例如：人脸识别vs人脸检测</li>
+</ul>
+</li>
+<li>即使同样Y，它的表示形式也可以不同<ul>
+<li>对人脸区域有不同的表示方式</li>
+</ul>
+</li>
+<li>针对不同的Y，往往需要设计不同的F<ul>
+<li>不同的Y，往往对应不同的子领域（分类、检测、跟踪、分割.）</li>
+<li>对同一类Y，往往有典型的设计模式用于设计F</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>为什么要提取图像特征？</p>
+<ol>
+<li>提取有利于识别的信息，抑制与识别任务无关的、或者对识别有干扰的信息。</li>
+<li>把不同尺寸的图像映射到一个统一的特征空间，便于应用机器学习算法。</li>
+</ol>
+<img src="/2024/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/image-20240924091848210.png" class="" title="image-20240924091848210">
+<p>D:数据集，A: 学习机，H: 假设空间</p>
+<p>如何评价一个假设的好坏？</p>
+<ul>
+<li>用假设h∈H在数据集D上的预测结果的好坏来评价h的好坏</li>
+<li>用损失函数（loss function）量化h对任意样本x的预测结果的好坏：l（h； x，y）≥0</li>
+</ul>
+<p>如何高效地搜索假设空间？</p>
+<ul>
+<li>优化算法</li>
+<li>h*=argminnel(h;D) </li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/23/%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -188,10 +307,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-09-23 21:35:58 / 修改时间：14:59:27" itemprop="dateCreated datePublished" datetime="2024-09-23T21:35:58+08:00">2024-09-23</time>
+              <time title="创建时间：2024-09-23 21:35:58" itemprop="dateCreated datePublished" datetime="2024-09-23T21:35:58+08:00">2024-09-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-09-24 21:46:01" itemprop="dateModified" datetime="2024-09-24T21:46:01+08:00">2024-09-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -207,13 +332,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>54</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -278,13 +403,29 @@
 
               <time title="创建时间：2024-09-23 15:00:34" itemprop="dateCreated datePublished" datetime="2024-09-23T15:00:34+08:00">2024-09-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-09-24 21:58:27" itemprop="dateModified" datetime="2024-09-24T21:58:27+08:00">2024-09-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>0</span>
+              <span>160</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,7 +443,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>Move Anything with Layered Scene Diffusion</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><ul>
+<li>早期的方法，如GANs，虽然能够提供一定程度的场景布局控制，但在生成图像质量方面存在限制。</li>
+<li><p>扩散模型虽然在文本到图像的生成任务上显示出了前所未有的性能，但它们缺乏对生成过程的细粒度空间控制。</p>
+</li>
+<li><p>论文提出了通过在扩散采样过程中优化分层场景表示来实现空间内容解耦的可能性</p>
+</li>
+</ul>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>对象在空间上是分离的，因此可以在场景中自由移动、调整大小和克隆。</p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2>
       
     </div>
 
@@ -837,7 +987,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -895,12 +1045,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">4k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
