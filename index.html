@@ -165,6 +165,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/10/07/diffusionGPT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="QY">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QY的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/07/diffusionGPT/" class="post-title-link" itemprop="url">diffusionGPT</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-10-07 16:29:13 / 修改时间：20:37:36" itemprop="dateCreated datePublished" datetime="2024-10-07T16:29:13+08:00">2024-10-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>627</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>Current unified attempts often fall into two orthogonal aspects: i) parse Diverse Prompts in input stage; ii) activate expert model to output.</p>
+<p>current stable diffusion models face two key challenges when applied to realistic scenarios:</p>
+<ul>
+<li>Model Limitation: 模型在一些特定的场景下表现不佳</li>
+<li>Prompt Constraint: prompt 类型很多，including instructions and inspirations.</li>
+</ul>
+<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>When provided with an input, the LLM parses the prompt and employs the Trees-of-Thought to guide the selection of an appropriate model.</p>
+<p>Moreover, we introduce Ad⋆Equal contribution.  vantage Databases, where the Tree-of-Thought is enriched with human feedback, aligning the model selection process with human preferences.</p>
+<img src="/2024/10/07/diffusionGPT/image-20241007184718654.png" class="" title="image-20241007184718654">
+<img src="/2024/10/07/diffusionGPT/image-20241007190151196.png" class="" title="image-20241007190151196">
+<h3 id="Step-1：Prompt-Parse"><a href="#Step-1：Prompt-Parse" class="headerlink" title="Step 1：Prompt Parse"></a>Step 1：Prompt Parse</h3><p>作者将prompt分为4类：</p>
+<ol>
+<li>Prompt-based</li>
+<li>Instruction-based</li>
+<li>Inspiration-based (灵感 e.g., Input: “I want to see a beach”; Recognized: “a beach”)</li>
+<li>Hypothesis-based (e.g., Input: “If you give me a toy, I will laugh very happily”; Recognized: “a toy and a laugh face”).</li>
+</ol>
+<p>作者在这四类prompt中提取核心内容，同时减少干扰内容的影响。</p>
+<h3 id="Step-2：Tree-of-thought-of-Models-of-Building-and-Searching"><a href="#Step-2：Tree-of-thought-of-Models-of-Building-and-Searching" class="headerlink" title="Step 2：Tree-of-thought of Models of Building and Searching"></a>Step 2：Tree-of-thought of Models of Building and Searching</h3><p>待选的模型太多，有的模型又很相似，如何选择是一个问题。所以提出了Tree-of-Thought (TOT)，通过树状的搜索，提升了模型选择效率</p>
+<h4 id="Constructing-the-Model-Tree-using-The-Tree-of-Thought-TOT-of-Model-Building-Agent"><a href="#Constructing-the-Model-Tree-using-The-Tree-of-Thought-TOT-of-Model-Building-Agent" class="headerlink" title="Constructing the Model Tree using The Tree-of Thought (TOT) of Model Building Agent"></a>Constructing the Model Tree using The Tree-of Thought (TOT) of Model Building Agent</h4><p>输入所有model的标签和属性到Agent中，然后Agent分析和总结model的潜在类别。</p>
+<p>通过Subject Domain and Style Domain构造一个两层的树，通过Subject分第一次，Style分第二次。</p>
+<h4 id="Searching-the-Model-Tree"><a href="#Searching-the-Model-Tree" class="headerlink" title="Searching the Model Tree"></a>Searching the Model Tree</h4><p>广度优先搜索，找到一个匹配prompt的候选模型名单</p>
+<h3 id="Step-3：Model-Selection-with-Human-Feedback"><a href="#Step-3：Model-Selection-with-Human-Feedback" class="headerlink" title="Step 3：Model Selection with Human Feedback"></a>Step 3：Model Selection with Human Feedback</h3><p>对于优势数据库，采用奖励模型基于10,000条提示语料库计算所有模型生成结果的分数，并存储评分信息。在接收到输入提示后，我们计算输入提示和这10,000条提示之间的语义相似度，识别出最相似的前5条提示。随后，模型选择代理从离线数据库中检索这些提示每个模型的预先计算性能，为每个选定的提示挑选出前5名模型。该过程会产生一个包含5*5个候选模型的集合。</p>
+<p>然后和上面选出来的候选模型名单相交，重点关注具有较高出现概率和相对较高排名的模型。这些模型最终被选择为生成模型的最终选择。</p>
+<h3 id="Step-4：Execution-of-Generation"><a href="#Step-4：Execution-of-Generation" class="headerlink" title="Step 4：Execution of Generation."></a>Step 4：Execution of Generation.</h3><p>Once the most suitable model has been selected, the chosen generative model is utilized to generate the desired images using the obtained core prompts.</p>
+<h4 id="Prompt-Extension"><a href="#Prompt-Extension" class="headerlink" title="Prompt Extension"></a>Prompt Extension</h4><p>此代理利用所选模型中的提示示例来自动丰富输入提示。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/26/2409-00558v1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1134,7 +1239,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1198,12 +1303,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">6k</span>
+    <span title="站点总字数">7k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">23 分钟</span>
+    <span title="站点阅读时长">25 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
