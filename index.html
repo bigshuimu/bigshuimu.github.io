@@ -188,10 +188,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-10-07 16:29:13 / 修改时间：20:37:36" itemprop="dateCreated datePublished" datetime="2024-10-07T16:29:13+08:00">2024-10-07</time>
+              <time title="创建时间：2024-10-07 16:29:13" itemprop="dateCreated datePublished" datetime="2024-10-07T16:29:13+08:00">2024-10-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-09 11:15:57" itemprop="dateModified" datetime="2024-10-09T11:15:57+08:00">2024-10-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -207,13 +213,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>627</span>
+              <span>950</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -225,7 +231,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>Current unified attempts often fall into two orthogonal aspects: i) parse Diverse Prompts in input stage; ii) activate expert model to output.</p>
+          <p>arXiv:2401.10061v1 [cs.CV] 18 Jan 2024</p>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>Current unified attempts often fall into two orthogonal aspects: i) parse Diverse Prompts in input stage; ii) activate expert model to output.</p>
 <p>current stable diffusion models face two key challenges when applied to realistic scenarios:</p>
 <ul>
 <li>Model Limitation: 模型在一些特定的场景下表现不佳</li>
@@ -251,6 +258,22 @@
 <p>然后和上面选出来的候选模型名单相交，重点关注具有较高出现概率和相对较高排名的模型。这些模型最终被选择为生成模型的最终选择。</p>
 <h3 id="Step-4：Execution-of-Generation"><a href="#Step-4：Execution-of-Generation" class="headerlink" title="Step 4：Execution of Generation."></a>Step 4：Execution of Generation.</h3><p>Once the most suitable model has been selected, the chosen generative model is utilized to generate the desired images using the obtained core prompts.</p>
 <h4 id="Prompt-Extension"><a href="#Prompt-Extension" class="headerlink" title="Prompt Extension"></a>Prompt Extension</h4><p>此代理利用所选模型中的提示示例来自动丰富输入提示。</p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>LLM采用ChatGPT的text-davinci-003，使用api的方式使用。</p>
+<h3 id="Qualitative-analysis"><a href="#Qualitative-analysis" class="headerlink" title="Qualitative analysis"></a>Qualitative analysis</h3><p>作者用自己的系统整合各种基于SD1.5和SD XL的社区开源模型，然后分别和SD1.5，SD XL生成的图像在Alignment(一致)和Aesthetics(美感)这两个方面做对比，每次对比都采用上文中的四类prompt。</p>
+<p>To further evaluate the different generated results, we employed the aesthetic predictor and human feedback related reward model.</p>
+<h3 id="Ablation-Study"><a href="#Ablation-Study" class="headerlink" title="Ablation Study"></a>Ablation Study</h3><p>对比这三种情况：</p>
+<ol>
+<li>random select diffusion model</li>
+<li>TOT</li>
+<li>TOT + HF</li>
+</ol>
+<p>The random selection is the baseline method for generating images. The TOT or TOT+HF represent the performance of different agents.</p>
+<h3 id="Prompt-extension"><a href="#Prompt-extension" class="headerlink" title="Prompt extension"></a>Prompt extension</h3><p>To evaluate the effectiveness of the prompt extension agent, we conducted a comparison between the generation results using the original prompt and the extended prompt as inputs</p>
+<h3 id="User-Study"><a href="#User-Study" class="headerlink" title="User Study"></a>User Study</h3><p>从PartiPrompts中随机挑选100个prompts, 每个prompt生成4张图，20个志愿者给四张图排序。然后对比用户的偏好比率。</p>
+<h2 id="Limitations-and-Further-works"><a href="#Limitations-and-Further-works" class="headerlink" title="Limitations and Further works"></a>Limitations and Further works</h2><p>Although DiffusionGPT has demonstrated the ability to generate high-quality images, there are still several limitations and our future plans are in the following ways: </p>
+<h3 id="Feedback-Driven-Optimization"><a href="#Feedback-Driven-Optimization" class="headerlink" title="Feedback-Driven Optimization"></a>Feedback-Driven Optimization</h3><p>We aim to incorporate feedback directly into the optimization process of LLM, enabling more refined pompt parse and model selection.  </p>
+<h3 id="Expansion-of-Model-Candidates"><a href="#Expansion-of-Model-Candidates" class="headerlink" title="Expansion of Model Candidates"></a>Expansion of Model Candidates</h3><p>To further enrich the model generation space and achieve more impressive results, we will expand the repertoire of available models.  </p>
+<h3 id="Beyond-Text-to-Image-Tasks"><a href="#Beyond-Text-to-Image-Tasks" class="headerlink" title="Beyond Text-to-Image Tasks"></a>Beyond Text-to-Image Tasks</h3><p>We intend to apply our insight to a broader set of tasks, including controllable generation, style migration, attribute editing, etc.</p>
 
       
     </div>
@@ -1308,7 +1331,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">27 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
