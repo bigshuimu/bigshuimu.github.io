@@ -272,7 +272,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/09/26/2409-00558v1/" class="post-title-link" itemprop="url">2409.00558v1</a>
+            <a href="/2024/09/26/2409-00558v1/" class="post-title-link" itemprop="url">Compositional 3D-aware Video Generation with LLM Director</a>
         </h2>
 
         <div class="post-meta">
@@ -281,10 +281,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-09-26 14:37:44 / 修改时间：14:50:27" itemprop="dateCreated datePublished" datetime="2024-09-26T14:37:44+08:00">2024-09-26</time>
+              <time title="创建时间：2024-09-26 14:37:44" itemprop="dateCreated datePublished" datetime="2024-09-26T14:37:44+08:00">2024-09-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-10 17:16:47" itemprop="dateModified" datetime="2024-10-10T17:16:47+08:00">2024-10-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -300,7 +306,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>65</span>
+              <span>339</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -318,12 +324,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Compositional-3D-aware-Video-Generation-with-LLM-Director"><a href="#Compositional-3D-aware-Video-Generation-with-LLM-Director" class="headerlink" title="Compositional 3D-aware Video Generation with LLM Director"></a>Compositional 3D-aware Video Generation with LLM Director</h2><ol>
-<li>LLM将目标分解成多个画面</li>
-<li>为了组合这些画面，LLM指导物体大小、位置和轨迹</li>
-<li>为了使每一帧更自然，使用2D diffusion，然后用Score Distillation Sampling优化构图</li>
-</ol>
-
+          <p>“we propose a novel paradigm that generates each concept in 3D representation separately and then composes them with priors from Large Language Models (LLM) and 2D diffusion models.” 我们提出了一种新颖的范式，该范式单独生成每个概念的三维表示，然后结合来自大型语言模型（LLM）和二维扩散模型的先验信息进行组合。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/26/2409-00558v1/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -711,7 +720,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/18/2311-17126v1/">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
@@ -725,7 +734,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/09/18/2311-17126v1/" class="post-title-link" itemprop="url">2311.17126v1</a>
+            <a href="/2024/09/18/2311-17126v1Reason%20out%20your%20layout/" class="post-title-link" itemprop="url">2311.17126v1</a>
         </h2>
 
         <div class="post-meta">
@@ -775,17 +784,17 @@
 <h2 id="core-idea"><a href="#core-idea" class="headerlink" title="core idea"></a>core idea</h2><p>text -&gt; layout -&gt; img</p>
 <h3 id="CoT，Chain-of-Thought"><a href="#CoT，Chain-of-Thought" class="headerlink" title="CoT，Chain-of-Thought"></a>CoT，Chain-of-Thought</h3><p>Our method leverages the Chain-of-Thought (CoT) prompting of LLMs to interpret text and generate spatially reasonable object layouts.</p>
 <p>这种方法指导LLM将问题解构为逻辑步骤，在基于示例的学习有限的情况下特别有效。它通过使用简单的指导性句子来提示LLM顺序处理信息，或者通过一系列示例来逐步说明推理过程。模型在得出答案之前生成连续的推理链。</p>
-<img src="/2024/09/18/2311-17126v1/image-20240918155010647.png" class="" title="image-20240918155010647">
+<p><img src="2311-17126v1/image-20240918155010647.png" alt="image-20240918155010647"></p>
 <p>Two key factors enable LLMs to generate object layouts:</p>
 <ol>
 <li>defining precise task instructions</li>
 <li>providing sufficient in-context examples. </li>
 </ol>
-<img src="/2024/09/18/2311-17126v1/image-20240918155932681.png" class="" title="image-20240918155932681">
+<p><img src="2311-17126v1/image-20240918155932681.png" alt="image-20240918155932681"></p>
 <p>上图中三种prompt策略：(1) task instructions only; (2) task instructions followed by eight in-context examples, but without CoT reasoning; (3) task instructions followed by eight in-context examples, each come with a CoT reasoning.</p>
 <h3 id="LACA，Layout-Aware-Cross-Attention"><a href="#LACA，Layout-Aware-Cross-Attention" class="headerlink" title="LACA，Layout-Aware Cross-Attention"></a>LACA，Layout-Aware Cross-Attention</h3><p>LACA, an adapter designed to incorporate spatial information from the given layouts explicitly into the Stable Diffusion models</p>
-<img src="/2024/09/18/2311-17126v1/image-20240918160731946.png" class="" title="image-20240918160731946">
-<img src="/2024/09/18/2311-17126v1/image-20240918161142829.png" class="" title="image-20240918161142829">
+<p><img src="2311-17126v1/image-20240918160731946.png" alt="image-20240918160731946"></p>
+<p><img src="2311-17126v1/image-20240918161142829.png" alt="image-20240918161142829"></p>
 <ol>
 <li>在COCO2017数据集与GT布局匹配时，LACA的YOLO分低于GLIGEN。作者认为这是因为LACA的改编字幕不如原来的字幕连贯。</li>
 <li>在FID分上LLM生成的布局不如GT，作者认为这种差异可能源于数据集的文本布局一致性，一致的文本布局减轻了扩散模型整合多种模态对象的负担。</li>
@@ -1296,7 +1305,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">28 分钟</span>
+    <span title="站点阅读时长">29 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
