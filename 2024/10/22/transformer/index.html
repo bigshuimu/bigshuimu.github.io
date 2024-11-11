@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"bigshuimu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="LOOSECONTROL 为基于扩散的图像生成提供广义深度调节。使用 LOOSECONTROL 以及文本指导，用户可以通过仅指定场景边界和主要对象的位置来创建复杂的环境（例如，房间、街景等）。使用 LOOSECONTROL 以及文本指导，用户可以通过仅指定场景边界和主要对象的位置来创建复杂的环境（例如，房间、街景等）。">
+  <meta name="description" content="为了提高提高序列到序列（sequence-to-sequence）模型在机器翻译任务中的性能，它提出了一种新的网络架构——Transformer，这种架构完全基于注意力机制，摒弃了传统的循环神经网络（RNN）和卷积神经网络（CNN）中的循环和卷积操作。通过这种方式，Transformer模型能够实现更高的并行化，从而在训练过程中显著减少时间消耗，同时在质量上也取得了优于现有最佳结果的表现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LooseControl">
-<meta property="og:url" content="https://bigshuimu.github.io/2024/10/14/LooseControl/index.html">
+<meta property="og:title" content="transformer">
+<meta property="og:url" content="https://bigshuimu.github.io/2024/10/22/transformer/index.html">
 <meta property="og:site_name" content="QY的个人博客">
-<meta property="og:description" content="LOOSECONTROL 为基于扩散的图像生成提供广义深度调节。使用 LOOSECONTROL 以及文本指导，用户可以通过仅指定场景边界和主要对象的位置来创建复杂的环境（例如，房间、街景等）。使用 LOOSECONTROL 以及文本指导，用户可以通过仅指定场景边界和主要对象的位置来创建复杂的环境（例如，房间、街景等）。">
+<meta property="og:description" content="为了提高提高序列到序列（sequence-to-sequence）模型在机器翻译任务中的性能，它提出了一种新的网络架构——Transformer，这种架构完全基于注意力机制，摒弃了传统的循环神经网络（RNN）和卷积神经网络（CNN）中的循环和卷积操作。通过这种方式，Transformer模型能够实现更高的并行化，从而在训练过程中显著减少时间消耗，同时在质量上也取得了优于现有最佳结果的表现。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-10-14T06:33:49.000Z">
-<meta property="article:modified_time" content="2024-10-22T06:47:03.026Z">
+<meta property="article:published_time" content="2024-10-22T06:59:04.000Z">
+<meta property="article:modified_time" content="2024-10-22T09:55:16.521Z">
 <meta property="article:author" content="QY">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://bigshuimu.github.io/2024/10/14/LooseControl/">
+<link rel="canonical" href="https://bigshuimu.github.io/2024/10/22/transformer/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>LooseControl | QY的个人博客</title>
+  <title>transformer | QY的个人博客</title>
   
 
 
@@ -282,7 +282,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/10/14/LooseControl/">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/10/22/transformer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
@@ -295,7 +295,7 @@ mjx-container[display="true"] + br {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LooseControl
+          transformer
         </h1>
 
         <div class="post-meta">
@@ -304,16 +304,10 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-10-14 14:33:49" itemprop="dateCreated datePublished" datetime="2024-10-14T14:33:49+08:00">2024-10-14</time>
+              <time title="创建时间：2024-10-22 14:59:04 / 修改时间：17:55:16" itemprop="dateCreated datePublished" datetime="2024-10-22T14:59:04+08:00">2024-10-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-22 14:47:03" itemprop="dateModified" datetime="2024-10-22T14:47:03+08:00">2024-10-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -329,15 +323,15 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.7k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>6 分钟</span>
+              <span>4 分钟</span>
             </span>
-            <div class="post-description">LOOSECONTROL 为基于扩散的图像生成提供广义深度调节。使用 LOOSECONTROL 以及文本指导，用户可以通过仅指定场景边界和主要对象的位置来创建复杂的环境（例如，房间、街景等）。使用 LOOSECONTROL 以及文本指导，用户可以通过仅指定场景边界和主要对象的位置来创建复杂的环境（例如，房间、街景等）。</div>
+            <div class="post-description">为了提高提高序列到序列（sequence-to-sequence）模型在机器翻译任务中的性能，它提出了一种新的网络架构——Transformer，这种架构完全基于注意力机制，摒弃了传统的循环神经网络（RNN）和卷积神经网络（CNN）中的循环和卷积操作。通过这种方式，Transformer模型能够实现更高的并行化，从而在训练过程中显著减少时间消耗，同时在质量上也取得了优于现有最佳结果的表现。</div>
 
         </div>
       </header>
@@ -348,52 +342,46 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><h2 id="ControlNet"><a href="#ControlNet" class="headerlink" title="ControlNet"></a>ControlNet</h2><p>ControlNet旨在为大型预训练的文本到图像扩散模型添加空间条件控制。ControlNet通过锁定大型扩散模型的参数，并重用其经过数十亿图像预训练的编码层作为强大的骨干网络，来学习多样化的条件控制。该架构通过“零卷积”（零初始化的卷积层）连接，逐步从零增长参数，并确保在微调过程中不会有有害噪声影响模型。</p>
-<p>ControlNet的主要特点包括：</p>
+        <h1 id="Self-Attention-in-Detail"><a href="#Self-Attention-in-Detail" class="headerlink" title="Self-Attention in Detail"></a>Self-Attention in Detail</h1><p>计算自注意力的第一步是从每个编码器的输入向量（在这种情况下，每个单词的嵌入）中创建三个向量。因此，对于每个单词，我们创建一个查询向量(query)、一个键向量(key)和一个值向量(value)。这些向量是通过将嵌入与我们在训练过程中训练好的三个矩阵相乘来创建的。</p>
+<p>计算自注意力的第二步是计算一个评分。假设我们正在为该例子的第一个词“Thinking”计算自注意力。我们需要对输入句子中的每个词与这个词进行评分。评分决定了在编码某个位置的单词时，需要多大程度地关注输入句子的其他部分。</p>
+<p>第三步和第四步是将分数除以8（论文中使用的键向量维度64的平方根，这样可以获得更稳定的梯度。这里可能有其他可选值，但这是默认值），然后将结果通过softmax操作处理。Softmax将分数标准化，使它们都是正数，并加起来等于1。</p>
+<h1 id="encoder"><a href="#encoder" class="headerlink" title="encoder"></a>encoder</h1><h2 id="1-多头注意力机制（Multi-Head-Attention）"><a href="#1-多头注意力机制（Multi-Head-Attention）" class="headerlink" title="1. 多头注意力机制（Multi-Head Attention）"></a>1. <strong>多头注意力机制（Multi-Head Attention）</strong></h2><p>首先，输入序列（大小为 [seq_len,dmodel][seq_len, d_{model}][seq_len,dmodel]）通过多头注意力机制。具体过程如下：</p>
+<ul>
+<li>输入序列会被线性变换生成<strong>查询（Query）</strong>、<strong>键（Key）</strong>和<strong>值（Value）</strong>矩阵。</li>
+<li>然后进行多头自注意力计算，计算每个 token 与序列中其他 token 的依赖关系，产生多个 head 的输出。</li>
+<li>这些 head 的输出会被拼接（concatenated）成一个大向量，大小为 [seq_len,h×dk][seq_len, h \times d_k][seq_len,h×dk]，其中 hhh 是头的数量，dkd_kdk 是每个头的维度。</li>
+<li>最后，拼接的结果通过一个线性变换映射回到与输入相同的维度 [seq_len,dmodel][seq_len, d_{model}][seq_len,dmodel]。</li>
+</ul>
+<h2 id="2-残差连接（Residual-Connection）"><a href="#2-残差连接（Residual-Connection）" class="headerlink" title="2. 残差连接（Residual Connection）"></a>2. <strong>残差连接（Residual Connection）</strong></h2><p>经过多头注意力机制后，你会得到一个新的向量（大小为 [seq_len,dmodel][seq_len, d_{model}][seq_len,dmodel]）。<strong>残差连接</strong>的作用是将这个输出与原始输入向量相加，形成新的向量：</p>
+<p>Output=Attention Output+Input\text{Output} = \text{Attention Output} + \text{Input}Output=Attention Output+Input</p>
+<ul>
+<li><strong>目的</strong>：通过残差连接，保留输入序列的原始信息，避免随着层数的增加，原始信息被模型的复杂变换 “丢失” 或 “淡化”。它还有助于减轻梯度消失问题。</li>
+</ul>
+<h2 id="3-层归一化（Layer-Normalization）"><a href="#3-层归一化（Layer-Normalization）" class="headerlink" title="3. 层归一化（Layer Normalization）"></a>3. <strong>层归一化（Layer Normalization）</strong></h2><p>接下来，残差连接后的结果会被送入<strong>层归一化（Layer Normalization）</strong>进行处理：</p>
+<p>Norm Output=LayerNorm(Attention Output+Input)\text{Norm Output} = \text{LayerNorm}(\text{Attention Output} + \text{Input})Norm Output=LayerNorm(Attention Output+Input)</p>
+<ul>
+<li><strong>目的</strong>：层归一化是对每一个输入的特征向量进行归一化处理，使其具有相同的尺度。这有助于加速模型的训练，并改善训练的稳定性。</li>
+</ul>
+<h2 id="4-前馈神经网络（Feed-Forward-Network-FFN）"><a href="#4-前馈神经网络（Feed-Forward-Network-FFN）" class="headerlink" title="4. 前馈神经网络（Feed-Forward Network, FFN）"></a>4. <strong>前馈神经网络（Feed-Forward Network, FFN）</strong></h2><p>接着，归一化后的输出会传递到<strong>前馈神经网络</strong>中进行进一步处理。前馈神经网络的结构通常是两个线性变换之间加一个激活函数（如 ReLU）：</p>
+<p>FFN Output=ReLU(XW1+b1)W2+b2\text{FFN Output} = \text{ReLU}(XW_1 + b_1)W_2 + b_2FFN Output=ReLU(XW1+b1)W2+b2</p>
+<ul>
+<li>第一层将输入维度从 dmodeld_{model}dmodel 映射到更高的维度，通常是 4×dmodel4 \times d_{model}4×dmodel，然后再通过激活函数。</li>
+<li>第二层将其映射回原始的 dmodeld_{model}dmodel 维度。</li>
+</ul>
+<h2 id="5-残差连接和归一化再一次"><a href="#5-残差连接和归一化再一次" class="headerlink" title="5. 残差连接和归一化再一次"></a>5. <strong>残差连接和归一化再一次</strong></h2><p>同样地，前馈神经网络的输出会再经历一次残差连接和层归一化：</p>
+<p>Output=LayerNorm(FFN Output+Norm Output)\text{Output} = \text{LayerNorm}(\text{FFN Output} + \text{Norm Output})Output=LayerNorm(FFN Output+Norm Output)</p>
+<ul>
+<li>再次使用残差连接来保持输入的原始信息，同时使得网络层次之间的梯度传递更顺畅。</li>
+</ul>
+<h2 id="总结：编码器中的执行顺序"><a href="#总结：编码器中的执行顺序" class="headerlink" title="总结：编码器中的执行顺序"></a>总结：编码器中的执行顺序</h2><p>总结下来，编码器中处理的顺序是：</p>
 <ol>
-<li><strong>空间控制</strong>：允许用户通过额外的图像（如边缘图、人体姿态骨架、分割图等）直接指定期望的图像构图，从而实现对图像生成过程的空间控制。</li>
-<li><strong>零卷积</strong>：使用1×1卷积层，其权重和偏置初始化为零，这样可以在训练过程中逐步增加参数，同时避免在训练初期对大型扩散模型的深层特征添加有害噪声。</li>
-<li><strong>鲁棒性</strong>：ControlNet在小（&lt;50k）和大（&gt;1M）数据集上的训练都是鲁棒的。</li>
-<li><strong>多样化的条件控制</strong>：ControlNet可以处理包括Canny边缘、Hough线、用户涂鸦、人体关键点、分割图、形状法线、深度等多种条件输入。</li>
-<li><strong>应用广泛</strong>：ControlNet可以应用于控制Stable Diffusion等图像扩散模型，并且可以支持单条件或多条件的图像生成，无论是否使用文本提示。</li>
+<li><strong>多头注意力机制（Multi-Head Attention）</strong>：生成多个 head 的输出，拼接后线性变换，返回原始维度。</li>
+<li><strong>残差连接（Residual Connection）</strong>：将多头注意力的输出与原始输入向量相加。</li>
+<li><strong>层归一化（Layer Normalization）</strong>：对残差连接后的结果进行归一化。</li>
+<li><strong>前馈神经网络（Feed-Forward Network, FFN）</strong>：线性变换 -&gt; 激活 -&gt; 线性变换，返回原始维度。</li>
+<li><strong>残差连接和归一化再一次</strong>：将前馈网络的输出与前面的归一化结果相加，再进行归一化。</li>
 </ol>
-<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><h2 id="loose-depth-control"><a href="#loose-depth-control" class="headerlink" title="loose depth control"></a>loose depth control</h2><h3 id="Ordinary-depth-control-ControlNet"><a href="#Ordinary-depth-control-ControlNet" class="headerlink" title="Ordinary depth control(ControlNet)"></a>Ordinary depth control(ControlNet)</h3><p>Given an input condition depth map D<sub>c</sub>, and access to an off-the-shelf monocular depth estimator f<sub>D</sub>, generate an image I<sub>gen</sub> such that the estimated depth f<sub>D</sub>( I<sub>gen</sub> ) respects the input depth condition i.e.:</p>
-<script type="math/tex; mode=display">
-f_{D}\left(I_{\text{gen}}\right)=D_{c}</script><h3 id="loose-depth-control-1"><a href="#loose-depth-control-1" class="headerlink" title="loose depth control"></a>loose depth control</h3><p>上面这种方法太严格，需要严格的等于，所以作者提出一种松散的判别方式:提出一个布尔函数，判断结果为True即可。</p>
-<script type="math/tex; mode=display">
-\phi\left(f_{D}\left(I_{\text{gen}}\right), D_{c}\right)</script><h2 id="Scene-boundary-control"><a href="#Scene-boundary-control" class="headerlink" title="Scene boundary control"></a>Scene boundary control</h2><script type="math/tex; mode=display">
-\phi: f_{D}\left(I_{\text{gen}}\right) \leq D_{c}</script><p> 这个公式中D<sub>c</sub>指depth condition，将生成的图像限制在边界控制中。</p>
-<h2 id="3D-box-control"><a href="#3D-box-control" class="headerlink" title="3D box control"></a>3D box control</h2><p>作者让条件 D<sub>c</sub> 通过指定对象的近似 3D 边界框来仅控制对象的近似位置、方向和大小。</p>
-<script type="math/tex; mode=display">
-\phi: B_{i} \sim 3DBox\left(O_{\text{gen}}^{i}\right) \quad \forall i</script><p>φ：condition function</p>
-<p>B<sub>i</sub>: 3D bounding boxes</p>
-<p>O：生成的对象</p>
-<p>~右边的一块指的是每个物体的定向3D线框(oriented 3D bounding box)</p>
-<h2 id="How-to-represent-scenes-as-boundaries"><a href="#How-to-represent-scenes-as-boundaries" class="headerlink" title="How to represent scenes as boundaries?"></a>How to represent scenes as boundaries?</h2><ol>
-<li>深度图估计：首先，使用现成的单目深度估计器（如ZoeDepth）来估计给定图像的深度图。</li>
-<li>3D三角网格回投：将图像通过深度图回投到一个3D三角网格中，这个网格在世界空间内表示。</li>
-<li>正交投影：将3D网格正交投影到一个水平面上，以精确地描绘出包围场景的2D边界。</li>
-<li>多边形近似：使用多边形（如凸包）来近似这个2D边界，这个多边形代表了场景的空间范围。</li>
-<li>边界深度渲染：将这个多边形的边界表面从原始相机视角重新渲染深度图，得到的深度图就是作为场景边界条件的代理（proxy depth map）。</li>
-</ol>
-<h2 id="How-to-represent-scenes-as-3D-boxes"><a href="#How-to-represent-scenes-as-3D-boxes" class="headerlink" title="How to represent scenes as 3D boxes?"></a>How to represent scenes as 3D boxes?</h2><ol>
-<li><strong>获取深度图和分割图</strong>：首先，使用现成的单目深度估计器（例如ZoeDepth）和分割模型（例如SAM）分别获取给定图像的深度图和分割图。深度图提供了3D空间信息，而分割图描绘了物体的边界。</li>
-<li><strong>回投</strong>：对于每个分割出的物体，执行回投操作，将图像片段根据深度图转换为3D世界空间中的点云。</li>
-<li><strong>估计3D边界框</strong>：对于每个回投的片段点云，估算出最小体积的相应定向3D边界框。这个边界框以立方体网格的形式表示。</li>
-<li><strong>渲染深度图</strong>：为了获得深度条件Dc，使用回投的原始相机参数渲染由盒子组成的场景，并提取深度图。这个生成的深度图作为指定3D边界框的代理。</li>
-</ol>
-<p>通过这个过程，可以构建一个编码了物体的大致位置、方向和大小的深度图，这些信息以3D边界框的形式存在。然后，这个深度图可以作为松散的深度条件用于指导图像生成过程，从而在不指定物体确切形状和外观的情况下，控制场景的布局和组成。</p>
-<h2 id="How-to-train-for-LOOSECONTROL"><a href="#How-to-train-for-LOOSECONTROL" class="headerlink" title="How to train for LOOSECONTROL?"></a>How to train for LOOSECONTROL?</h2><ol>
-<li><strong>基础模型选择</strong>：LOOSECONTROL 基于 Stable Diffusion 和 ControlNet 构建。Stable Diffusion 提供了基础的图像生成能力，而 ControlNet 则提供了深度条件控制的功能。</li>
-<li><strong>代理深度提取</strong>：使用前面提到的算法从给定图像中提取代理深度图（proxy depth maps）。这些代理深度图作为更广义控制形式的代理，用于训练过程。</li>
-<li><strong>数据准备</strong>：准备训练数据，这包括文本描述（T）、代理深度条件（Dc）和图像（I）的三元组。代理深度条件 Dc 是通过上述算法从图像 I 中提取的。</li>
-<li><strong>微调 ControlNet</strong>：使用 LoRA（Low Rank Adaptation）方法对预训练的 ControlNet 进行微调。LoRA 方法通过学习低秩更新来微调网络，这样可以在只需少量训练数据的情况下进行微调，同时防止网络忘记原始的生成权重。</li>
-<li><strong>LoRA 微调细节</strong>：对于 ControlNet 中的每个注意力块，学习一个低秩更新，形式为 W′x=Wx+BAx，其中 W<em>W</em> 是原始的冻结投影，<em>B</em> 和 <em>A</em> 是可训练的低秩矩阵。</li>
-<li><strong>控制网络的兼容性</strong>：确保代理深度条件与 ControlNet 兼容，以便顺利过渡并便于这些方法的采用。</li>
-<li><strong>推理时调整</strong>：在推理时，观察到简单的微调会导致生成的图像饱和。通过在推理时重新加权注入到 Stable Diffusion U-net 的残差，可以消除颜色伪影。特别是，注入到瓶颈块的残差对条件的遵循最为关键，而其他更高分辨率的跳跃连接残差主要添加局部纹理信息。</li>
-<li><strong>控制规模因子</strong>：引入一个可控制的规模因子 <em>γ</em>，以便在推理时对更新进行缩放，即 W′x=Wx+γBAx。通过控制 <em>γ</em> 可以提高结果的质量，特别是当 γ &gt; 1时。</li>
-</ol>
-<p>通过这些步骤，LOOSECONTROL 能够在保持与传统深度条件框架兼容性的同时，实现对更广义深度条件的控制，从而扩展了图像生成的创造性应用</p>
+<p>每层编码器（Encoder Layer）重复上述流程，最终堆叠多个编码器层，完成整个编码器的处理过程。</p>
 
     </div>
 
@@ -409,12 +397,12 @@ f_{D}\left(I_{\text{gen}}\right)=D_{c}</script><h3 id="loose-depth-control-1"><a
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/10/07/diffusionGPT/" rel="prev" title="diffusionGPT">
-      <i class="fa fa-chevron-left"></i> diffusionGPT
+    <a href="/2024/10/14/LooseControl/" rel="prev" title="LooseControl">
+      <i class="fa fa-chevron-left"></i> LooseControl
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/10/22/transformer/" rel="next" title="transformer">
-      transformer <i class="fa fa-chevron-right"></i>
+    <a href="/2024/11/11/test/" rel="next" title="test">
+      test <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -474,7 +462,7 @@ f_{D}\left(I_{\text{gen}}\right)=D_{c}</script><h3 id="loose-depth-control-1"><a
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ControlNet"><span class="nav-number">1.1.</span> <span class="nav-text">ControlNet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#loose-depth-control"><span class="nav-number">2.1.</span> <span class="nav-text">loose depth control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ordinary-depth-control-ControlNet"><span class="nav-number">2.1.1.</span> <span class="nav-text">Ordinary depth control(ControlNet)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loose-depth-control-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">loose depth control</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scene-boundary-control"><span class="nav-number">2.2.</span> <span class="nav-text">Scene boundary control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-box-control"><span class="nav-number">2.3.</span> <span class="nav-text">3D box control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-represent-scenes-as-boundaries"><span class="nav-number">2.4.</span> <span class="nav-text">How to represent scenes as boundaries?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-represent-scenes-as-3D-boxes"><span class="nav-number">2.5.</span> <span class="nav-text">How to represent scenes as 3D boxes?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-train-for-LOOSECONTROL"><span class="nav-number">2.6.</span> <span class="nav-text">How to train for LOOSECONTROL?</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-Attention-in-Detail"><span class="nav-number">1.</span> <span class="nav-text">Self-Attention in Detail</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#encoder"><span class="nav-number">2.</span> <span class="nav-text">encoder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%EF%BC%88Multi-Head-Attention%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">1. 多头注意力机制（Multi-Head Attention）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%AE%8B%E5%B7%AE%E8%BF%9E%E6%8E%A5%EF%BC%88Residual-Connection%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">2. 残差连接（Residual Connection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B1%82%E5%BD%92%E4%B8%80%E5%8C%96%EF%BC%88Layer-Normalization%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">3. 层归一化（Layer Normalization）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88Feed-Forward-Network-FFN%EF%BC%89"><span class="nav-number">2.4.</span> <span class="nav-text">4. 前馈神经网络（Feed-Forward Network, FFN）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%AE%8B%E5%B7%AE%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%BD%92%E4%B8%80%E5%8C%96%E5%86%8D%E4%B8%80%E6%AC%A1"><span class="nav-number">2.5.</span> <span class="nav-text">5. 残差连接和归一化再一次</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">2.6.</span> <span class="nav-text">总结：编码器中的执行顺序</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
