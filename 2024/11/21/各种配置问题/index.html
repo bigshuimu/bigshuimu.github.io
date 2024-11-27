@@ -28,7 +28,7 @@
 <meta property="og:description" content="记录我在学习和开发过程中遇到的各种乱七八糟的配置问题的解决方案">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-11-21T06:18:25.000Z">
-<meta property="article:modified_time" content="2024-11-21T06:27:28.767Z">
+<meta property="article:modified_time" content="2024-11-21T06:28:17.157Z">
 <meta property="article:author" content="QY">
 <meta name="twitter:card" content="summary">
 
@@ -306,7 +306,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-11-21 14:18:25 / 修改时间：14:27:28" itemprop="dateCreated datePublished" datetime="2024-11-21T14:18:25+08:00">2024-11-21</time>
+              <time title="创建时间：2024-11-21 14:18:25 / 修改时间：14:28:17" itemprop="dateCreated datePublished" datetime="2024-11-21T14:18:25+08:00">2024-11-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -323,7 +323,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>285</span>
+              <span>287</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -342,7 +342,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="python相关"><a href="#python相关" class="headerlink" title="python相关"></a>python相关</h1><h2 id="pip无法安装"><a href="#pip无法安装" class="headerlink" title="pip无法安装"></a>pip无法安装</h2><h3 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h3><p>先检查一下是不是真的没安装，还是安装了只是没有配置系统环境</p>
+        <h1 id="python相关"><a href="#python相关" class="headerlink" title="python相关"></a>python相关</h1><h2 id="Ubuntu中pip无法安装"><a href="#Ubuntu中pip无法安装" class="headerlink" title="Ubuntu中pip无法安装"></a>Ubuntu中pip无法安装</h2><h3 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h3><p>先检查一下是不是真的没安装，还是安装了只是没有配置系统环境</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name pip3 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">q@TheQ:~$ sudo apt install python3-pip</span><br><span class="line">[sudo] password for q:</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree... Done</span><br><span class="line">Reading state information... Done</span><br><span class="line">Some packages could not be installed. This may mean that you have</span><br><span class="line">requested an impossible situation or if you are using the unstable</span><br><span class="line">distribution that some required packages have not yet been created</span><br><span class="line">or been moved out of Incoming.</span><br><span class="line">The following information may help to resolve the situation:</span><br><span class="line"></span><br><span class="line">The following packages have unmet dependencies:</span><br><span class="line"> python3-distutils : Depends: python3:any (&lt; 3.10)</span><br><span class="line">                     Depends: python3-lib2to3 (= 3.8.10-0ubuntu1~20.04) but 3.10.8-1~22.04 is to be installed</span><br><span class="line"> python3-setuptools : Depends: python3-pkg-resources (= 45.2.0-1ubuntu0.2) but 59.6.0-1.2ubuntu0.22.04.2 is to be installed</span><br><span class="line">E: Unable to correct problems, you have held broken packages.</span><br></pre></td></tr></table></figure>
 <h3 id="使用下面这种方法安装"><a href="#使用下面这种方法安装" class="headerlink" title="使用下面这种方法安装"></a>使用下面这种方法安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py</span><br><span class="line">sudo python3 /tmp/get-pip.py</span><br></pre></td></tr></table></figure>
@@ -367,10 +367,13 @@ mjx-container[display="true"] + br {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/11/19/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3VAR/" rel="prev" title="深度理解VAR">
-      <i class="fa fa-chevron-left"></i> 深度理解VAR
+    <a href="/2024/10/22/transformer/" rel="prev" title="transformer">
+      <i class="fa fa-chevron-left"></i> transformer
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/11/26/%E4%BB%8EAE%E5%88%B0VAR/" rel="next" title="从AE到VAR">
+      从AE到VAR <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -429,7 +432,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E7%9B%B8%E5%85%B3"><span class="nav-number">1.</span> <span class="nav-text">python相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pip%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">pip无法安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5"><span class="nav-number">1.1.1.</span> <span class="nav-text">检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%8B%E9%9D%A2%E8%BF%99%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.3.</span> <span class="nav-text">使用下面这种方法安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BEpip%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.1.4.</span> <span class="nav-text">查找pip位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.5.</span> <span class="nav-text">配置系统环境</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E7%9B%B8%E5%85%B3"><span class="nav-number">1.</span> <span class="nav-text">python相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu%E4%B8%ADpip%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">Ubuntu中pip无法安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5"><span class="nav-number">1.1.1.</span> <span class="nav-text">检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%8B%E9%9D%A2%E8%BF%99%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.3.</span> <span class="nav-text">使用下面这种方法安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BEpip%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.1.4.</span> <span class="nav-text">查找pip位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.5.</span> <span class="nav-text">配置系统环境</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +448,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -514,7 +517,7 @@ mjx-container[display="true"] + br {
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">43 分钟</span>
+    <span title="站点阅读时长">44 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
