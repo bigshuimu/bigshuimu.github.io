@@ -329,7 +329,7 @@
 <ol>
 <li>LayoutGPT can convert challenging textual concepts to 2D layouts and generate free-form, detailed descriptions for each region. <strong>In contrast</strong>, existing methods are restricted to class labels and fail to reason over numerical and spatial concepts in text conditions.</li>
 </ol>
-<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><img src="/2024/09/13/2305-15393v2-LayoutGPT/image-20240916161457200.png" class="" title="image-20240916161457200">
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p><img src="image-20240916161457200.png" alt="image-20240916161457200"></p>
 <h3 id="LayoutGPT-Prompt-Construction"><a href="#LayoutGPT-Prompt-Construction" class="headerlink" title="LayoutGPT Prompt Construction"></a>LayoutGPT Prompt Construction</h3><ol>
 <li>CSS Structures. 图像布局与CSS格式化网页布局、定义HTML中img标记的各种属性的方式非常相似，所以在属性值映射时采用CSS样式的声明方法。</li>
 <li>Task Instructions.笔者将任务指令前置到提示符中，以指定任务目标，定义标准格式，值的单位等。</li>
@@ -343,7 +343,7 @@
 <li><p><strong>Baselines</strong> :As we consider both layout evaluation and image evaluation, we compare LayoutGPT with end-to-end T2I models (Stable Diffusion, Attend-and-Excite) and two-stage systems that generate layouts first and then apply GLIGEN as the layout-to-image model. 还会和人工画的布局对比。</p>
 </li>
 </ul>
-<img src="/2024/09/13/2305-15393v2-LayoutGPT/image-20240916191737555.png" class="" title="image-20240916191737555">
+<p><img src="image-20240916191737555.png" alt="image-20240916191737555"></p>
 <p><em>图片中参数的含义</em>：</p>
 <ul>
 <li>Numerical Reasoning（数值推理）：<ul>
@@ -372,7 +372,7 @@
 <li>Text-based Inpainting: LayoutGPT can enrich the description of each object with details that are not mentioned in the prompt.</li>
 <li>Counterfactual Scenarios: LayoutGPT manages to generate reasonable layouts on these challenging prompts and handles the relationship between objects well.</li>
 </ul>
-<h2 id="Indoor-Scene-Synthesis"><a href="#Indoor-Scene-Synthesis" class="headerlink" title="Indoor Scene Synthesis"></a>Indoor Scene Synthesis</h2><img src="/2024/09/13/2305-15393v2-LayoutGPT/image-20240916210056284.png" class="" title="image-20240916210056284">
+<h2 id="Indoor-Scene-Synthesis"><a href="#Indoor-Scene-Synthesis" class="headerlink" title="Indoor Scene Synthesis"></a>Indoor Scene Synthesis</h2><p><img src="image-20240916210056284.png" alt="image-20240916210056284"></p>
 <p>While living rooms are challenging for both methods, LayoutGPT shows more significant improvement over ATISS as supervised methods tend to overfit in early epochs.</p>
 
       

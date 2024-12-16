@@ -23,21 +23,21 @@
   <meta name="description" content="Reason out Your Layout: Evoking the Layout Master from Large Language Models for Text-to-Image Synthesis core ideatext -&gt; layout -&gt; img CoT，Chain-of-ThoughtOur method leverages the Chain-of-Thou">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2311.17126v1">
-<meta property="og:url" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/index.html">
+<meta property="og:url" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason-out-your-layout/index.html">
 <meta property="og:site_name" content="QY的个人博客">
 <meta property="og:description" content="Reason out Your Layout: Evoking the Layout Master from Large Language Models for Text-to-Image Synthesis core ideatext -&gt; layout -&gt; img CoT，Chain-of-ThoughtOur method leverages the Chain-of-Thou">
 <meta property="og:locale">
-<meta property="og:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/2311-17126v1/image-20240918155010647.png">
-<meta property="og:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/2311-17126v1/image-20240918155932681.png">
-<meta property="og:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/2311-17126v1/image-20240918160731946.png">
-<meta property="og:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/2311-17126v1/image-20240918161142829.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason-out-your-layout/image-20240918155010647.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason-out-your-layout/image-20240918155932681.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason-out-your-layout/image-20240918160731946.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason-out-your-layout/image-20240918161142829.png">
 <meta property="article:published_time" content="2024-09-18T07:31:31.000Z">
 <meta property="article:modified_time" content="2024-09-18T13:02:31.226Z">
 <meta property="article:author" content="QY">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/2311-17126v1/image-20240918155010647.png">
+<meta name="twitter:image" content="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason-out-your-layout/image-20240918155010647.png">
 
-<link rel="canonical" href="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/">
+<link rel="canonical" href="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason-out-your-layout/">
 
 
 <script id="page-configurations">
@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason%20out%20your%20layout/">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/18/2311-17126v1Reason-out-your-layout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
@@ -238,17 +238,17 @@
 <h2 id="core-idea"><a href="#core-idea" class="headerlink" title="core idea"></a>core idea</h2><p>text -&gt; layout -&gt; img</p>
 <h3 id="CoT，Chain-of-Thought"><a href="#CoT，Chain-of-Thought" class="headerlink" title="CoT，Chain-of-Thought"></a>CoT，Chain-of-Thought</h3><p>Our method leverages the Chain-of-Thought (CoT) prompting of LLMs to interpret text and generate spatially reasonable object layouts.</p>
 <p>这种方法指导LLM将问题解构为逻辑步骤，在基于示例的学习有限的情况下特别有效。它通过使用简单的指导性句子来提示LLM顺序处理信息，或者通过一系列示例来逐步说明推理过程。模型在得出答案之前生成连续的推理链。</p>
-<p><img src="2311-17126v1/image-20240918155010647.png" alt="image-20240918155010647"></p>
+<p><img src="image-20240918155010647.png" alt="image-20240918155010647"></p>
 <p>Two key factors enable LLMs to generate object layouts:</p>
 <ol>
 <li>defining precise task instructions</li>
 <li>providing sufficient in-context examples. </li>
 </ol>
-<p><img src="2311-17126v1/image-20240918155932681.png" alt="image-20240918155932681"></p>
+<p><img src="image-20240918155932681.png" alt="image-20240918155932681"></p>
 <p>上图中三种prompt策略：(1) task instructions only; (2) task instructions followed by eight in-context examples, but without CoT reasoning; (3) task instructions followed by eight in-context examples, each come with a CoT reasoning.</p>
 <h3 id="LACA，Layout-Aware-Cross-Attention"><a href="#LACA，Layout-Aware-Cross-Attention" class="headerlink" title="LACA，Layout-Aware Cross-Attention"></a>LACA，Layout-Aware Cross-Attention</h3><p>LACA, an adapter designed to incorporate spatial information from the given layouts explicitly into the Stable Diffusion models</p>
-<p><img src="2311-17126v1/image-20240918160731946.png" alt="image-20240918160731946"></p>
-<p><img src="2311-17126v1/image-20240918161142829.png" alt="image-20240918161142829"></p>
+<p><img src="image-20240918160731946.png" alt="image-20240918160731946"></p>
+<p><img src="image-20240918161142829.png" alt="image-20240918161142829"></p>
 <ol>
 <li>在COCO2017数据集与GT布局匹配时，LACA的YOLO分低于GLIGEN。作者认为这是因为LACA的改编字幕不如原来的字幕连贯。</li>
 <li>在FID分上LLM生成的布局不如GT，作者认为这种差异可能源于数据集的文本布局一致性，一致的文本布局减轻了扩散模型整合多种模态对象的负担。</li>

@@ -23,19 +23,19 @@
   <meta name="description" content="“we propose a novel paradigm that generates each concept in 3D representation separately and then composes them with priors from Large Language Models (LLM) and 2D diffusion models.” 我们提出了一种新颖的范式，该范式单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Compositional 3D-aware Video Generation with LLM Director">
-<meta property="og:url" content="https://bigshuimu.github.io/2024/09/26/2409-00558v1_3d_video_LLM/index.html">
+<meta property="og:url" content="https://bigshuimu.github.io/2024/09/26/2409-00558v1-3d-video-LLM/index.html">
 <meta property="og:site_name" content="QY的个人博客">
 <meta property="og:description" content="“we propose a novel paradigm that generates each concept in 3D representation separately and then composes them with priors from Large Language Models (LLM) and 2D diffusion models.” 我们提出了一种新颖的范式，该范式单">
 <meta property="og:locale">
-<meta property="og:image" content="https://bigshuimu.github.io/2024/09/26/2409-00558v1_3d_video_LLM/2409-00558v1/image-20241010163046868.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/09/26/2409-00558v1-3d-video-LLM/image-20241010163046868.png">
 <meta property="article:published_time" content="2024-09-26T06:37:44.000Z">
 <meta property="article:modified_time" content="2024-10-12T02:21:15.241Z">
 <meta property="article:author" content="QY">
 <meta property="article:tag" content="3D">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://bigshuimu.github.io/2024/09/26/2409-00558v1_3d_video_LLM/2409-00558v1/image-20241010163046868.png">
+<meta name="twitter:image" content="https://bigshuimu.github.io/2024/09/26/2409-00558v1-3d-video-LLM/image-20241010163046868.png">
 
-<link rel="canonical" href="https://bigshuimu.github.io/2024/09/26/2409-00558v1_3d_video_LLM/">
+<link rel="canonical" href="https://bigshuimu.github.io/2024/09/26/2409-00558v1-3d-video-LLM/">
 
 
 <script id="page-configurations">
@@ -173,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/26/2409-00558v1_3d_video_LLM/">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/09/26/2409-00558v1-3d-video-LLM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
@@ -253,7 +253,7 @@
 <p>（SDS：a technique enhancing 3D generation by distilling 2D diffusion priors from pre-trained text-to-image generative models）</p>
 <h3 id="two-key-technical-challenges"><a href="#two-key-technical-challenges" class="headerlink" title="two key technical challenges:"></a>two key technical challenges:</h3><p>1) Since a textual prompt contains multiple concepts, how to coordinate the generation of various concepts?<br>2) Given the generated concepts, how to compose them to follow common sense in the real world?</p>
 <h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>1) We leverage LLM as the director to first decompose the complex query into several sub-prompts that indicate individual concepts within the video (e.g., scene, objects, motions), then we let LLM to invoke pre-trained expert models to obtain corresponding 3D representations of concepts.<br>2) To compose these representations, we prompt multi-modal LLM to produce coarse guidance on the scales and coordinates of trajectories for the objects.<br>3) To make the generated frames adhere to natural image distribution, we further leverage 2D diffusion priors and use Score Distillation Sampling to refine the composition.</p>
-<p><img src="2409-00558v1/image-20241010163046868.png" alt="image-20241010163046868"></p>
+<p><img src="image-20241010163046868.png" alt="image-20241010163046868"></p>
 <h3 id="Fine-grained-Composition-with-2D-Diffusion-Priors"><a href="#Fine-grained-Composition-with-2D-Diffusion-Priors" class="headerlink" title="Fine-grained Composition with 2D Diffusion Priors"></a>Fine-grained Composition with 2D Diffusion Priors</h3><ol>
 <li><p>将描述轨迹的2D坐标转化为3D坐标</p>
 </li>
