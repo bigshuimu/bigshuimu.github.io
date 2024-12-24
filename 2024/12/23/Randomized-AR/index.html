@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/favicon.png">
+  <link rel="mask-icon" href="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bigshuimu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="对比两篇随机自回归图像生成模型论文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Randomized_AR">
+<meta property="og:url" content="https://bigshuimu.github.io/2024/12/23/Randomized-AR/index.html">
+<meta property="og:site_name" content="QY的个人博客">
+<meta property="og:description" content="对比两篇随机自回归图像生成模型论文">
+<meta property="og:locale">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/12/23/Randomized-AR/2024-12-24-16-49-25.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/12/23/Randomized-AR/2024-12-24-16-49-57.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/12/23/Randomized-AR/2024-12-24-14-09-11.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/12/23/Randomized-AR/2024-12-24-16-45-49.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2024/12/23/Randomized-AR/2024-12-24-16-46-31.png">
+<meta property="article:published_time" content="2024-12-23T14:03:49.000Z">
+<meta property="article:modified_time" content="2024-12-24T08:56:33.985Z">
+<meta property="article:author" content="QY">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bigshuimu.github.io/2024/12/23/Randomized-AR/2024-12-24-16-49-25.png">
+
+<link rel="canonical" href="https://bigshuimu.github.io/2024/12/23/Randomized-AR/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Randomized_AR | QY的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">QY的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2024/12/23/Randomized-AR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="QY">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QY的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Randomized_AR
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-23 22:03:49" itemprop="dateCreated datePublished" datetime="2024-12-23T22:03:49+08:00">2024-12-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-24 16:56:33" itemprop="dateModified" datetime="2024-12-24T16:56:33+08:00">2024-12-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>11 分钟</span>
+            </span>
+            <div class="post-description">对比两篇随机自回归图像生成模型论文</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2411.00776">Randomized Autoregressive Visual Generation</a><br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2412.01827">RandAR: Decoder-only Autoregressive Visual Generation in Random Orders</a></p>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p><img src="2024-12-24-16-49-25.png" alt><br><img src="2024-12-24-16-49-57.png" alt><br>自回归模型通过最大化条件概率来生成序列数据。</p>
+<script type="math/tex; mode=display">
+\max_\theta\quad p_\theta(\mathrm{x})=\prod_{t=1}^Tp_\theta(x_t|x_1,x_2,\cdots,x_{t-1})</script><p>自然语言拥有一个天然的顺序(大部分语言从左到右)，图像则没有。在所有可能的图像生成顺序中，以行为主的顺序被广泛采用，并且展现出良好的性能。</p>
+<p>视觉信号拥有双向联系，因此需要有高效的全局内容建模。但是，传统的自回归模型在处理视觉信号时，需要将图像展平为序列，通过掩码给token序列强制加上一个单向的顺序，这会破坏图像的结构信息。 </p>
+<p>因此，双向注意力(bidirectional attention)在视觉模型中优于因果注意力(causal attention)。</p>
+<p>作者提出了一种随机自回归建模方法，它将优化目标与双向上下文相结合：</p>
+<script type="math/tex; mode=display">
+\max_\theta\quad p_\theta(\mathrm{x})=\prod_{t=1}^Tp_\theta(x_t|x_1,x_2,\cdots,x_{t-1},x_{t+1},x_{t+2},\cdots,x_T)</script><p>作者采用了置换目标方法(permutation objective approach)，通过随机打乱token的顺序，使得模型在训练时需要考虑所有可能的token顺序，从而实现双向上下文建模。</p>
+<script type="math/tex; mode=display">
+\max_\theta\quad p_\theta(\mathbf{x})=\mathbb{E}_{\tau\sim\mathcal{S}_T}\left[\prod_{t=1}^Tp_\theta(x_{\tau_t}|x_{\tau_{<t}})\right]</script><ul>
+<li>$S_t$代表所有序列[1,2,…,T]的所有可能的排列组合</li>
+<li>$\tau$代表一个特定的排列组合</li>
+<li>$\tau_t$代表排列组合中的第$t$个元素</li>
+<li>$\tau_{&lt;t}$代表排列组合中的前$t-1$个元素</li>
+</ul>
+<p>在训练过程中，由于模型参数 θ 在所有采样的分解顺序中是共享的，每个标记 $x_t$ 都会接触到所有可能的上下文，并学习与其他标记 $x_{\boldsymbol{i}}\:\forall i\neq t$之间的关系。</p>
+<p>虽然置换目标在期望中允许在自回归框架内进行双向上下文学习，但在生成过程中仍然难以完全捕捉“全局上下文”。</p>
+<h2 id="目标感知位置编码"><a href="#目标感知位置编码" class="headerlink" title="目标感知位置编码"></a>目标感知位置编码</h2><p>e.g. 考虑两种不同的排列组合</p>
+<script type="math/tex; mode=display">
+\tau_\alpha=[1,2,\cdots,T-2,T-1,T]</script><script type="math/tex; mode=display">
+\tau_\beta=[1,2,\cdots,T-2,T,T-1]</script><p>当生成倒数第二个token时，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="2.2ex" height="1.332ex" role="img" focusable="false" viewbox="0 -431 972.5 588.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"/></g><g data-mml-node="mi" transform="translate(470,-150) scale(0.707)"><path data-c="1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"/></g></g></g></g></svg></mjx-container>和<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.65ex;" xmlns="http://www.w3.org/2000/svg" width="2.082ex" height="1.625ex" role="img" focusable="false" viewbox="0 -431 920.2 718.2"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"/></g><g data-mml-node="mi" transform="translate(470,-150) scale(0.707)"><path data-c="1D6FD" d="M29 -194Q23 -188 23 -186Q23 -183 102 134T186 465Q208 533 243 584T309 658Q365 705 429 705H431Q493 705 533 667T573 570Q573 465 469 396L482 383Q533 332 533 252Q533 139 448 65T257 -10Q227 -10 203 -2T165 17T143 40T131 59T126 65L62 -188Q60 -194 42 -194H29ZM353 431Q392 431 427 419L432 422Q436 426 439 429T449 439T461 453T472 471T484 495T493 524T501 560Q503 569 503 593Q503 611 502 616Q487 667 426 667Q384 667 347 643T286 582T247 514T224 455Q219 439 186 308T152 168Q151 163 151 147Q151 99 173 68Q204 26 260 26Q302 26 349 51T425 137Q441 171 449 214T457 279Q457 337 422 372Q380 358 347 358H337Q258 358 258 389Q258 396 261 403Q275 431 353 431Z"/></g></g></g></g></svg></mjx-container>的上文是相同的，因此模型无法区分这两种情况。</p>
+<p>为了解决这个问题，作者引入了一组额外的位置信息嵌入，作者称之为目标感知位置信息嵌入。这些位置编码编码了关于下一个被预测的标记的信息。(最后一个token没有这个位置编码，因为它后面没有要预测的token了)</p>
+<p>值得注意的是，目标感知的位置嵌入可以在训练结束后与原始位置嵌入合并，因为我们的方法最终收敛到一个固定的光栅扫描，因此在推理过程中不会增加参数或计算量。</p>
+<h2 id="随机退火（Randomized-Annealing）"><a href="#随机退火（Randomized-Annealing）" class="headerlink" title="随机退火（Randomized Annealing）"></a>随机退火（Randomized Annealing）</h2><ol>
+<li>可能的排列组合数量过于庞大，可能会导致模型只专注于处理不同的排列组合，而不是提升生成质量</li>
+<li>尽管图像可以以任意顺序处理，但某些扫描顺序往往优于其他顺序。前人有论文评估了六种不同的扫描顺序（行主序、内螺旋、外螺旋、Z-曲线、子采样和交替），并发现行主序（即光栅顺序）始终表现最佳，这一结果使其成为视觉生成中最广泛使用的顺序。<br><img src="2024-12-24-14-09-11.png" alt></li>
+</ol>
+<p>作者提出了随机退火方法，平衡排列的随机性与栅格顺序的已知有效性。提出了一个单独的参数r，用于使用随机排列的概率。训练开始时<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="5.169ex" height="1.692ex" role="img" focusable="false" viewbox="0 -666 2284.6 748"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mo" transform="translate(728.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/></g><g data-mml-node="mn" transform="translate(1784.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g></g></g></svg></mjx-container>, 意味着该模型仅使用随机排列。在训练过程中，r 线性衰减到 0, 在训练结束时将模型转换为光栅顺序。具体来说，我们为 r 定义了一个训练计划，该计划由两个超参数控制：start 和 end，分别表示 r 开始退火和退火结束的训练周期。</p>
+<script type="math/tex; mode=display">
+r=\begin{cases}1.0,&\text{if }epoch<start,\\0.0,&\text{if }epoch>end,\\1.0-\frac{epoch-start}{end-start},&\text{otherwise},&\end{cases}</script><p>epoch代表当前训练的轮数</p>
+<h1 id="RandAR"><a href="#RandAR" class="headerlink" title="RandAR"></a>RandAR</h1><p><img src="2024-12-24-16-45-49.png" alt><br><img src="2024-12-24-16-46-31.png" alt></p>
+<p>论文目标是在最小化更改GPT样式的视觉自回归框架的条件下引入随机顺序生成，关键在于模型需要了解每个下一个标记的位置。</p>
+<p>作者引入了一个位置编码，叫做position instruction token, 在每个图像token生成前记录它所在的位置。</p>
+<p>特别的是，作者以光栅顺序生成图像token，然后随机打乱，并扔掉最后一个token。</p>
+<script type="math/tex; mode=display">
+p_\theta(\mathbf{x}|\mathbf{P})=\prod_{n=1}^Np_\theta(x_n^{\pi(n)}|P_1^{\pi(1)},x_1^{\pi(1)},\ldots,x_{n-1}^{\pi(n-1)},P_n^{\pi(n)}).</script><ul>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="2.034ex" height="1.357ex" role="img" focusable="false" viewbox="0 -442 899 599.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/></g><g data-mml-node="mi" transform="translate(605,-150) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g></g></g></g></svg></mjx-container>是随机打乱后的序列中第i个token</li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="3.83ex" height="2.262ex" role="img" focusable="false" viewbox="0 -750 1693 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70B" d="M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"/></g><g data-mml-node="mo" transform="translate(570,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/></g><g data-mml-node="mi" transform="translate(959,0)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mo" transform="translate(1304,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/></g></g></g></svg></mjx-container> 是原始光栅顺序中第i个token</li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="2.192ex" height="1.902ex" role="img" focusable="false" viewbox="0 -683 969 840.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"/></g><g data-mml-node="mi" transform="translate(675,-150) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g></g></g></g></svg></mjx-container>是第i个token的position instruction token</li>
+</ul>
+<p>仿照2D-RoPE, 作者引入了可学习的嵌入e，并将其与下一个图像标记的二维坐标“旋转”结合起来进行预测。</p>
+<script type="math/tex; mode=display">
+P_i=RoPE(e,h_i,w_i)</script><p>RoPE的核心思想是，通过对位置编码进行旋转变换，使得每个位置的编码在生成过程中保持一定的周期性特征。这种方法在保持编码顺序信息的同时，还可以使得模型更好地捕捉序列中的相对位置关系。</p>
+<p>RandAR 整体模型结构采取LLaMAGen的结构（只有decoder的transformer，使用2D-RoPE进行相对位置编码）</p>
+<p>在训练阶段，作者训练RandAR使用从所有可能的排列组合中选取随机的序列：</p>
+<ol>
+<li>将256x256的图像转成N=16X16的离散tokens</li>
+<li>这样就有<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="15.787ex" height="2.14ex" role="img" focusable="false" viewbox="0 -864 6977.7 946"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(500,0)"/><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"/></g><g data-mml-node="mo" transform="translate(1500,0)"><path data-c="21" d="M78 661Q78 682 96 699T138 716T180 700T199 661Q199 654 179 432T158 206Q156 198 139 198Q121 198 119 206Q118 209 98 431T78 661ZM79 61Q79 89 97 105T141 121Q164 119 181 104T198 61Q198 31 181 16T139 1Q114 1 97 16T79 61Z"/></g><g data-mml-node="mo" transform="translate(2055.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/></g><g data-mml-node="mn" transform="translate(3111.6,0)"><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"/></g><g data-mml-node="mo" transform="translate(3833.8,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"/></g><g data-mml-node="msup" transform="translate(4834,0)"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"/></g><g data-mml-node="TeXAtom" transform="translate(1033,393.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"/><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"/><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"/></g></g></g></g></g></svg></mjx-container>种可能的排列组合</li>
+<li>虽然在 ImageNet上训练 300 个 epoch 最多只能覆盖 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="7.147ex" height="2.005ex" role="img" focusable="false" viewbox="0 -864 3159 886"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"/></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"/></g><g data-mml-node="msup" transform="translate(1722.4,0)"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"/></g><g data-mml-node="mn" transform="translate(1033,393.1) scale(0.707)"><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"/></g></g></g></g></svg></mjx-container> 种排序，但 RandAR 学习了以随机顺序生成图像的能力。</li>
+</ol>
+<p>在推论阶段：</p>
+<ol>
+<li>（任意）给定一个推理顺序，首先计算相应的位置指令标记</li>
+<li>通过标准的下一个标记预测迭代地采样预测的图像token</li>
+</ol>
+<p>传统的decoder-only AR模型每次只能生成一个token，而RandAR可以根据之前的生成的token预测任何位置的token, 因此可以一次同时生成多个位置的token，从而需要更少的前向过程，提高推理速度。</p>
+<h2 id="Algorithm-A-RandAR-Training-Pytorch-style-Pseudo-Code"><a href="#Algorithm-A-RandAR-Training-Pytorch-style-Pseudo-Code" class="headerlink" title="Algorithm A: RandAR Training Pytorch-style Pseudo-Code"></a>Algorithm A: RandAR Training Pytorch-style Pseudo-Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 随机顺序训练。</span></span><br><span class="line"><span class="comment"># 输入列表:</span></span><br><span class="line"><span class="comment"># class_indices: [b, 1], b是batch size，数据类型为torch.long</span></span><br><span class="line"><span class="comment"># b, h, w: 整数，分别为batch_size、latent空间的高度和宽度</span></span><br><span class="line"><span class="comment"># image_token_indices: [b, h * w]，经过tokenizer后的图像token索引</span></span><br><span class="line"><span class="comment"># d: 模型的隐藏层维度</span></span><br><span class="line"><span class="comment"># head_dim: 每个注意力头的维度, 通常为 d 除以注意力头的数量</span></span><br><span class="line"><span class="comment"># model: 只有Decoder的transformer模型</span></span><br><span class="line"><span class="comment"># 输出: 训练损失</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step-1: 采样随机顺序</span></span><br><span class="line">seq_len = h * w <span class="comment"># 图像序列长度</span></span><br><span class="line"></span><br><span class="line">raster_order_indices = torch.arange(seq_len).repeat(b, <span class="number">1</span>)  <span class="comment"># [b, seq_len],b个[0,1,2,...,seq_len-1]</span></span><br><span class="line">position_indices = random_permute(raster_order_indices)  <span class="comment"># [b, seq_len],将上面的序列随机打乱</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step-2: 准备嵌入</span></span><br><span class="line">image_tokens = model.token_embeddings[image_token_indices]  <span class="comment"># [b, seq_len, d]</span></span><br><span class="line">image_tokens = torch.gather(image_tokens.unsqueeze(-<span class="number">1</span>), dim=<span class="number">1</span>, position_indices.unsqueeze(-<span class="number">1</span>)) <span class="comment"># 将image_tokens按照position_indices的随机顺序重新排列</span></span><br><span class="line">cls_token = model.cls_embeddings[class_indices]  <span class="comment"># [b, d]， 类别嵌入</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机dropout, 对图像 token 和类别 token 应用随机丢弃（dropout），以增加训练时的正则化效果，防止过拟合。</span></span><br><span class="line">image_tokens = random_dropout(image_tokens, p=<span class="number">0.1</span>)</span><br><span class="line">cls_token = random_dropout(cls_token, p=<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step-3: 计算位置指令tokens</span></span><br><span class="line"><span class="comment"># 获取每个空间位置的二维RoPE频率</span></span><br><span class="line">rope_freqs_cis = model.compute_rope_frequencies(b, h, w, base=<span class="number">10000</span>)  <span class="comment"># [b, h, w, head_dim//2, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将h, w展平为seq_len，并以光栅顺序排列二维RoPE频率</span></span><br><span class="line">rope_freqs_cis = rope_freqs_cis.flatten((<span class="number">1</span>, <span class="number">2</span>))  <span class="comment"># [b, seq_len, head_dim//2, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取随机顺序position_indices下的二维RoPE频率</span></span><br><span class="line">rope_freqs_cis = rope_freqs_cis[position_indices]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取与随机顺序tokens对应的位置指令tokens</span></span><br><span class="line">pos_instruct_tokens = apply_2d_rope(model.shared_pos_embed, rope_freqs_cis)  <span class="comment"># [b, seq_len, d]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step-4: 准备教师强制序列</span></span><br><span class="line">x = torch.zeros(b, <span class="number">1</span> + <span class="number">2</span> * seq_len, d).to(image_tokens.device) <span class="comment"># 创建一个全0的序列，长度为1 + 2 * seq_len，维度为d</span></span><br><span class="line">x[:, <span class="number">0</span>] = cls_token  <span class="comment"># 放置cls token</span></span><br><span class="line">x[:, <span class="number">1</span>::<span class="number">2</span>] = pos_instruct_tokens  <span class="comment"># 放置位置指令tokens</span></span><br><span class="line">x[:, <span class="number">2</span>::<span class="number">2</span>] = image_tokens  <span class="comment"># 放置图像tokens</span></span><br><span class="line"></span><br><span class="line">x_rope_freqs = torch.zeros(b, <span class="number">1</span> + <span class="number">2</span> * seq_len, head_dim // <span class="number">2</span>)</span><br><span class="line">x_rope_freqs[:, <span class="number">0</span>] = model.class_rope_freqs  <span class="comment"># 分类的RoPE频率</span></span><br><span class="line">x_rope_freqs[:, <span class="number">1</span>::<span class="number">2</span>] = rope_freqs_cis  <span class="comment"># 位置指令tokens的RoPE频率</span></span><br><span class="line">x_rope_freqs[:, <span class="number">2</span>::<span class="number">2</span>] = rope_freqs_cis  <span class="comment"># 图像tokens的RoPE频率</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step-5: 使用下一token预测进行训练</span></span><br><span class="line">pred_logits = model(x, x_rope_freqs)  <span class="comment"># [b, 1 + 2 * seq_len, vocab_size]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从位置指令tokens中生成的预测tokens</span></span><br><span class="line">pred_logits = pred_logits[:, <span class="number">1</span>::<span class="number">2</span>]  <span class="comment"># [b, seq_len, vocab_size]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回光栅顺序序列以计算损失</span></span><br><span class="line">index_to_raster_order = torch.argsort(position_indices)  <span class="comment"># [b, seq_len] 将position_indices按照光栅顺序排序,返回的是排序后的索引，而不是值</span></span><br><span class="line">raster_pred_logits = torch.gather(pred_logits, dim=<span class="number">1</span>, index_to_raster_order.unsqueeze(-<span class="number">1</span>)) <span class="comment"># 将pred_logits按照光栅顺序排序, torch.gather(input, dim, index) 是根据index的索引从input中提取数据</span></span><br><span class="line"></span><br><span class="line">loss = cross_entropy(raster_pred_logits.view(-<span class="number">1</span>, vocab_size), image_token_indices.view(-<span class="number">1</span>)) <span class="comment"># 计算损失</span></span><br><span class="line"><span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure>
+<p>上面算法中对分类的随机丢弃是无分类引导，对图像的随机丢弃是本论文提出的空间上下文引导(Spatial Contextual Guidance)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}\widetilde{e}_{\theta}(\mathbf{x}_{1:n},c)=&e_{\theta}(\mathbf{x}_{1:n}^{\phi},c^{\phi})+\\&w_{\mathrm{scg}}(e_{\theta}(\mathbf{x}_{1:n},c^{\phi})-e_{\theta}(\mathbf{x}_{1:n}^{\phi}))+\\&w_{\mathrm{cfg}}(e_{\theta}(\mathbf{x}_{1:n},c)-e_{\theta}(\mathbf{x}_{1:n},c^{\phi}))\end{aligned}</script><ul>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.355ex;" xmlns="http://www.w3.org/2000/svg" width="1.992ex" height="1.355ex" role="img" focusable="false" viewbox="0 -442 880.6 599.1"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"/></g><g data-mml-node="mi" transform="translate(499,-150) scale(0.707)"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/></g></g></g></g></svg></mjx-container>是RanAR模型</li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="4.266ex" height="1.902ex" role="img" focusable="false" viewbox="0 -683 1885.4 840.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"/></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g><g data-mml-node="mo" transform="translate(500,0)"><path data-c="3A" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"/></g><g data-mml-node="mi" transform="translate(778,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/></g></g></g></g></g></svg></mjx-container> 先前步生成的图像token</li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.69ex;" xmlns="http://www.w3.org/2000/svg" width="3.766ex" height="2.929ex" role="img" focusable="false" viewbox="0 -989.3 1664.4 1294.4"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msubsup"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D431" d="M227 0Q212 3 121 3Q40 3 28 0H21V62H117L245 213L109 382H26V444H34Q49 441 143 441Q247 441 265 444H274V382H246L281 339Q315 297 316 297Q320 297 354 341L389 382H352V444H360Q375 441 466 441Q547 441 559 444H566V382H471L355 246L504 63L545 62H586V0H578Q563 3 469 3Q365 3 347 0H338V62H366Q366 63 326 112T285 163L198 63L217 62H235V0H227Z"/></g></g><g data-mml-node="TeXAtom" transform="translate(640,498.6) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D719" d="M409 688Q413 694 421 694H429H442Q448 688 448 686Q448 679 418 563Q411 535 404 504T392 458L388 442Q388 441 397 441T429 435T477 418Q521 397 550 357T579 260T548 151T471 65T374 11T279 -10H275L251 -105Q245 -128 238 -160Q230 -192 227 -198T215 -205H209Q189 -205 189 -198Q189 -193 211 -103L234 -11Q234 -10 226 -10Q221 -10 206 -8T161 6T107 36T62 89T43 171Q43 231 76 284T157 370T254 422T342 441Q347 441 348 445L378 567Q409 686 409 688ZM122 150Q122 116 134 91T167 53T203 35T237 27H244L337 404Q333 404 326 403T297 395T255 379T211 350T170 304Q152 276 137 237Q122 191 122 150ZM500 282Q500 320 484 347T444 385T405 400T381 404H378L332 217L284 29Q284 27 285 27Q293 27 317 33T357 47Q400 66 431 100T475 170T494 234T500 282Z"/></g></g><g data-mml-node="TeXAtom" transform="translate(640,-297.3) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g><g data-mml-node="mo" transform="translate(500,0)"><path data-c="3A" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"/></g><g data-mml-node="mi" transform="translate(778,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/></g></g></g></g></g></svg></mjx-container> 先前步生成的图像token进行了随机丢弃</li>
+<li>c 是类别</li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.669ex;" xmlns="http://www.w3.org/2000/svg" width="3.948ex" height="1.671ex" role="img" focusable="false" viewbox="0 -443 1745.1 738.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D464" d="M580 385Q580 406 599 424T641 443Q659 443 674 425T690 368Q690 339 671 253Q656 197 644 161T609 80T554 12T482 -11Q438 -11 404 5T355 48Q354 47 352 44Q311 -11 252 -11Q226 -11 202 -5T155 14T118 53T104 116Q104 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 293 29 315T52 366T96 418T161 441Q204 441 227 416T250 358Q250 340 217 250T184 111Q184 65 205 46T258 26Q301 26 334 87L339 96V119Q339 122 339 128T340 136T341 143T342 152T345 165T348 182T354 206T362 238T373 281Q402 395 406 404Q419 431 449 431Q468 431 475 421T483 402Q483 389 454 274T422 142Q420 131 420 107V100Q420 85 423 71T442 42T487 26Q558 26 600 148Q609 171 620 213T632 273Q632 306 619 325T593 357T580 385Z"/></g><g data-mml-node="TeXAtom" transform="translate(749,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"/><path data-c="63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z" transform="translate(394,0)"/><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(838,0)"/></g></g></g></g></g></g></svg></mjx-container> 和 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.669ex;" xmlns="http://www.w3.org/2000/svg" width="3.807ex" height="1.671ex" role="img" focusable="false" viewbox="0 -443 1682.9 738.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D464" d="M580 385Q580 406 599 424T641 443Q659 443 674 425T690 368Q690 339 671 253Q656 197 644 161T609 80T554 12T482 -11Q438 -11 404 5T355 48Q354 47 352 44Q311 -11 252 -11Q226 -11 202 -5T155 14T118 53T104 116Q104 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 293 29 315T52 366T96 418T161 441Q204 441 227 416T250 358Q250 340 217 250T184 111Q184 65 205 46T258 26Q301 26 334 87L339 96V119Q339 122 339 128T340 136T341 143T342 152T345 165T348 182T354 206T362 238T373 281Q402 395 406 404Q419 431 449 431Q468 431 475 421T483 402Q483 389 454 274T422 142Q420 131 420 107V100Q420 85 423 71T442 42T487 26Q558 26 600 148Q609 171 620 213T632 273Q632 306 619 325T593 357T580 385Z"/></g><g data-mml-node="TeXAtom" transform="translate(749,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"/><path data-c="66" d="M273 0Q255 3 146 3Q43 3 34 0H26V46H42Q70 46 91 49Q99 52 103 60Q104 62 104 224V385H33V431H104V497L105 564L107 574Q126 639 171 668T266 704Q267 704 275 704T289 705Q330 702 351 679T372 627Q372 604 358 590T321 576T284 590T270 627Q270 647 288 667H284Q280 668 273 668Q245 668 223 647T189 592Q183 572 182 497V431H293V385H185V225Q185 63 186 61T189 57T194 54T199 51T206 49T213 48T222 47T231 47T241 46T251 46H282V0H273Z" transform="translate(444,0)"/><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(750,0)"/></g></g></g></g></g></g></svg></mjx-container> 是超参数，用于控制空间上下文引导和分类引导的权重</li>
+</ul>
+<h2 id="Algorithm-B-RandAR-Parallel-Decoding-Pytorch-style-Pseudo-Code"><a href="#Algorithm-B-RandAR-Parallel-Decoding-Pytorch-style-Pseudo-Code" class="headerlink" title="Algorithm B: RandAR Parallel Decoding Pytorch-style Pseudo-Code."></a>Algorithm B: RandAR Parallel Decoding Pytorch-style Pseudo-Code.</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 并行解码，使用余弦步长调度策略。为了简化，省略了无分类器引导的部分。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入:</span></span><br><span class="line"><span class="comment"># class_indices: [b, 1], b是batch size，类型为torch.long</span></span><br><span class="line"><span class="comment"># h, w: 整数，latent space的高和宽</span></span><br><span class="line"><span class="comment"># d: 模型的隐藏层维度</span></span><br><span class="line"><span class="comment"># model, vq_vae: 解码器模型和向量量化的VAE</span></span><br><span class="line"><span class="comment"># 输出: 一批生成的图像</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一步：随机顺序采样</span></span><br><span class="line">seq_len = h * w</span><br><span class="line">raster_order_indices = torch.arange(seq_len).repeat(b, <span class="number">1</span>)  <span class="comment"># [b, seq_len]</span></span><br><span class="line">position_indices = random_permute(raster_order_indices)  <span class="comment"># [b, seq_len]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二步：计算位置指令的token</span></span><br><span class="line"><span class="comment"># 获取每个空间位置的二维ROPE频率</span></span><br><span class="line">rope_freqs_cis = model.compute_rope_frequencies(b, h, w, base=<span class="number">10000</span>)  <span class="comment"># [b, h, w, head_dim//2, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将h和w展平成seq_len，按照栅格顺序排列2D ROPE频率</span></span><br><span class="line">rope_freqs_cis = rope_freqs_cis.flatten((<span class="number">1</span>, <span class="number">2</span>))  <span class="comment"># [b, seq_len, head_dim//2, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据随机顺序获取二维ROPE频率</span></span><br><span class="line">rope_freqs_cis = rope_freqs_cis[position_indices]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取随机顺序对应的位置信息token</span></span><br><span class="line">pos_instruct_tokens = apply_2d_rope(model.shared_pos_embed, rope_freqs_cis)  <span class="comment"># [b, seq_len, d]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第三步：初始化KV缓存、分类嵌入和生成token的占位符</span></span><br><span class="line">max_token_length = <span class="number">1</span> + seq_len * <span class="number">2</span>  <span class="comment"># 分类嵌入 + 位置指令token + 图像token</span></span><br><span class="line">model.setup_KVcache(max_token_length, batch_size=b)</span><br><span class="line">class_embed = model.class_embedding(class_indices)  <span class="comment"># [b, 1, d]</span></span><br><span class="line">generated_code_indices = torch.zeros((b, seq_len), dtype=torch.long)  <span class="comment"># [b, seq_len], 占位符</span></span><br><span class="line">num_generated = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第四步：准备第一次解码迭代的输入</span></span><br><span class="line">step_size = <span class="number">1</span>  <span class="comment"># 下一次解码迭代的token数量，初始值为每次一个</span></span><br><span class="line">x = torch.cat([class_embed, pos_instruct_tokens[:, <span class="number">0</span>:<span class="number">1</span>]], dim=<span class="number">1</span>)  <span class="comment"># [b, 2, d] 提取第一个位置指令token</span></span><br><span class="line">x_rope_freqs = torch.cat([model.class_rope_freqs, rope_freqs_cis[:, <span class="number">0</span>:<span class="number">1</span>]], dim=<span class="number">1</span>)  <span class="comment"># [b, 2, head_dim//2, 2]</span></span><br><span class="line">kvcache_write_indices = torch.arange(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第五步：开始解码循环，使用带余弦步长调度的并行解码</span></span><br><span class="line"><span class="keyword">while</span> num_generated &lt; seq_len:</span><br><span class="line">    pred_logits = model(x, x_rope_freqs, kvcache_write_indices)  <span class="comment"># [b, 当前token数, vocab_size]</span></span><br><span class="line">    pred_logits = pred_logits[:, -step_size:]  <span class="comment"># [b, num_query_tokens, vocab_size]</span></span><br><span class="line">    sampled_indices = sample(pred_logits, temperature=<span class="number">1.0</span>, topk=<span class="number">1</span>)  <span class="comment"># 采样生成的token索引</span></span><br><span class="line">    generated_code_indices[:, num_generated:num_generated + step_size] = sampled_indices</span><br><span class="line">    sampled_tokens = model.token_embedding(sampled_indices)  <span class="comment"># [b, step_size, d]</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 准备下一次迭代的输入</span></span><br><span class="line">    step_size_next = CosineSchedule(num_generated, seq_len)</span><br><span class="line">    x_next = torch.zeros((b, <span class="number">2</span> * step_size + step_size_next - <span class="number">1</span>, d))  <span class="comment"># 新的输入tensor</span></span><br><span class="line">    x_next[:, <span class="number">0</span>] = sampled_tokens[:, <span class="number">1</span>]</span><br><span class="line">    x_rope_freqs_next = torch.zeros((b, <span class="number">2</span> + step_size + step_size_next - <span class="number">1</span>, head_dim // <span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据示例填充输入</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(step_size - <span class="number">1</span>):</span><br><span class="line">        x_next[:, <span class="number">2</span> * i + <span class="number">1</span>] = pos_instruct_tokens[:, num_generated + i + <span class="number">1</span>]</span><br><span class="line">        x_next[:, <span class="number">2</span> * i + <span class="number">2</span>] = sampled_tokens[:, i + <span class="number">1</span>]</span><br><span class="line">        x_rope_freqs_next[:, <span class="number">2</span> * i + <span class="number">1</span>] = rope_freqs_cis[:, num_generated + i + <span class="number">1</span>]</span><br><span class="line">        x_rope_freqs_next[:, <span class="number">2</span> * i + <span class="number">2</span>] = rope_freqs_cis[:, num_generated + i + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    num_generated += step_size</span><br><span class="line">    step_size = step_size_next</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第六步：解码生成的token为图像</span></span><br><span class="line">index_to_raster_order = torch.argsort(position_indices)  <span class="comment"># [bs, seq_len, 1]</span></span><br><span class="line">generated_code_indices = torch.gather(</span><br><span class="line">    generated_code_indices.unsqueeze(-<span class="number">1</span>), dim=<span class="number">1</span>, index=index_to_raster_order</span><br><span class="line">)</span><br><span class="line">img = vq_vae.decode(generated_code_indices)  <span class="comment"># 最终生成的图像</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/20/VAR-3D/" rel="prev" title="VAR_3D">
+      <i class="fa fa-chevron-left"></i> VAR_3D
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Method"><span class="nav-number">1.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E6%84%9F%E7%9F%A5%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">目标感知位置编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E9%80%80%E7%81%AB%EF%BC%88Randomized-Annealing%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">随机退火（Randomized Annealing）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RandAR"><span class="nav-number">2.</span> <span class="nav-text">RandAR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-A-RandAR-Training-Pytorch-style-Pseudo-Code"><span class="nav-number">2.1.</span> <span class="nav-text">Algorithm A: RandAR Training Pytorch-style Pseudo-Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-B-RandAR-Parallel-Decoding-Pytorch-style-Pseudo-Code"><span class="nav-number">2.2.</span> <span class="nav-text">Algorithm B: RandAR Parallel Decoding Pytorch-style Pseudo-Code.</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="QY"
+      src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+  <p class="site-author-name" itemprop="name">QY</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bigshuimu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bigshuimu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://armke.github.io/" title="https:&#x2F;&#x2F;armke.github.io&#x2F;" rel="noopener" target="_blank">armke</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">QY</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">15k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">55 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
