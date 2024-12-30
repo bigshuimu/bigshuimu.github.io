@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"bigshuimu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="How to Tokenize1.输入原始图像：给定一张原始图像，这是自回归模型训练过程的起点。 2.编码器处理：使用编码器 E（）处理原始图像，生成连续的特征表示。这一步将原始图像转换成一个高维的特征空间。 3.向量量化：将连续的特征表示通过向量量化操作 Q（·）转换成离散的标记（token）q。这一步涉及到将每个特征向量 f（i，j）映射到码本 Z 中最近的向量，得到离散的索引 q（i，j）。">
+  <meta name="description" content="通过预测下一尺度的自回归来生成图像">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VAR">
 <meta property="og:url" content="https://bigshuimu.github.io/2024/12/26/VAR/index.html">
 <meta property="og:site_name" content="QY的个人博客">
-<meta property="og:description" content="How to Tokenize1.输入原始图像：给定一张原始图像，这是自回归模型训练过程的起点。 2.编码器处理：使用编码器 E（）处理原始图像，生成连续的特征表示。这一步将原始图像转换成一个高维的特征空间。 3.向量量化：将连续的特征表示通过向量量化操作 Q（·）转换成离散的标记（token）q。这一步涉及到将每个特征向量 f（i，j）映射到码本 Z 中最近的向量，得到离散的索引 q（i，j）。">
+<meta property="og:description" content="通过预测下一尺度的自回归来生成图像">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-12-26T08:13:20.000Z">
-<meta property="article:modified_time" content="2024-12-26T08:14:09.102Z">
+<meta property="article:modified_time" content="2024-12-30T00:35:59.698Z">
 <meta property="article:author" content="QY">
 <meta name="twitter:card" content="summary">
 
@@ -304,10 +304,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-12-26 16:13:20 / 修改时间：16:14:09" itemprop="dateCreated datePublished" datetime="2024-12-26T16:13:20+08:00">2024-12-26</time>
+              <time title="创建时间：2024-12-26 16:13:20" itemprop="dateCreated datePublished" datetime="2024-12-26T16:13:20+08:00">2024-12-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-30 08:35:59" itemprop="dateModified" datetime="2024-12-30T08:35:59+08:00">2024-12-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -331,6 +337,7 @@ mjx-container[display="true"] + br {
               </span>
               <span>5 分钟</span>
             </span>
+            <div class="post-description">通过预测下一尺度的自回归来生成图像</div>
 
         </div>
       </header>
@@ -341,7 +348,8 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="How-to-Tokenize"><a href="#How-to-Tokenize" class="headerlink" title="How to Tokenize"></a>How to Tokenize</h1><p>1.输入原始图像：给定一张原始图像，这是自回归模型训练过程的起点。 2.编码器处理：使用编码器 E（）处理原始图像，生成连续的特征表示。这一步将原始图像转换成一个高维的特征空间。 3.向量量化：将连续的特征表示通过向量量化操作 Q（·）转换成离散的标记（token）q。这一步涉及到将每个特征向量 f（i，j）映射到码本 Z 中最近的向量，得到离散的索引 q（i，j）。 4.码本查找：使用离散的标记 q 从码本 Z 中查找对应的嵌入向量，得到连续的潜在表示。5.解码器重建：使用解码器 D（）将连续的潜在表示转换回图像空间，生成重建图像 im。 6.损失计算：计算原始图像 im 和重建图像 im 之间的差异，以及可能的其他损失项（如感知损失和生成损失），以评估模型性能。损失函数 L 通常包括重建误差、潜在空间中的重建误差、感知损失和生成损失。 7.优化和迭代：根据损失函数的结果，使用梯度下降等优化算法更新模型参数（包括编码器、码本和解码器），并迭代此过程以最小化损失函数。 8.训练和生成：在训练完成后，模型可以用于生成新的图像。给定一个随机初始化的潜在表示或条件输入，模型可以通过自回归过程逐步生成图像的每个部分。</p>
+        <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2404.02905">var paper</a></p>
+<h1 id="How-to-Tokenize"><a href="#How-to-Tokenize" class="headerlink" title="How to Tokenize"></a>How to Tokenize</h1><p>1.输入原始图像：给定一张原始图像，这是自回归模型训练过程的起点。 2.编码器处理：使用编码器 E（）处理原始图像，生成连续的特征表示。这一步将原始图像转换成一个高维的特征空间。 3.向量量化：将连续的特征表示通过向量量化操作 Q（·）转换成离散的标记（token）q。这一步涉及到将每个特征向量 f（i，j）映射到码本 Z 中最近的向量，得到离散的索引 q（i，j）。 4.码本查找：使用离散的标记 q 从码本 Z 中查找对应的嵌入向量，得到连续的潜在表示。5.解码器重建：使用解码器 D（）将连续的潜在表示转换回图像空间，生成重建图像 im。 6.损失计算：计算原始图像 im 和重建图像 im 之间的差异，以及可能的其他损失项（如感知损失和生成损失），以评估模型性能。损失函数 L 通常包括重建误差、潜在空间中的重建误差、感知损失和生成损失。 7.优化和迭代：根据损失函数的结果，使用梯度下降等优化算法更新模型参数（包括编码器、码本和解码器），并迭代此过程以最小化损失函数。 8.训练和生成：在训练完成后，模型可以用于生成新的图像。给定一个随机初始化的潜在表示或条件输入，模型可以通过自回归过程逐步生成图像的每个部分。</p>
 <h1 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm 1"></a>Algorithm 1</h1><p><strong>Algorithm 1: Multi-scale VQVAE Encoding</strong> 是一种多尺度矢量量化自编码器（VQ-VAE）编码算法。该算法接收一张原始图像，通过多尺度处理，将其分解成不同分辨率的特征表示，以实现从低到高分辨率的编码和生成。我们逐步解释各步的功能和涉及的参数、函数。</p>
 <h3 id="输入和超参数"><a href="#输入和超参数" class="headerlink" title="输入和超参数"></a>输入和超参数</h3><ol>
 <li><strong>Inputs:</strong><ul>

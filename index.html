@@ -300,10 +300,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-12-27 14:03:35 / 修改时间：16:47:22" itemprop="dateCreated datePublished" datetime="2024-12-27T14:03:35+08:00">2024-12-27</time>
+              <time title="创建时间：2024-12-27 14:03:35" itemprop="dateCreated datePublished" datetime="2024-12-27T14:03:35+08:00">2024-12-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-30 09:27:06" itemprop="dateModified" datetime="2024-12-30T09:27:06+08:00">2024-12-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -319,7 +325,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>2.2k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -337,7 +343,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>ROFORMER ENHANCED TRANSFORMER WITH ROTARY POSITION EMBEDDING 论文阅读笔记</p>
+          <p>Roformer Enhanced Transformer With Rotary Position Embedding 论文阅读笔记</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/12/27/RoFormer/">
@@ -387,10 +393,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-12-26 16:13:20 / 修改时间：16:14:09" itemprop="dateCreated datePublished" datetime="2024-12-26T16:13:20+08:00">2024-12-26</time>
+              <time title="创建时间：2024-12-26 16:13:20" itemprop="dateCreated datePublished" datetime="2024-12-26T16:13:20+08:00">2024-12-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-30 08:35:59" itemprop="dateModified" datetime="2024-12-30T08:35:59+08:00">2024-12-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -424,68 +436,15 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="How-to-Tokenize"><a href="#How-to-Tokenize" class="headerlink" title="How to Tokenize"></a>How to Tokenize</h1><p>1.输入原始图像：给定一张原始图像，这是自回归模型训练过程的起点。 2.编码器处理：使用编码器 E（）处理原始图像，生成连续的特征表示。这一步将原始图像转换成一个高维的特征空间。 3.向量量化：将连续的特征表示通过向量量化操作 Q（·）转换成离散的标记（token）q。这一步涉及到将每个特征向量 f（i，j）映射到码本 Z 中最近的向量，得到离散的索引 q（i，j）。 4.码本查找：使用离散的标记 q 从码本 Z 中查找对应的嵌入向量，得到连续的潜在表示。5.解码器重建：使用解码器 D（）将连续的潜在表示转换回图像空间，生成重建图像 im。 6.损失计算：计算原始图像 im 和重建图像 im 之间的差异，以及可能的其他损失项（如感知损失和生成损失），以评估模型性能。损失函数 L 通常包括重建误差、潜在空间中的重建误差、感知损失和生成损失。 7.优化和迭代：根据损失函数的结果，使用梯度下降等优化算法更新模型参数（包括编码器、码本和解码器），并迭代此过程以最小化损失函数。 8.训练和生成：在训练完成后，模型可以用于生成新的图像。给定一个随机初始化的潜在表示或条件输入，模型可以通过自回归过程逐步生成图像的每个部分。</p>
-<h1 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm 1"></a>Algorithm 1</h1><p><strong>Algorithm 1: Multi-scale VQVAE Encoding</strong> 是一种多尺度矢量量化自编码器（VQ-VAE）编码算法。该算法接收一张原始图像，通过多尺度处理，将其分解成不同分辨率的特征表示，以实现从低到高分辨率的编码和生成。我们逐步解释各步的功能和涉及的参数、函数。</p>
-<h3 id="输入和超参数"><a href="#输入和超参数" class="headerlink" title="输入和超参数"></a>输入和超参数</h3><ol>
-<li><strong>Inputs:</strong><ul>
-<li><code>im</code>：输入的原始图像。</li>
-</ul>
-</li>
-<li><strong>Hyperparameters:</strong><ul>
-<li><code>K</code>：编码的步数（或尺度的数量）。模型将逐步处理图像的特征，每一步生成一个不同分辨率的编码表示。</li>
-<li><code>resolutions (h_k, w_k)_{k=1}^{K}</code>：每个尺度的目标分辨率，这是一组分辨率对，每个步数 kkk 都有对应的 <code>(h_k, w_k)</code> 值，用于指定该步的特征图大小。</li>
-</ul>
-</li>
-</ol>
-<h3 id="算法步骤详解"><a href="#算法步骤详解" class="headerlink" title="算法步骤详解"></a>算法步骤详解</h3><h4 id="第-1-步：初始特征提取"><a href="#第-1-步：初始特征提取" class="headerlink" title="第 1 步：初始特征提取"></a>第 1 步：初始特征提取</h4><ol>
-<li><code>f = E(im)</code>：对输入图像 <code>im</code> 应用编码器 <code>E</code>，提取其初始特征表示 <code>f</code>。<code>f</code> 是一个连续的高维特征图，它包含了图像的全局信息和局部细节，是后续处理的基础。</li>
-<li><code>R = []</code>：初始化一个空列表 <code>R</code>，用于存储不同尺度上的离散编码表示。最终生成的多尺度表示会保存在 <code>R</code> 中，并在算法返回时输出。</li>
-</ol>
-<h4 id="第-2-步：多尺度编码循环"><a href="#第-2-步：多尺度编码循环" class="headerlink" title="第 2 步：多尺度编码循环"></a>第 2 步：多尺度编码循环</h4><ol>
-<li><p>循环（<code>for k = 1, ..., K</code>）：</p>
-<ul>
-<li>算法循环 <code>K</code> 次，每次生成一个新的尺度编码，逐步从较粗的分辨率到较细的分辨率进行处理。</li>
-</ul>
-<ol>
-<li><p><strong>插值特征图</strong>：</p>
-<ul>
-<li><p>```<br>r_k = Q(interpolate(f, h_k, w_k))</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">     - `interpolate(f, h_k, w_k)`：将特征图 `f` 调整至第 `k` 步指定的分辨率 `(h_k, w_k)`。这一步通过插值操作，将特征图缩放到目标尺寸。</span><br><span class="line">     - `Q(...)`：应用矢量量化编码器 `Q`，将插值后的特征图量化为离散的编码表示 `r_k`。这一表示将特征图映射到一个有限的离散码表中，减少冗余信息。</span><br><span class="line"></span><br><span class="line">2. **存储编码**：</span><br><span class="line"></span><br><span class="line">   - `R = queue_push(R, r_k)`：将离散编码 `r_k` 压入队列 `R`，保留当前尺度的编码表示。`R` 最终会包含所有尺度的编码结果。</span><br><span class="line"></span><br><span class="line">3. **查找离散码的实际值**：</span><br><span class="line"></span><br><span class="line">   - ```</span><br><span class="line">     z_k = lookup(Z, r_k)</span><br></pre></td></tr></table></figure>
-<p>：</p>
-<ul>
-<li><code>lookup(Z, r_k)</code>：在码表 <code>Z</code> 中查找 <code>r_k</code> 对应的离散特征向量 <code>z_k</code>。<code>Z</code> 是预定义的码表，通过查表将离散编码转换为具体的特征表示。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>恢复到最高尺度的大小</strong>：</p>
-<ul>
-<li><code>z_k = interpolate(z_k, h_K, w_K)</code>：将 <code>z_k</code> 插值到最高尺度的分辨率 <code>(h_K, w_K)</code>。通过这一步，所有尺度的编码 <code>z_k</code> 都被调整为相同的大小，以确保在不同尺度下的一致性，并为后续计算提供基础。</li>
-</ul>
-</li>
-<li><p><strong>残差计算</strong>：</p>
-<ul>
-<li><pre><code>f = f - φ_k(z_k)
-</code></pre><p>：</p>
-<ul>
-<li><code>φ_k(z_k)</code>：这是对 <code>z_k</code> 应用的一个映射函数，用于计算当前尺度生成的特征。</li>
-<li><code>f = f - φ_k(z_k)</code>：计算残差，将生成的 <code>z_k</code> 映射从特征图 <code>f</code> 中减去，以提取更细粒度的细节。在下一步的尺度上，算法将以更新后的 <code>f</code> 为基础进行编码。这一步通过逐步减少低分辨率特征，有助于逐步获取更细节的信息。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<h4 id="返回多尺度编码"><a href="#返回多尺度编码" class="headerlink" title="返回多尺度编码"></a>返回多尺度编码</h4><ol>
-<li><strong>Return</strong>: <code>multi-scale tokens R</code>：算法最终返回多尺度的离散编码表示 <code>R</code>，其中包含了各个尺度的编码信息。<code>R</code> 将作为自回归生成模型的输入，使得生成过程可以逐层构建，从低分辨率到高分辨率生成图像。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><strong>多尺度 VQVAE 编码</strong>将输入图像分解为多层次的离散表示，逐步在低到高分辨率上编码图像的特征。</li>
-<li><strong>插值、量化和残差更新</strong>相结合，帮助模型在不同尺度下捕获图像的结构和细节，从而生成更高质量、具有一致性的多尺度编码。</li>
-<li>这种编码方式为多层次生成提供了强大的基础，通过多尺度编码，生成模型能够从全局到局部逐层增加图像细节，实现高分辨率图像的高效生成。</li>
-</ul>
-
+          <p>通过预测下一尺度的自回归来生成图像</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/12/26/VAR/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
