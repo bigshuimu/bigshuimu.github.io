@@ -28,7 +28,7 @@
 <meta property="og:description" content="Roformer Enhanced Transformer With Rotary Position Embedding 论文阅读笔记">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-12-27T06:03:35.000Z">
-<meta property="article:modified_time" content="2024-12-30T07:30:37.589Z">
+<meta property="article:modified_time" content="2025-01-02T00:55:00.384Z">
 <meta property="article:author" content="QY">
 <meta name="twitter:card" content="summary">
 
@@ -312,7 +312,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-30 15:30:37" itemprop="dateModified" datetime="2024-12-30T15:30:37+08:00">2024-12-30</time>
+                <time title="修改时间：2025-01-02 08:55:00" itemprop="dateModified" datetime="2025-01-02T08:55:00+08:00">2025-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -349,6 +349,7 @@ mjx-container[display="true"] + br {
 
       
         <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.09864">RoFormer paper</a></p>
+<p><a target="_blank" rel="noopener" href="https://kexue.fm/archives/8265">Transformer升级之路：2、博采众长的旋转式位置编码 —— 苏剑林</a></p>
 <h1 id="RoFormer"><a href="#RoFormer" class="headerlink" title="RoFormer"></a>RoFormer</h1><h2 id="Rope的前世今生"><a href="#Rope的前世今生" class="headerlink" title="Rope的前世今生"></a>Rope的前世今生</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><h3 id="为什么要引入位置编码"><a href="#为什么要引入位置编码" class="headerlink" title="为什么要引入位置编码"></a>为什么要引入位置编码</h3><p>位置编码的作用就是为每个输入token（比如词语）添加一个表示其在序列中位置的向量，使得模型在处理这些token时，能够考虑它们在序列中的顺序。</p>
 <p>在经典的Transformer模型中，位置编码和输入词嵌入（word embeddings）相加，确保模型在处理每个token时既考虑词汇的语义信息，也能考虑词汇的位置。</p>
 <h3 id="经典位置编码"><a href="#经典位置编码" class="headerlink" title="经典位置编码"></a>经典位置编码</h3><p>绝对位置编码：这种方法为每个输入token的位置生成固定的编码，通常使用正弦和余弦函数来生成每个位置的嵌入，且这些编码是固定的。</p>
@@ -531,7 +532,7 @@ q_m^2
 <li>探讨了RoPE的特性，表明它在相对距离增大时会自然衰减，这对自然语言的建模是有益的，并指出现有的相对位置编码方法与线性自注意力不兼容。</li>
 <li>通过在多个长文本数据集上的实验验证了RoFormer模型的优越性，相较于其他方法，RoFormer取得了更好的性能。</li>
 </ul>
-<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>前段时间学习VQ-VAE曾拜读过苏剑林博客<a target="_blank" rel="noopener" href="https://kexue.fm/archives/6080">《VQ-VAE的简明介绍：量子化自编码器》</a>。最近因论文阅读需要学习RoPE，所以找来这篇文章阅读，发现苏剑林这个名字很眼熟，原来是<a target="_blank" rel="noopener" href="https://kexue.fm/">科学空间</a>的作者！</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>前段时间学习VQ-VAE曾拜读过苏剑林博客<a target="_blank" rel="noopener" href="https://kexue.fm/archives/6760">《VQ-VAE的简明介绍：量子化自编码器》</a>。最近因论文阅读需要学习RoPE，所以找来这篇文章阅读，发现苏剑林这个名字很眼熟，原来是<a target="_blank" rel="noopener" href="https://kexue.fm/">科学空间</a>的作者！</p>
 
     </div>
 
@@ -550,10 +551,7 @@ q_m^2
     <a href="/2024/12/26/VAR/" rel="prev" title="VAR">
       <i class="fa fa-chevron-left"></i> VAR
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/12/30/test/" rel="next" title="test">
-      test <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -628,14 +626,14 @@ q_m^2
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -683,7 +681,7 @@ q_m^2
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
