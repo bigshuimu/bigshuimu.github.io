@@ -20,19 +20,23 @@
     var CONFIG = {"hostname":"bigshuimu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+  <meta name="description" content="FLUID： SCALING AUTOREGRESSIVE TEXT-TO-IMAGE  GENERATIVE MODELS WITH CONTINUOUS TOKENS 扩展自回归文本到图像生成模型与连续标记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记2">
-<meta property="og:url" content="https://bigshuimu.github.io/2025/01/09/%E7%AC%94%E8%AE%B02/index.html">
+<meta property="og:title" content="Fluid">
+<meta property="og:url" content="https://bigshuimu.github.io/2025/02/18/Fluid/index.html">
 <meta property="og:site_name" content="QY的个人博客">
-<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="FLUID： SCALING AUTOREGRESSIVE TEXT-TO-IMAGE  GENERATIVE MODELS WITH CONTINUOUS TOKENS 扩展自回归文本到图像生成模型与连续标记">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-01-09T13:57:52.000Z">
-<meta property="article:modified_time" content="2025-01-09T13:58:34.259Z">
+<meta property="og:image" content="https://bigshuimu.github.io/2025/02/18/Fluid/2025-02-18-17-02-41.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2025/02/18/Fluid/2025-02-18-20-05-54.png">
+<meta property="article:published_time" content="2025-02-18T02:36:38.000Z">
+<meta property="article:modified_time" content="2025-02-19T01:13:14.807Z">
 <meta property="article:author" content="QY">
+<meta property="article:tag" content="精读">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bigshuimu.github.io/2025/02/18/Fluid/2025-02-18-17-02-41.png">
 
-<link rel="canonical" href="https://bigshuimu.github.io/2025/01/09/%E7%AC%94%E8%AE%B02/">
+<link rel="canonical" href="https://bigshuimu.github.io/2025/02/18/Fluid/">
 
 
 <script id="page-configurations">
@@ -45,7 +49,7 @@
   };
 </script>
 
-  <title>笔记2 | QY的个人博客</title>
+  <title>Fluid | QY的个人博客</title>
   
 
 
@@ -282,7 +286,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2025/01/09/%E7%AC%94%E8%AE%B02/">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2025/02/18/Fluid/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
@@ -295,7 +299,7 @@ mjx-container[display="true"] + br {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          笔记2
+          Fluid
         </h1>
 
         <div class="post-meta">
@@ -304,17 +308,23 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-01-09 21:57:52 / 修改时间：21:58:34" itemprop="dateCreated datePublished" datetime="2025-01-09T21:57:52+08:00">2025-01-09</time>
+              <time title="创建时间：2025-02-18 10:36:38" itemprop="dateCreated datePublished" datetime="2025-02-18T10:36:38+08:00">2025-02-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-19 09:13:14" itemprop="dateModified" datetime="2025-02-19T09:13:14+08:00">2025-02-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                  <a href="/categories/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
                 </span>
             </span>
 
@@ -323,14 +333,15 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>251</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>1 分钟</span>
+              <span>7 分钟</span>
             </span>
+            <div class="post-description">FLUID： SCALING AUTOREGRESSIVE TEXT-TO-IMAGE  GENERATIVE MODELS WITH CONTINUOUS TOKENS 扩展自回归文本到图像生成模型与连续标记</div>
 
         </div>
       </header>
@@ -341,18 +352,146 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="9b97203dc6ce2c0d8fe2c6c5f77075e1df273e0bfe56845339b7501a09f9837c">4e824a4dd4bc4057af4ae269c22329031b02bacc787bf0a9500345c95b60fe3ab5429090f3823585376a322e12d3b02d000e20cc60b0e2b3dd4879ce48abce54324902e72189ffe1808e18fdb7e7976e0616b9be12db2f964115de6dac9c391a67483ddbdce45ee269eafaff71aae6a9d0efd90e53c54d1210b15833420c592ac7b5bca69f21d8fb251c67ece25efa8de14c44a1824197031054c8f6a701a32a793f88eb55b5efdcb5aabe7eeee952ab44f11c832e15329cf7ed1beb94b5bbcc21c072c4d529f63c280523e0d3a24c4278d7a95d7efb26815f93a61c2bcb98226b42ffbcf7059e5546d216032d12dd0590641fa2c0170d39649884f31f8597608eeee3ffed5c4cc2607fd153df67a682709c8874ab162ddcf190e7442538b2bd31d48245efcacaf0cbb1e6febbf8cba1e813d161e43c7ff7a881d45a511a0c7a2e149bfb429f24dd0d85cc0d508b77340be4c0ba33db9eae5989db437f21da5d3e3a94bab44ac93e1269c2b681bd2a2a13a71b64879127e16289f676254c563d4877bb42fe4c3bdebe8bad48d04ba43d374b2915ebda03fcae1e94b2dc1854cf17d762dad06c98aed26f021d4dd10fe9a644bea5d4319ee4e93f0c8f9f9a39abd73ddde0bb7288060779271caacb359301e0f0cd87ed9883c5ad9de562437e10e64840c7a87955e50f05a488c39c5845368686d98945ba3e24c713ae017e3b1455f3f8eb9c321846903f98a134d3a5d0fc4354217236a3aa437fca8f6de9d808752f00d68c48c39887ce81590a61cc4be5542844f56e8c69a73582472c83290635f98f2b999466ea35a36c3e779ab60a19e7c299216a93fc61423867fb6f76327130647d8bd5ab62cfaddbeb9d850763490d43feb000df09fb49c94980fe04d7af91a32e13111bda4fb9d11d5ddb8b963903999c0c44f2472ed76e1792989879ae46f65bfd939c78072de118aafe2739ebcbf43d78edf1f7839df808e50d3e17eb1264b056acf0947d282bc8f257485c73f059f160f9cd93e035c94e9a04733c22d4242ab098767692b1b60142d24685ae43304a89e9f4329c1feb5ef9d33b0d6c79c2eef2e704b3edf0b1e426a807a522b957013db308a8d197005cf1697ccc6e97aa57dfb494f475cd958eb6ad7f053328061f85af2b06d80922088df876a22648bac67bb1e145f77c9fb4371e96768e7ad944c2289dae986d668f506758b7e94e4cc1da40bf0b2df5a5c680290c62b7f615884fe9a1588ad7c52b488512c178eb6c5cb4ff767ed9b4242979eb896633dda3a29b628f79d5bc71873090631075bf4e244434a442cf28f22e2bb11e9216c54d0d835e41e107c1059ddddee302017a5b5c91d7ec0029613d46bec46afa062dee2de755b796d2edab94ce669d37af44a00f52e8e7eac714449e7eb5bade29bfa7e78738222a74095c047fa459b7e5fee35f92c2eef3672ae6922e7a13f534b8112755d35279c4214ed0f641d6d76c51b50c04503621e8d455bdffab8a9657b40b10a83c3238076cb261ed0a946c674e1334b77349e36e72827e1d9a64d5c6024be568bdcc33df09f76d086ff316566d54af6ca7f2b8d08c0665a7540ae692d044e597bb5c75141913f101515c5e806cf0b05c63150ed47435c2063d4c4813f168ae9d9bf1630c42c5d23b90f4f906baa71b0a63a3f5f0f95cfe094c7ec25273f35ab3902bef20ad9fb5ac9a045c08216063f62d8d9c2254cd8eb63d0932e53f3e5b37f4812c5d74710dd8c936b40f71813a4e0bd16dbb3dc16c4902462e1c729bfc0509d2ad780e550ba304a7d691cf9fa5645b6a39f39321e699c2dcb7ccd2a72607cb724f57df5ae42dd74b04ab990631278ebd6427e680c1552cc7c1cd63bf30fee55c4eb635b2c8ceea87607b32b7fbbed141c9cc107adabfed102e41cf5f47ce7664d71bef19878f41bfe899137ab386f6a011449f065ec9f78fe91945e0ff52f0171407fe7ba5b0ce940af7d0d2781e6517890bd979583c07cdc5160be78b239668df51f4df7616bc1b255d9013d29d83c042a540d4af0cea8138df665fc6234333c72cfd55233144621b8124cc8722365c41db3d3bfd6e05fd4c6d2d51195999972a53238b6fa44466f7712245fc5bbdfd737fed42c8d874f975389689cde6d58f20a98b001dcca31b2fe1890889a8a15ba6616ef4701184e6064367042312ed769d0204a0c0327a569b8232974504b55314eff42b0dfc4c09cdd4ebaf12352d4f04ce2db0e62a52b669da7cc3c3ddead1f5ba6aae7ae25518f5e93d0da781688257cbb1987fcfd5cb72ceb9d0642a324d832820b1cb6210513c4f7d729ee1b5bff2b45ddac75d55368c</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>探究问题（主要1和2）：</p>
+<ol>
+<li>离散token还是连续token？连续顺序</li>
+<li>生成token时是使用光栅顺序还是随机顺序？随机顺序</li>
+<li>使用Bert还是Gpt样式的Transformer结构？Bert</li>
+</ol>
+<p>需要考虑：</p>
+<ol>
+<li>vq(vector quantization) 会导致信息的损失, 从而限制模型的表现</li>
+<li>不同于自然语言拥有固定的顺序，图像生成的顺序存在不确定性</li>
+<li>在评估视觉模型中的规模法则时，通常会对两种普适性的层次产生混淆：<ol>
+<li>使用与训练损失相同的指标对新数据的泛化（通常称为验证损失）<ul>
+<li>定义：验证损失是指在训练过程中，使用与训练时相同的损失函数（如均方误差、交叉熵等）对模型进行评估，通常是在一个独立的验证集上进行。这个过程旨在衡量模型在新数据上的表现，即模型的泛化能力。</li>
+<li>重要性：验证损失是评估模型是否过拟合或欠拟合的重要指标。通过监控验证损失，可以调整模型的复杂度或训练策略，以提高其泛化能力。</li>
+</ul>
+</li>
+<li>对与训练目标不同的新指标或问题的泛化<ul>
+<li>定义：这指的是模型在面对与训练目标不同的评估指标或任务时的表现。例如，FID（Fréchet Inception Distance）用于衡量生成图像与真实图像之间的相似度，GenEval基准用于评估生成图像的质量和多样性，而视觉质量则涉及图像的清晰度、细节保留等主观感受。</li>
+<li>重要性：这些指标提供了对模型性能的更全面评估，尤其是在生成模型中。它们可以帮助识别模型在特定任务或指标上的弱点，并指导模型的进一步优化。</li>
+</ul>
+</li>
+<li>混淆的原因及影响<ul>
+<li>混淆这两种层次的泛化能力可能导致对模型性能的误解。例如，一个模型可能在验证损失上表现良好，但在FID或视觉质量等指标上表现不佳。这表明模型在训练数据上过拟合，或者在生成真实感图像方面存在问题。</li>
+</ul>
+</li>
+<li>解决方法<ul>
+<li>为了解决这种混淆，研究者需要进行全面的实证研究，评估模型在不同指标上的表现，并基于这些发现优化模型设计。例如，何恺明团队在他们的研究中提出了使用连续token和随机顺序生成的新模型Fluid，显著提高了模型在视觉质量和生成多样性方面的表现。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p><img src="2025-02-18-17-02-41.png" alt="Autoregressive models with different orders"></p>
+<p>使用光栅顺序的GPT样式和使用随机顺序的BERT样式各有优缺点，GPT可以使用KV Cache，而BERT可以一次生成多个token。关于二者谁更适合生成图像，仍无定论，故这篇论文讨论二者的表现和Scaling law的效果</p>
+<p>提一嘴RandAR和RAR，它们都是使用GPT样式的模型来实现随机顺序的生成，RandAR最后线性退火成了光栅顺序，而RAR则是直接使用随机顺序。</p>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><h3 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h3><p><img src="2025-02-18-20-05-54.png" alt="generation framework"></p>
+<ol>
+<li>一个tokenizer将图像转换成tokens<ol>
+<li>离散tokens： tokenizer(VQGAN pretrained on the WebLI dataset)将图像(256<em>256)转换成16</em>16离散tokens, 词汇表大小8192;</li>
+<li>连续tokens： tokenizer来自Stable Diffusion, 它将图像(256<em>256)转换成32</em>32的连续tokens，包含4个通道(channels), 为了保持和离散token长度的一致, 将2<em>2大小的patch压缩成一个token, tokens的大小就变成了16</em>16, channels变成16</li>
+</ol>
+</li>
+<li>训练<ol>
+<li>text encoder：通过SentencePiece tokenize, 然后用yige预训练的T5-XXL encoder嵌入。再通过由6个<strong>可训练</strong>的transformer块组成的文本对齐器对齐。</li>
+<li>离散tokens：将部分tokens遮盖起来(mask),然后训练一个transformer基于文本重建这些被遮盖起来的tokens，这个过程用到了双向注意力</li>
+<li>连续tokens：标准的只有decoder的transformer模型，每块有三层(self-attention, cross-attention, MLP:Multilayer Perceptron), 自注意力层和MLP只作用于图像tokens，交叉注意力层把视觉和文本token分别作为keys和querys</li>
+</ol>
+</li>
+<li>输出<ol>
+<li>离散：通过一个线性层后，输出被softmax函数转化为分类分布，而这个线性层的权重是从输入嵌入层中复用的。</li>
+<li>连续：我们采用了一个六层的轻量级多层感知机（MLP）作为扩散头，来为每个token的分布建模。这个头的嵌入维度与主干transformer相同。每个标记的扩散过程遵循（Nichol &amp; Dhariwal, 2021; Li et al., 2024）。噪声调度采用余弦形状，训练时有1000步；在推理时，它被重新采样为100步。</li>
+</ol>
+</li>
+</ol>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><ol>
+<li>dataset<ol>
+<li>训练集：WebLI的子集，图像默认中心切割成256*256大小</li>
+</ol>
+</li>
+<li>训练<ol>
+<li>AdamW优化器<ul>
+<li>使用AdamW优化器，参数为β1 = 0.9和β2 = 0.95。  </li>
+<li>应用权重衰减为0.02，以防止过拟合。  </li>
+</ul>
+</li>
+<li>训练步数和批量大小：  <ul>
+<li>模型训练100万步（1M steps）。  </li>
+<li>训练时使用的批量大小为2048。  </li>
+</ul>
+</li>
+<li>训练轮次：  <ul>
+<li>训练大致相当于在数据集上进行了3轮（epochs）。  </li>
+</ul>
+</li>
+<li>学习率调度：  <ul>
+<li>对于连续标记：采用恒定学习率调度。  <ul>
+<li>65,000步的线性预热。  </li>
+<li>最大学习率为1 × 10⁻⁴。  </li>
+</ul>
+</li>
+<li>对于离散标记：使用余弦学习率调度，因其表现更佳。  </li>
+</ul>
+</li>
+<li>随机顺序模型训练：  <ul>
+<li>对于使用随机顺序输入训练的模型，掩码比例从[0, 1]中随机采样，采用余弦调度。  </li>
+<li>此过程遵循MaskGIT（Chang et al., 2022）的方法，对每张图像进行掩码处理。  </li>
+</ul>
+</li>
+<li>指数移动平均（EMA）：  <ul>
+<li>计算模型权重的指数移动平均，衰减率为0.9999。  </li>
+<li>这些EMA权重随后用于评估。  </li>
+</ul>
+</li>
+</ol>
+</li>
+<li>推理：  <ol>
+<li>图像生成过程：  <ul>
+<li>遵循了Imagen (Saharia et al., 2022)、Muse (Chang et al., 2023)和Parti (Yu et al., 2022)的实践，从文本提示生成图像。  </li>
+<li>生成过程中未使用拒绝采样。  </li>
+</ul>
+</li>
+<li>随机顺序模型：  <ul>
+<li>使用64步进行图像生成，并采用余弦调度（遵循Chang et al., 2022的方法）。  </li>
+</ul>
+</li>
+<li>性能提升：  <ul>
+<li>应用温度调节和无分类器引导来进一步提升生成质量，这是该领域的常见做法。  </li>
+</ul>
+</li>
+</ol>
+</li>
+<li>评估：  <ol>
+<li>定量评估：  <ul>
+<li>定量和定性评估了不同自回归模型变体的扩展行为。  </li>
+<li>在MS-COCO 2014训练集的30K张图像上计算验证损失。  </li>
+<li>使用了两种广泛采用的指标：  <ul>
+<li>MS-COCO上的零样本Frechet Inception距离（FID）。  </li>
+<li>GenEval分数（Ghosh et al., 2024）。  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>FID计算：  <ul>
+<li>在MS-COCO 2014训练集的30K个随机选择的图像-文本对上计算FID。  </li>
+<li>FID评估生成图像的保真度（图像的真实性）和多样性（图像的丰富性）。  </li>
+</ul>
+</li>
+<li>GenEval基准测试：  <ul>
+<li>GenEval衡量模型生成图像是否准确反映给定提示的能力。  </li>
+</ul>
+</li>
+<li>定性评估：  <ul>
+<li>使用每个模型从多个文本提示生成图像。  </li>
+<li>比较生成图像的视觉质量，进行定性评估。  </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
     </div>
 
     
@@ -360,6 +499,9 @@ mjx-container[display="true"] + br {
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%B2%BE%E8%AF%BB/" rel="tag"># 精读</a>
+          </div>
 
         
 
@@ -367,13 +509,10 @@ mjx-container[display="true"] + br {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/01/08/Wavelets-are-all-you-need/" rel="prev" title="Wavelets are all you need">
-      <i class="fa fa-chevron-left"></i> Wavelets are all you need
+    <a href="/2025/01/12/DCTdiff/" rel="prev" title="DCTdiff">
+      <i class="fa fa-chevron-left"></i> DCTdiff
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2025/01/12/DCTdiff/" rel="next" title="DCTdiff">
-      DCTdiff <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -432,6 +571,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementation"><span class="nav-number">3.</span> <span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Train"><span class="nav-number">3.1.</span> <span class="nav-text">Train</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments"><span class="nav-number">4.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Setup"><span class="nav-number">4.1.</span> <span class="nav-text">Setup</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
