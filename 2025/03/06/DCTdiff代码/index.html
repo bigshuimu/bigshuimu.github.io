@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"bigshuimu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="batch &#x3D; tree_map(lambda x: x.to(device), next(data_generator))# 获取一个批次的数据为什么这里batch.Size([256,64,24])? 32*32的图像 tokens&#x3D;64 block_sz&#x3D;2 图像被分成多个大小为2*2的小块 self.index 是干什么的？">
+  <meta name="description" content="记录分析DCTdiff代码的过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DCTdiff代码">
 <meta property="og:url" content="https://bigshuimu.github.io/2025/03/06/DCTdiff%E4%BB%A3%E7%A0%81/index.html">
 <meta property="og:site_name" content="QY的个人博客">
-<meta property="og:description" content="batch &#x3D; tree_map(lambda x: x.to(device), next(data_generator))# 获取一个批次的数据为什么这里batch.Size([256,64,24])? 32*32的图像 tokens&#x3D;64 block_sz&#x3D;2 图像被分成多个大小为2*2的小块 self.index 是干什么的？">
+<meta property="og:description" content="记录分析DCTdiff代码的过程">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-03-06T04:12:10.000Z">
-<meta property="article:modified_time" content="2025-03-06T13:42:51.137Z">
+<meta property="article:modified_time" content="2025-03-07T05:32:18.669Z">
 <meta property="article:author" content="QY">
 <meta name="twitter:card" content="summary">
 
@@ -304,10 +304,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-03-06 12:12:10 / 修改时间：21:42:51" itemprop="dateCreated datePublished" datetime="2025-03-06T12:12:10+08:00">2025-03-06</time>
+              <time title="创建时间：2025-03-06 12:12:10" itemprop="dateCreated datePublished" datetime="2025-03-06T12:12:10+08:00">2025-03-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-07 13:32:18" itemprop="dateModified" datetime="2025-03-07T13:32:18+08:00">2025-03-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -323,14 +329,15 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>54</span>
+              <span>519</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
+            <div class="post-description">记录分析DCTdiff代码的过程</div>
 
         </div>
       </header>
@@ -342,11 +349,54 @@ mjx-container[display="true"] + br {
 
       
         <p>batch = tree_map(lambda x: x.to(device), next(data_generator))# 获取一个批次的数据<br>为什么这里batch.Size([256,64,24])?</p>
+<p>config里面这些参数是怎么设计的？有什么用？它和缩放参数很像，能用在缩放上面吗？另外缩放之后Y_bound怎么设计？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Y_bound=[<span class="number">242.382</span>],  <span class="comment"># eta</span></span><br><span class="line">Y_std=[<span class="number">6.471</span>, <span class="number">3.588</span>, <span class="number">3.767</span>, <span class="number">2.411</span>],  <span class="comment"># Entropy-Based Frequency Reweighting (EBFR)</span></span><br><span class="line">Cb_std=[<span class="number">4.308</span>, <span class="number">1.315</span>, <span class="number">1.487</span>, <span class="number">1.0</span>],</span><br><span class="line">Cr_std=[<span class="number">4.014</span>, <span class="number">1.284</span>, <span class="number">1.435</span>, <span class="number">1.0</span>],</span><br></pre></td></tr></table></figure>
 <p>32*32的图像</p>
 <p>tokens=64</p>
 <p>block_sz=2</p>
 <p>图像被分成多个大小为2*2的小块</p>
 <p><strong>self.index 是干什么的？</strong></p>
+<h2 id="图像处理流程"><a href="#图像处理流程" class="headerlink" title="图像处理流程"></a>图像处理流程</h2><h3 id="32"><a href="#32" class="headerlink" title="32"></a>32</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">R = img[:, :, <span class="number">0</span>]</span><br><span class="line">G = img[:, :, <span class="number">2</span>]</span><br><span class="line">B = img[:, :, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">img_y = <span class="number">0.299</span> * R + <span class="number">0.587</span> * G + <span class="number">0.114</span> * B</span><br><span class="line">img_cb = -<span class="number">0.168736</span> * R - <span class="number">0.331264</span> * G + <span class="number">0.5</span> * B + <span class="number">128</span></span><br><span class="line">img_cr = <span class="number">0.5</span> * R - <span class="number">0.418688</span> * G - <span class="number">0.081312</span> * B + <span class="number">128</span></span><br><span class="line"></span><br><span class="line">cb_downsampled = cv2.resize(img_cb, (img_cb.shape[<span class="number">1</span>] // <span class="number">2</span>, img_cb.shape[<span class="number">0</span>] // <span class="number">2</span>), interpolation=cv2.INTER_LINEAR)</span><br><span class="line">cr_downsampled = cv2.resize(img_cr, (img_cr.shape[<span class="number">1</span>] // <span class="number">2</span>, img_cr.shape[<span class="number">0</span>] // <span class="number">2</span>), interpolation=cv2.INTER_LINEAR)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>32*32的图</li>
+<li>分别提取R, G, B, 尺寸都是32*32</li>
+<li>使用公式转到YCbCr颜色空间</li>
+<li>cb，cr降采样，从32<em>32降到16</em>16</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">y_blocks = split_into_blocks(img_y, self.block_sz)  <span class="comment"># Y component, (64, 64) --&gt; (256, 4, 4)</span></span><br><span class="line">cb_blocks = split_into_blocks(cb_downsampled, self.block_sz)  <span class="comment"># Cb component, (32, 32) --&gt; (64, 4, 4)</span></span><br><span class="line">cr_blocks = split_into_blocks(cr_downsampled, self.block_sz)  <span class="comment"># Cr component, (32, 32) --&gt; (64, 4, 4)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: Apply DCT on each block</span></span><br><span class="line">dct_y_blocks = dct_transform(y_blocks)  <span class="comment"># (256, 4, 4) (256, 2, 2)</span></span><br><span class="line">dct_cb_blocks = dct_transform(cb_blocks)  <span class="comment"># (64, 4, 4) (64, 2, 2)</span></span><br><span class="line">dct_cr_blocks = dct_transform(cr_blocks)  <span class="comment"># (64, 4, 4) (64, 2, 2)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>将图像分成若干个小块(Y256, cb和cr64)，每个小块大小为2*2</li>
+</ul>
+<h2 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h2><p>train.py 使用datasets.py中的get_dataset函数拿到数据集，然后通过DataKiader初始化数据集迭代器</p>
+<p>分析get_dataset:</p>
+<ol>
+<li>根据不同数据集的名称返回不同的类，类中有个self.train的属性，存储了数据集实例</li>
+</ol>
+<h2 id="分析程序流程"><a href="#分析程序流程" class="headerlink" title="分析程序流程"></a>分析程序流程</h2><p>仔细！别急！</p>
+<ol>
+<li>加载配置文件</li>
+<li>初始化设置<ol>
+<li>多进程</li>
+<li>种子</li>
+<li>混合精读</li>
+<li>log</li>
+</ol>
+</li>
+<li>加载数据<ol>
+<li>get_dataset加载数据集</li>
+<li>get_split根据是训练集还是测试集、有标签还是无标签切割数据集</li>
+<li>DataLoader生成一个迭代器</li>
+</ol>
+</li>
+<li>初始化训练状态、accelerator<ol>
+<li>将数据加载器和模型与加速器结合，以进行分布式训练。</li>
+</ol>
+</li>
+<li>损失重加权变量的设置<ol>
+<li>train.py 74行</li>
+</ol>
+</li>
+</ol>
 
     </div>
 
@@ -424,6 +474,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">图像处理流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#32"><span class="nav-number">1.1.</span> <span class="nav-text">32</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">函数调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">分析程序流程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -508,7 +559,7 @@ mjx-container[display="true"] + br {
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:15</span>
+    <span title="站点阅读时长">3:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
