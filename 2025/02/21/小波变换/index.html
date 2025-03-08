@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://bigshuimu.github.io/2025/02/21/%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/2025-02-24-21-02-31.png">
 <meta property="og:image" content="https://bigshuimu.github.io/2025/02/21/%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/2025-02-24-21-36-51.png">
 <meta property="article:published_time" content="2025-02-21T01:43:23.000Z">
-<meta property="article:modified_time" content="2025-02-25T01:50:29.172Z">
+<meta property="article:modified_time" content="2025-03-08T11:29:38.625Z">
 <meta property="article:author" content="QY">
 <meta property="article:tag" content="小波">
 <meta name="twitter:card" content="summary">
@@ -320,7 +320,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-02-25 09:50:29" itemprop="dateModified" datetime="2025-02-25T09:50:29+08:00">2025-02-25</time>
+                <time title="修改时间：2025-03-08 19:29:38" itemprop="dateModified" datetime="2025-03-08T19:29:38+08:00">2025-03-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -337,13 +337,13 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>3.3k</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>12 分钟</span>
+              <span>14 分钟</span>
             </span>
             <div class="post-description">学习小波变换</div>
 
@@ -422,6 +422,49 @@ x[n] * h[n] = \sum\limits_{k = -\infty}^\infty x[k] \cdot h[n - k]</script><h2 i
 <p>最早由海森堡发现并提出的“不确定性原理”表明，不能同时精确知道一个粒子的动量和位置。这在小波变换中也有类似的表现，具体如下：</p>
 <p>信号在时频平面上某个特定点的频率和时间信息是无法同时知道的。换句话说：我们无法知道某个时刻存在哪些频谱成分。我们能做的最好的事情是调查在某个时间区间内存在哪些频谱成分。这是一个分辨率的问题，也是研究人员从短时傅里叶变换（STFT）转向小波变换（WT）的主要原因。STFT在所有时刻提供固定的分辨率，而WT提供的是可变的分辨率，具体如下：</p>
 <p>高频成分在时间上的分辨率较好，而低频成分在频率上的分辨率较好。这意味着，某个高频成分可以比低频成分更精确地定位在时间上（相对误差较小）。相反，低频成分在频率上比高频成分更易于定位。</p>
+<h2 id="图像小波变换压缩"><a href="#图像小波变换压缩" class="headerlink" title="图像小波变换压缩"></a>图像小波变换压缩</h2><p>在图像小波变换（Wavelet Transform）中，<strong>level的数量</strong>（也称分解层数）表示：</p>
+<ul>
+<li>对原始图像进行小波变换分解的次数。</li>
+<li>每进行一次分解，图像尺寸就缩小一半（在二维图像中，每个维度减半，即整体尺寸减为原来的1/4）。</li>
+<li>level越大，图像被分解的尺度就越多，表示捕获了更多不同尺度（频率）上的细节和特征。</li>
+</ul>
+<h3 id="例如："><a href="#例如：" class="headerlink" title="例如："></a>例如：</h3><ul>
+<li><strong>level = 1</strong> 时：<ul>
+<li>图像分解为1个低频子带（LL）和3个高频子带（LH、HL、HH）。</li>
+</ul>
+</li>
+<li><strong>level = 2</strong> 时：<ul>
+<li>在level 1的基础上再对LL子带进行分解，产生第二层的更低频LL子带以及对应的LH、HL、HH子带。</li>
+</ul>
+</li>
+<li><strong>更高level</strong> 时：<ul>
+<li>类似上述步骤，进一步对低频信息持续分解，逐渐揭示出更加宏观、抽象的信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="实际含义："><a href="#实际含义：" class="headerlink" title="实际含义："></a>实际含义：</h3><ul>
+<li>较低的level通常用于捕捉图像的<strong>细节特征</strong>。</li>
+<li>较高的level通常用于捕捉图像的<strong>整体趋势或全局特征</strong>。</li>
+</ul>
+<p>因此，选择合适的level数量需根据图像分析或处理的目标来确定，通常不超过图像尺寸能够支撑的最大分解层数。</p>
+<h3 id="最大分解层数"><a href="#最大分解层数" class="headerlink" title="最大分解层数"></a>最大分解层数</h3><p>图像每进行一次小波分解，尺寸（每个维度）减半，因此设图像尺寸为：</p>
+<ul>
+<li>高度：<script type="math/tex">H</script></li>
+<li>宽度：<script type="math/tex">W</script></li>
+</ul>
+<p>那么最大分解层数（level）为：</p>
+<script type="math/tex; mode=display">
+\text{最大level数} = \lfloor \log_2(\min(H, W)) \rfloor</script><ul>
+<li><strong><script type="math/tex">\min(H,W)</script></strong> 表示图像宽度与高度中较小的值。</li>
+<li><strong><script type="math/tex">\lfloor x \rfloor</script></strong> 为向下取整函数。</li>
+</ul>
+<p>📌举个例子：</p>
+<p>假设图像尺寸为 <script type="math/tex">256 \times 512</script>：</p>
+<ul>
+<li><script type="math/tex; mode=display">\min(256,512) = 256</script></li>
+<li>最大level数 = <script type="math/tex">\lfloor \log_2(256) \rfloor = 8</script></li>
+</ul>
+<p>因此，该图像最多支持8级小波分解，但通常不会达到最大分解层数。</p>
 
     </div>
 
@@ -505,7 +548,7 @@ x[n] * h[n] = \sum\limits_{k = -\infty}^\infty x[k] \cdot h[n - k]</script><h2 i
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%97%AE"><span class="nav-number">1.</span> <span class="nav-text">疑问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%AE%B2%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">相关讲解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">傅里叶变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%AD%E6%97%B6%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="nav-number">3.1.</span> <span class="nav-text">短时傅里叶变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E6%B3%A2%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">小波的基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%88%86%E8%BE%A8%E7%8E%87%E5%88%86%E6%9E%90-MRA"><span class="nav-number">4.1.</span> <span class="nav-text">多分辨率分析(MRA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%BA%E5%BA%A6"><span class="nav-number">4.2.</span> <span class="nav-text">尺度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-number">4.3.</span> <span class="nav-text">连续小波变换的计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2"><span class="nav-number">5.</span> <span class="nav-text">离散小波变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">小波变换的工作流程</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%97%AE"><span class="nav-number">1.</span> <span class="nav-text">疑问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%AE%B2%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">相关讲解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">傅里叶变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%AD%E6%97%B6%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="nav-number">3.1.</span> <span class="nav-text">短时傅里叶变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E6%B3%A2%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">小波的基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%88%86%E8%BE%A8%E7%8E%87%E5%88%86%E6%9E%90-MRA"><span class="nav-number">4.1.</span> <span class="nav-text">多分辨率分析(MRA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%BA%E5%BA%A6"><span class="nav-number">4.2.</span> <span class="nav-text">尺度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-number">4.3.</span> <span class="nav-text">连续小波变换的计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2"><span class="nav-number">5.</span> <span class="nav-text">离散小波变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">小波变换的工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2%E5%8E%8B%E7%BC%A9"><span class="nav-number">7.</span> <span class="nav-text">图像小波变换压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%A6%82%EF%BC%9A"><span class="nav-number">7.1.</span> <span class="nav-text">例如：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89%EF%BC%9A"><span class="nav-number">7.2.</span> <span class="nav-text">实际含义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%88%86%E8%A7%A3%E5%B1%82%E6%95%B0"><span class="nav-number">7.3.</span> <span class="nav-text">最大分解层数</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -585,12 +628,12 @@ x[n] * h[n] = \sum\limits_{k = -\infty}^\infty x[k] \cdot h[n - k]</script><h2 i
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">54k</span>
+    <span title="站点总字数">55k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:17</span>
+    <span title="站点阅读时长">3:18</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
