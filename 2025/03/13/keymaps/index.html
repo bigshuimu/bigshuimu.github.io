@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/favicon.png">
+  <link rel="mask-icon" href="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bigshuimu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="keymaps忘了就看以下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="keymaps">
+<meta property="og:url" content="https://bigshuimu.github.io/2025/03/13/keymaps/index.html">
+<meta property="og:site_name" content="QY的个人博客">
+<meta property="og:description" content="keymaps忘了就看以下">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-03-13T02:51:52.000Z">
+<meta property="article:modified_time" content="2025-03-13T03:02:55.882Z">
+<meta property="article:author" content="QY">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://bigshuimu.github.io/2025/03/13/keymaps/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>keymaps | QY的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">QY的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2025/03/13/keymaps/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+      <meta itemprop="name" content="QY">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QY的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          keymaps
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-03-13 10:51:52 / 修改时间：11:02:55" itemprop="dateCreated datePublished" datetime="2025-03-13T10:51:52+08:00">2025-03-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>5 分钟</span>
+            </span>
+            <div class="post-description">keymaps忘了就看以下</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="不同软件的keymaps配置"><a href="#不同软件的keymaps配置" class="headerlink" title="不同软件的keymaps配置"></a>不同软件的keymaps配置</h1><h2 id="VSCode-Neovim-快捷键配置使用文档"><a href="#VSCode-Neovim-快捷键配置使用文档" class="headerlink" title="VSCode Neovim 快捷键配置使用文档"></a>VSCode Neovim 快捷键配置使用文档</h2><p>这份文档介绍了您在 VSCode 中使用 Neovim 扩展时配置的快捷键。这些快捷键旨在提高您的编码效率，结合了 Vim 的强大编辑能力和 VSCode 的现代功能。</p>
+<h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><ul>
+<li><strong>Leader 键</strong>: 空格键 (<code>&lt;Space&gt;</code>)</li>
+</ul>
+<h3 id="Vim-基础操作"><a href="#Vim-基础操作" class="headerlink" title="Vim 基础操作"></a>Vim 基础操作</h3><h4 id="缩进操作"><a href="#缩进操作" class="headerlink" title="缩进操作"></a>缩进操作</h4><ul>
+<li><code>&lt;</code> (可视模式): 减少缩进并保持选择</li>
+<li><code>&gt;</code> (可视模式): 增加缩进并保持选择</li>
+</ul>
+<h4 id="文本移动"><a href="#文本移动" class="headerlink" title="文本移动"></a>文本移动</h4><ul>
+<li><code>J</code> (可视模式): 将选中文本下移一行</li>
+<li><code>K</code> (可视模式): 将选中文本上移一行</li>
+<li><code>J</code> (可视块模式): 将选中文本下移一行</li>
+<li><code>K</code> (可视块模式): 将选中文本上移一行</li>
+</ul>
+<h4 id="粘贴操作"><a href="#粘贴操作" class="headerlink" title="粘贴操作"></a>粘贴操作</h4><ul>
+<li><code>p</code> (可视模式): 粘贴时保留原始复制内容</li>
+</ul>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><ul>
+<li><code>&lt;Esc&gt;</code> (普通模式): 退出并清除搜索高亮</li>
+</ul>
+<h3 id="VSCode-集成命令"><a href="#VSCode-集成命令" class="headerlink" title="VSCode 集成命令"></a>VSCode 集成命令</h3><h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><ul>
+<li><code>&lt;leader&gt;w</code>: 保存文件</li>
+<li><code>&lt;leader&gt;q</code>: 关闭当前编辑组中的编辑器</li>
+<li><code>&lt;leader&gt;-</code>: 向下拆分编辑器</li>
+<li><code>&lt;leader&gt;\</code>: 向右拆分编辑器</li>
+<li><code>&lt;leader&gt;t</code>: 切换终端</li>
+<li><code>&lt;leader&gt;d</code> (普通模式): 插入调试打印语句</li>
+<li><code>&lt;leader&gt;a</code>: 快速修复</li>
+<li><code>&lt;leader&gt;sp</code>: 查看问题面板</li>
+<li><code>&lt;leader&gt;cn</code>: 清除所有通知</li>
+<li><code>&lt;leader&gt;ff</code>: 快速打开文件</li>
+<li><code>&lt;leader&gt;cp</code>: 显示命令面板</li>
+<li><code>&lt;leader&gt;pr</code>: 运行代码</li>
+<li><code>&lt;leader&gt;fd</code>: 格式化文档</li>
+</ul>
+<h4 id="分屏导航"><a href="#分屏导航" class="headerlink" title="分屏导航"></a>分屏导航</h4><ul>
+<li><code>&lt;leader&gt;h</code>: 聚焦左侧编辑组</li>
+<li><code>&lt;leader&gt;l</code>: 聚焦右侧编辑组</li>
+<li><code>&lt;leader&gt;k</code>: 聚焦上方编辑组</li>
+<li><code>&lt;leader&gt;j</code>: 聚焦下方编辑组</li>
+</ul>
+<h4 id="标签页切换"><a href="#标签页切换" class="headerlink" title="标签页切换"></a>标签页切换</h4><ul>
+<li><code>L</code> (普通/可视模式): 切换到下一个编辑器</li>
+<li><code>H</code> (普通/可视模式): 切换到上一个编辑器</li>
+</ul>
+<h3 id="Harpoon-插件快捷键"><a href="#Harpoon-插件快捷键" class="headerlink" title="Harpoon 插件快捷键"></a>Harpoon 插件快捷键</h3><p>Harpoon 是一个快速导航到常用文件的插件。</p>
+<ul>
+<li><code>&lt;leader&gt;oa</code>: 添加当前编辑器到 Harpoon</li>
+<li><code>&lt;leader&gt;oo</code>: 打开 Harpoon 快速选择</li>
+<li><code>&lt;leader&gt;oe</code>: 编辑 Harpoon 编辑器列表</li>
+<li><code>&lt;leader&gt;o1</code> 到 <code>&lt;leader&gt;o9</code>: 快速跳转到 Harpoon 中的第 1-9 个文件</li>
+</ul>
+<h3 id="项目管理快捷键"><a href="#项目管理快捷键" class="headerlink" title="项目管理快捷键"></a>项目管理快捷键</h3><ul>
+<li><code>&lt;leader&gt;pa</code>: 保存当前项目</li>
+<li><code>&lt;leader&gt;po</code>: 在新窗口中列出项目</li>
+<li><code>&lt;leader&gt;pe</code>: 编辑项目列表</li>
+</ul>
+<h3 id="调试辅助"><a href="#调试辅助" class="headerlink" title="调试辅助"></a>调试辅助</h3><ul>
+<li><code>&lt;leader&gt;d</code>: 插入调试打印语句（在普通模式下）</li>
+</ul>
+<h3 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h3><ol>
+<li><p><strong>高效导航</strong>：使用 <code>H</code> 和 <code>L</code> 快速在标签页间切换，使用 <code>&lt;leader&gt;h/j/k/l</code> 在分屏间导航。</p>
+</li>
+<li><p><strong>快速访问常用文件</strong>：利用 Harpoon 插件（<code>&lt;leader&gt;o</code> 系列快捷键）标记和快速访问常用文件。</p>
+</li>
+<li><p><strong>项目管理</strong>：使用 <code>&lt;leader&gt;p</code> 系列快捷键管理您的项目。</p>
+</li>
+<li><p><strong>调试辅助</strong>：需要调试时，使用 <code>&lt;leader&gt;d</code> 快速插入调试打印语句。</p>
+</li>
+<li><p><strong>高效编辑</strong>：利用 Vim 的文本移动功能（<code>J</code> 和 <code>K</code>）快速调整代码位置。</p>
+</li>
+</ol>
+<p>这些快捷键配置旨在提供一个高效的编码环境，结合了 Vim 的编辑效率和 VSCode 的现代功能。您可以根据个人习惯在 <mcfile name="vscode_keymaps.lua" path="c:\Users\1\AppData\Local\nvim\lua\user\vscode_keymaps.lua"></mcfile> 文件中进一步自定义这些快捷键。</p>
+<h2 id="Tmux-配置使用文档"><a href="#Tmux-配置使用文档" class="headerlink" title="Tmux 配置使用文档"></a>Tmux 配置使用文档</h2><p>根据您提供的配置文件，以下是您的 tmux 配置的详细使用文档：</p>
+<h3 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h3><p>这是一个功能丰富的 tmux 配置文件，包含了窗口管理、面板分割、导航、复制模式等多种功能的自定义设置。</p>
+<h3 id="前缀键"><a href="#前缀键" class="headerlink" title="前缀键"></a>前缀键</h3><p>前缀键已从默认的 <code>Ctrl+b</code> 更改为 <code>Ctrl+s</code>。</p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="会话管理"><a href="#会话管理" class="headerlink" title="会话管理"></a>会话管理</h4><ul>
+<li><code>Ctrl+s Ctrl+c</code> - 创建新会话</li>
+<li><code>Ctrl+s r</code> - 重新加载配置文件</li>
+</ul>
+<h4 id="窗口管理"><a href="#窗口管理" class="headerlink" title="窗口管理"></a>窗口管理</h4><ul>
+<li><code>Alt+o</code> - 在当前路径创建新窗口</li>
+<li><code>Alt+O</code> - 将当前面板分离到新窗口</li>
+<li><code>Alt+Q</code> - 关闭当前面板</li>
+<li><code>Ctrl+s Ctrl+p</code> - 切换到上一个窗口</li>
+<li><code>Ctrl+s Ctrl+n</code> - 切换到下一个窗口</li>
+<li><code>Alt+[1-9]</code> - 切换到指定编号的窗口</li>
+<li><code>Alt+!@#$%^&amp;*(</code> - 将当前面板合并到指定编号的窗口</li>
+</ul>
+<h4 id="面板分割"><a href="#面板分割" class="headerlink" title="面板分割"></a>面板分割</h4><ul>
+<li><code>Ctrl+s k</code> - 在上方创建新面板</li>
+<li><code>Ctrl+s j</code> - 在下方创建新面板</li>
+<li><code>Ctrl+s h</code> - 在左侧创建新面板</li>
+<li><code>Ctrl+s l</code> - 在右侧创建新面板</li>
+<li><code>Alt+f</code> - 最大化/还原当前面板</li>
+</ul>
+<h4 id="面板导航"><a href="#面板导航" class="headerlink" title="面板导航"></a>面板导航</h4><ul>
+<li><code>Ctrl+s [1-9,0]</code> - 选择当前窗口中的指定面板</li>
+<li><code>Alt+h</code> - 选择左侧面板</li>
+<li><code>Alt+j</code> - 选择下方面板</li>
+<li><code>Alt+k</code> - 选择上方面板</li>
+<li><code>Alt+l</code> - 选择右侧面板</li>
+<li><code>Ctrl+s &gt;</code> - 向下交换面板</li>
+<li><code>Ctrl+s &lt;</code> - 向上交换面板</li>
+<li><code>Ctrl+s |</code> - 交换面板</li>
+<li><code>Alt+Space</code> - 切换下一个布局</li>
+</ul>
+<h4 id="面板选择与移动"><a href="#面板选择与移动" class="headerlink" title="面板选择与移动"></a>面板选择与移动</h4><ul>
+<li><code>Ctrl+s W</code> - 选择窗口/面板</li>
+<li><code>Ctrl+s S</code> - 选择并垂直移动面板</li>
+<li><code>Ctrl+s V</code> - 选择并水平移动面板</li>
+</ul>
+<h4 id="面板大小调整"><a href="#面板大小调整" class="headerlink" title="面板大小调整"></a>面板大小调整</h4><ul>
+<li><code>Alt+H</code> - 向左调整面板大小</li>
+<li><code>Alt+J</code> - 向下调整面板大小</li>
+<li><code>Alt+K</code> - 向上调整面板大小</li>
+<li><code>Alt+L</code> - 向右调整面板大小</li>
+</ul>
+<h4 id="复制模式"><a href="#复制模式" class="headerlink" title="复制模式"></a>复制模式</h4><ul>
+<li><code>Alt+v</code> - 进入复制模式</li>
+<li>复制模式中的快捷键:<ul>
+<li><code>v</code> - 开始选择</li>
+<li><code>Ctrl+v</code> - 切换矩形选择</li>
+<li><code>h/j/k/l</code> - 光标移动</li>
+<li><code>w</code> - 移动到下一个词尾</li>
+<li><code>K/J</code> - 上/下移动5行</li>
+<li><code>H/L</code> - 移动到行首/行尾</li>
+<li><code>Y</code> - 复制到行尾</li>
+<li><code>y</code> - 复制选择内容并退出复制模式</li>
+<li><code>=</code> - 重复上次搜索</li>
+</ul>
+</li>
+</ul>
+<h4 id="剪贴板操作"><a href="#剪贴板操作" class="headerlink" title="剪贴板操作"></a>剪贴板操作</h4><ul>
+<li><code>Ctrl+s b</code> - 列出缓冲区</li>
+<li><code>Ctrl+s p</code> - 粘贴缓冲区内容</li>
+</ul>
+<h4 id="特殊功能"><a href="#特殊功能" class="headerlink" title="特殊功能"></a>特殊功能</h4><ul>
+<li><code>Ctrl+s Ctrl+g</code> - 切换同步输入模式（在多个面板中同时输入）</li>
+<li><code>Ctrl+s s</code> - 切换状态栏显示/隐藏</li>
+<li><code>Alt+w</code> - 使用 fzf 打开面板选择器</li>
+</ul>
+<h3 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性"></a>其他特性</h3><ul>
+<li>鼠标支持已启用</li>
+<li>历史记录限制为10000行</li>
+<li>使用 vi 模式进行复制操作</li>
+<li>使用 emacs 键绑定进行命令输入</li>
+<li>集成了 tmux-powerline 状态栏主题</li>
+</ul>
+<h3 id="状态栏"><a href="#状态栏" class="headerlink" title="状态栏"></a>状态栏</h3><p>状态栏显示了会话信息、窗口列表以及系统信息，使用 tmux-powerline 提供更丰富的视觉效果。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>此配置文件依赖于 <code>~/.config/tmux/fzf_panes.tmux</code> 和 <code>~/.config/tmux/tmux-powerline</code> 目录中的脚本</li>
+<li>配置文件路径为 <code>~/.tmux.conf</code></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/03/12/LlamaGen%E4%BB%A3%E7%A0%81/" rel="prev" title="LlamaGen代码">
+      <i class="fa fa-chevron-left"></i> LlamaGen代码
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E8%BD%AF%E4%BB%B6%E7%9A%84keymaps%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">不同软件的keymaps配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VSCode-Neovim-%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3"><span class="nav-number">1.1.</span> <span class="nav-text">VSCode Neovim 快捷键配置使用文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.2.</span> <span class="nav-text">Vim 基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">缩进操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%A7%BB%E5%8A%A8"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">文本移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B2%98%E8%B4%B4%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">粘贴操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VSCode-%E9%9B%86%E6%88%90%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.3.</span> <span class="nav-text">VSCode 集成命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B1%8F%E5%AF%BC%E8%88%AA"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">分屏导航</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%88%87%E6%8D%A2"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">标签页切换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Harpoon-%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.1.4.</span> <span class="nav-text">Harpoon 插件快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.1.5.</span> <span class="nav-text">项目管理快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E8%BE%85%E5%8A%A9"><span class="nav-number">1.1.6.</span> <span class="nav-text">调试辅助</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">1.1.7.</span> <span class="nav-text">使用技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tmux-%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3"><span class="nav-number">1.2.</span> <span class="nav-text">Tmux 配置使用文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BC%80%E9%94%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">前缀键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.3.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">会话管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">窗口管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E6%9D%BF%E5%88%86%E5%89%B2"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">面板分割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E6%9D%BF%E5%AF%BC%E8%88%AA"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">面板导航</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E6%9D%BF%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A7%BB%E5%8A%A8"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">面板选择与移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E6%9D%BF%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">面板大小调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.3.7.</span> <span class="nav-text">复制模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.3.8.</span> <span class="nav-text">剪贴板操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%8A%9F%E8%83%BD"><span class="nav-number">1.2.3.9.</span> <span class="nav-text">特殊功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%89%B9%E6%80%A7"><span class="nav-number">1.2.4.</span> <span class="nav-text">其他特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%A0%8F"><span class="nav-number">1.2.5.</span> <span class="nav-text">状态栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.2.6.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="QY"
+      src="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
+  <p class="site-author-name" itemprop="name">QY</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bigshuimu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bigshuimu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://armke.github.io/" title="https:&#x2F;&#x2F;armke.github.io&#x2F;" rel="noopener" target="_blank">armke</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">QY</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">56k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:25</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
