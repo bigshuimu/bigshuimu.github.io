@@ -28,8 +28,9 @@
 <meta property="og:description" content="记录工作进展">
 <meta property="og:locale">
 <meta property="og:image" content="https://bigshuimu.github.io/2025/03/17/DCTAR/2025-03-17-20-19-03.png">
+<meta property="og:image" content="https://bigshuimu.github.io/2025/03/17/DCTAR/2025-03-18-10-58-54.png">
 <meta property="article:published_time" content="2025-03-17T13:16:22.000Z">
-<meta property="article:modified_time" content="2025-03-17T13:18:14.767Z">
+<meta property="article:modified_time" content="2025-03-18T08:37:19.416Z">
 <meta property="article:author" content="QY">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://bigshuimu.github.io/2025/03/17/DCTAR/2025-03-17-20-19-03.png">
@@ -306,10 +307,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-03-17 21:16:22 / 修改时间：21:18:14" itemprop="dateCreated datePublished" datetime="2025-03-17T21:16:22+08:00">2025-03-17</time>
+              <time title="创建时间：2025-03-17 21:16:22" itemprop="dateCreated datePublished" datetime="2025-03-17T21:16:22+08:00">2025-03-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-18 16:37:19" itemprop="dateModified" datetime="2025-03-18T16:37:19+08:00">2025-03-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -325,7 +332,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>86</span>
+              <span>212</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -353,7 +360,28 @@ mjx-container[display="true"] + br {
 </ol>
 </li>
 </ol>
-<h2 id="DCT"><a href="#DCT" class="headerlink" title="DCT"></a>DCT</h2>
+<h2 id="DCT"><a href="#DCT" class="headerlink" title="DCT"></a>DCT</h2><p>low2high_order (0,1,4,8,5,2,3,6,9,12,13,10,7,11,14,15)<br><img src="2025-03-18-10-58-54.png" alt><br>reverse_order (0,1,5,6,2,4,7,12,3,8,11,13,9,10,14,15)</p>
+<h2 id="量化设计"><a href="#量化设计" class="headerlink" title="量化设计"></a>量化设计</h2><h3 id="DCT-变换"><a href="#DCT-变换" class="headerlink" title="DCT 变换"></a>DCT 变换</h3><ol>
+<li>将图像先分块，然后对每一块进行DCT变换，再合并</li>
+<li>32<em>32 采用 2</em>2的分块， 256<em>256采用4</em>4的分块<script type="math/tex; mode=display">
+Q_{2by2} =
+\begin{bmatrix}
+  8  & 16    \\
+  16 & 32    \\
+\end{bmatrix}</script><script type="math/tex; mode=display">
+Q_{4by4} =
+\begin{bmatrix}
+  8  & 16  & 24  & 32  \\
+  16 & 24  & 32  & 40  \\
+  24 & 32  & 48  & 64  \\
+  32 & 40  & 64  & 80  
+\end{bmatrix}</script></li>
+</ol>
+<h3 id="量化矩阵的设计原则"><a href="#量化矩阵的设计原则" class="headerlink" title="量化矩阵的设计原则"></a>量化矩阵的设计原则</h3><ul>
+<li><strong>低频区域（左上角）</strong> 量化较少，保留更多细节。</li>
+<li><strong>高频区域（右下角）</strong> 量化较大，以减少数据量。</li>
+</ul>
+
     </div>
 
     
@@ -430,7 +458,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-11"><span class="nav-number">1.</span> <span class="nav-text">3_11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AR%E8%AE%AD%E7%BB%83"><span class="nav-number">1.1.</span> <span class="nav-text">AR训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DCT"><span class="nav-number">1.2.</span> <span class="nav-text">DCT</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-11"><span class="nav-number">1.</span> <span class="nav-text">3_11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AR%E8%AE%AD%E7%BB%83"><span class="nav-number">1.1.</span> <span class="nav-text">AR训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DCT"><span class="nav-number">1.2.</span> <span class="nav-text">DCT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8F%E5%8C%96%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.3.</span> <span class="nav-text">量化设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DCT-%E5%8F%98%E6%8D%A2"><span class="nav-number">1.3.1.</span> <span class="nav-text">DCT 变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8F%E5%8C%96%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text">量化矩阵的设计原则</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
