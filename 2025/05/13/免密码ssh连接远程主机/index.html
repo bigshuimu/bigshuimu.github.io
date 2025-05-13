@@ -20,28 +20,33 @@
     var CONFIG = {"hostname":"bigshuimu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="QY的个人博客">
-<meta property="og:url" content="https://bigshuimu.github.io/index.html">
+  <meta name="description" content="本地终端和vscode 在本地 Windows PowerShell 中，显示并复制你的公钥内容： 1type $env:USERPROFILE\.ssh\id_rsa.pub （选中输出的全部内容，按 Ctrl+C 复制。如果没有 id_rsa.pub，请先执行 ssh-keygen -t rsa 生成）  SSH 登录到服务器（更改ip和端口，需要输入密码）： 1ssh root@1.1.1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="免密码ssh连接远程主机">
+<meta property="og:url" content="https://bigshuimu.github.io/2025/05/13/%E5%85%8D%E5%AF%86%E7%A0%81ssh%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA/index.html">
 <meta property="og:site_name" content="QY的个人博客">
+<meta property="og:description" content="本地终端和vscode 在本地 Windows PowerShell 中，显示并复制你的公钥内容： 1type $env:USERPROFILE\.ssh\id_rsa.pub （选中输出的全部内容，按 Ctrl+C 复制。如果没有 id_rsa.pub，请先执行 ssh-keygen -t rsa 生成）  SSH 登录到服务器（更改ip和端口，需要输入密码）： 1ssh root@1.1.1.">
 <meta property="og:locale">
+<meta property="article:published_time" content="2025-05-13T04:26:32.000Z">
+<meta property="article:modified_time" content="2025-05-13T04:32:17.838Z">
 <meta property="article:author" content="QY">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://bigshuimu.github.io/">
+<link rel="canonical" href="https://bigshuimu.github.io/2025/05/13/%E5%85%8D%E5%AF%86%E7%A0%81ssh%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>QY的个人博客</title>
+  <title>免密码ssh连接远程主机 | QY的个人博客</title>
   
 
 
@@ -271,9 +276,10 @@ mjx-container[display="true"] + br {
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
@@ -289,10 +295,9 @@ mjx-container[display="true"] + br {
       <meta itemprop="name" content="QY的个人博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/05/13/%E5%85%8D%E5%AF%86%E7%A0%81ssh%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA/" class="post-title-link" itemprop="url">免密码ssh连接远程主机</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          免密码ssh连接远程主机
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -337,7 +342,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="本地终端和vscode"><a href="#本地终端和vscode" class="headerlink" title="本地终端和vscode"></a>本地终端和vscode</h1><ol>
+        <h1 id="本地终端和vscode"><a href="#本地终端和vscode" class="headerlink" title="本地终端和vscode"></a>本地终端和vscode</h1><ol>
 <li><p><strong>在本地 Windows PowerShell 中，显示并复制你的公钥内容</strong>：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span> <span class="variable">$env:USERPROFILE</span>\.ssh\id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>（选中输出的全部内容，按 Ctrl+C 复制。如果没有 <code>id_rsa.pub</code>，请先执行 <code>ssh-keygen -t rsa</code> 生成）</p>
@@ -362,393 +367,33 @@ mjx-container[display="true"] + br {
 <li>完成后，下次通过 MobaXterm 的本地终端或创建的会话连接 <code>root@1.1.1.1 -p 1234</code> 将不再需要密码。</li>
 </ol>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2025/04/23/NFIG%E5%92%8C3D-WAG%E4%B8%AD%E7%9A%84RQ%E2%80%94VAE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="QY">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QY的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/04/23/NFIG%E5%92%8C3D-WAG%E4%B8%AD%E7%9A%84RQ%E2%80%94VAE/" class="post-title-link" itemprop="url">NFIG和3D-WAG中的RQ—VAE</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-04-23 16:23:32" itemprop="dateCreated datePublished" datetime="2025-04-23T16:23:32+08:00">2025-04-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-24 15:17:33" itemprop="dateModified" datetime="2025-04-24T15:17:33+08:00">2025-04-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>对比分析NFIG和3D-WAG中的RQ—VAE</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/04/23/NFIG%E5%92%8C3D-WAG%E4%B8%AD%E7%9A%84RQ%E2%80%94VAE/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2025/03/13/keymaps/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="QY">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QY的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/13/keymaps/" class="post-title-link" itemprop="url">keymaps</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-13 10:51:52" itemprop="dateCreated datePublished" datetime="2025-03-13T10:51:52+08:00">2025-03-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-31 14:27:18" itemprop="dateModified" datetime="2025-03-31T14:27:18+08:00">2025-03-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>keymaps忘了就看一下</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/13/keymaps/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/04/23/NFIG%E5%92%8C3D-WAG%E4%B8%AD%E7%9A%84RQ%E2%80%94VAE/" rel="prev" title="NFIG和3D-WAG中的RQ—VAE">
+      <i class="fa fa-chevron-left"></i> NFIG和3D-WAG中的RQ—VAE
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2025/03/13/RQ-VAE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="QY">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QY的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/13/RQ-VAE/" class="post-title-link" itemprop="url">RQ_VAE</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-13 10:51:52" itemprop="dateCreated datePublished" datetime="2025-03-13T10:51:52+08:00">2025-03-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-22 16:10:05" itemprop="dateModified" datetime="2025-04-22T16:10:05+08:00">2025-04-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>5.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>22 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>RQ_VAE</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/13/RQ-VAE/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://bigshuimu.github.io/2025/02/27/JS%E9%80%86%E5%90%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://bigshuimu.oss-cn-nanjing.aliyuncs.com/personal/cat.jpg">
-      <meta itemprop="name" content="QY">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QY的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/02/27/JS%E9%80%86%E5%90%91/" class="post-title-link" itemprop="url">JS逆向</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-02-27 10:34:51" itemprop="dateCreated datePublished" datetime="2025-02-27T10:34:51+08:00">2025-02-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-14 10:56:57" itemprop="dateModified" datetime="2025-03-14T10:56:57+08:00">2025-03-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>7.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>27 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>python爬虫和js逆向</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/02/27/JS%E9%80%86%E5%90%91/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -801,6 +446,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%BB%88%E7%AB%AF%E5%92%8Cvscode"><span class="nav-number">1.</span> <span class="nav-text">本地终端和vscode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MobaXterm"><span class="nav-number">2.</span> <span class="nav-text">MobaXterm</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
